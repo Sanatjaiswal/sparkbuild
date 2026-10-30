@@ -63,7 +63,11 @@ export default function AppointmentLetterPage() {
             Book Doctor <span className="text-[#fff200]">Appointment</span>
           </h1>
           <p className="text-base text-gray-300 font-normal">
-            Schedule your in-person consultation with Dr. Abhishek Jain (Senior Orthopedic &amp; Trauma Specialist) at MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital).
+            Schedule your in-person consultation with{" "}
+            <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-2">
+              Dr. Abhishek Jain
+            </span>{" "}
+            (Senior Orthopedic &amp; Trauma Specialist) at MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital).
           </p>
         </div>
       </section>
@@ -99,7 +103,19 @@ export default function AppointmentLetterPage() {
                     className="p-4 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-start gap-3.5"
                   >
                     <CheckCircle2 className="w-5 h-5 text-black shrink-0 mt-0.5" />
-                    <span className="text-sm font-semibold text-gray-800">{item}</span>
+                    <span className="text-sm font-semibold text-gray-800">
+                      {item.includes("Dr. Abhishek Jain") ? (
+                        <>
+                          {item.split("Dr. Abhishek Jain")[0]}
+                          <span className="bg-[#fff200] text-black px-2 py-0.5 rounded font-black border border-black/10">
+                            Dr. Abhishek Jain
+                          </span>
+                          {item.split("Dr. Abhishek Jain")[1]}
+                        </>
+                      ) : (
+                        item
+                      )}
+                    </span>
                   </div>
                 ))}
               </div>

@@ -81,8 +81,24 @@ export default function ContactPage() {
                   We’re Here When You Need Us Most
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed font-normal">
-                  Located in Beoharbagh near Ghamapur Chowk, Jabalpur. Reach out for OPD appointments with Dr. Abhishek Jain, accidental trauma admissions, ambulance services, or cashless TPA guidance.
+                  Located in Beoharbagh near Ghamapur Chowk, Jabalpur. Reach out for OPD appointments with{" "}
+                  <span className="bg-[#fff200] text-black px-2.5 py-0.5 rounded font-black border border-black/10 shadow-xs">
+                    Dr. Abhishek Jain
+                  </span>
+                  , accidental trauma admissions, ambulance services, or cashless TPA guidance.
                 </p>
+              </div>
+
+              {/* Dr. Abhishek Jain OPD Timing Card */}
+              <div className="p-4 rounded-2xl bg-[#FEFCE8] border-2 border-[#fff200] shadow-sm flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-black text-[#fff200] flex items-center justify-center font-black text-sm shrink-0">
+                  OPD
+                </div>
+                <div>
+                  <h4 className="text-sm font-black text-black">Dr. Abhishek Jain OPD Timings</h4>
+                  <p className="text-xs text-neutral-800 font-medium">Mon - Sat: 10:30 AM - 1:30 PM &amp; 5:30 PM - 8:30 PM</p>
+                  <p className="text-[11px] text-amber-700 font-bold mt-0.5">Emergency Trauma Consultation: 24x7 Available</p>
+                </div>
               </div>
 
               {/* Rating Card */}

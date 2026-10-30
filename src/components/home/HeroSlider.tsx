@@ -113,7 +113,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
           <div className="absolute inset-0 z-20 flex items-center justify-center pt-20 sm:pt-24 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto w-full text-center flex flex-col items-center justify-center">
               {/* 1. MP Hospital Devanagari Branding Graphic (Fixed Height) */}
-              <div className="relative h-12 sm:h-14 lg:h-16 w-48 sm:w-60 lg:w-68 mb-2 sm:mb-3 flex items-center justify-center drop-shadow-lg shrink-0">
+              <div className="relative h-12 sm:h-14 lg:h-16 w-48 sm:w-60 lg:w-68 mb-1.5 sm:mb-2 flex items-center justify-center drop-shadow-lg shrink-0">
                 <Image
                   src={slide.hindiLogo}
                   alt="MP Hospital & Trauma Centre"
@@ -121,6 +121,13 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
                   className="object-contain"
                   priority={idx === 0}
                 />
+              </div>
+
+              {/* Prominent Doctor Abhishek Jain Leadership Highlight Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-black/80 border border-[#fff200] text-white text-[11px] sm:text-xs font-semibold mb-2 sm:mb-3 backdrop-blur-md shadow-xl shrink-0">
+                <span className="w-2 h-2 rounded-full bg-[#fff200] animate-pulse"></span>
+                <span className="text-gray-200">Chief Orthopedic Specialist:</span>
+                <span className="text-[#fff200] font-black tracking-wide">Dr. Abhishek Jain</span>
               </div>
 
               {/* 2. Big High-Impact 2-Line Heading with Equal Fixed Height (Zero Vertical Shift) */}
@@ -134,7 +141,17 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
               {/* 3. Clean Subtitle with Equal Fixed Height (Zero Vertical Shift) */}
               <div className="min-h-[38px] sm:min-h-[44px] flex items-center justify-center w-full mt-2 shrink-0 px-2 sm:px-0">
                 <p className="text-xs sm:text-sm lg:text-base text-white/95 font-medium leading-snug max-w-2xl mx-auto text-center drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
-                  {slide.description}
+                  {slide.description.includes("Dr. Abhishek Jain") ? (
+                    <>
+                      {slide.description.split("Dr. Abhishek Jain")[0]}
+                      <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-2">
+                        Dr. Abhishek Jain
+                      </span>
+                      {slide.description.split("Dr. Abhishek Jain")[1]}
+                    </>
+                  ) : (
+                    slide.description
+                  )}
                 </p>
               </div>
 

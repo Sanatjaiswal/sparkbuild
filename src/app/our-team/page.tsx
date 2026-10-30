@@ -68,14 +68,19 @@ export default function OurTeamPage() {
             </div>
 
             <div className="lg:col-span-7 space-y-6">
-              <div className="space-y-1">
-                <span className="text-xs font-black uppercase tracking-wider text-amber-600 px-3 py-1 bg-amber-50 rounded-full border border-amber-200">
-                  {founder.role}
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-black">
+              <div className="space-y-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs font-black uppercase tracking-wider text-black px-3 py-1 bg-[#fff200] rounded-full border border-black/10 shadow-xs">
+                    {founder.role}
+                  </span>
+                  <span className="text-xs font-extrabold text-red-700 bg-red-100/80 border border-red-200 px-2.5 py-0.5 rounded-full">
+                    Senior Trauma Specialist
+                  </span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black">
                   {founder.name}
                 </h2>
-                <p className="text-sm font-semibold text-gray-500">
+                <p className="text-sm sm:text-base font-bold text-neutral-800">
                   {founder.qualification || "MBBS, MS (Orthopaedics) • Joint Replacement & Sports Injury Specialist"}
                 </p>
               </div>

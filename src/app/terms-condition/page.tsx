@@ -35,7 +35,7 @@ export default function TermsConditionPage() {
           <div>
             <h2 className="text-xl font-bold text-black mb-2">2. Clinical Services &amp; Medical Consultations</h2>
             <p>
-              MP Hospital provides specialized orthopedic surgery, joint replacement (TKR/THR), accidental polytrauma resuscitation, 4K arthroscopy, sports injury rehabilitation, and 24x7 emergency ICU care under Dr. Abhishek Jain and attending clinical specialists. Online appointment bookings are subject to OPD schedule confirmation and clinical triage.
+              MP Hospital provides specialized orthopedic surgery, joint replacement (TKR/THR), accidental polytrauma resuscitation, 4K arthroscopy, sports injury rehabilitation, and 24x7 emergency ICU care under <strong>Dr. Abhishek Jain</strong> and attending clinical specialists. Online appointment bookings are subject to OPD schedule confirmation and clinical triage.
             </p>
           </div>
 

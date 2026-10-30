@@ -23,7 +23,11 @@ export default function DreamCtaSection({ onOpenConsultation }: DreamCtaSectionP
               Healing with Care. <span className="text-[#fff200]">Driven by Clinical Excellence.</span>
             </h2>
             <p className="text-base text-gray-300 leading-relaxed font-normal">
-              Whether you need urgent trauma admission, joint replacement consultation with Dr. Abhishek Jain, or advanced orthopedic surgery, MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) provides trusted care round the clock.
+              Whether you need urgent trauma admission, joint replacement consultation with{" "}
+              <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-2">
+                Dr. Abhishek Jain
+              </span>
+              , or advanced orthopedic surgery, MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) provides trusted care round the clock.
             </p>
           </div>
 

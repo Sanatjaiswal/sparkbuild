@@ -39,7 +39,17 @@ export default function StatsBanner() {
                     {item.title}
                   </h3>
                   <p className="text-xs text-gray-400 leading-relaxed">
-                    {item.desc}
+                    {item.desc.includes("Dr. Abhishek Jain") ? (
+                      <>
+                        {item.desc.split("Dr. Abhishek Jain")[0]}
+                        <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-1">
+                          Dr. Abhishek Jain
+                        </span>
+                        {item.desc.split("Dr. Abhishek Jain")[1]}
+                      </>
+                    ) : (
+                      item.desc
+                    )}
                   </p>
                 </div>
               </div>

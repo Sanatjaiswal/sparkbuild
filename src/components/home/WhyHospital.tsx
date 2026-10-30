@@ -82,7 +82,11 @@ export default function WhyHospital() {
                 Why Choose <span className="text-[#fff200]">MP Hospital &amp; Trauma Centre</span>
               </h2>
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-normal">
-                Continuing the trusted 10+ year legacy of Maxx Hospital, MP Hospital &amp; Trauma Centre is Jabalpur’s leading destination for orthopedic surgeries, joint replacement, spine stabilization, and emergency trauma care under Dr. Abhishek Jain.
+                Continuing the trusted 10+ year legacy of Maxx Hospital, MP Hospital &amp; Trauma Centre is Jabalpur’s leading destination for orthopedic surgeries, joint replacement, spine stabilization, and emergency trauma care under{" "}
+                <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-2">
+                  Dr. Abhishek Jain
+                </span>
+                .
               </p>
             </div>
 
@@ -102,7 +106,17 @@ export default function WhyHospital() {
                       {pt.title}
                     </h3>
                     <p className="text-xs text-gray-400 leading-relaxed">
-                      {pt.desc}
+                      {pt.desc.includes("Dr. Abhishek Jain") ? (
+                        <>
+                          {pt.desc.split("Dr. Abhishek Jain")[0]}
+                          <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-1">
+                            Dr. Abhishek Jain
+                          </span>
+                          {pt.desc.split("Dr. Abhishek Jain")[1]}
+                        </>
+                      ) : (
+                        pt.desc
+                      )}
                     </p>
                   </div>
                 );

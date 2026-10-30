@@ -32,7 +32,11 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
-              MP Hospital & Trauma Centre (Formerly Maxx Hospital) delivers advanced orthopedic, joint replacement, spine surgery, and 24x7 emergency trauma care under the expert direction of Dr. Abhishek Jain.
+              MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) delivers advanced orthopedic, joint replacement, spine surgery, and 24x7 emergency trauma care under the expert direction of{" "}
+              <strong className="text-[#fff200] font-black underline decoration-yellow-400">
+                Dr. Abhishek Jain
+              </strong>
+              .
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a

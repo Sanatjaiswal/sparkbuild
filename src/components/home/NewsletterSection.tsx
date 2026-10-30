@@ -33,7 +33,11 @@ export default function NewsletterSection() {
               Stay Informed on <span className="text-[#fff200]">Bone &amp; Joint Health</span>
             </h2>
             <p className="text-sm text-gray-300 font-normal leading-relaxed">
-              Subscribe to regular health tips, joint care advice from Dr. Abhishek Jain, and announcements for free community health camps at MP Hospital &amp; Trauma Centre.
+              Subscribe to regular health tips, joint care advice from{" "}
+              <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-2">
+                Dr. Abhishek Jain
+              </span>
+              , and announcements for free community health camps at MP Hospital &amp; Trauma Centre.
             </p>
           </div>
 

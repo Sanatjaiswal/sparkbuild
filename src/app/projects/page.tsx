@@ -196,7 +196,11 @@ export default function ProjectsPage() {
         <div className="max-w-3xl mx-auto px-4 space-y-4">
           <h3 className="text-3xl font-black text-white">Need Clinical Care or Emergency Admission?</h3>
           <p className="text-sm text-gray-300">
-            From joint replacement consultations with Dr. Abhishek Jain to 24x7 accidental polytrauma resuscitation and modular surgery, our medical team is ready to assist you.
+            From joint replacement consultations with{" "}
+            <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-2">
+              Dr. Abhishek Jain
+            </span>{" "}
+            to 24x7 accidental polytrauma resuscitation and modular surgery, our medical team is ready to assist you.
           </p>
           <div className="pt-2">
             <button

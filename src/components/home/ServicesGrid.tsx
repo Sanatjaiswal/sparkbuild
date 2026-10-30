@@ -166,7 +166,11 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
             Comprehensive Orthopedic &amp; Trauma Care
           </h2>
           <p className="text-sm sm:text-base text-neutral-700 font-medium">
-            MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) – Led by Dr. Abhishek Jain, offering specialized orthopedics, trauma resuscitation, joint replacement, and sports surgery in Jabalpur.
+            MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) – Led by{" "}
+            <span className="bg-black text-[#fff200] px-2.5 py-0.5 rounded-full font-black shadow-xs">
+              Dr. Abhishek Jain
+            </span>
+            , offering specialized orthopedics, trauma resuscitation, joint replacement, and sports surgery in Jabalpur.
           </p>
         </div>
 

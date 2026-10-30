@@ -58,8 +58,30 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-base text-gray-600 leading-relaxed font-normal">
-              MP Hospital and Trauma Centre (Formerly Maxx Hospital) is dedicated to delivering clinical excellence in orthopedics, accidental trauma resuscitation, joint replacement, and sports medicine under the leadership of renowned surgeon Dr. Abhishek Jain. With advanced laminar airflow modular operation theatres, a dedicated 24x7 Trauma ICU, and rapid rehabilitation protocols, we restore patient mobility and save lives every day.
+              MP Hospital and Trauma Centre (Formerly Maxx Hospital) is dedicated to delivering clinical excellence in orthopedics, accidental trauma resuscitation, joint replacement, and sports medicine under the leadership of renowned surgeon{" "}
+              <span className="bg-[#fff200] text-black px-2.5 py-0.5 rounded font-black border border-black/10 shadow-xs">
+                Dr. Abhishek Jain
+              </span>
+              . With advanced laminar airflow modular operation theatres, a dedicated 24x7 Trauma ICU, and rapid rehabilitation protocols, we restore patient mobility and save lives every day.
             </p>
+
+            {/* Dr. Abhishek Jain Leadership Spotlight Card */}
+            <div className="p-4 rounded-2xl bg-[#FEFCE8] border-2 border-[#fff200] flex items-center gap-4 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-black text-[#fff200] flex items-center justify-center font-black text-lg shrink-0 shadow-md">
+                AJ
+              </div>
+              <div className="space-y-0.5">
+                <div className="flex items-center gap-2">
+                  <h4 className="text-base font-black text-black">Dr. Abhishek Jain</h4>
+                  <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-black text-[#fff200]">
+                    Medical Director &amp; Chief Surgeon
+                  </span>
+                </div>
+                <p className="text-xs font-semibold text-neutral-800">
+                  MS (Orthopaedics) • Knee &amp; Hip Joint Replacement, Arthroscopy &amp; Trauma Specialist
+                </p>
+              </div>
+            </div>
 
             {/* Feature Bullets with Icons */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">

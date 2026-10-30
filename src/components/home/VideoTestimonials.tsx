@@ -25,7 +25,11 @@ export default function VideoTestimonials({ onPlayVideo }: VideoTestimonialsProp
             Real Patient Recoveries &amp; Success Stories
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
-            Listen to inspiring stories of patients walking pain-free post-surgery and emergency trauma recoveries under Dr. Abhishek Jain.
+            Listen to inspiring stories of patients walking pain-free post-surgery and emergency trauma recoveries under{" "}
+            <span className="bg-[#fff200] text-black px-2.5 py-0.5 rounded font-black border border-black/10 shadow-xs">
+              Dr. Abhishek Jain
+            </span>
+            .
           </p>
         </div>
 

@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-xl font-bold text-black mb-2">3. How We Use Your Information</h2>
             <p>Your information is used strictly to:</p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Coordinate and confirm OPD doctor appointments with Dr. Abhishek Jain and clinical specialists.</li>
+              <li>Coordinate and confirm OPD doctor appointments with <strong>Dr. Abhishek Jain</strong> and clinical specialists.</li>
               <li>Respond to emergency trauma queries, ambulance requests, and mediclaim / cashless TPA pre-authorizations.</li>
               <li>Comply with clinical governance, patient record maintenance, and Indian healthcare regulatory standards.</li>
             </ul>
