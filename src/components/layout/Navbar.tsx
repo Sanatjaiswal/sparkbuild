@@ -37,8 +37,8 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
         isScrolled
           ? "fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md shadow-2xl py-3 border-b border-neutral-800"
           : isHome
-          ? "-mb-[74px] sm:-mb-[76px] relative z-30 bg-black/45 backdrop-blur-[2px] py-3.5 sm:py-4 border-b border-white/15"
-          : "relative z-30 bg-black py-3.5 sm:py-4 border-b border-neutral-900"
+          ? "-mb-[74px] sm:-mb-[76px] relative z-30 bg-transparent py-4"
+          : "relative z-30 bg-black py-4 border-b border-neutral-900"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,7 +57,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links: 6 Clean Items Matching Sparkbuild Screenshot */}
+          {/* Desktop Navigation Links: 6 Clean Items */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
@@ -77,7 +77,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             })}
           </div>
 
-          {/* Action Button: Yellow with rounded-md (Matches media_1793375380430_7499a50d.png) */}
+          {/* Action Button: Yellow with rounded-md */}
           <div className="hidden sm:flex items-center shrink-0">
             <Link
               href="/appointment-letter"
