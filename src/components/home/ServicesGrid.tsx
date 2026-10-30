@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ArrowRight, Compass, Building2, Factory, Milestone } from "lucide-react";
+import { Check, ArrowRight, Compass, Building2, Factory, Milestone, Activity, ShieldCheck, HeartPulse, Stethoscope, Plus } from "lucide-react";
 import { useCMS } from "@/context/CMSContext";
 
 interface ServicesGridProps {
@@ -16,16 +16,18 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
 
   const getIcon = (name: string) => {
     switch (name) {
+      case "Activity":
+        return <Activity className="w-6 h-6 text-black" />;
+      case "ShieldCheck":
+        return <ShieldCheck className="w-6 h-6 text-black" />;
+      case "HeartPulse":
+        return <HeartPulse className="w-6 h-6 text-black" />;
+      case "Cross":
+        return <Plus className="w-6 h-6 text-black stroke-[3]" />;
       case "Compass":
         return <Compass className="w-6 h-6 text-black" />;
-      case "Building2":
-        return <Building2 className="w-6 h-6 text-black" />;
-      case "Factory":
-        return <Factory className="w-6 h-6 text-black" />;
-      case "Milestone":
-        return <Milestone className="w-6 h-6 text-black" />;
       default:
-        return <Building2 className="w-6 h-6 text-black" />;
+        return <Stethoscope className="w-6 h-6 text-black" />;
     }
   };
 
@@ -35,13 +37,13 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-            Our Services
+            Specialties &amp; Services
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">
-            Our Full-Spectrum Construction Services
+            Comprehensive Orthopedic &amp; Trauma Care
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
-            From initial blueprints to commercial skyscrapers, healthcare clinics, and mega infrastructure, Sparkbuild delivers engineering excellence across every discipline.
+            Led by Dr. Abhishek Jain, MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) provides specialized surgical, emergency resuscitation, and joint care.
           </p>
         </div>
 

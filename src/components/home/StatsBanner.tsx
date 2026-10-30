@@ -5,18 +5,18 @@ export default function StatsBanner() {
   const stats = [
     {
       icon: ShieldCheck,
-      title: "ISO Certified",
-      desc: "We follow international quality and safety standards to ensure reliable, compliant, and high-quality construction services.",
+      title: "24x7 Trauma & Emergency",
+      desc: "Immediate casualty reception, dedicated Trauma ICU, emergency triage, and round-the-clock ALS ambulance in Jabalpur.",
     },
     {
       icon: Award,
-      title: "9+ Years of Expertise",
-      desc: "With over nine years of experience, we deliver strong planning, skilled execution, and dependable construction results.",
+      title: "10+ Years Surgical Excellence",
+      desc: "Led by Dr. Abhishek Jain with over 15,000+ successful orthopedic surgeries, trauma rescues, and 5,000+ joint replacements.",
     },
     {
       icon: ThumbsUp,
-      title: "95%+ Satisfaction Rate",
-      desc: "Our focus on quality work and timely delivery ensures consistent client satisfaction and long-term trust.",
+      title: "Class 10,000 Modular OT",
+      desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and 99%+ patient satisfaction.",
     },
   ];
 

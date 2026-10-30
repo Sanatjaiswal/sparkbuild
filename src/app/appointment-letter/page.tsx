@@ -13,12 +13,11 @@ export default function AppointmentLetterPage() {
     name: "",
     phone: "",
     email: "",
-    projectType: "Residential Villa / Bungalow",
+    specialty: "Dr. Abhishek Jain (Orthopedics & Joint Replacement)",
     preferredDate: "",
-    preferredTime: "Morning (9 AM - 12 PM)",
-    budgetRange: "₹25 Lakh - ₹50 Lakh",
+    preferredTime: "Morning OPD (10:30 AM - 1:30 PM)",
     cityLocation: "Jabalpur",
-    requirements: "",
+    symptoms: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -31,9 +30,9 @@ export default function AppointmentLetterPage() {
       setLoading(false);
       setSubmitted(true);
       try {
-        const bookings = JSON.parse(localStorage.getItem("sparkbuild_appointments") || "[]");
+        const bookings = JSON.parse(localStorage.getItem("mphospital_appointments") || "[]");
         bookings.push({ ...formData, dateCreated: new Date().toISOString() });
-        localStorage.setItem("sparkbuild_appointments", JSON.stringify(bookings));
+        localStorage.setItem("mphospital_appointments", JSON.stringify(bookings));
       } catch (err) {
         console.error(err);
       }
@@ -50,21 +49,21 @@ export default function AppointmentLetterPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/70 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/Trust-Image.png"
-            alt="Sparkbuild Consultation"
+            src="/images/dr-abhishek-jain.jpg"
+            alt="Doctor OPD Appointment"
             fill
             className="object-cover"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-            FREE Consultation
+            OPD &amp; Emergency Booking
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
-            Book Your FREE <span className="text-[#fff200]">Expert Consultation</span>
+            Book Doctor <span className="text-[#fff200]">Appointment</span>
           </h1>
           <p className="text-base text-gray-300 font-normal">
-            Schedule a one-on-one session with our expert civil engineering &amp; design team. Get personalized insights, 3D guidance, and smart cost-saving ideas — at zero charge.
+            Schedule your in-person consultation with Dr. Abhishek Jain (Senior Orthopedic &amp; Trauma Specialist) at MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital).
           </p>
         </div>
       </section>
@@ -73,26 +72,27 @@ export default function AppointmentLetterPage() {
       <section className="py-20 bg-neutral-50 flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left: Why Book Free Consultation */}
+            {/* Left: Why Book at MP Hospital */}
             <div className="lg:col-span-5 space-y-8">
               <div className="space-y-4">
                 <span className="text-xs font-black uppercase tracking-wider text-amber-600 px-3 py-1 bg-amber-50 rounded-full border border-amber-200">
-                  Why Sparkbuild?
+                  Why MP Hospital?
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-black leading-tight">
-                  Why Book a Free Consultation?
+                  Trusted Orthopedic &amp; Trauma Care
                 </h2>
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
-                  Your first session with Sparkbuild experts is completely free — no hidden costs, no obligations. You’ll walk away with actionable insights that make your build smoother and far more cost-efficient.
+                  Whether you are suffering from chronic knee stiffness, joint arthritis, ligament tear, or need immediate accidental fracture care, our specialist team ensures zero waiting time and precise diagnostic evaluation.
                 </p>
               </div>
 
               <div className="space-y-4">
                 {[
-                  "Get tailored design ideas & 3D perspectives from licensed architects",
-                  "Understand real-world material costing and avoid 20-30% common builder markups",
-                  "Receive transparent structural advice backed by ISO 9001:2015 engineering",
-                  "Plan soil testing, municipal approval bylaws, and construction schedules",
+                  "Consultation with Dr. Abhishek Jain (MS Ortho, Joint Replacement Specialist)",
+                  "State-of-the-art digital X-ray and in-house diagnostic pathology",
+                  "Class 10,000 modular operation theatres with HEPA filtration",
+                  "24x7 emergency trauma ICU & round-the-clock ALS ambulance availability",
+                  "Cashless mediclaim, Ayushman Bharat, and corporate insurance desk",
                 ].map((item, idx) => (
                   <div
                     key={idx}
@@ -107,11 +107,11 @@ export default function AppointmentLetterPage() {
               <div className="p-6 rounded-3xl bg-neutral-900 text-white space-y-2">
                 <div className="flex items-center gap-2 text-[#fff200]">
                   <Sparkles className="w-5 h-5" />
-                  <span className="text-xs font-black uppercase tracking-wider">Zero Obligation</span>
+                  <span className="text-xs font-black uppercase tracking-wider">Emergency Line</span>
                 </div>
-                <h4 className="text-lg font-bold">100% Free Consultation Guarantee</h4>
+                <h4 className="text-lg font-bold">24x7 Trauma Casualty Helpline</h4>
                 <p className="text-xs text-gray-400">
-                  Whether you decide to build with us or just explore your options, our advice is always unbiased, professional, and client-centric.
+                  For critical trauma, road accidents, or ambulance dispatch, call 0761-2626123 or +91 76489-98668 immediately.
                 </p>
               </div>
             </div>
@@ -120,10 +120,10 @@ export default function AppointmentLetterPage() {
             <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200 shadow-2xl">
               <div className="mb-8">
                 <span className="text-xs font-bold uppercase tracking-wider text-neutral-400">
-                  Instant Confirmation
+                  Quick Confirmation
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-black text-black">
-                  Reserve Your Meeting Slot
+                  Reserve Your Doctor Consultation
                 </h3>
               </div>
 
@@ -132,15 +132,15 @@ export default function AppointmentLetterPage() {
                   <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h4 className="text-2xl font-bold text-gray-900">Meeting Reserved!</h4>
+                  <h4 className="text-2xl font-bold text-gray-900">Appointment Requested!</h4>
                   <p className="text-sm text-gray-600 max-w-sm mx-auto">
-                    Thank you, <strong>{formData.name}</strong>. An official appointment confirmation and meeting link / location will be sent to <strong>{formData.phone}</strong>.
+                    Thank you, <strong>{formData.name}</strong>. An official appointment confirmation and token number will be shared on <strong>{formData.phone}</strong>.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="px-6 py-2.5 bg-black text-white rounded-full font-semibold text-sm hover:bg-[#fff200] hover:text-black transition-colors"
                   >
-                    Schedule Another
+                    Book Another Appointment
                   </button>
                 </div>
               ) : (
@@ -148,12 +148,12 @@ export default function AppointmentLetterPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                        Full Name *
+                        Patient Name *
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="Your full name"
+                        placeholder="Patient's full name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
@@ -161,12 +161,12 @@ export default function AppointmentLetterPage() {
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                        Phone / Mobile *
+                        Contact Number *
                       </label>
                       <input
                         type="tel"
                         required
-                        placeholder="+91 97133 37277"
+                        placeholder="+91 76489 98668"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
@@ -181,7 +181,7 @@ export default function AppointmentLetterPage() {
                       </label>
                       <input
                         type="email"
-                        placeholder="yourname@gmail.com"
+                        placeholder="patient@gmail.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
@@ -189,12 +189,12 @@ export default function AppointmentLetterPage() {
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                        Plot Location / City *
+                        Location / City *
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Vijay Nagar, Jabalpur"
+                        placeholder="e.g. Beoharbagh, Jabalpur"
                         value={formData.cityLocation}
                         onChange={(e) => setFormData({ ...formData, cityLocation: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
@@ -205,52 +205,22 @@ export default function AppointmentLetterPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                        Project Scope *
+                        Specialty / Doctor
                       </label>
                       <select
-                        value={formData.projectType}
-                        onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                        value={formData.specialty}
+                        onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200] bg-white"
                       >
-                        <option value="Residential Villa / Bungalow">Residential Villa / Bungalow</option>
-                        <option value="Commercial Complex / Showroom">Commercial Complex / Showroom</option>
-                        <option value="Hospital & Healthcare Facility">Hospital &amp; Healthcare Facility</option>
-                        <option value="Township / Mega Infrastructure">Township / Mega Infrastructure</option>
-                        <option value="Industrial Plant / Warehouse">Industrial Plant / Warehouse</option>
-                        <option value="Complete Home Renovation">Complete Home Renovation</option>
+                        <option value="Dr. Abhishek Jain (Orthopedics)">Dr. Abhishek Jain (Orthopedics &amp; Joint Care)</option>
+                        <option value="Total Knee / Hip Replacement">Joint Replacement (Knee / Hip)</option>
+                        <option value="Sports Injury & Arthroscopy">Arthroscopy &amp; Sports Injury</option>
+                        <option value="Emergency Trauma">24x7 Emergency Trauma Admission</option>
+                        <option value="Spine Surgery">Spine &amp; Neuro Trauma</option>
+                        <option value="Physiotherapy">Physiotherapy &amp; Rehabilitation</option>
                       </select>
                     </div>
 
-                    <div>
-                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                        Estimated Budget Range
-                      </label>
-                      <select
-                        value={formData.budgetRange}
-                        onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200] bg-white"
-                      >
-                        <option value="₹15 Lakh - ₹25 Lakh">₹15 Lakh - ₹25 Lakh</option>
-                        <option value="₹25 Lakh - ₹50 Lakh">₹25 Lakh - ₹50 Lakh</option>
-                        <option value="₹50 Lakh - ₹1 Crore">₹50 Lakh - ₹1 Crore</option>
-                        <option value="₹1 Crore - ₹5 Crore">₹1 Crore - ₹5 Crore</option>
-                        <option value="₹5 Crore+ (Mega Project)">₹5 Crore+ (Mega Project)</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                        Preferred Date
-                      </label>
-                      <input
-                        type="date"
-                        value={formData.preferredDate}
-                        onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
-                      />
-                    </div>
                     <div>
                       <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
                         Preferred Time Slot
@@ -260,23 +230,35 @@ export default function AppointmentLetterPage() {
                         onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200] bg-white"
                       >
-                        <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
-                        <option value="Afternoon (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
-                        <option value="Evening (4 PM - 7 PM)">Evening (4 PM - 7 PM)</option>
+                        <option value="Morning">Morning OPD (10:30 AM - 1:30 PM)</option>
+                        <option value="Evening">Evening OPD (5:30 PM - 8:30 PM)</option>
+                        <option value="Emergency">24x7 Immediate Emergency Casualty</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                      Brief Requirements / Notes
+                      Preferred Date
+                    </label>
+                    <input
+                      type="date"
+                      value={formData.preferredDate}
+                      onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      Symptoms / Health Concern
                     </label>
                     <textarea
                       rows={3}
-                      placeholder="e.g. 2400 sq.ft plot, need 4BHK with duplex elevation and swimming pool..."
-                      value={formData.requirements}
-                      onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                      placeholder="Describe knee/joint pain, duration, accidental fracture, or specific consultation requirement..."
+                      value={formData.symptoms}
+                      onChange={(e) => setFormData({ ...formData, symptoms: e.target.value })}
+                      className="w-full p-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
                     />
                   </div>
 
@@ -284,12 +266,15 @@ export default function AppointmentLetterPage() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full py-4 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2"
+                      className="w-full py-4 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-[0.98] disabled:opacity-50"
                     >
-                      <Calendar className="w-4 h-4" />
-                      <span>{loading ? "Scheduling Session..." : "Confirm My Free Appointment"}</span>
+                      {loading ? "Confirming Slot..." : "Confirm Doctor Appointment"}
                     </button>
                   </div>
+
+                  <p className="text-[11px] text-gray-500 text-center">
+                    🔒 Direct confirmation by MP Hospital desk. 24x7 Emergency Line: 0761-2626123.
+                  </p>
                 </form>
               )}
             </div>
@@ -302,4 +287,3 @@ export default function AppointmentLetterPage() {
     </div>
   );
 }
-

@@ -23,8 +23,8 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/70 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/Drives-us-Img.png"
-            alt="About Sparkbuild"
+            src="/images/emergency-ambulance.jpg"
+            alt="About MP Hospital"
             fill
             className="object-cover"
           />
@@ -34,10 +34,10 @@ export default function AboutPage() {
             About Us
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
-            Building With Purpose, <span className="text-[#fff200]">Backed by Trust</span>
+            Healing With Purpose, <span className="text-[#fff200]">Backed by Trust</span>
           </h1>
           <p className="text-base text-gray-300 font-normal">
-            Sparkbuild: Driving The Future Of Infrastructure & Transforming Construction Since 2016.
+            MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) – Transforming Orthopedic, Trauma &amp; Critical Care in Jabalpur.
           </p>
         </div>
       </section>
@@ -48,16 +48,16 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
               <span className="text-xs font-black uppercase tracking-wider text-neutral-500">
-                Sparkbuild Constructs Your Dream
+                Formerly Maxx Hospital &amp; Trauma Centre
               </span>
               <h2 className="text-3xl sm:text-4xl font-black text-black leading-tight">
-                Engineering Excellence &amp; Turnkey Development
+                Orthopedic Excellence &amp; 24x7 Trauma Resuscitation
               </h2>
               <p className="text-base text-gray-700 leading-relaxed font-normal">
-                The company, Sparkbuild, has been innovating in the engineering and construction industry since 2016. It operates as an ISO-certified company, providing end-to-end services in architectural design, structural engineering consultancy, civil construction, hospital infrastructure, and real estate development.
+                Originally established as Maxx Hospital &amp; Trauma Centre and now modernized as MP Hospital and Trauma Centre, our institution has been a beacon of surgical hope and trauma recovery across Jabalpur and the greater Mahakoshal region.
               </p>
               <p className="text-base text-gray-700 leading-relaxed font-normal">
-                With a strong presence across Madhya Pradesh—centered in Jabalpur—and pan-India execution capability, Sparkbuild bridges aesthetic architectural vision with rigorous on-site structural safety.
+                Under the clinical leadership of Dr. Abhishek Jain (Senior Orthopedic Surgeon &amp; Sports Injury Specialist), MP Hospital provides comprehensive services in complex accidental polytrauma, minimally invasive total knee and hip replacements, 4K arthroscopic reconstructions, spine surgery, and intensive critical care.
               </p>
 
               <div className="pt-2">
@@ -66,7 +66,7 @@ export default function AboutPage() {
                   className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-md transition-all active:scale-95"
                 >
                   <Calendar className="w-4 h-4" />
-                  <span>Schedule a Meeting</span>
+                  <span>Book Consultation</span>
                 </button>
               </div>
             </div>
@@ -74,17 +74,19 @@ export default function AboutPage() {
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 aspect-[4/3] bg-neutral-100">
                 <Image
-                  src="/images/About-Img-3.png"
-                  alt="Sparkbuild Team and Site"
+                  src="/images/mp-hospital-building.jpg"
+                  alt="MP Hospital and Trauma Centre Building"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-neutral-200 hidden sm:flex items-center gap-4">
-                <ShieldCheck className="w-12 h-12 text-[#fff200] fill-black shrink-0" />
+                <div className="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center font-black text-2xl shadow">
+                  +
+                </div>
                 <div>
-                  <h4 className="text-base font-bold text-black">ISO 9001:2015</h4>
-                  <p className="text-xs text-gray-500">Quality Certified Standards</p>
+                  <h4 className="text-base font-bold text-black">24x7 Emergency Care</h4>
+                  <p className="text-xs text-gray-500">Beoharbagh, Jabalpur</p>
                 </div>
               </div>
             </div>
@@ -97,26 +99,26 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-neutral-800">
             <div className="space-y-3 pt-6 md:pt-0">
-              <span className="text-5xl font-black text-[#fff200] font-mono">1000+</span>
-              <h3 className="text-lg font-bold">Our Projects</h3>
+              <span className="text-5xl font-black text-[#fff200] font-mono">15,000+</span>
+              <h3 className="text-lg font-bold">Surgeries Performed</h3>
               <p className="text-xs text-gray-400 max-w-xs mx-auto leading-relaxed">
-                Completed over 1000 residential and commercial projects across India with unmatched precision and professionalism.
+                Successful orthopedic, joint reconstruction, and accidental trauma operations completed with infection-free outcomes.
               </p>
             </div>
 
             <div className="space-y-3 pt-6 md:pt-0 md:pl-6">
-              <span className="text-5xl font-black text-[#fff200] font-mono">95%+</span>
-              <h3 className="text-lg font-bold">Client Satisfaction</h3>
+              <span className="text-5xl font-black text-[#fff200] font-mono">99%+</span>
+              <h3 className="text-lg font-bold">Patient Satisfaction</h3>
               <p className="text-xs text-gray-400 max-w-xs mx-auto leading-relaxed">
-                Through honest work, transparent communication, and quality construction, Sparkbuild has built lasting trust with its clients.
+                Reflecting our dedicated nursing care, transparent billing, Ayushman / Cashless TPA support, and rapid patient recovery.
               </p>
             </div>
 
             <div className="space-y-3 pt-6 md:pt-0 md:pl-6">
-              <span className="text-5xl font-black text-[#fff200] font-mono">110%</span>
-              <h3 className="text-lg font-bold">Commitment</h3>
+              <span className="text-5xl font-black text-[#fff200] font-mono">24x7</span>
+              <h3 className="text-lg font-bold">Emergency Commitment</h3>
               <p className="text-xs text-gray-400 max-w-xs mx-auto leading-relaxed">
-                Sparkbuild is committed to exceeding expectations, delivering full dedication to every project, client goal, and satisfaction from day one.
+                Round-the-clock emergency casualty, standby surgeons, ICU ventilators, and ALS ambulance ready to respond at any minute.
               </p>
             </div>
           </div>
@@ -134,7 +136,7 @@ export default function AboutPage() {
               Vision, Mission &amp; Values
             </h2>
             <p className="text-sm text-gray-600">
-              The foundational pillars that guide our blueprints, structural integrity, and long-term partnerships.
+              The ethical medical principles that guide our clinical practice, patient care, and surgical standards.
             </p>
           </div>
 
@@ -146,7 +148,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold text-black">Our Vision</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Sparkbuild aims to be a leading provider of comprehensive infrastructural solutions across India and globally, setting benchmarks in modern engineering.
+                  To be Central India’s premier centre of excellence in orthopedics, joint reconstruction, and emergency trauma resuscitation, setting global benchmarks in patient safety.
                 </p>
               </div>
             </div>
@@ -158,7 +160,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold text-black">Our Mission</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Sparkbuild is committed to making a significant contribution to India’s infrastructural growth and development through durable, eco-friendly, and timely builds.
+                  To save lives during critical trauma emergencies and eliminate joint pain through advanced modular surgical technology, skilled specialists, and compassionate, accessible care.
                 </p>
               </div>
             </div>
@@ -170,7 +172,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold text-black">Our Values</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Sparkbuild approaches every project with a sense of ownership, focusing on quality over shortcuts and an unwavering commitment to getting it right the first time.
+                  Uncompromising surgical asepsis, ethical transparency, patient empathy, and rapid mobility rehabilitation so every patient walks out with renewed confidence.
                 </p>
               </div>
             </div>
@@ -184,8 +186,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
               <Image
-                src="/images/Drives-us-Img.png"
-                alt="What Drives Sparkbuild"
+                src="/images/dr-abhishek-jain.jpg"
+                alt="Dr. Abhishek Jain - Medical Director"
                 fill
                 className="object-cover"
               />
@@ -193,21 +195,21 @@ export default function AboutPage() {
 
             <div className="lg:col-span-6 space-y-6">
               <span className="text-xs font-black uppercase tracking-wider text-neutral-500">
-                REAL FOUNDATION
+                CLINICAL LEADERSHIP
               </span>
               <h2 className="text-3xl sm:text-4xl font-black text-black leading-tight">
                 What Drives Us
               </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                Sparkbuild is driven by a mission to contribute to India’s infrastructural development and a vision to become a premier provider of complete infrastructural solutions in India and beyond. The company operates on core values of quality, integrity, and professional delivery in every project.
+                At MP Hospital &amp; Trauma Centre, every life entrusted to us receives rapid clinical intervention and personalized attention. Guided by Dr. Abhishek Jain, our multidisciplinary team of surgeons, intensivists, anesthesiologists, and rehabilitation therapists work tirelessly to deliver positive clinical outcomes.
               </p>
 
               <div className="space-y-3 pt-2">
                 {[
-                  "Licensed, insured, and ISO-certified professionals",
-                  "Customized Build Solutions tailored to your plot and budget",
-                  "Reliable Timelines with strict penalty-backed delivery schedules",
-                  "Clean, Organized & Safe Job Sites",
+                  "Senior Orthopedic Surgeon & Trauma Specialist on site",
+                  "Class 10,000 modular operation theatres with HEPA filtration",
+                  "24x7 Emergency Casualty & Advanced Life Support (ALS) Ambulance",
+                  "Full cashless insurance, Ayushman Bharat, and TPA pre-authorization support",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-black shrink-0" />
@@ -239,4 +241,3 @@ export default function AboutPage() {
     </div>
   );
 }
-

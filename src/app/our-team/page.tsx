@@ -17,10 +17,10 @@ export default function OurTeamPage() {
   const [consultationOpen, setConsultationOpen] = useState(false);
 
   const founder = teamMembers[0] || {
-    name: "Er. Pankaj Sen",
-    role: "Founder and Director",
-    image: "/images/Founder-Image.png",
-    bio: "Pioneering leader with a visionary commitment to shaping Central India's infrastructure since 2016.",
+    name: "Dr. Abhishek Jain",
+    role: "Medical Director & Chief Orthopedic Surgeon",
+    image: "/images/dr-abhishek-jain.jpg",
+    bio: "Renowned orthopedic surgeon and trauma specialist in Jabalpur with over a decade of surgical experience.",
   };
 
   return (
@@ -33,21 +33,21 @@ export default function OurTeamPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/70 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/Founder-Image.png"
-            alt="Sparkbuild Leadership"
+            src="/images/dr-abhishek-jain.jpg"
+            alt="MP Hospital Medical Leadership"
             fill
             className="object-cover"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-            Our Team
+            Our Specialists
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
-            The People Behind <span className="text-[#fff200]">Every Project</span>
+            The Specialists Behind <span className="text-[#fff200]">Every Recovery</span>
           </h1>
           <p className="text-base text-gray-300 font-normal">
-            Behind every successful project is a team driven by expertise, dedication, and a shared commitment to engineering excellence.
+            Our multidisciplinary team of orthopedic surgeons, intensivists, anesthesiologists, and physiotherapists at MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital).
           </p>
         </div>
       </section>
@@ -76,12 +76,12 @@ export default function OurTeamPage() {
                   {founder.name}
                 </h2>
                 <p className="text-sm font-semibold text-gray-500">
-                  {founder.qualification || "B.E. Civil Engineering • Visionary Leader"}
+                  {founder.qualification || "MBBS, MS (Orthopaedics) • Joint Replacement & Sports Injury Specialist"}
                 </p>
               </div>
 
               <blockquote className="text-base text-gray-700 leading-relaxed font-normal italic border-l-4 border-[#fff200] pl-4">
-                &ldquo;When I founded Sparkbuild in 2016, our vision was simple yet absolute: deliver uncompromised construction quality with honesty, transparent pricing, and cutting-edge engineering. Today, every milestone we achieve in Madhya Pradesh is a tribute to that foundational promise.&rdquo;
+                &ldquo;At MP Hospital &amp; Trauma Centre (formerly Maxx Hospital), our clinical mission is clear: rapid emergency resuscitation to save lives, ultra-clean modular surgeries, and advanced joint reconstructions to restore active, pain-free mobility for our patients in Jabalpur and Mahakoshal.&rdquo;
               </blockquote>
 
               <p className="text-sm text-gray-600 leading-relaxed">
@@ -94,7 +94,7 @@ export default function OurTeamPage() {
                   className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-black text-white hover:bg-[#fff200] hover:text-black font-extrabold text-sm uppercase tracking-wider transition-all"
                 >
                   <Calendar className="w-4 h-4" />
-                  <span>Consult with Leadership</span>
+                  <span>Book Consultation With Dr. Jain</span>
                 </button>
               </div>
             </div>

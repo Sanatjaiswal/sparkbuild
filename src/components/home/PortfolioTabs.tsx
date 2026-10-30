@@ -16,11 +16,11 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
   const [activeTab, setActiveTab] = useState<string>("all");
 
   const tabs = [
-    { id: "all", label: "All Projects" },
-    { id: "mega", label: "Mega Projects" },
-    { id: "domestic", label: "Domestic Projects" },
-    { id: "facade", label: "Facade Designs" },
-    { id: "interior", label: "Interior Designs" },
+    { id: "all", label: "All Facilities" },
+    { id: "mega", label: "Surgical & Modular OT" },
+    { id: "domestic", label: "Emergency & ICU" },
+    { id: "facade", label: "Diagnostics & Fleet" },
+    { id: "interior", label: "Inpatient & Rehab" },
   ];
 
   const filteredProjects =
@@ -34,13 +34,13 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-            Our Projects
+            Hospital Infrastructure
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Explore Our Portfolio Of Featured Projects
+            Explore Our World-Class Medical Facilities
           </h2>
           <p className="text-sm sm:text-base text-gray-400 font-normal">
-            Every structure stands as a testament to engineering craftsmanship, architectural beauty, and client satisfaction.
+            Equipped with laminar airflow modular OTs, intensive care trauma ICU, digital diagnostics, and compassionate patient care units.
           </p>
         </div>
 

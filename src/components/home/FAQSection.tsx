@@ -24,7 +24,7 @@ export default function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
-            Everything you need to know about our engineering approach, budgeting, timelines, and consultation.
+            Everything you need to know about our orthopedic services, 24x7 trauma care, Dr. Abhishek Jain&apos;s OPD, and cashless mediclaim.
           </p>
         </div>
 

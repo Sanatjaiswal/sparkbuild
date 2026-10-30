@@ -19,13 +19,13 @@ export default function VideoTestimonials({ onPlayVideo }: VideoTestimonialsProp
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-            Our Testimonials
+            Patient Stories
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">
-            What Our Clients Say About Us
+            Real Patient Recoveries &amp; Success Stories
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
-            Real feedback and on-site walkthroughs from satisfied homeowners and commercial partners across Madhya Pradesh.
+            Listen to inspiring stories of patients walking pain-free post-surgery and emergency trauma recoveries under Dr. Abhishek Jain.
           </p>
         </div>
 

@@ -153,16 +153,16 @@ export default function WordPressAdmin() {
         {/* WordPress Left Navigation Sidebar */}
         <aside className="w-56 bg-[#1d2327] text-[#c3c4c7] flex flex-col shrink-0 overflow-y-auto">
           <div className="p-4 border-b border-[#2c3338] flex items-center gap-2">
-            <div className="relative w-7 h-7 shrink-0">
+            <div className="relative w-8 h-8 shrink-0">
               <Image
-                src="/images/sparkbuild-logo.png"
+                src="/images/mp-hospital-logo.svg"
                 alt="Logo"
                 fill
                 className="object-contain"
               />
             </div>
             <span className="text-xs font-bold text-white tracking-wide">
-              Sparkbuild CMS
+              MP Hospital CMS
             </span>
           </div>
 
@@ -220,7 +220,7 @@ export default function WordPressAdmin() {
               <div className="flex items-center justify-between">
                 <div>
                   <h1 className="text-2xl font-bold text-[#1d2327]">Dashboard</h1>
-                  <p className="text-xs text-gray-500">Welcome to your Sparkbuild WordPress Administration.</p>
+                  <p className="text-xs text-gray-500">Welcome to your MP Hospital &amp; Trauma Centre Administration.</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Link
@@ -247,7 +247,7 @@ export default function WordPressAdmin() {
               {/* WordPress Welcome Box */}
               <div className="bg-white p-6 rounded-lg border border-[#c3c4c7] shadow-sm space-y-4">
                 <h2 className="text-xl font-bold text-[#1d2327]">
-                  Welcome to Sparkbuild Content Management!
+                  Welcome to MP Hospital Content Management!
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   We’ve assembled shortcuts to help you change hero slides, edit project images, update text descriptions, and publish blog articles in real-time.

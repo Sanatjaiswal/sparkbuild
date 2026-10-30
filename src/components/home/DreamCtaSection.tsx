@@ -17,13 +17,13 @@ export default function DreamCtaSection({ onOpenConsultation }: DreamCtaSectionP
         <div className="bg-[#181818] rounded-3xl p-8 sm:p-14 border border-neutral-800 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
           <div className="max-w-2xl space-y-4">
             <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-              Our Commitment
+              24x7 Emergency &amp; Trauma Care
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
-              Built to Last. <span className="text-[#fff200]">Designed to Inspire.</span>
+              Healing with Care. <span className="text-[#fff200]">Driven by Clinical Excellence.</span>
             </h2>
             <p className="text-base text-gray-300 leading-relaxed font-normal">
-              Whether it’s a ground-up turnkey build, a modern commercial development, or a luxury residence, Sparkbuild is here to bring your vision to life with complete structural integrity and transparent budgets.
+              Whether you need urgent trauma admission, joint replacement consultation with Dr. Abhishek Jain, or advanced orthopedic surgery, MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) provides trusted care round the clock.
             </p>
           </div>
 
@@ -33,14 +33,14 @@ export default function DreamCtaSection({ onOpenConsultation }: DreamCtaSectionP
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95"
             >
               <Calendar className="w-4 h-4" />
-              <span>Schedule a Meeting</span>
+              <span>Book Appointment</span>
             </button>
 
             <Link
               href="/projects"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white font-bold text-sm uppercase tracking-wider border border-neutral-700 transition-all active:scale-95"
             >
-              <span>View All Projects</span>
+              <span>Hospital Facilities</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

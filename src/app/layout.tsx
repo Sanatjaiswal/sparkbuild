@@ -3,20 +3,23 @@ import "./globals.css";
 import { CMSProvider } from "@/context/CMSContext";
 
 export const metadata: Metadata = {
-  title: "Sparkbuild Construction – Trusted Construction Partner in India",
+  title: "MP Hospital & Trauma Centre Jabalpur – Formerly Maxx Hospital | 24x7 Emergency & Orthopedics",
   description:
-    "Sparkbuild delivers reliable, high-quality construction solutions across India and Mahakaushal Area of Madhya Pradesh. Residential, Commercial, Hospital, Industrial and Mega Infrastructure projects.",
+    "MP Hospital & Trauma Centre (Formerly Maxx Hospital) in Beoharbagh, Jabalpur led by Dr. Abhishek Jain. Leading center for Total Knee/Hip Replacement, Accidental Polytrauma, Sports Injury Arthroscopy, Spine Care, Modular OT, and 24x7 ICU.",
   keywords: [
-    "Sparkbuild",
-    "Construction in Jabalpur",
-    "Madhya Pradesh construction",
-    "Civil Engineering",
-    "Architectural Design",
-    "Hospital Construction",
-    "Turnkey Builders",
+    "MP Hospital",
+    "MP Hospital and Trauma Center",
+    "Maxx Hospital Jabalpur",
+    "Dr Abhishek Jain",
+    "Orthopedic Surgeon Jabalpur",
+    "Trauma Hospital Jabalpur",
+    "Joint Replacement Jabalpur",
+    "Knee Replacement",
+    "24x7 Emergency Jabalpur",
+    "Arthroscopy Jabalpur",
   ],
   icons: {
-    icon: "/images/sparkbuild-logo.png",
+    icon: "/images/mp-hospital-logo.svg",
   },
 };
 

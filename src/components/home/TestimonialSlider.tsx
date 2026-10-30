@@ -11,13 +11,13 @@ export default function TestimonialSlider() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-            Testimonials
+            Patient Reviews
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">
-            What Our Clients Say
+            Words of Gratitude From Our Patients
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
-            Enduring partnerships and client trust built across hundreds of completed projects.
+            Real experiences from families and patients treated at MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital).
           </p>
         </div>
 

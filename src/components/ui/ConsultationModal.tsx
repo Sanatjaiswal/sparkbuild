@@ -68,9 +68,9 @@ export default function ConsultationModal({
         <div className="bg-[#111111] px-6 py-5 text-white flex items-center justify-between border-b-4 border-[#fff200]">
           <div>
             <span className="inline-block bg-[#fff200] text-black text-[11px] font-extrabold uppercase px-2.5 py-0.5 rounded-full mb-1">
-              FREE Expert Consultation
+              MP Hospital &amp; Trauma Centre
             </span>
-            <h3 className="text-xl font-bold">Book Your Planning Session</h3>
+            <h3 className="text-xl font-bold">Book Doctor OPD Appointment</h3>
           </div>
           <button
             onClick={onClose}
@@ -88,10 +88,10 @@ export default function ConsultationModal({
               <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle className="w-10 h-10" />
               </div>
-              <h4 className="text-2xl font-bold text-gray-900">Consultation Booked!</h4>
+              <h4 className="text-2xl font-bold text-gray-900">Appointment Requested!</h4>
               <p className="text-sm text-gray-600 max-w-sm mx-auto">
-                Thank you, <strong>{formData.name}</strong>. Our senior engineer will contact you at{" "}
-                <strong>{formData.phone}</strong> to confirm your slot and guide your project.
+                Thank you, <strong>{formData.name}</strong>. Our hospital reception desk will contact you at{" "}
+                <strong>{formData.phone}</strong> to confirm your consultation slot with Dr. Abhishek Jain.
               </p>
               <div className="pt-4">
                 <button
@@ -107,7 +107,7 @@ export default function ConsultationModal({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                    Full Name *
+                    Patient Name *
                   </label>
                   <div className="relative">
                     <User className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
@@ -124,7 +124,7 @@ export default function ConsultationModal({
 
                 <div>
                   <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                    Phone Number *
+                    Contact Phone *
                   </label>
                   <div className="relative">
                     <Phone className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
@@ -142,7 +142,7 @@ export default function ConsultationModal({
 
               <div>
                 <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                  Email Address
+                  Email Address (Optional)
                 </label>
                 <div className="relative">
                   <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
@@ -159,7 +159,7 @@ export default function ConsultationModal({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                    Project Type
+                    Department / Specialty
                   </label>
                   <div className="relative">
                     <Building className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
@@ -168,19 +168,19 @@ export default function ConsultationModal({
                       onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
                       className="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff200] focus:border-black bg-white"
                     >
-                      <option value="Residential">Residential House / Bungalow</option>
-                      <option value="Commercial">Commercial Office / Complex</option>
-                      <option value="Hospital">Hospital / Healthcare Facility</option>
-                      <option value="Industrial">Industrial Plant / Warehouse</option>
-                      <option value="Mega Project">Township / Mega Infrastructure</option>
-                      <option value="Renovation">Renovation & Remodeling</option>
+                      <option value="Orthopedic Consultation">Dr. Abhishek Jain (Orthopedics)</option>
+                      <option value="Knee / Hip Replacement">Joint Replacement (Knee / Hip)</option>
+                      <option value="Sports Injury">Arthroscopy &amp; Sports Injury</option>
+                      <option value="Emergency Trauma">Emergency &amp; Trauma Resuscitation</option>
+                      <option value="Spine Surgery">Spine &amp; Neuro Trauma</option>
+                      <option value="Physiotherapy">Physiotherapy &amp; Rehab</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                    Preferred Time
+                    Preferred Time Slot
                   </label>
                   <div className="relative">
                     <Clock className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
@@ -189,9 +189,9 @@ export default function ConsultationModal({
                       onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
                       className="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff200] focus:border-black bg-white"
                     >
-                      <option value="Morning">Morning (9 AM - 12 PM)</option>
-                      <option value="Afternoon">Afternoon (12 PM - 4 PM)</option>
-                      <option value="Evening">Evening (4 PM - 7 PM)</option>
+                      <option value="Morning">Morning OPD (10:30 AM - 1:30 PM)</option>
+                      <option value="Evening">Evening OPD (5:30 PM - 8:30 PM)</option>
+                      <option value="Emergency">Immediate 24x7 Emergency</option>
                     </select>
                   </div>
                 </div>
@@ -199,11 +199,11 @@ export default function ConsultationModal({
 
               <div>
                 <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                  Project Details / Location
+                  Symptoms / Medical Concern
                 </label>
                 <textarea
                   rows={3}
-                  placeholder="Plot size, location (e.g. Jabalpur), specific requirements..."
+                  placeholder="Describe symptoms, duration of joint pain, accident details, or request an ambulance..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full p-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff200] focus:border-black"
@@ -216,12 +216,12 @@ export default function ConsultationModal({
                   disabled={loading}
                   className="w-full py-3 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm tracking-wide shadow-md transition-all active:scale-[0.98] disabled:opacity-50"
                 >
-                  {loading ? "Scheduling Session..." : "Confirm Free Consultation"}
+                  {loading ? "Booking Appointment..." : "Confirm Doctor Appointment"}
                 </button>
               </div>
 
               <p className="text-[11px] text-gray-500 text-center">
-                🔒 100% Free Consultation. No obligation. Your privacy is strictly protected.
+                🔒 Fast confirmation. Emergency Trauma &amp; Ambulance Hotline: 0761-2626123 / +91 76489-98668.
               </p>
             </form>
           )}

@@ -28,21 +28,21 @@ export default function BlogPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/70 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/Blog-1.png"
-            alt="Sparkbuild Blog"
+            src="/images/diagnostic-center.jpg"
+            alt="MP Hospital Health Blog"
             fill
             className="object-cover"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-            Our Insights
+            Health &amp; Clinical Insights
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
-            Insights, Ideas &amp; <span className="text-[#fff200]">Building Smarter</span>
+            Bone Health, Trauma &amp; <span className="text-[#fff200]">Active Living</span>
           </h1>
           <p className="text-base text-gray-300 font-normal">
-            Welcome to the Sparkbuild Blog — your go-to resource for construction tips, architectural inspiration, civil engineering advice, and smart building solutions.
+            Welcome to the MP Hospital Blog — expert guidance on knee &amp; hip replacement, accidental trauma recovery, sports injuries, and joint pain prevention from Dr. Abhishek Jain.
           </p>
         </div>
       </section>

@@ -27,13 +27,13 @@ export default function NewsletterSection() {
         <div className="bg-[#111111] text-white rounded-3xl p-8 sm:p-14 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
           <div className="max-w-xl space-y-3">
             <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-              Stay Connected With Sparkbuild
+              Health &amp; Wellness Updates
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              From Idea to Reality, <span className="text-[#fff200]">Let’s Begin</span>
+              Stay Informed on <span className="text-[#fff200]">Bone &amp; Joint Health</span>
             </h2>
             <p className="text-sm text-gray-300 font-normal leading-relaxed">
-              Subscribe to our newsletter for periodic updates on landmark project deliveries, architectural design trends, and civil engineering insights.
+              Subscribe to regular health tips, joint care advice from Dr. Abhishek Jain, and announcements for free community health camps at MP Hospital &amp; Trauma Centre.
             </p>
           </div>
 
@@ -42,7 +42,7 @@ export default function NewsletterSection() {
               <div className="flex items-center gap-3 bg-neutral-800 p-4 rounded-2xl border border-green-500/30 text-green-400">
                 <CheckCircle2 className="w-6 h-6 shrink-0" />
                 <p className="text-sm font-semibold">
-                  Thank you for subscribing to Sparkbuild updates!
+                  Thank you for subscribing to MP Hospital health updates!
                 </p>
               </div>
             ) : (

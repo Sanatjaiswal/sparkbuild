@@ -22,17 +22,17 @@ export default function Footer() {
           {/* Column 1: Brand & About */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
-              <div className="relative h-14 w-48 bg-white p-2 rounded-lg">
+              <div className="relative h-14 w-52 bg-white p-2 rounded-lg">
                 <Image
-                  src="/images/sparkbuild-logo.png"
-                  alt="Sparkbuild Logo"
+                  src="/images/mp-hospital-logo.svg"
+                  alt="MP Hospital & Trauma Centre"
                   fill
                   className="object-contain p-1"
                 />
               </div>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Sparkbuild delivers exceptional construction services by blending innovation, quality, and reliability—building structures designed to last.
+              MP Hospital & Trauma Centre (Formerly Maxx Hospital) delivers advanced orthopedic, joint replacement, spine surgery, and 24x7 emergency trauma care under the expert direction of Dr. Abhishek Jain.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -200,7 +200,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© Start & Grow LLC. All Rights Reserved. Sparkbuild Construction.</p>
+          <p>© {new Date().getFullYear()} MP Hospital and Trauma Centre (Formerly Maxx Hospital). All Rights Reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-gray-300 transition-colors">
               Privacy Policy

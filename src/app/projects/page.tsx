@@ -21,17 +21,17 @@ export default function ProjectsPage() {
   const [lightboxData, setLightboxData] = useState<{ src: string; title: string } | null>(null);
 
   const categories = [
-    { id: "all", label: "All Projects" },
-    { id: "mega", label: "Mega Projects" },
-    { id: "domestic", label: "Domestic Projects" },
-    { id: "facade", label: "Facade Designs" },
-    { id: "interior", label: "Interior Designs" },
+    { id: "all", label: "All Facilities" },
+    { id: "mega", label: "Modular OT & Surgical" },
+    { id: "domestic", label: "Emergency & ICU" },
+    { id: "facade", label: "Diagnostics & Fleet" },
+    { id: "interior", label: "Inpatient & Rehab" },
   ];
 
   const statuses = [
-    { id: "all", label: "All Statuses" },
-    { id: "Completed", label: "Completed" },
-    { id: "Upcoming", label: "Upcoming" },
+    { id: "all", label: "All Units" },
+    { id: "Completed", label: "Operational" },
+    { id: "Upcoming", label: "Expanding" },
   ];
 
   const filtered = projectsData.filter((p) => {
@@ -50,21 +50,21 @@ export default function ProjectsPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/70 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/Project-Img-3.png"
-            alt="Sparkbuild Projects"
+            src="/images/mp-hospital-building.jpg"
+            alt="MP Hospital Facilities"
             fill
             className="object-cover"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-            Portfolio
+            Hospital Infrastructure
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
-            From Vision to <span className="text-[#fff200]">Reality</span>
+            Advanced Clinical <span className="text-[#fff200]">Facilities</span>
           </h1>
           <p className="text-base text-gray-300 font-normal">
-            Discover a portfolio of spaces crafted by Sparkbuild, along with a glimpse of upcoming projects. Each build represents a story of trust, quality, and purposeful design.
+            Take a virtual tour of MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) – Class 10,000 modular operation theatres, 24x7 trauma ICU, and modern patient recovery suites.
           </p>
         </div>
       </section>

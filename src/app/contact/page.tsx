@@ -48,21 +48,21 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/70 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/Trust-Image.png"
-            alt="Contact Sparkbuild"
+            src="/images/mp-hospital-building.jpg"
+            alt="Contact MP Hospital"
             fill
             className="object-cover"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-            Contact
+            Contact Hospital
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
-            Get In Touch With <span className="text-[#fff200]">Sparkbuild</span>
+            Get In Touch With <span className="text-[#fff200]">MP Hospital</span>
           </h1>
           <p className="text-base text-gray-300 font-normal">
-            Reach out today to discuss your site plans, get structural guidance, or schedule a free on-site consultation.
+            MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) – 24x7 Emergency Line: 0761-2626123, OPD Appointments &amp; Trauma Resuscitation in Jabalpur.
           </p>
         </div>
       </section>
@@ -75,13 +75,13 @@ export default function ContactPage() {
             <div className="lg:col-span-5 space-y-8">
               <div className="space-y-3">
                 <span className="text-xs font-black uppercase tracking-wider text-amber-600 px-3 py-1 bg-amber-50 rounded-full border border-amber-200">
-                  We’re Here to Help
+                  24x7 Emergency Care
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-black leading-tight">
-                  Let’s Talk About Your Next Build!
+                  We’re Here When You Need Us Most
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed font-normal">
-                  Fill out the form, give us a call, or visit our head office in Jabalpur. Let’s start building something remarkable together — from concept to completion.
+                  Located in Beoharbagh near Ghamapur Chowk, Jabalpur. Reach out for OPD appointments with Dr. Abhishek Jain, accidental trauma admissions, ambulance services, or cashless TPA guidance.
                 </p>
               </div>
 
@@ -93,8 +93,8 @@ export default function ContactPage() {
                   ))}
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-black">4.95 of 5 Stars</h4>
-                  <p className="text-xs text-gray-500">260+ Verified Google Reviews</p>
+                  <h4 className="text-sm font-bold text-black">4.9 of 5 Stars</h4>
+                  <p className="text-xs text-gray-500">450+ Verified Patient Reviews</p>
                 </div>
               </div>
 

@@ -41,12 +41,12 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative h-12 w-44 sm:h-14 sm:w-52">
+            <div className="relative h-12 w-48 sm:h-14 sm:w-60">
               <Image
-                src="/images/sparkbuild-logo.png"
-                alt="Sparkbuild Logo"
+                src="/images/mp-hospital-logo.svg"
+                alt="MP Hospital & Trauma Centre"
                 fill
-                sizes="(max-width: 640px) 180px, 220px"
+                sizes="(max-width: 640px) 200px, 240px"
                 className="object-contain"
                 priority
               />
@@ -76,10 +76,10 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
           {/* Action Button */}
           <div className="hidden sm:flex items-center gap-3">
             <Link
-              href="/contact"
+              href="/appointment-letter"
               className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-bold text-sm tracking-wide shadow-sm hover:shadow transition-all duration-200 active:scale-95"
             >
-              <span>Get In Touch</span>
+              <span>Book Appointment</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

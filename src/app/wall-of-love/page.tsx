@@ -19,27 +19,27 @@ export default function WallOfLovePage() {
   const extendedTestimonials = [
     ...testimonials,
     {
-      name: "Er. Sandeep Choubey",
-      project: "Township Master Plan & Villa",
-      text: "Sparkbuild designed and constructed our residential layout with impeccable attention to soil mechanics and road gradients. Truly high-caliber professionals.",
+      name: "Sandeep Choubey",
+      project: "Accidental Trauma Resuscitation",
+      text: "When my nephew met with a highway bike accident near Ghamapur, MP Hospital's 24x7 trauma team admitted him immediately. Dr. Abhishek Jain operated on his fractured femur with utmost precision. We are eternally grateful.",
       rating: 5,
     },
     {
-      name: "Dr. Ananya Mishra",
-      project: "Multi-Specialty Clinic Interior & Civil",
-      text: "Setting up a medical clinic requires strict hygiene and specialized plumbing/electrical layout. Er. Pankaj Sen and his engineering team delivered it without a hitch.",
+      name: "Smt. Shashi Mishra",
+      project: "Bilateral Knee Replacement",
+      text: "Both my knees were severely worn down. Dr. Abhishek Jain performed knee replacement at MP Hospital. The modular OT, hygienic rooms, and physiotherapy support were extraordinary. I walk freely without a cane now!",
       rating: 5,
     },
     {
       name: "Vikas Patel",
-      project: "Commercial Showroom Construction",
-      text: "Delivered our commercial complex 3 weeks ahead of deadline! Their itemized pricing avoided any surprise cost overruns.",
+      project: "Shoulder Arthroscopy & Rotator Cuff",
+      text: "Suffered severe shoulder pain and couldn't lift my arm. Keyhole arthroscopic repair by Dr. Jain solved my problem with tiny cuts and rapid healing. Cleanest hospital in Jabalpur.",
       rating: 5,
     },
     {
       name: "Rameshwar Sen",
-      project: "Luxury 4BHK Bungalow",
-      text: "From 3D elevations to marble laying, their craftsmanship is unbeatable in Jabalpur. Everyone who visits compliments the elevation.",
+      project: "Spine Trauma & Decompression",
+      text: "Suffered a slip disc and acute nerve compression after a fall. The spine and orthopedic team gave me a new lease on life. Excellent nursing staff and prompt cashless mediclaim handling.",
       rating: 5,
     },
   ];
@@ -54,21 +54,21 @@ export default function WallOfLovePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/70 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/Trust-Image.png"
-            alt="Wall of Love"
+            src="/images/orthopedic-rehab.jpg"
+            alt="Wall of Love MP Hospital"
             fill
             className="object-cover"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-            Wall of Love
+            Patient Stories
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
-            Voices Behind <span className="text-[#fff200]">The Builds</span>
+            Voices Behind <span className="text-[#fff200]">Every Healing</span>
           </h1>
           <p className="text-base text-gray-300 font-normal">
-            At Sparkbuild, trust is not just a principle—it’s proven through results. These testimonials highlight enduring relationships and impactful outcomes.
+            At MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital), patient trust is proven through restored mobility, pain-free lives, and critical trauma rescues.
           </p>
         </div>
       </section>

@@ -18,8 +18,8 @@ export default function AboutSection() {
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-neutral-100 border border-neutral-200 aspect-[4/3]">
               <Image
-                src="/images/About-Img-1.png"
-                alt="Sparkbuild Modern Architecture"
+                src="/images/mp-hospital-building.jpg"
+                alt="MP Hospital and Trauma Centre Building"
                 fill
                 className="object-cover"
               />
@@ -28,8 +28,8 @@ export default function AboutSection() {
             {/* Overlapping secondary image */}
             <div className="absolute -bottom-8 -right-4 sm:-right-8 w-44 sm:w-60 h-36 sm:h-48 rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-neutral-900 hidden sm:block">
               <Image
-                src="/images/About-Img-2-rcwp0ljk4o6x1rlovrg95znxxm3plzfyvi06267s3g.png"
-                alt="Construction Quality"
+                src="/images/modular-ot.jpg"
+                alt="Modular Operation Theatre"
                 fill
                 className="object-cover"
               />
@@ -37,17 +37,12 @@ export default function AboutSection() {
 
             {/* Floating ISO Certificate Badge */}
             <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl shadow-xl border border-neutral-200 flex items-center gap-3">
-              <div className="relative w-12 h-12 shrink-0">
-                <Image
-                  src="/images/image-spark-build-certificate.png"
-                  alt="ISO Certificate"
-                  fill
-                  className="object-contain"
-                />
+              <div className="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center font-black text-xl shadow">
+                +
               </div>
               <div>
-                <p className="text-[11px] font-bold text-gray-500 uppercase">Recognized Standard</p>
-                <p className="text-xs font-black text-black">ISO Certified Builder</p>
+                <p className="text-[11px] font-bold text-gray-500 uppercase">NABH / ISO Standards</p>
+                <p className="text-xs font-black text-black">24x7 Emergency Trauma</p>
               </div>
             </div>
           </div>
@@ -55,35 +50,35 @@ export default function AboutSection() {
           {/* Right Column: Content */}
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#fff200]/40 border border-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-              <span>About Us</span>
+              <span>About MP Hospital</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black leading-tight tracking-tight">
-              Trusted Construction Partner in India
+              Premier Orthopedic, Trauma &amp; Surgical Centre in Jabalpur
             </h2>
 
             <p className="text-base text-gray-600 leading-relaxed font-normal">
-              At Sparkbuild, we take pride in delivering reliable, high-quality construction solutions across India and mainly the Mahakaushal Area of Madhya Pradesh regions. From residential homes to large-scale commercial and institutional projects, The Company brings your vision to life with precision, passion, and professionalism.
+              MP Hospital and Trauma Centre (Formerly Maxx Hospital) is dedicated to delivering clinical excellence in orthopedics, accidental trauma resuscitation, joint replacement, and sports medicine under the leadership of renowned surgeon Dr. Abhishek Jain. With advanced laminar airflow modular operation theatres, a dedicated 24x7 Trauma ICU, and rapid rehabilitation protocols, we restore patient mobility and save lives every day.
             </p>
 
             {/* Feature Bullets with Icons */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-center space-y-1">
                 <Building className="w-6 h-6 text-[#111111] mx-auto mb-1" />
-                <h4 className="text-xl font-black text-black">{siteConfig.stats.projectsCount || "1000+"}</h4>
-                <p className="text-xs font-medium text-gray-600">Projects Executed</p>
+                <h4 className="text-xl font-black text-black">{siteConfig.stats.projectsCount || "15,000+"}</h4>
+                <p className="text-xs font-medium text-gray-600">Surgeries Performed</p>
               </div>
 
               <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-center space-y-1">
                 <ShieldCheck className="w-6 h-6 text-[#111111] mx-auto mb-1" />
-                <h4 className="text-xl font-black text-black">Licensed</h4>
-                <p className="text-xs font-medium text-gray-600">& ISO Certified</p>
+                <h4 className="text-xl font-black text-black">24x7</h4>
+                <p className="text-xs font-medium text-gray-600">Emergency &amp; Trauma</p>
               </div>
 
               <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-center space-y-1">
                 <Users className="w-6 h-6 text-[#111111] mx-auto mb-1" />
-                <h4 className="text-xl font-black text-black">{siteConfig.stats.yearsExperience || "9+ Years"}</h4>
-                <p className="text-xs font-medium text-gray-600">Experience</p>
+                <h4 className="text-xl font-black text-black">{siteConfig.stats.yearsExperience || "10+ Years"}</h4>
+                <p className="text-xs font-medium text-gray-600">Trusted Care</p>
               </div>
             </div>
 

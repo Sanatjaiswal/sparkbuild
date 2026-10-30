@@ -22,9 +22,9 @@ export default function FloatingConsultation({
   }, []);
 
   const whatsappMessage = encodeURIComponent(
-    "Hello Sparkbuild team! I want to consult regarding my construction project."
+    "Hello MP Hospital team! I need orthopedic consultation / emergency medical assistance."
   );
-  const whatsappUrl = `https://wa.me/919713337277?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/917648998668?text=${whatsappMessage}`;
 
   return (
     <>
@@ -52,10 +52,10 @@ export default function FloatingConsultation({
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-[#fff200]">
-                  Get Your FREE Expert Consultation
+                  24x7 Emergency Trauma &amp; OPD Booking
                 </p>
                 <p className="text-sm text-gray-200 font-medium">
-                  Turn your construction vision into a cost-saving reality! Avoid costly mistakes & get itemized estimates.
+                  Consult Dr. Abhishek Jain for joint pain, fracture trauma, or spine conditions. Emergency Line: 0761-2626123.
                 </p>
               </div>
             </div>
@@ -66,7 +66,7 @@ export default function FloatingConsultation({
                 className="px-5 py-2 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 flex items-center gap-1.5"
               >
                 <Calendar className="w-3.5 h-3.5" />
-                <span>Book My Free Consultation</span>
+                <span>Book Appointment</span>
               </button>
               <button
                 onClick={() => setDismissed(true)}

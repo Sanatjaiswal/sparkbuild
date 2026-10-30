@@ -12,23 +12,23 @@ export default function WhySparkbuild() {
   const points = [
     {
       icon: Compass,
-      title: "Local Knowledge",
-      desc: "Deep understanding of regional codes, climate, soil types, and construction standards across Madhya Pradesh.",
+      title: "24x7 Trauma Emergency",
+      desc: "Immediate casualty reception, trauma surgeons, and round-the-clock ALS ambulance availability in Jabalpur.",
     },
     {
       icon: Users,
-      title: "Pro Team",
-      desc: "Skilled, certified builders, structural engineers, and project managers committed to uncompromising quality.",
+      title: "Senior Orthopedic Specialists",
+      desc: "Experienced surgical team led by Dr. Abhishek Jain with 10+ years in joint replacement, sports injury & complex trauma.",
     },
     {
       icon: Shield,
-      title: "Smart Designs",
-      desc: "Modern layouts and bespoke architectural features built for comfort, function, energy efficiency, and flow.",
+      title: "Modular Laminar Flow OT",
+      desc: "Class 10,000 cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
     },
     {
       icon: HeartHandshake,
-      title: "Client Focus",
-      desc: "Responsive service and transparent milestone communication — your absolute satisfaction is our benchmark.",
+      title: "Cashless Mediclaim & TPA",
+      desc: "Hassle-free insurance pre-authorization desk supporting major mediclaim policies and Ayushman Bharat coverage.",
     },
   ];
 
@@ -40,8 +40,8 @@ export default function WhySparkbuild() {
           <div className="lg:col-span-5 space-y-8">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-neutral-700 aspect-[4/3] bg-neutral-800">
               <Image
-                src="/images/Why-Work-Image.png"
-                alt="Why Work With Sparkbuild"
+                src="/images/medical-team.jpg"
+                alt="MP Hospital Medical Team"
                 fill
                 className="object-cover"
               />
@@ -52,22 +52,22 @@ export default function WhySparkbuild() {
             <div className="grid grid-cols-2 gap-4">
               <div className="p-6 rounded-2xl bg-neutral-800/80 border border-neutral-700 text-center space-y-1">
                 <span className="text-3xl sm:text-4xl font-black text-[#fff200]">
-                  {siteConfig.stats.realEstateProjects || "100+"}
+                  15,000+
                 </span>
                 <p className="text-xs font-bold uppercase tracking-wider text-gray-300">
-                  Satisfied Clients
+                  Patients Treated
                 </p>
-                <p className="text-[11px] text-gray-400">Built with trust and excellence</p>
+                <p className="text-[11px] text-gray-400">Trusted in Mahakoshal</p>
               </div>
 
               <div className="p-6 rounded-2xl bg-neutral-800/80 border border-neutral-700 text-center space-y-1">
                 <span className="text-3xl sm:text-4xl font-black text-[#fff200]">
-                  {siteConfig.stats.structuralWarranty || "10 Yrs."}
+                  24x7
                 </span>
                 <p className="text-xs font-bold uppercase tracking-wider text-gray-300">
-                  Structural Warranty
+                  Trauma Emergency
                 </p>
-                <p className="text-[11px] text-gray-400">Coverage you can count on</p>
+                <p className="text-[11px] text-gray-400">0761-2626123</p>
               </div>
             </div>
           </div>
@@ -76,13 +76,13 @@ export default function WhySparkbuild() {
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
               <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-                Long-Term Reliability
+                Excellence in Healthcare
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
-                Proven &amp; Trusted: <span className="text-[#fff200]">Backed by Results, Built on Relationships</span>
+                Why Choose <span className="text-[#fff200]">MP Hospital &amp; Trauma Centre</span>
               </h2>
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-normal">
-                Sparkbuild has become a name homeowners and commercial developers trust. Whether it’s new construction or custom renovation, you’re in good company when you build with Sparkbuild. Our strong partnerships are a reflection of the confidence our clients place in us — project after project.
+                Continuing the trusted 10+ year legacy of Maxx Hospital, MP Hospital &amp; Trauma Centre is Jabalpur’s leading destination for orthopedic surgeries, joint replacement, spine stabilization, and emergency trauma care under Dr. Abhishek Jain.
               </p>
             </div>
 

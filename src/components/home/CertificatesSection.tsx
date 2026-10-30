@@ -9,13 +9,13 @@ export default function CertificatesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-            Our Certificates
+            Accreditations &amp; Recognition
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">
-            Our Proof Of Excellence
+            Commitment to Clinical Excellence
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
-            Distinguished industry accolades celebrating innovation, architectural mastery, structural longevity, and safety compliance.
+            Distinguished healthcare milestones celebrating surgical accuracy, infection-free modular OTs, and compassionate community care.
           </p>
         </div>
 
@@ -53,30 +53,25 @@ export default function CertificatesSection() {
         {/* Certificate Display Banner */}
         <div className="mt-14 bg-white rounded-3xl p-8 border border-neutral-200 shadow-md flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-6">
-            <div className="relative w-20 h-20 shrink-0">
-              <Image
-                src="/images/image-spark-build-certificate.png"
-                alt="Sparkbuild Certificate"
-                fill
-                className="object-contain"
-              />
+            <div className="w-16 h-16 rounded-2xl bg-red-600 text-white flex items-center justify-center font-black text-3xl shadow-lg shrink-0">
+              +
             </div>
             <div className="space-y-1">
               <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">
-                Official Certification
+                Official Healthcare Standards
               </span>
               <h4 className="text-xl font-bold text-black">
-                ISO 9001:2015 Quality Management Certified
+                NABH Standards &amp; Trauma Centre Compliance
               </h4>
               <p className="text-xs text-gray-600 max-w-xl">
-                Sparkbuild adheres to strict global engineering protocols, standardized materials testing, and occupational health & safety compliances.
+                MP Hospital &amp; Trauma Centre adheres to strict clinical asepsis, biomedical waste management, 24x7 blood bank / diagnostic linkage, and emergency patient safety protocols.
               </p>
             </div>
           </div>
 
           <div className="shrink-0 flex items-center gap-3">
             <div className="px-5 py-2.5 rounded-full bg-neutral-900 text-white font-bold text-xs uppercase tracking-wider">
-              ISO Certified
+              24x7 Care
             </div>
           </div>
         </div>
