@@ -117,14 +117,11 @@ export const siteConfig = {
 
 export const navItems: NavItem[] = [
   { title: "Home", href: "/" },
-  { title: "About Us", href: "/about" },
-  { title: "Specialties & Services", href: "/services" },
-  { title: "Doctors & Team", href: "/our-team" },
-  { title: "Hospital Facilities", href: "/projects" },
-  { title: "Patient Stories", href: "/wall-of-love" },
-  { title: "Health Blog", href: "/blog" },
-  { title: "Careers", href: "/careers" },
-  { title: "Contact Us", href: "/contact" },
+  { title: "About", href: "/about" },
+  { title: "Services", href: "/services" },
+  { title: "Our Team", href: "/our-team" },
+  { title: "Projects", href: "/projects" },
+  { title: "Wall of Love", href: "/wall-of-love" },
 ];
 
 export const heroSlides: HeroSlide[] = [

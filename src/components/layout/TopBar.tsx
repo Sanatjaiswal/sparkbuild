@@ -10,8 +10,8 @@ export default function TopBar() {
   const siteConfig = data.siteConfig;
 
   return (
-    <div className="bg-[#fff200] text-black text-xs font-semibold py-2 px-4 sm:px-6 lg:px-8 border-b border-black/10 select-none">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+    <div className="bg-[#fff200] text-black text-xs font-semibold h-10 px-4 sm:px-6 lg:px-8 border-b border-black/10 select-none relative z-40 flex items-center">
+      <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-2">
         {/* Left Side: Contact Phone & Email */}
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6">
           <a

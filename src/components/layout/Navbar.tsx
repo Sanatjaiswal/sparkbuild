@@ -19,9 +19,10 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      // Only stick when scrolled past TopBar & Navbar (120px)
+      setIsScrolled(window.scrollY > 120);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -32,39 +33,39 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
 
   return (
     <nav
-      className={`w-full text-white transition-all duration-300 z-40 ${
+      className={`w-full text-white transition-all duration-300 ${
         isScrolled
-          ? "fixed top-0 left-0 right-0 bg-black/95 backdrop-blur-md shadow-2xl py-3 border-b border-neutral-800"
+          ? "fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md shadow-2xl py-3 border-b border-neutral-800"
           : isHome
-          ? "absolute top-0 left-0 right-0 bg-black/45 backdrop-blur-[2px] py-4 border-b border-white/15"
-          : "relative bg-black py-4 border-b border-neutral-900"
+          ? "-mb-[74px] sm:-mb-[76px] relative z-30 bg-black/45 backdrop-blur-[2px] py-3.5 sm:py-4 border-b border-white/15"
+          : "relative z-30 bg-black py-3.5 sm:py-4 border-b border-neutral-900"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
           {/* Logo on the left */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <div className="relative h-11 w-48 sm:h-12 sm:w-60">
+            <div className="relative h-10 w-44 sm:h-11 sm:w-52">
               <Image
                 src="/images/mp-hospital-logo-white.svg"
                 alt="MP Hospital & Trauma Centre"
                 fill
-                sizes="(max-width: 640px) 190px, 240px"
+                sizes="(max-width: 640px) 176px, 208px"
                 className="object-contain"
                 priority
               />
             </div>
           </Link>
 
-          {/* Desktop Navigation Links (Center) */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+          {/* Desktop Navigation Links: 6 Clean Items Matching Sparkbuild Screenshot */}
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-sm lg:text-base font-semibold transition-colors duration-150 ${
+                  className={`text-sm lg:text-[15px] font-semibold transition-colors duration-150 ${
                     isActive
                       ? "text-[#fff200] font-bold"
                       : "text-white hover:text-[#fff200]"
@@ -76,11 +77,11 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             })}
           </div>
 
-          {/* Action Button: Yellow with rounded-md (Matches media_1793375927977_47bc6de4.png) */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Action Button: Yellow with rounded-md (Matches media_1793375380430_7499a50d.png) */}
+          <div className="hidden sm:flex items-center shrink-0">
             <Link
               href="/appointment-letter"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm tracking-wide transition-all duration-200 active:scale-95 shadow-sm"
+              className="inline-flex items-center justify-center h-10 px-6 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-xs sm:text-sm tracking-wide transition-all duration-200 active:scale-95 shadow-sm whitespace-nowrap"
             >
               <span>Get In Touch</span>
             </Link>
