@@ -82,19 +82,19 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-black text-white hover:bg-[#fff200] hover:text-black font-bold text-sm uppercase tracking-wider transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-black text-white hover:bg-[#fff200] hover:text-black font-bold text-sm uppercase tracking-wider transition-all duration-200"
               >
                 <span>Discover More</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded-full border border-neutral-300 hover:border-black font-semibold text-sm transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full border border-neutral-300 hover:border-black font-semibold text-sm transition-all duration-200"
               >
-                <span>View Portfolio</span>
+                <span>Hospital Facilities</span>
               </Link>
             </div>
           </div>

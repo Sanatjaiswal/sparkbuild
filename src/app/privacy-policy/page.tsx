@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
           <div>
             <h2 className="text-xl font-bold text-black mb-2">1. Introduction</h2>
             <p>
-              At Sparkbuild, we value your trust and are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information when you visit our website (www.sparkbuild.in), contact us, or engage with our civil engineering and construction services.
+              At MP Hospital &amp; Trauma Centre (formerly Maxx Hospital), we value your trust and are committed to protecting your privacy and medical confidentiality. This Privacy Policy explains how we collect, use, and safeguard your personal information when you visit our website (mphospital.in), request a doctor consultation, or engage with our clinical and surgical healthcare services.
             </p>
           </div>
 
@@ -36,13 +36,13 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-xl font-bold text-black mb-2">2. Information We Collect</h2>
             <ul className="list-disc pl-5 space-y-1">
               <li>
-                <strong>Personal Information:</strong> Name, email address, phone number, plot/site specifications, and any details you provide via contact, consultation, or job inquiry forms.
+                <strong>Personal &amp; Patient Information:</strong> Name, contact number, email address, age, location, and health symptoms or medical inquiries you provide via appointment, consultation, or contact forms.
               </li>
               <li>
-                <strong>Technical Information:</strong> IP address, browser type, device details, and usage metrics to optimize site performance.
+                <strong>Technical Information:</strong> IP address, browser type, device details, and site usage metrics to ensure reliable online booking and fast access.
               </li>
               <li>
-                <strong>Cookies:</strong> Session tokens and preferences to ensure an interactive browsing experience.
+                <strong>Cookies:</strong> Session tokens and browsing preferences to deliver a smooth user experience.
               </li>
             </ul>
           </div>
@@ -51,23 +51,23 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-xl font-bold text-black mb-2">3. How We Use Your Information</h2>
             <p>Your information is used strictly to:</p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Respond to project inquiries and prepare structural quotations and 3D architectural proposals.</li>
-              <li>Coordinate on-site inspections, surveys, and scheduled consultations.</li>
-              <li>Comply with municipal, statutory, and Indian engineering regulatory requirements.</li>
+              <li>Coordinate and confirm OPD doctor appointments with Dr. Abhishek Jain and clinical specialists.</li>
+              <li>Respond to emergency trauma queries, ambulance requests, and mediclaim / cashless TPA pre-authorizations.</li>
+              <li>Comply with clinical governance, patient record maintenance, and Indian healthcare regulatory standards.</li>
             </ul>
           </div>
 
           <div>
-            <h2 className="text-xl font-bold text-black mb-2">4. Data Protection &amp; Security</h2>
+            <h2 className="text-xl font-bold text-black mb-2">4. Patient Confidentiality &amp; Data Security</h2>
             <p>
-              We implement industry-standard physical, electronic, and procedural safeguards to secure your personal data against unauthorized access, loss, or alteration.
+              We adhere strictly to medical ethics and patient confidentiality standards. We implement industry-standard electronic, physical, and procedural safeguards to secure patient records and personal details against unauthorized access.
             </p>
           </div>
 
           <div>
             <h2 className="text-xl font-bold text-black mb-2">5. Sharing of Information</h2>
             <p>
-              We do <strong>not</strong> sell, rent, or trade your personal data. Information is shared only with verified internal engineering teams, municipal sanction coordinators, and as legally mandated by government authorities.
+              We do <strong>not</strong> sell, rent, or trade your personal health data. Information is shared only with authorized attending doctors, hospital care coordinators, approved insurance/TPA desks (with your consent), or as legally mandated by government health authorities.
             </p>
           </div>
 

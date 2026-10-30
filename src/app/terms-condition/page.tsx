@@ -28,28 +28,35 @@ export default function TermsConditionPage() {
           <div>
             <h2 className="text-xl font-bold text-black mb-2">1. Acceptance of Terms</h2>
             <p>
-              Welcome to Sparkbuild! By accessing or using our website and services, you agree to be bound by these Terms and Conditions. Please read them carefully before proceeding. If you do not agree with these terms, you may not use our website or services.
+              Welcome to MP Hospital &amp; Trauma Centre (formerly Maxx Hospital), Jabalpur. By accessing or using our website, requesting appointments, or utilizing our clinical services, you agree to comply with and be bound by these Terms and Conditions. Please review them carefully.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-bold text-black mb-2">2. Services &amp; Scope</h2>
+            <h2 className="text-xl font-bold text-black mb-2">2. Clinical Services &amp; Medical Consultations</h2>
             <p>
-              Sparkbuild provides turnkey civil construction, architectural design, hospital &amp; healthcare infrastructure, industrial development, and structural consultancy. All services are subject to site feasibility, soil mechanics testing, statutory municipal sanction, and a formal signed agreement between the client and Sparkbuild.
+              MP Hospital provides specialized orthopedic surgery, joint replacement (TKR/THR), accidental polytrauma resuscitation, 4K arthroscopy, sports injury rehabilitation, and 24x7 emergency ICU care under Dr. Abhishek Jain and attending clinical specialists. Online appointment bookings are subject to OPD schedule confirmation and clinical triage.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-bold text-black mb-2">3. Intellectual Property</h2>
+            <h2 className="text-xl font-bold text-black mb-2">3. Emergency Medical Disclaimer</h2>
             <p>
-              All blueprints, 3D renderings, elevations, photographs, branding marks, and text published on sparkbuild.in are the exclusive intellectual property of Sparkbuild Construction. Unauthorized reproduction or commercial re-use is strictly prohibited.
+              Information on this website is provided for educational and appointment coordination purposes only and does not substitute for emergency medical care. For life-threatening emergencies, accidental trauma, or acute injury, please visit our 24x7 Trauma Casualty in Beoharbagh, Jabalpur directly or call 0761-2626123.
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-bold text-black mb-2">4. Quotations and Project Estimates</h2>
+            <h2 className="text-xl font-bold text-black mb-2">4. Intellectual Property</h2>
             <p>
-              All preliminary estimates provided during consultations are valid for the timeframe specified in the quotation. Final project milestones, escalation clauses, and payment schedules are governed by the formal bilateral construction contract.
+              All photographs, medical write-ups, brand marks, logos, and digital assets published on mphospital.in are the exclusive property of MP Hospital &amp; Trauma Centre. Unauthorized reproduction or commercial use is strictly prohibited.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-bold text-black mb-2">5. Insurance &amp; Cashless TPA Policy</h2>
+            <p>
+              Hospital admission, diagnostic estimates, and cashless mediclaim pre-authorizations are subject to individual insurer / TPA approval, policy terms, and clinical documentation submitted at the time of admission.
             </p>
           </div>
 

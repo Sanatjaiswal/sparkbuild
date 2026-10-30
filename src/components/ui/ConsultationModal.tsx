@@ -13,15 +13,15 @@ interface ConsultationModalProps {
 export default function ConsultationModal({
   isOpen,
   onClose,
-  defaultService = "General Construction",
+  defaultService = "Orthopedic Consultation",
 }: ConsultationModalProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
     serviceType: defaultService,
-    projectScope: "Residential",
-    preferredTime: "Morning (9 AM - 12 PM)",
+    projectScope: "Orthopedic Consultation",
+    preferredTime: "Morning (10:30 AM - 1:30 PM)",
     message: "",
   });
 
@@ -39,14 +39,14 @@ export default function ConsultationModal({
       setSubmitted(true);
       // store in local storage for admin preview
       try {
-        const existing = JSON.parse(localStorage.getItem("sparkbuild_inquiries") || "[]");
+        const existing = JSON.parse(localStorage.getItem("mphospital_inquiries") || "[]");
         existing.push({
           ...formData,
           id: Date.now().toString(),
           date: new Date().toISOString(),
-          type: "Free Consultation",
+          type: "Doctor Consultation",
         });
-        localStorage.setItem("sparkbuild_inquiries", JSON.stringify(existing));
+        localStorage.setItem("mphospital_inquiries", JSON.stringify(existing));
       } catch (err) {
         console.error(err);
       }
@@ -59,18 +59,18 @@ export default function ConsultationModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
       <div
-        className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden border border-neutral-200"
+        className="relative w-full max-w-lg max-h-[92vh] flex flex-col bg-white rounded-2xl shadow-2xl overflow-hidden border border-neutral-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Banner */}
-        <div className="bg-[#111111] px-6 py-5 text-white flex items-center justify-between border-b-4 border-[#fff200]">
+        <div className="bg-[#111111] px-5 sm:px-6 py-4 sm:py-5 text-white flex items-center justify-between border-b-4 border-[#fff200] shrink-0">
           <div>
             <span className="inline-block bg-[#fff200] text-black text-[11px] font-extrabold uppercase px-2.5 py-0.5 rounded-full mb-1">
               MP Hospital &amp; Trauma Centre
             </span>
-            <h3 className="text-xl font-bold">Book Doctor OPD Appointment</h3>
+            <h3 className="text-lg sm:text-xl font-bold">Book Doctor OPD Appointment</h3>
           </div>
           <button
             onClick={onClose}
@@ -81,8 +81,8 @@ export default function ConsultationModal({
           </button>
         </div>
 
-        {/* Form Body */}
-        <div className="p-6">
+        {/* Form Body with Smooth Touch Scrolling */}
+        <div className="p-5 sm:p-6 overflow-y-auto">
           {submitted ? (
             <div className="text-center py-8 space-y-4">
               <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">

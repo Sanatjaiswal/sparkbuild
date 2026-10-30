@@ -90,15 +90,15 @@ export function CMSProvider({ children }: { children: React.ReactNode }) {
         if (res.ok) {
           const json = await res.json();
           setData({ ...defaultData, ...json });
-          localStorage.setItem("sparkbuild_cms_cache", JSON.stringify(json));
+          localStorage.setItem("mphospital_cms_cache", JSON.stringify(json));
         } else {
-          const cached = localStorage.getItem("sparkbuild_cms_cache");
+          const cached = localStorage.getItem("mphospital_cms_cache");
           if (cached) {
             setData({ ...defaultData, ...JSON.parse(cached) });
           }
         }
       } catch (err) {
-        const cached = localStorage.getItem("sparkbuild_cms_cache");
+        const cached = localStorage.getItem("mphospital_cms_cache");
         if (cached) {
           try {
             setData({ ...defaultData, ...JSON.parse(cached) });
@@ -116,7 +116,7 @@ export function CMSProvider({ children }: { children: React.ReactNode }) {
   const saveData = async (newData: Partial<CMSData>): Promise<boolean> => {
     const merged = { ...data, ...newData, lastUpdated: new Date().toISOString() };
     setData(merged);
-    localStorage.setItem("sparkbuild_cms_cache", JSON.stringify(merged));
+    localStorage.setItem("mphospital_cms_cache", JSON.stringify(merged));
 
     try {
       const res = await fetch("/api/content", {

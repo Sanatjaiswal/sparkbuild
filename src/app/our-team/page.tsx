@@ -102,18 +102,18 @@ export default function OurTeamPage() {
         </div>
       </section>
 
-      {/* Leadership & Engineering Team Grid */}
+      {/* Medical Leadership & Clinical Specialists Grid */}
       <section className="py-20 bg-neutral-100 border-t border-neutral-200 flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
             <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
-              Leadership
+              Clinical Team
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-black tracking-tight">
-              Meet the Team Driving Excellence
+              Meet the Doctors &amp; Specialists
             </h2>
             <p className="text-sm text-gray-600">
-              With strong technical expertise and deep local understanding of the Mahakaushal region of MP, our team works collaboratively from 2D drafting to on-site concrete pours.
+              With deep surgical expertise and compassionate care in the Mahakoshal region of MP, our clinical team works collaboratively from pre-op diagnostics to post-operative rehabilitation.
             </p>
           </div>
 
@@ -144,7 +144,7 @@ export default function OurTeamPage() {
                     {member.bio}
                   </p>
                   <div className="pt-2 border-t border-neutral-100 text-[11px] font-bold text-gray-500 uppercase tracking-wider">
-                    {member.qualification || "Civil Engineering"}
+                    {member.qualification || "Orthopedics & Emergency Care"}
                   </div>
                 </div>
               </div>
@@ -156,16 +156,16 @@ export default function OurTeamPage() {
       {/* Join the Team CTA */}
       <section className="py-16 bg-neutral-900 text-white text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-4">
-          <h3 className="text-3xl font-black text-white">Want to Build With Us?</h3>
+          <h3 className="text-3xl font-black text-white">Join Our Clinical &amp; Caregiving Team</h3>
           <p className="text-sm text-gray-300">
-            We are always seeking passionate civil engineers, site supervisors, and 3D architects. Explore current career openings at Sparkbuild.
+            We are always seeking passionate medical officers, ICU staff nurses, OT technicians, and rehabilitation specialists. Explore career opportunities at MP Hospital.
           </p>
           <div className="pt-2">
             <Link
               href="/careers"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all"
             >
-              <span>View Career Openings</span>
+              <span>View Hospital Careers</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

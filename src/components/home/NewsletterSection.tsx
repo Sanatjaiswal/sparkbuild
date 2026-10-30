@@ -12,9 +12,9 @@ export default function NewsletterSection() {
     if (email) {
       setSubmitted(true);
       try {
-        const subscribers = JSON.parse(localStorage.getItem("sparkbuild_newsletter") || "[]");
+        const subscribers = JSON.parse(localStorage.getItem("mphospital_newsletter") || "[]");
         subscribers.push({ email, date: new Date().toISOString() });
-        localStorage.setItem("sparkbuild_newsletter", JSON.stringify(subscribers));
+        localStorage.setItem("mphospital_newsletter", JSON.stringify(subscribers));
       } catch (err) {
         console.error(err);
       }
@@ -37,7 +37,7 @@ export default function NewsletterSection() {
             </p>
           </div>
 
-          <div className="w-full lg:w-auto min-w-[320px] sm:min-w-[420px]">
+          <div className="w-full lg:w-auto lg:min-w-[420px] max-w-full">
             {submitted ? (
               <div className="flex items-center gap-3 bg-neutral-800 p-4 rounded-2xl border border-green-500/30 text-green-400">
                 <CheckCircle2 className="w-6 h-6 shrink-0" />

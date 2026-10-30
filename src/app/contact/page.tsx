@@ -29,9 +29,9 @@ export default function ContactPage() {
       setLoading(false);
       setSubmitted(true);
       try {
-        const list = JSON.parse(localStorage.getItem("sparkbuild_contacts") || "[]");
+        const list = JSON.parse(localStorage.getItem("mphospital_contacts") || "[]");
         list.push({ ...formData, date: new Date().toISOString() });
-        localStorage.setItem("sparkbuild_contacts", JSON.stringify(list));
+        localStorage.setItem("mphospital_contacts", JSON.stringify(list));
       } catch (err) {
         console.error(err);
       }
@@ -146,7 +146,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">
-                      Office Address
+                      Hospital Address
                     </h4>
                     <p className="text-xs text-gray-700 leading-relaxed font-medium">
                       {siteConfig.address}
@@ -160,7 +160,7 @@ export default function ContactPage() {
             <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200 shadow-xl">
               <h3 className="text-2xl font-black text-black mb-2">Send Us a Direct Message</h3>
               <p className="text-xs text-gray-500 mb-8">
-                We respond within 2-4 business hours with initial structural feedback.
+                We respond promptly for appointments, emergency admissions, and medical inquiries.
               </p>
 
               {submitted ? (
@@ -170,7 +170,7 @@ export default function ContactPage() {
                   </div>
                   <h4 className="text-2xl font-bold text-gray-900">Message Received!</h4>
                   <p className="text-sm text-gray-600 max-w-sm mx-auto">
-                    Thank you, <strong>{formData.firstName}</strong>. Our project coordinator will contact you at <strong>{formData.phone}</strong> shortly.
+                    Thank you, <strong>{formData.firstName}</strong>. Our patient care desk will contact you at <strong>{formData.phone}</strong> shortly.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
@@ -241,12 +241,12 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block text-xs font-bold text-gray-700 uppercase mb-1.5">
-                      Your Message / Project Scope *
+                      Your Message / Health Query *
                     </label>
                     <textarea
                       rows={4}
                       required
-                      placeholder="Tell us about your plot location, size, residential, commercial or hospital requirements..."
+                      placeholder="Describe your symptoms, joint issue, trauma details, or inquiry for Dr. Abhishek Jain..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200] focus:border-black"
@@ -276,7 +276,7 @@ export default function ContactPage() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Sparkbuild Jabalpur Office Location"
+              title="MP Hospital & Trauma Centre Jabalpur Location"
             />
           </div>
         </div>

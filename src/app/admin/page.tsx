@@ -101,10 +101,10 @@ export default function WordPressAdmin() {
     id: `${Date.now()}`,
     slug: "",
     title: "",
-    category: "Construction",
+    category: "Orthopedics & Health",
     date: new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }),
-    author: "Er. Pankaj Sen",
-    image: "/images/Blog-1.png",
+    author: "Dr. Abhishek Jain",
+    image: "/images/modular-ot.jpg",
     excerpt: "",
     content: "",
   });
@@ -119,7 +119,7 @@ export default function WordPressAdmin() {
               W
             </span>
             <span className="font-semibold text-gray-200">
-              {data.siteConfig.name} Construction
+              {data.siteConfig.fullName || "MP Hospital & Trauma Centre"}
             </span>
           </div>
 
@@ -293,7 +293,7 @@ export default function WordPressAdmin() {
                       </li>
                       <li>
                         <button onClick={() => setActiveMenu("team")} className="hover:underline">
-                          • Update engineers & team bios
+                          • Update doctors &amp; medical team bios
                         </button>
                       </li>
                     </ul>
@@ -740,8 +740,8 @@ export default function WordPressAdmin() {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-[#1d2327]">Team &amp; Engineers Manager</h1>
-                  <p className="text-xs text-gray-500">Edit founder info, structural engineers, photos, and roles.</p>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Doctors &amp; Clinical Team Manager</h1>
+                  <p className="text-xs text-gray-500">Edit Medical Director info, orthopedic surgeons, photos, and clinical qualifications.</p>
                 </div>
               </div>
 
@@ -847,7 +847,7 @@ export default function WordPressAdmin() {
                         <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Category</label>
                         <input
                           type="text"
-                          placeholder="Renovation, Engineering, Architecture..."
+                          placeholder="Orthopedics, Joint Care, Trauma Surgery..."
                           value={newPost.category}
                           onChange={(e) => setNewPost({ ...newPost, category: e.target.value })}
                           className="w-full p-2 text-xs border rounded"

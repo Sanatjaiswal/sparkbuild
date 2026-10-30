@@ -10,26 +10,25 @@ interface HeroSliderProps {
   onOpenConsultation: () => void;
 }
 
-const defaultHeroSlides = [
+// 100% MP Hospital & Trauma Centre Slides
+const hospitalHeroSlides = [
   {
     id: 1,
-    isoBadge: "ISO 9001-2015",
     hindiLogo: "/images/mp-hospital-hindi-logo.svg",
-    headingLine1: "24x7 Emergency & Trauma",
-    headingLine2: "Leading Healthcare in Jabalpur",
-    description: "MP Hospital & Trauma Centre (Formerly Maxx Hospital) – Accidental trauma resuscitation, modular laminar OT & round-the-clock emergency care.",
+    headingLine1: "24x7 Emergency &",
+    headingLine2: "Trauma Care Centre",
+    description: "Premier Orthopedic, Accidental Polytrauma & Emergency Healthcare in Jabalpur",
     bgImage: "/images/mp-hospital-building.jpg",
     primaryCta: "Book Appointment",
-    secondaryCta: "View Facilities",
+    secondaryCta: "Hospital Facilities",
     secondaryHref: "/projects",
   },
   {
     id: 2,
-    isoBadge: "ISO 9001-2015",
     hindiLogo: "/images/mp-hospital-hindi-logo.svg",
     headingLine1: "15,000+ Surgeries",
-    headingLine2: "Advanced Modular OT & Trauma Care",
-    description: "State-of-the-art modular operation theatres with laminar airflow and HEPA filtration for infection-free orthopedic and joint surgeries.",
+    headingLine2: "Modular OT & Trauma Care",
+    description: "Class 10,000 Modular OTs with Laminar Airflow & Sterile HEPA Filtration",
     bgImage: "/images/modular-ot.jpg",
     primaryCta: "Book Appointment",
     secondaryCta: "Our Specialists",
@@ -37,42 +36,42 @@ const defaultHeroSlides = [
   },
   {
     id: 3,
-    isoBadge: "ISO 9001-2015",
     hindiLogo: "/images/mp-hospital-hindi-logo.svg",
     headingLine1: "5,000+ Joint Replacements",
-    headingLine2: "TKR, THR & 4K Knee Arthroscopy",
-    description: "Led by Dr. Abhishek Jain (Orthopedic & Sports Injury Specialist) — minimally invasive techniques and rapid post-op mobility.",
+    headingLine2: "TKR, THR & 4K Arthroscopy",
+    description: "Minimally Invasive Joint Care & Rapid Post-Op Rehabilitation by Dr. Abhishek Jain",
     bgImage: "/images/orthopedic-rehab.jpg",
     primaryCta: "Book Appointment",
-    secondaryCta: "Explore Services",
+    secondaryCta: "Clinical Specialties",
     secondaryHref: "/services",
   },
   {
     id: 4,
-    isoBadge: "ISO 9001-2015",
-    hindiLogo: "/images/spark-hindi-logo-1024x333.png",
-    headingLine1: "1000+ Projects",
-    headingLine2: "Design/Construct in India",
-    description: "Complete construction solutions for every space.",
-    bgImage: "/images/Service-Image-1.png",
-    primaryCta: "Get In Touch",
-    secondaryCta: "View Our Work",
-    secondaryHref: "/projects",
+    hindiLogo: "/images/mp-hospital-hindi-logo.svg",
+    headingLine1: "Critical Care ICU &",
+    headingLine2: "24x7 Life Support",
+    description: "Multi-Parameter ICU, Digital X-Ray Diagnostics & Cashless Ayushman / TPA Support",
+    bgImage: "/images/emergency-trauma-icu.jpg",
+    primaryCta: "Book Appointment",
+    secondaryCta: "Emergency Contact",
+    secondaryHref: "/contact",
   },
 ];
 
 export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
   const { data } = useCMS();
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const heroSlides = defaultHeroSlides;
+  const heroSlides = hospitalHeroSlides;
 
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroSlides.length);
     }, 6500);
     return () => clearInterval(timer);
-  }, [heroSlides.length]);
+  }, [isPaused, heroSlides.length]);
 
   const prevSlide = () => {
     setCurrent((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
@@ -83,7 +82,11 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
   };
 
   return (
-    <div className="relative w-full h-[640px] sm:h-[720px] lg:h-[780px] overflow-hidden bg-black select-none">
+    <div
+      className="relative w-full h-[580px] sm:h-[680px] lg:h-[750px] overflow-hidden bg-black select-none flex items-center justify-center"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       {/* Slides Carousel */}
       {heroSlides.map((slide, idx) => (
         <div
@@ -92,80 +95,79 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
             idx === current ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
           }`}
         >
-          {/* Background image covering full height */}
-          <div className="relative w-full h-full">
+          {/* Background image: Bright, clear, vivid hospital photos with reduced dark overlay */}
+          <div className="relative w-full h-full bg-neutral-950">
             <Image
               src={slide.bgImage}
               alt={slide.headingLine1}
               fill
               priority={idx === 0}
-              className="object-cover scale-105 transition-transform duration-7000 ease-out"
+              className="object-cover opacity-90 scale-105 transition-transform duration-7000 ease-out"
             />
-            {/* Cinematic dark overlay so hero typography is readable */}
-            <div className="absolute inset-0 bg-black/75" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/85" />
+            {/* Soft, light balanced overlay - Dark blur reduced so images are clearly visible */}
+            <div className="absolute inset-0 bg-black/35" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
           </div>
 
-          {/* Centered Content Stack */}
-          <div className="absolute inset-0 z-20 flex items-center justify-center pt-24 sm:pt-28 pb-12 px-4 sm:px-6 lg:px-8">
+          {/* Centered Content Stack: Clean, rock-solid equal alignment across all slides */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center pt-20 sm:pt-24 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto w-full text-center flex flex-col items-center justify-center">
-              {/* 1. ISO Badge (Small centered text) */}
-              <div className="text-[11px] sm:text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">
-                {slide.isoBadge}
-              </div>
-
-              {/* 2. Logo Emblem / Hindi Branding Graphic */}
-              <div className="relative h-14 sm:h-20 w-60 sm:w-80 mb-4 sm:mb-6 flex items-center justify-center">
+              {/* 1. MP Hospital Devanagari Branding Graphic (Fixed Height) */}
+              <div className="relative h-12 sm:h-14 lg:h-16 w-48 sm:w-60 lg:w-68 mb-2 sm:mb-3 flex items-center justify-center drop-shadow-lg shrink-0">
                 <Image
                   src={slide.hindiLogo}
-                  alt="Brand Emblem"
+                  alt="MP Hospital & Trauma Centre"
                   fill
                   className="object-contain"
                   priority={idx === 0}
                 />
               </div>
 
-              {/* 3. Big Heading (2 Lines, Bold, Centered) */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.12] tracking-tight text-center max-w-3xl mx-auto">
-                <span className="block">{slide.headingLine1}</span>
-                <span className="block mt-1">{slide.headingLine2}</span>
-              </h1>
+              {/* 2. Big High-Impact 2-Line Heading with Equal Fixed Height (Zero Vertical Shift) */}
+              <div className="min-h-[76px] sm:min-h-[110px] lg:min-h-[135px] flex flex-col items-center justify-center w-full shrink-0">
+                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight sm:leading-[1.08] tracking-tight text-center max-w-4xl mx-auto drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
+                  <span className="block">{slide.headingLine1}</span>
+                  <span className="block mt-1 sm:mt-2">{slide.headingLine2}</span>
+                </h1>
+              </div>
 
-              {/* 4. Subtitle Paragraph */}
-              <p className="text-sm sm:text-base lg:text-lg text-gray-300 font-normal leading-relaxed max-w-2xl mx-auto text-center mt-3 sm:mt-4">
-                {slide.description}
-              </p>
+              {/* 3. Clean Subtitle with Equal Fixed Height (Zero Vertical Shift) */}
+              <div className="min-h-[38px] sm:min-h-[44px] flex items-center justify-center w-full mt-2 shrink-0 px-2 sm:px-0">
+                <p className="text-xs sm:text-sm lg:text-base text-white/95 font-medium leading-snug max-w-2xl mx-auto text-center drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
+                  {slide.description}
+                </p>
+              </div>
 
-              {/* 5. Horizontal Pagination Dots (Centered) */}
-              <div className="flex items-center justify-center gap-2 mt-6 mb-6">
+              {/* 4. Horizontal Pagination Dots (Fixed Height) */}
+              <div className="h-6 flex items-center justify-center gap-2 my-3 sm:my-5 shrink-0">
                 {heroSlides.map((_, dotIdx) => (
                   <button
                     key={dotIdx}
                     onClick={() => setCurrent(dotIdx)}
                     className={`transition-all duration-300 rounded-full ${
                       dotIdx === current
-                        ? "w-2.5 h-2.5 bg-white scale-110"
-                        : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                        ? "w-2.5 h-2.5 bg-white scale-110 shadow-sm"
+                        : "w-2 h-2 bg-white/50 hover:bg-white/80"
                     }`}
                     aria-label={`Go to slide ${dotIdx + 1}`}
                   />
                 ))}
               </div>
 
-              {/* 6. Action CTA Buttons (Rounded-md, Centered) */}
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                {/* Yellow Primary Button with rounded-md */}
+              {/* 5. Action CTA Buttons (Responsive Flow & Fixed Sizing) */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 shrink-0 w-full sm:w-auto px-4 sm:px-0">
+                {/* Yellow Primary Button: BOOK APPOINTMENT */}
                 <button
                   onClick={onOpenConsultation}
-                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-md"
+                  className="w-full sm:w-auto inline-flex items-center justify-center h-10 sm:h-12 px-6 sm:px-8 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-xl whitespace-nowrap"
                 >
                   <span>{slide.primaryCta}</span>
                 </button>
 
-                {/* Dark Outline Secondary Button with rounded-md */}
+                {/* Dark Outline Secondary Button: HOSPITAL FACILITIES / OUR SPECIALISTS */}
                 <Link
                   href={slide.secondaryHref}
-                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-transparent hover:bg-white/10 text-white font-bold text-sm uppercase tracking-wider border border-white/60 hover:border-white transition-all duration-200 active:scale-95"
+                  className="w-full sm:w-auto inline-flex items-center justify-center h-10 sm:h-12 px-6 sm:px-8 rounded-md bg-black/60 hover:bg-black/80 text-white font-bold text-xs sm:text-sm uppercase tracking-wider border-2 border-white/80 hover:border-white transition-all duration-200 active:scale-95 shadow-xl whitespace-nowrap"
                 >
                   <span>{slide.secondaryCta}</span>
                 </Link>
@@ -175,22 +177,22 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
         </div>
       ))}
 
-      {/* Prev Chevron Arrow (<) on Left Edge */}
+      {/* Prev Chevron Arrow (<) on Left Edge - Hidden on small mobile to avoid text overlap */}
       <button
         onClick={prevSlide}
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
+        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-white/70 hover:text-white transition-colors cursor-pointer drop-shadow-md"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10 stroke-[1.8]" />
+        <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10 stroke-[1.5]" />
       </button>
 
-      {/* Next Chevron Arrow (>) on Right Edge */}
+      {/* Next Chevron Arrow (>) on Right Edge - Hidden on small mobile to avoid text overlap */}
       <button
         onClick={nextSlide}
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
+        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-white/70 hover:text-white transition-colors cursor-pointer drop-shadow-md"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-8 h-8 sm:w-10 sm:h-10 stroke-[1.8]" />
+        <ChevronRight className="w-8 h-8 sm:w-10 sm:h-10 stroke-[1.5]" />
       </button>
     </div>
   );

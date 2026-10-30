@@ -69,7 +69,7 @@ export default function VideoTestimonials({ onPlayVideo }: VideoTestimonialsProp
                   <p className="text-xs text-gray-400 mt-1">{video.clientName}</p>
                 </div>
                 <div className="mt-4 pt-3 border-t border-neutral-800 flex items-center justify-between text-xs text-[#fff200] font-bold">
-                  <span>Watch Client Story</span>
+                  <span>Watch Patient Story</span>
                   <span className="text-gray-400 font-normal">HD Video</span>
                 </div>
               </div>

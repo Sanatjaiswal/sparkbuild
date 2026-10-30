@@ -10,30 +10,30 @@ export default function TopBar() {
   const siteConfig = data.siteConfig;
 
   return (
-    <div className="bg-[#fff200] text-black text-xs font-semibold h-10 px-4 sm:px-6 lg:px-8 border-b border-black/10 select-none relative z-40 flex items-center">
-      <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-2">
+    <div className="bg-[#fff200] text-black text-xs font-semibold h-10 px-3 sm:px-6 lg:px-8 border-none shadow-none select-none relative z-40 flex items-center">
+      <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-2 overflow-hidden">
         {/* Left Side: Contact Phone & Email */}
-        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6">
+        <div className="flex items-center gap-3 sm:gap-6 shrink-0">
           <a
             href={`tel:${siteConfig.phone1Raw || siteConfig.phone1}`}
-            className="flex items-center gap-1.5 text-black hover:text-black/80 font-bold transition-colors"
+            className="flex items-center gap-1.5 text-black hover:text-black/80 font-bold transition-colors text-xs whitespace-nowrap"
           >
-            <Phone className="w-3.5 h-3.5 fill-black text-black" />
+            <Phone className="w-3.5 h-3.5 fill-black text-black shrink-0" />
             <span>{siteConfig.phone1}</span>
           </a>
 
           <a
             href={`mailto:${siteConfig.email}`}
-            className="flex items-center gap-1.5 text-black hover:text-black/80 font-bold transition-colors"
+            className="hidden md:flex items-center gap-1.5 text-black hover:text-black/80 font-bold transition-colors text-xs whitespace-nowrap"
           >
-            <Mail className="w-3.5 h-3.5 text-black stroke-[2.2]" />
+            <Mail className="w-3.5 h-3.5 text-black stroke-[2.2] shrink-0" />
             <span>{siteConfig.email}</span>
           </a>
         </div>
 
-        {/* Right Side: Follow Us + Circular Social Icons (Matches media_1793375380430_7499a50d.png) */}
-        <div className="flex items-center gap-2.5">
-          <span className="text-black font-extrabold text-xs">Follow Us:</span>
+        {/* Right Side: Follow Us + Circular Social Icons */}
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+          <span className="text-black font-extrabold text-xs hidden sm:inline">Follow Us:</span>
 
           {/* Facebook: Blue Circle */}
           <a

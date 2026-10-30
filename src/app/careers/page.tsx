@@ -36,14 +36,14 @@ export default function CareersPage() {
       setSubmitting(false);
       setAppSubmitted(true);
       try {
-        const apps = JSON.parse(localStorage.getItem("sparkbuild_applications") || "[]");
+        const apps = JSON.parse(localStorage.getItem("mphospital_applications") || "[]");
         apps.push({
           ...appData,
           jobId: activeJob?.id,
           jobTitle: activeJob?.title,
           date: new Date().toISOString(),
         });
-        localStorage.setItem("sparkbuild_applications", JSON.stringify(apps));
+        localStorage.setItem("mphospital_applications", JSON.stringify(apps));
       } catch (err) {
         console.error(err);
       }
@@ -85,22 +85,22 @@ export default function CareersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
               <span className="text-xs font-black uppercase tracking-wider text-amber-600 px-3 py-1 bg-amber-50 rounded-full border border-amber-200">
-                Building With Integrity
+                Healing With Clinical Excellence
               </span>
               <h2 className="text-3xl sm:text-4xl font-black text-black leading-tight">
-                Why Work With Us
+                Why Build Your Healthcare Career With Us
               </h2>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
-                At Sparkbuild, you’re more than a team member — you’re a creator of India’s future infrastructure. We believe in your skills, value your time, and invest in your professional growth every day.
+                At MP Hospital &amp; Trauma Centre (formerly Maxx Hospital), you’re more than an employee — you are a life-saver and care partner. We value your clinical skills, prioritize continuous learning, and foster a culture of medical excellence.
               </p>
 
               <div className="space-y-3 pt-2">
                 {[
-                  "Collaborative, team-first engineering environment",
-                  "Competitive compensation packages and milestone bonuses",
-                  "High-profile licensed projects you’ll be proud of",
-                  "Structured career growth and continuous technical training",
-                  "Respectful and transparent culture top to bottom",
+                  "Collaborative, patient-first multidisciplinary medical team",
+                  "Competitive healthcare compensation and performance bonuses",
+                  "State-of-the-art laminar airflow modular OTs & advanced ICU",
+                  "Continuous medical education (CME) and clinical skill workshops",
+                  "Respectful, transparent, and ethical hospital work environment",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <span className="w-5 h-5 rounded-full bg-[#fff200] text-black flex items-center justify-center shrink-0">
@@ -115,8 +115,8 @@ export default function CareersPage() {
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 aspect-[4/3] bg-neutral-900">
                 <Image
-                  src="/images/Careers-Img-2.png"
-                  alt="Sparkbuild Workplace"
+                  src="/images/medical-team.jpg"
+                  alt="MP Hospital Medical Team"
                   fill
                   className="object-cover"
                 />
@@ -134,10 +134,10 @@ export default function CareersPage() {
               We&apos;re Hiring
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-black tracking-tight">
-              Open Career Positions
+              Open Hospital Positions
             </h2>
             <p className="text-sm text-gray-600">
-              Explore opportunities to lead, design, and supervise infrastructure projects across Jabalpur and Madhya Pradesh.
+              Explore opportunities for doctors, ICU nursing staff, OT technicians, and healthcare professionals in Jabalpur.
             </p>
           </div>
 
@@ -205,15 +205,15 @@ export default function CareersPage() {
           onClick={() => setActiveJob(null)}
         >
           <div
-            className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden border border-neutral-200"
+            className="relative w-full max-w-lg max-h-[92vh] flex flex-col bg-white rounded-3xl shadow-2xl overflow-hidden border border-neutral-200"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-[#111111] px-6 py-5 text-white flex items-center justify-between border-b-4 border-[#fff200]">
+            <div className="bg-[#111111] px-5 sm:px-6 py-4 sm:py-5 text-white flex items-center justify-between border-b-4 border-[#fff200] shrink-0">
               <div>
                 <span className="text-[11px] font-bold text-[#fff200] uppercase">
                   Job Application
                 </span>
-                <h3 className="text-xl font-bold">{activeJob.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold">{activeJob.title}</h3>
               </div>
               <button
                 onClick={() => setActiveJob(null)}
@@ -224,7 +224,7 @@ export default function CareersPage() {
               </button>
             </div>
 
-            <div className="p-6">
+            <div className="p-5 sm:p-6 overflow-y-auto">
               {appSubmitted ? (
                 <div className="text-center py-8 space-y-4">
                   <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
@@ -315,7 +315,7 @@ export default function CareersPage() {
                     </label>
                     <textarea
                       rows={2}
-                      placeholder="Years of experience, key civil projects handled..."
+                      placeholder="Years of experience, hospital/clinical background, specialties..."
                       value={appData.coverNote}
                       onChange={(e) => setAppData({ ...appData, coverNote: e.target.value })}
                       className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff200]"

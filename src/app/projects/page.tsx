@@ -181,7 +181,7 @@ export default function ProjectsPage() {
                       onClick={() => setConsultationOpen(true)}
                       className="px-4 py-1.5 rounded-full bg-neutral-900 text-white text-xs font-bold hover:bg-[#fff200] hover:text-black transition-colors"
                     >
-                      Inquire Similar
+                      Book OPD / Inquire
                     </button>
                   </div>
                 </div>
@@ -194,17 +194,17 @@ export default function ProjectsPage() {
       {/* Bottom CTA */}
       <section className="py-16 bg-neutral-900 text-white text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-4">
-          <h3 className="text-3xl font-black text-white">Have a Project in Mind?</h3>
+          <h3 className="text-3xl font-black text-white">Need Clinical Care or Emergency Admission?</h3>
           <p className="text-sm text-gray-300">
-            From preliminary site surveying to structural drawings and turnkey construction, our team is ready to assist.
+            From joint replacement consultations with Dr. Abhishek Jain to 24x7 accidental polytrauma resuscitation and modular surgery, our medical team is ready to assist you.
           </p>
           <div className="pt-2">
             <button
               onClick={() => setConsultationOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95"
             >
               <Calendar className="w-4 h-4" />
-              <span>Book Free Consultation</span>
+              <span>Book Doctor Consultation</span>
             </button>
           </div>
         </div>

@@ -120,8 +120,8 @@ export const navItems: NavItem[] = [
   { title: "About", href: "/about" },
   { title: "Services", href: "/services" },
   { title: "Our Team", href: "/our-team" },
-  { title: "Projects", href: "/projects" },
-  { title: "Wall of Love", href: "/wall-of-love" },
+  { title: "Facilities", href: "/projects" },
+  { title: "Contact Us", href: "/contact" },
 ];
 
 export const heroSlides: HeroSlide[] = [

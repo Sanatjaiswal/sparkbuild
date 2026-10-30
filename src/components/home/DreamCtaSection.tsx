@@ -14,7 +14,7 @@ export default function DreamCtaSection({ onOpenConsultation }: DreamCtaSectionP
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-[#181818] rounded-3xl p-8 sm:p-14 border border-neutral-800 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
+        <div className="bg-[#181818] rounded-3xl p-6 sm:p-10 lg:p-14 border border-neutral-800 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10">
           <div className="max-w-2xl space-y-4">
             <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
               24x7 Emergency &amp; Trauma Care

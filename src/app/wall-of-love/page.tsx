@@ -85,7 +85,7 @@ export default function WallOfLovePage() {
                 Our Google Rating: 4.95 of 5
               </h2>
               <p className="text-xs sm:text-sm text-gray-600 max-w-xl">
-                Don’t just take our word for it — see what real homeowners, commercial developers, and healthcare administrators are saying about their experience with Sparkbuild.
+                Don’t just take our word for it — see what patients, families, and healthcare professionals are saying about their recovery at MP Hospital &amp; Trauma Centre.
               </p>
             </div>
 
@@ -122,7 +122,7 @@ export default function WallOfLovePage() {
               Verified Video Walkthroughs
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-black">
-              Client Video Walkthroughs &amp; Testimonials
+              Patient Recovery Stories &amp; Testimonials
             </h2>
           </div>
 
@@ -164,10 +164,10 @@ export default function WallOfLovePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
             <span className="text-xs font-black uppercase tracking-wider text-neutral-500">
-              Verified Client Reviews
+              Verified Patient Reviews
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-black">
-              What Homeowners &amp; Developers Share
+              What Patients &amp; Families Share
             </h2>
           </div>
 
@@ -204,17 +204,17 @@ export default function WallOfLovePage() {
       {/* Book Consultation CTA */}
       <section className="py-16 bg-neutral-900 text-white text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-4">
-          <h3 className="text-3xl font-black text-white">Experience The Sparkbuild Difference</h3>
+          <h3 className="text-3xl font-black text-white">Experience Compassionate Healthcare at MP Hospital</h3>
           <p className="text-sm text-gray-300">
-            Join hundreds of satisfied clients across Madhya Pradesh. Schedule your one-on-one session with our civil engineers today.
+            Join thousands of relieved patients across Madhya Pradesh who regained active, pain-free mobility. Book your appointment with Dr. Abhishek Jain today.
           </p>
           <div className="pt-2">
             <button
               onClick={() => setConsultationOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95"
             >
               <Calendar className="w-4 h-4" />
-              <span>Book Your Free Consultation</span>
+              <span>Book Doctor Appointment</span>
             </button>
           </div>
         </div>

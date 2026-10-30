@@ -15,7 +15,7 @@ import PortfolioTabs from "@/components/home/PortfolioTabs";
 import VideoTestimonials from "@/components/home/VideoTestimonials";
 import CertificatesSection from "@/components/home/CertificatesSection";
 import TestimonialSlider from "@/components/home/TestimonialSlider";
-import WhySparkbuild from "@/components/home/WhySparkbuild";
+import WhyHospital from "@/components/home/WhyHospital";
 import FAQSection from "@/components/home/FAQSection";
 import NewsletterSection from "@/components/home/NewsletterSection";
 import ConsultationModal from "@/components/ui/ConsultationModal";
@@ -48,7 +48,7 @@ export default function HomePage() {
       {/* About Section */}
       <AboutSection />
 
-      {/* 4 Cards Section (Matches Sparkbuild Card Design: Pale Yellow BG, Rounded Top Images, White Box With Black Border) */}
+      {/* 4 Specialties Cards Section: Pale Yellow BG, Rounded Top Images, White Box With Black Border */}
       <ServicesGrid onOpenConsultation={() => setConsultationOpen(true)} />
 
       {/* Built to Last CTA Banner */}
@@ -72,7 +72,7 @@ export default function HomePage() {
       <TestimonialSlider />
 
       {/* Why Choose MP Hospital */}
-      <WhySparkbuild />
+      <WhyHospital />
 
       {/* FAQs */}
       <FAQSection />

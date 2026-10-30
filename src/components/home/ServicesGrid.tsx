@@ -1,121 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useCMS } from "@/context/CMSContext";
 
 interface ServicesGridProps {
   onOpenConsultation: () => void;
 }
 
-// Crisp Vector Line-Art Icons matching the Sparkbuild elementor style (media_1793373639480_80fe9356.jpg)
-function ArchitectIcon({ className = "w-12 h-12" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      {/* Helmet */}
-      <path d="M22 26c0-6 4.5-10 10-10s10 4 10 10v2H22v-2z" />
-      <path d="M18 28h28v3H18z" />
-      {/* Head & Neck */}
-      <circle cx="32" cy="24" r="2" />
-      <path d="M28 31v4h8v-4" />
-      {/* Torso */}
-      <path d="M19 46c0-6 6-10 13-10s13 4 13 10v2H19v-2z" />
-      {/* Blueprint / Ruler */}
-      <path d="M12 52h40" />
-      <path d="M15 48l6-6" />
-      <path d="M25 48l6-6" />
-      <path d="M35 48l6-6" />
-      <path d="M45 48l6-6" />
-    </svg>
-  );
-}
 
-function DomesticHouseIcon({ className = "w-12 h-12" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      {/* House outline */}
-      <path d="M32 12L12 28v22a2 2 0 002 2h36a2 2 0 002-2V28L32 12z" />
-      <path d="M24 18v-4h6v1" />
-      {/* Hammer inside */}
-      <path d="M30 33l8-8 4 4-8 8" />
-      <path d="M36 29l-13 13-3-3 13-13" />
-      <path d="M18 41l2 2" />
-    </svg>
-  );
-}
-
-function IndustrialFactoryIcon({ className = "w-12 h-12" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      {/* Tall Building / Factory */}
-      <path d="M12 50V24h18v26" />
-      <path d="M30 50V16h22v34" />
-      {/* Windows */}
-      <rect x="18" y="28" width="6" height="6" />
-      <rect x="18" y="38" width="6" height="6" />
-      <rect x="36" y="22" width="5" height="5" />
-      <rect x="44" y="22" width="5" height="5" />
-      <rect x="36" y="31" width="5" height="5" />
-      <rect x="44" y="31" width="5" height="5" />
-      <rect x="36" y="40" width="5" height="5" />
-      <rect x="44" y="40" width="5" height="5" />
-      {/* Ground line */}
-      <path d="M8 50h48" />
-    </svg>
-  );
-}
-
-function MegaProjectsIcon({ className = "w-12 h-12" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      {/* Building */}
-      <rect x="16" y="28" width="16" height="24" />
-      <path d="M20 34h3v3h-3zM25 34h3v3h-3zM20 42h3v3h-3zM25 42h3v3h-3z" />
-      {/* Tower Crane */}
-      <path d="M38 52V16" />
-      <path d="M38 16l14-6" />
-      <path d="M28 20h24" />
-      <path d="M48 20v10" />
-      <path d="M46 30h4" />
-      {/* Base */}
-      <path d="M10 52h44" />
-    </svg>
-  );
-}
 
 function TraumaEmergencyIcon({ className = "w-12 h-12" }: { className?: string }) {
   return (
@@ -255,115 +149,30 @@ const hospitalCards = [
   },
 ];
 
-// 4 Cards matching Original Sparkbuild Construction from media_1793373639480_80fe9356.jpg
-const sparkbuildCards = [
-  {
-    id: "architectural",
-    title: "Architectural Design & Consulting",
-    image: "/images/Service-Image-1.png",
-    icon: ArchitectIcon,
-    items: [
-      "2D, 3D Design of building",
-      "Structural design",
-      "Detail Project Reports",
-      "Landscap Designing",
-      "Bridge & Highway Designing",
-    ],
-  },
-  {
-    id: "domestic",
-    title: "Domestic & Commercial Construction",
-    image: "/images/Service-Image-2.png",
-    icon: DomesticHouseIcon,
-    items: [
-      "Residential Houses & Bungalow",
-      "Shopping Complex, Malls, Office",
-      "Hospital ,Institutional building",
-      "Hotel, Cafe & Restaurant",
-    ],
-  },
-  {
-    id: "industrial",
-    title: "Industrial Construction & Development",
-    image: "/images/Service-Image-3.png",
-    icon: IndustrialFactoryIcon,
-    items: [
-      "Factory and Industrial plant",
-      "Refrigeration Plant",
-      "Food Processing Plant",
-      "Godown & Ware houses",
-      "Cold Storage Construction",
-    ],
-  },
-  {
-    id: "mega",
-    title: "Mega Projects Development & Promotion",
-    image: "/images/Project-Img-1.png",
-    icon: MegaProjectsIcon,
-    items: [
-      "Township Development & Promo",
-      "Roads Construction",
-      "Bridges, Canal, Culvert",
-      "Multi Story Buildings",
-      "Turnkey construction Projects",
-    ],
-  },
-];
+
 
 export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) {
   const { data } = useCMS();
-  // Allow toggling between Hospital Specialties and Original Sparkbuild Cards
-  const [activeTab, setActiveTab] = useState<"hospital" | "sparkbuild">("hospital");
-
-  const cardsToRender = activeTab === "hospital" ? hospitalCards : sparkbuildCards;
 
   return (
     <section className="py-20 sm:py-24 bg-[#FEFCE8] border-y border-yellow-200/80 relative overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-3">
           <span className="inline-block px-4 py-1.5 rounded-full bg-black text-[#fff200] text-xs font-black uppercase tracking-wider shadow-sm">
             Specialties &amp; Services
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">
-            {activeTab === "hospital"
-              ? "Comprehensive Orthopedic & Trauma Care"
-              : "Core Construction & Engineering Services"}
+            Comprehensive Orthopedic &amp; Trauma Care
           </h2>
           <p className="text-sm sm:text-base text-neutral-700 font-medium">
-            {activeTab === "hospital"
-              ? "MP Hospital & Trauma Centre (Formerly Maxx Hospital) – Led by Dr. Abhishek Jain, offering specialized orthopedics, trauma resuscitation, joint replacement, and sports surgery in Jabalpur."
-              : "End-to-end design, construction, and turnkey engineering solutions delivering unmatched structural durability across Mahakoshal."}
+            MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) – Led by Dr. Abhishek Jain, offering specialized orthopedics, trauma resuscitation, joint replacement, and sports surgery in Jabalpur.
           </p>
-
-          {/* Seamless Dual Tab Switcher */}
-          <div className="pt-3 inline-flex items-center gap-1.5 p-1.5 bg-yellow-200/70 rounded-full border border-yellow-300 shadow-inner">
-            <button
-              onClick={() => setActiveTab("hospital")}
-              className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-200 ${
-                activeTab === "hospital"
-                  ? "bg-black text-[#fff200] shadow-md"
-                  : "text-neutral-800 hover:text-black"
-              }`}
-            >
-              🏥 Hospital Specialties
-            </button>
-            <button
-              onClick={() => setActiveTab("sparkbuild")}
-              className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-200 ${
-                activeTab === "sparkbuild"
-                  ? "bg-black text-[#fff200] shadow-md"
-                  : "text-neutral-800 hover:text-black"
-              }`}
-            >
-              🏗️ Sparkbuild Layout
-            </button>
-          </div>
         </div>
 
-        {/* 4 Cards Grid - 100% Exact match to media_1793373639480_80fe9356.jpg */}
+        {/* 4 Cards Grid - 100% Exact match to original card layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7">
-          {cardsToRender.map((card) => {
+          {hospitalCards.map((card) => {
             const IconComp = card.icon;
             return (
               <div key={card.id} className="flex flex-col relative group">
@@ -380,7 +189,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
                 </div>
 
                 {/* 2. Overlapping White Card with Black 2px Border and Rounded Corners */}
-                <div className="-mt-12 sm:-mt-14 relative z-10 mx-1.5 sm:mx-2 bg-white rounded-[26px] border-[2px] border-black p-6 sm:p-7 shadow-lg group-hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center flex-1 justify-between min-h-[460px]">
+                <div className="-mt-12 sm:-mt-14 relative z-10 mx-1.5 sm:mx-2 bg-white rounded-[26px] border-[2px] border-black p-5 sm:p-7 shadow-lg group-hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center flex-1 justify-between min-h-[440px] sm:min-h-[460px]">
                   {/* Outline Vector Icon */}
                   <div className="w-14 h-14 mb-4 flex items-center justify-center text-black">
                     <IconComp className="w-12 h-12 text-black" />
@@ -411,7 +220,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
                     onClick={onOpenConsultation}
                     className="w-full py-2.5 px-4 rounded-full bg-black text-white hover:bg-[#fff200] hover:text-black font-extrabold text-xs tracking-wider uppercase transition-all duration-200 mt-2 shadow-sm flex items-center justify-center gap-1.5 active:scale-95"
                   >
-                    <span>{activeTab === "hospital" ? "Book Consultation" : "Enquire Project"}</span>
+                    <span>Book Consultation</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>

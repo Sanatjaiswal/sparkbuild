@@ -45,12 +45,12 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
         </div>
 
         {/* Filter Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-10 sm:mb-12">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase transition-all duration-200 ${
+              className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase transition-all duration-200 ${
                 activeTab === tab.id
                   ? "bg-[#fff200] text-black shadow-lg"
                   : "bg-neutral-800 text-gray-300 hover:bg-neutral-700 hover:text-white"
@@ -126,7 +126,7 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
             href="/projects"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95"
           >
-            <span>View All Projects</span>
+            <span>View All Facilities</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

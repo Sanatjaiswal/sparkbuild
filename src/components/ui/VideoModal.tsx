@@ -31,7 +31,7 @@ export default function VideoModal({ youtubeId, onClose }: VideoModalProps) {
         <div className="relative pt-[56.25%] w-full bg-neutral-950">
           <iframe
             src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
-            title="Sparkbuild Client Video"
+            title="MP Hospital Patient Story Video"
             className="absolute inset-0 w-full h-full border-0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

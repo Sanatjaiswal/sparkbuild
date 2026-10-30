@@ -51,16 +51,16 @@ export default function CertificatesSection() {
         </div>
 
         {/* Certificate Display Banner */}
-        <div className="mt-14 bg-white rounded-3xl p-8 border border-neutral-200 shadow-md flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex items-center gap-6">
-            <div className="w-16 h-16 rounded-2xl bg-red-600 text-white flex items-center justify-center font-black text-3xl shadow-lg shrink-0">
+        <div className="mt-14 bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200 shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-red-600 text-white flex items-center justify-center font-black text-2xl sm:text-3xl shadow-lg shrink-0">
               +
             </div>
             <div className="space-y-1">
               <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">
                 Official Healthcare Standards
               </span>
-              <h4 className="text-xl font-bold text-black">
+              <h4 className="text-lg sm:text-xl font-bold text-black">
                 NABH Standards &amp; Trauma Centre Compliance
               </h4>
               <p className="text-xs text-gray-600 max-w-xl">
@@ -69,8 +69,8 @@ export default function CertificatesSection() {
             </div>
           </div>
 
-          <div className="shrink-0 flex items-center gap-3">
-            <div className="px-5 py-2.5 rounded-full bg-neutral-900 text-white font-bold text-xs uppercase tracking-wider">
+          <div className="shrink-0 flex items-center gap-3 w-full sm:w-auto">
+            <div className="w-full sm:w-auto text-center px-5 py-2.5 rounded-full bg-neutral-900 text-white font-bold text-xs uppercase tracking-wider">
               24x7 Care
             </div>
           </div>

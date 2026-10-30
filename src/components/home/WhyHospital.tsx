@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Shield, Users, Compass, HeartHandshake } from "lucide-react";
 import { useCMS } from "@/context/CMSContext";
 
-export default function WhySparkbuild() {
+export default function WhyHospital() {
   const { data } = useCMS();
   const siteConfig = data.siteConfig;
 
@@ -49,9 +49,9 @@ export default function WhySparkbuild() {
             </div>
 
             {/* Quick Stat Cards */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="p-6 rounded-2xl bg-neutral-800/80 border border-neutral-700 text-center space-y-1">
-                <span className="text-3xl sm:text-4xl font-black text-[#fff200]">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="p-4 sm:p-6 rounded-2xl bg-neutral-800/80 border border-neutral-700 text-center space-y-1">
+                <span className="text-2xl sm:text-4xl font-black text-[#fff200]">
                   15,000+
                 </span>
                 <p className="text-xs font-bold uppercase tracking-wider text-gray-300">
@@ -60,8 +60,8 @@ export default function WhySparkbuild() {
                 <p className="text-[11px] text-gray-400">Trusted in Mahakoshal</p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-neutral-800/80 border border-neutral-700 text-center space-y-1">
-                <span className="text-3xl sm:text-4xl font-black text-[#fff200]">
+              <div className="p-4 sm:p-6 rounded-2xl bg-neutral-800/80 border border-neutral-700 text-center space-y-1">
+                <span className="text-2xl sm:text-4xl font-black text-[#fff200]">
                   24x7
                 </span>
                 <p className="text-xs font-bold uppercase tracking-wider text-gray-300">

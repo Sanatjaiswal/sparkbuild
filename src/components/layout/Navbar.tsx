@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, Calendar, Phone } from "lucide-react";
 import { navItems, siteConfig } from "@/data/siteData";
 
 interface NavbarProps {
@@ -37,7 +37,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
         isScrolled
           ? "fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md shadow-2xl py-3 border-b border-neutral-800"
           : isHome
-          ? "-mb-[74px] sm:-mb-[76px] relative z-30 bg-transparent py-4"
+          ? "-mb-[74px] sm:-mb-[76px] relative z-30 bg-transparent py-4 border-none shadow-none"
           : "relative z-30 bg-black py-4 border-b border-neutral-900"
       }`}
     >
@@ -45,30 +45,30 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
         <div className="flex items-center justify-between gap-4">
           {/* Logo on the left */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <div className="relative h-10 w-44 sm:h-11 sm:w-52">
+            <div className="relative h-9 w-40 sm:h-11 sm:w-52">
               <Image
                 src="/images/mp-hospital-logo-white.svg"
                 alt="MP Hospital & Trauma Centre"
                 fill
-                sizes="(max-width: 640px) 176px, 208px"
+                sizes="(max-width: 640px) 160px, 208px"
                 className="object-contain"
                 priority
               />
             </div>
           </Link>
 
-          {/* Desktop Navigation Links: 6 Clean Items */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8 shrink-0">
+          {/* Desktop Navigation Links: 6 Clean Items (Responsive Spacing) */}
+          <div className="hidden lg:flex items-center gap-4 xl:gap-7 2xl:gap-8 shrink-0">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-sm lg:text-[15px] font-semibold transition-colors duration-150 ${
+                  className={`text-xs lg:text-[13px] xl:text-[15px] font-semibold transition-colors duration-150 ${
                     isActive
                       ? "text-[#fff200] font-bold"
-                      : "text-white hover:text-[#fff200]"
+                      : "text-white/90 hover:text-[#fff200]"
                   }`}
                 >
                   {item.title}
@@ -77,14 +77,14 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             })}
           </div>
 
-          {/* Action Button: Yellow with rounded-md */}
+          {/* Right Side in Navbar: Clean Rectangular Button (Matches media_1793384522144_0dd79b8f.png) */}
           <div className="hidden sm:flex items-center shrink-0">
-            <Link
-              href="/appointment-letter"
-              className="inline-flex items-center justify-center h-10 px-6 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-xs sm:text-sm tracking-wide transition-all duration-200 active:scale-95 shadow-sm whitespace-nowrap"
+            <button
+              onClick={onOpenConsultation}
+              className="inline-flex items-center justify-center h-9 sm:h-10 px-5 sm:px-6 lg:px-7 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-md whitespace-nowrap"
             >
-              <span>Get In Touch</span>
-            </Link>
+              <span>Book Appointment</span>
+            </button>
           </div>
 
           {/* Mobile Menu Toggle Button */}
@@ -100,20 +100,41 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Full-Screen Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[60px] z-50 bg-[#111111] text-white flex flex-col p-6 overflow-y-auto border-t border-neutral-800 shadow-2xl animate-in slide-in-from-top duration-300">
-          <div className="flex flex-col gap-2 py-4">
+        <div className="lg:hidden fixed inset-0 z-50 bg-[#111111]/98 backdrop-blur-xl text-white flex flex-col p-6 overflow-y-auto animate-in fade-in duration-200">
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between pb-4 border-b border-neutral-800">
+            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="relative h-9 w-40">
+              <Image
+                src="/images/mp-hospital-logo-white.svg"
+                alt="MP Hospital & Trauma Centre"
+                fill
+                className="object-contain"
+              />
+            </Link>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 rounded-md text-gray-300 hover:text-white hover:bg-neutral-800"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Mobile Navigation Links */}
+          <div className="flex flex-col gap-1 py-6">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`py-3 px-4 text-base font-semibold rounded-md transition-colors ${
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`py-3 px-4 text-base font-semibold rounded-lg transition-colors ${
                     isActive
                       ? "bg-[#fff200] text-black font-bold"
-                      : "text-gray-200 hover:bg-neutral-800"
+                      : "text-gray-200 hover:bg-neutral-800/80 hover:text-white"
                   }`}
                 >
                   {item.title}
@@ -122,14 +143,26 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             })}
           </div>
 
-          <div className="pt-6 border-t border-neutral-800 space-y-4">
-            <Link
-              href="/appointment-letter"
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-md bg-[#fff200] text-black font-extrabold text-sm uppercase tracking-wider"
+          {/* Mobile Menu Footer & Quick Actions */}
+          <div className="mt-auto pt-6 border-t border-neutral-800 space-y-4">
+            <a
+              href={`tel:${siteConfig.phone1Raw || siteConfig.phone1}`}
+              className="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-neutral-900 border border-neutral-700 text-white font-bold text-sm"
             >
-              <span>Get In Touch</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              <Phone className="w-4 h-4 text-[#fff200]" />
+              <span>24x7 Helpline: {siteConfig.phone1}</span>
+            </a>
+
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenConsultation?.();
+              }}
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-lg bg-[#fff200] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>Book Appointment</span>
+            </button>
           </div>
         </div>
       )}

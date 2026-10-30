@@ -103,12 +103,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/projects" className="hover:text-[#fff200] transition-colors">
-                  Projects
+                  Facilities
                 </Link>
               </li>
               <li>
-                <Link href="/wall-of-love" className="hover:text-[#fff200] transition-colors">
-                  Wall of Love
+                <Link href="/contact" className="hover:text-[#fff200] transition-colors">
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -133,12 +133,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/wall-of-love" className="hover:text-[#fff200] transition-colors">
-                  Customer Reviews
+                  Patient Stories &amp; Reviews
                 </Link>
               </li>
               <li>
                 <Link href="/appointment-letter" className="hover:text-[#fff200] transition-colors">
-                  Schedule a Meeting
+                  Book Doctor Appointment
                 </Link>
               </li>
               <li>
@@ -199,9 +199,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 text-center sm:text-left">
           <p>© {new Date().getFullYear()} MP Hospital and Trauma Centre (Formerly Maxx Hospital). All Rights Reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <Link href="/privacy-policy" className="hover:text-gray-300 transition-colors">
               Privacy Policy
             </Link>

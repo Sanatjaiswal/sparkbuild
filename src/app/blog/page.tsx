@@ -145,7 +145,7 @@ export default function BlogPage() {
               </div>
             </div>
 
-            <div className="p-8 overflow-y-auto space-y-4">
+            <div className="p-5 sm:p-8 overflow-y-auto space-y-4">
               <div className="flex items-center gap-4 text-xs text-gray-500 font-semibold">
                 <span>{selectedPost.date}</span>
                 <span>•</span>
@@ -161,9 +161,9 @@ export default function BlogPage() {
               </p>
 
               <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200 mt-6 space-y-2">
-                <h4 className="font-bold text-sm text-black">Need Expert Structural Consulting?</h4>
+                <h4 className="font-bold text-sm text-black">Need Orthopedic or Trauma Consultation?</h4>
                 <p className="text-xs text-gray-600">
-                  Our team of licensed civil engineers and architects in Jabalpur can guide your project from initial design to final execution.
+                  Consult Dr. Abhishek Jain and our senior medical team at MP Hospital &amp; Trauma Centre for personalized bone, joint, or trauma evaluation.
                 </p>
                 <button
                   onClick={() => {
@@ -172,7 +172,7 @@ export default function BlogPage() {
                   }}
                   className="mt-2 px-6 py-2.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-xs uppercase tracking-wider"
                 >
-                  Book Free Consultation
+                  Book Doctor Consultation
                 </button>
               </div>
             </div>
