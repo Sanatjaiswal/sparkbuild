@@ -1,0 +1,1105 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useCMS } from "@/context/CMSContext";
+import MediaLibraryModal from "@/components/admin/MediaLibraryModal";
+import {
+  LayoutDashboard,
+  FileText,
+  Image as ImageIcon,
+  Building,
+  Wrench,
+  Users,
+  MessageSquare,
+  HelpCircle,
+  Settings,
+  Mail,
+  Plus,
+  Trash2,
+  Edit,
+  Save,
+  CheckCircle,
+  ExternalLink,
+  Search,
+  Upload,
+  RefreshCw,
+  Phone,
+  Calendar,
+  AlertCircle,
+  Eye,
+} from "lucide-react";
+import { ProjectItem, BlogPost, TeamMember, ServiceItem } from "@/data/siteData";
+
+export default function WordPressAdmin() {
+  const {
+    data,
+    saveData,
+    updateSiteConfig,
+    updateHeroSlide,
+    updateService,
+    addProject,
+    updateProject,
+    deleteProject,
+    addTeamMember,
+    updateTeamMember,
+    deleteTeamMember,
+    updateVideo,
+    addBlogPost,
+    updateBlogPost,
+    deleteBlogPost,
+    updateFAQ,
+    addFAQ,
+    deleteFAQ,
+    resetToDefaults,
+  } = useCMS();
+
+  // Active Sidebar Section
+  const [activeMenu, setActiveMenu] = useState<
+    "dashboard" | "pages" | "media" | "projects" | "services" | "team" | "testimonials" | "blog" | "faqs" | "settings" | "leads"
+  >("dashboard");
+
+  // Media Library Modal state
+  const [mediaModalOpen, setMediaModalOpen] = useState(false);
+  const [mediaTargetCallback, setMediaTargetCallback] = useState<(url: string) => void>(() => () => {});
+
+  // Notification Toast
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  const showToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
+
+  const openMediaPicker = (callback: (url: string) => void) => {
+    setMediaTargetCallback(() => callback);
+    setMediaModalOpen(true);
+  };
+
+  // Temporary edit states
+  const [editingProject, setEditingProject] = useState<ProjectItem | null>(null);
+  const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
+  const [editingMember, setEditingMember] = useState<{ index: number; member: TeamMember } | null>(null);
+
+  // New Project Modal State
+  const [isAddingProject, setIsAddingProject] = useState(false);
+  const [newProject, setNewProject] = useState<ProjectItem>({
+    id: `project-${Date.now()}`,
+    title: "",
+    category: "domestic",
+    type: "Residential",
+    status: "Completed",
+    specs: "",
+    highlights: ["Completed with ISO standards", "Modern elevation"],
+    image: "/images/Project-Img-1.png",
+  });
+
+  // New Post Modal State
+  const [isAddingPost, setIsAddingPost] = useState(false);
+  const [newPost, setNewPost] = useState<BlogPost>({
+    id: `${Date.now()}`,
+    slug: "",
+    title: "",
+    category: "Construction",
+    date: new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }),
+    author: "Er. Pankaj Sen",
+    image: "/images/Blog-1.png",
+    excerpt: "",
+    content: "",
+  });
+
+  return (
+    <div className="min-h-screen bg-[#f0f0f1] text-[#2c3338] flex flex-col font-sans select-none">
+      {/* WordPress Top Admin Bar */}
+      <header className="bg-[#1d2327] text-white h-8 px-4 flex items-center justify-between z-40 text-xs shrink-0 border-b border-[#2c3338]">
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <span className="w-5 h-5 rounded-full bg-[#2271b1] text-white font-black text-xs flex items-center justify-center">
+              W
+            </span>
+            <span className="font-semibold text-gray-200">
+              {data.siteConfig.name} Construction
+            </span>
+          </div>
+
+          <Link
+            href="/"
+            target="_blank"
+            className="flex items-center gap-1 text-gray-300 hover:text-[#fff200] transition-colors"
+          >
+            <Eye className="w-3.5 h-3.5" />
+            <span>Visit Site</span>
+          </Link>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => {
+              saveData(data);
+              showToast("Changes published live to website!");
+            }}
+            className="bg-[#2271b1] hover:bg-[#135e96] text-white px-3 py-0.5 rounded font-bold text-[11px] flex items-center gap-1 shadow"
+          >
+            <Save className="w-3 h-3" />
+            <span>Publish Changes</span>
+          </button>
+          <span className="text-gray-400">Howdy, <strong>Admin</strong></span>
+        </div>
+      </header>
+
+      {/* Main Admin Wrapper */}
+      <div className="flex flex-1 overflow-hidden">
+        {/* WordPress Left Navigation Sidebar */}
+        <aside className="w-56 bg-[#1d2327] text-[#c3c4c7] flex flex-col shrink-0 overflow-y-auto">
+          <div className="p-4 border-b border-[#2c3338] flex items-center gap-2">
+            <div className="relative w-7 h-7 shrink-0">
+              <Image
+                src="/images/sparkbuild-logo.png"
+                alt="Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <span className="text-xs font-bold text-white tracking-wide">
+              Sparkbuild CMS
+            </span>
+          </div>
+
+          <nav className="py-2 flex-1 text-xs space-y-0.5">
+            {[
+              { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+              { id: "pages", label: "Pages & Hero", icon: FileText },
+              { id: "media", label: "Media Library", icon: ImageIcon },
+              { id: "projects", label: "Projects / Portfolio", icon: Building },
+              { id: "services", label: "Services", icon: Wrench },
+              { id: "team", label: "Our Team", icon: Users },
+              { id: "testimonials", label: "Testimonials & Videos", icon: MessageSquare },
+              { id: "blog", label: "Blog Posts", icon: Edit },
+              { id: "faqs", label: "FAQ's", icon: HelpCircle },
+              { id: "settings", label: "Site Settings", icon: Settings },
+              { id: "leads", label: "Inquiries & Leads", icon: Mail },
+            ].map((menu) => {
+              const Icon = menu.icon;
+              const isActive = activeMenu === menu.id;
+              return (
+                <button
+                  key={menu.id}
+                  onClick={() => setActiveMenu(menu.id as any)}
+                  className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors font-medium ${
+                    isActive
+                      ? "bg-[#2271b1] text-white font-bold"
+                      : "hover:bg-[#13171a] hover:text-[#fff200]"
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span>{menu.label}</span>
+                </button>
+              );
+            })}
+          </nav>
+
+          <div className="p-4 border-t border-[#2c3338] text-[11px] text-gray-500">
+            Next.js WordPress CMS v2.0
+          </div>
+        </aside>
+
+        {/* Admin Content Canvas */}
+        <main className="flex-1 bg-[#f0f0f1] overflow-y-auto p-6 lg:p-8">
+          {/* Toast Notification */}
+          {toastMessage && (
+            <div className="fixed top-12 right-6 z-50 bg-[#1d2327] text-white px-5 py-3 rounded-lg shadow-2xl border-l-4 border-[#fff200] flex items-center gap-3 animate-in fade-in slide-in-from-top-4">
+              <CheckCircle className="w-5 h-5 text-green-400" />
+              <span className="text-sm font-semibold">{toastMessage}</span>
+            </div>
+          )}
+
+          {/* ================= SECTION 1: DASHBOARD ================= */}
+          {activeMenu === "dashboard" && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Dashboard</h1>
+                  <p className="text-xs text-gray-500">Welcome to your Sparkbuild WordPress Administration.</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Link
+                    href="/"
+                    target="_blank"
+                    className="px-4 py-2 bg-white border border-[#c3c4c7] hover:border-black text-xs font-bold text-gray-700 rounded shadow-sm flex items-center gap-1.5"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>View Live Website</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      saveData(data);
+                      showToast("All site data saved successfully!");
+                    }}
+                    className="px-4 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded shadow flex items-center gap-1.5"
+                  >
+                    <Save className="w-3.5 h-3.5" />
+                    <span>Save All</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* WordPress Welcome Box */}
+              <div className="bg-white p-6 rounded-lg border border-[#c3c4c7] shadow-sm space-y-4">
+                <h2 className="text-xl font-bold text-[#1d2327]">
+                  Welcome to Sparkbuild Content Management!
+                </h2>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  We’ve assembled shortcuts to help you change hero slides, edit project images, update text descriptions, and publish blog articles in real-time.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-[#f0f0f1]">
+                  <div>
+                    <h3 className="font-bold text-sm text-[#1d2327] mb-2">Get Started</h3>
+                    <button
+                      onClick={() => setActiveMenu("pages")}
+                      className="px-4 py-2 rounded bg-[#2271b1] text-white font-bold text-xs uppercase"
+                    >
+                      Customize Homepage
+                    </button>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-sm text-[#1d2327] mb-2">Next Steps</h3>
+                    <ul className="space-y-1 text-xs text-[#2271b1]">
+                      <li>
+                        <button onClick={() => setActiveMenu("projects")} className="hover:underline">
+                          • Add or edit portfolio projects ({data.projectsData.length})
+                        </button>
+                      </li>
+                      <li>
+                        <button onClick={() => setActiveMenu("media")} className="hover:underline">
+                          • Browse Media Library
+                        </button>
+                      </li>
+                      <li>
+                        <button onClick={() => setActiveMenu("blog")} className="hover:underline">
+                          • Write a new blog post
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-sm text-[#1d2327] mb-2">More Actions</h3>
+                    <ul className="space-y-1 text-xs text-[#2271b1]">
+                      <li>
+                        <button onClick={() => setActiveMenu("settings")} className="hover:underline">
+                          • Change phone number & office address
+                        </button>
+                      </li>
+                      <li>
+                        <button onClick={() => setActiveMenu("team")} className="hover:underline">
+                          • Update engineers & team bios
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Stats Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm">
+                  <span className="text-xs font-bold text-gray-500 uppercase">Active Projects</span>
+                  <div className="text-3xl font-black text-[#1d2327] mt-1">{data.projectsData.length}</div>
+                </div>
+                <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm">
+                  <span className="text-xs font-bold text-gray-500 uppercase">Core Services</span>
+                  <div className="text-3xl font-black text-[#1d2327] mt-1">{data.servicesData.length}</div>
+                </div>
+                <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm">
+                  <span className="text-xs font-bold text-gray-500 uppercase">Team Members</span>
+                  <div className="text-3xl font-black text-[#1d2327] mt-1">{data.teamMembers.length}</div>
+                </div>
+                <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm">
+                  <span className="text-xs font-bold text-gray-500 uppercase">Published Posts</span>
+                  <div className="text-3xl font-black text-[#1d2327] mt-1">{data.blogPosts.length}</div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ================= SECTION 2: PAGES & HERO SLIDER ================= */}
+          {activeMenu === "pages" && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Pages &amp; Homepage Hero Editor</h1>
+                  <p className="text-xs text-gray-500">Edit titles, numbers, descriptions, and background images of the hero carousel.</p>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                {data.heroSlides.map((slide, idx) => (
+                  <div
+                    key={slide.id}
+                    className="bg-white p-6 rounded-lg border border-[#c3c4c7] shadow-sm space-y-4"
+                  >
+                    <div className="flex items-center justify-between border-b border-[#f0f0f1] pb-3">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#2271b1]">
+                        Hero Slide #{idx + 1}
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                      {/* Image Preview & Change */}
+                      <div className="md:col-span-4 space-y-2">
+                        <div className="relative h-44 rounded-lg overflow-hidden border border-[#c3c4c7] bg-black">
+                          <Image
+                            src={slide.bgImage}
+                            alt={slide.title}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <button
+                          onClick={() =>
+                            openMediaPicker((newUrl) => {
+                              updateHeroSlide(idx, { bgImage: newUrl });
+                              showToast(`Updated Slide #${idx + 1} image!`);
+                            })
+                          }
+                          className="w-full py-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 text-[#2271b1] text-xs font-bold rounded flex items-center justify-center gap-1.5"
+                        >
+                          <ImageIcon className="w-3.5 h-3.5" />
+                          <span>Change Background Image</span>
+                        </button>
+                      </div>
+
+                      {/* Text Fields */}
+                      <div className="md:col-span-8 space-y-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                          <div>
+                            <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                              Highlight Number
+                            </label>
+                            <input
+                              type="text"
+                              value={slide.highlightNumber}
+                              onChange={(e) => updateHeroSlide(idx, { highlightNumber: e.target.value })}
+                              className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                            />
+                          </div>
+                          <div className="sm:col-span-2">
+                            <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                              Headline Title
+                            </label>
+                            <input
+                              type="text"
+                              value={slide.title}
+                              onChange={(e) => updateHeroSlide(idx, { title: e.target.value })}
+                              className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                            Description Subtitle
+                          </label>
+                          <textarea
+                            rows={2}
+                            value={slide.description}
+                            onChange={(e) => updateHeroSlide(idx, { description: e.target.value })}
+                            className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ================= SECTION 3: MEDIA LIBRARY ================= */}
+          {activeMenu === "media" && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Media Library</h1>
+                  <p className="text-xs text-gray-500">Upload new assets and manage all photos used across the website.</p>
+                </div>
+                <button
+                  onClick={() => openMediaPicker(() => {})}
+                  className="px-4 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded shadow flex items-center gap-1.5"
+                >
+                  <Upload className="w-3.5 h-3.5" />
+                  <span>Upload New Media</span>
+                </button>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg border border-[#c3c4c7] shadow-sm">
+                <p className="text-sm text-gray-600 mb-4">
+                  Click the button below to browse all 113+ site images, upload pictures from your computer, or copy their public URLs.
+                </p>
+                <button
+                  onClick={() => openMediaPicker(() => {})}
+                  className="px-6 py-3 rounded bg-[#1d2327] hover:bg-[#2271b1] text-white text-xs font-bold uppercase tracking-wider"
+                >
+                  Open Full WordPress Media Browser
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* ================= SECTION 4: PROJECTS / PORTFOLIO ================= */}
+          {activeMenu === "projects" && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Projects &amp; Portfolio Manager</h1>
+                  <p className="text-xs text-gray-500">Add, edit titles, change photos, and categorize showcase projects.</p>
+                </div>
+                <button
+                  onClick={() => setIsAddingProject(true)}
+                  className="px-4 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded shadow flex items-center gap-1.5"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Add New Project</span>
+                </button>
+              </div>
+
+              {/* Add New Project Modal / Form */}
+              {isAddingProject && (
+                <div className="bg-white p-6 rounded-lg border-2 border-[#2271b1] shadow-md space-y-4 animate-in fade-in">
+                  <div className="flex items-center justify-between border-b pb-2">
+                    <h3 className="font-bold text-base text-[#1d2327]">Add New Project</h3>
+                    <button onClick={() => setIsAddingProject(false)} className="text-gray-400 hover:text-black">
+                      Cancel
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Project Title</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Jabalpur Hospital & Diagnostics"
+                        value={newProject.title}
+                        onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
+                        className="w-full p-2 text-sm border rounded"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Category</label>
+                      <select
+                        value={newProject.category}
+                        onChange={(e) => setNewProject({ ...newProject, category: e.target.value as any })}
+                        className="w-full p-2 text-sm border rounded bg-white"
+                      >
+                        <option value="mega">Mega Projects</option>
+                        <option value="domestic">Domestic Projects</option>
+                        <option value="facade">Facade Designs</option>
+                        <option value="interior">Interior Designs</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Type</label>
+                      <select
+                        value={newProject.type}
+                        onChange={(e) => setNewProject({ ...newProject, type: e.target.value as any })}
+                        className="w-full p-2 text-sm border rounded bg-white"
+                      >
+                        <option value="Residential">Residential</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Healthcare">Healthcare / Hospital</option>
+                        <option value="Mega">Mega</option>
+                        <option value="Institutional">Institutional</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Status</label>
+                      <select
+                        value={newProject.status}
+                        onChange={(e) => setNewProject({ ...newProject, status: e.target.value as any })}
+                        className="w-full p-2 text-sm border rounded bg-white"
+                      >
+                        <option value="Completed">Completed</option>
+                        <option value="Upcoming">Upcoming</option>
+                      </select>
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Specifications &amp; Details</label>
+                      <textarea
+                        rows={2}
+                        placeholder="Square footage, structural features, timeline..."
+                        value={newProject.specs}
+                        onChange={(e) => setNewProject({ ...newProject, specs: e.target.value })}
+                        className="w-full p-2 text-sm border rounded"
+                      />
+                    </div>
+
+                    <div className="md:col-span-2 flex items-center gap-4">
+                      <div className="relative w-20 h-20 rounded border bg-black overflow-hidden shrink-0">
+                        <Image src={newProject.image} alt="Preview" fill className="object-cover" />
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          openMediaPicker((url) => setNewProject({ ...newProject, image: url }))
+                        }
+                        className="px-4 py-2 rounded bg-gray-100 hover:bg-gray-200 border text-xs font-bold text-[#2271b1]"
+                      >
+                        Choose Project Image
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="pt-2 flex justify-end gap-2">
+                    <button
+                      onClick={() => {
+                        if (newProject.title) {
+                          addProject(newProject);
+                          setIsAddingProject(false);
+                          showToast("Project added successfully!");
+                        }
+                      }}
+                      className="px-6 py-2 rounded bg-[#2271b1] text-white text-xs font-bold uppercase"
+                    >
+                      Save &amp; Publish Project
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Projects Table */}
+              <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm overflow-hidden">
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr className="bg-[#f6f7f7] border-b border-[#dcdcde] text-gray-700 uppercase">
+                      <th className="p-3 w-16">Image</th>
+                      <th className="p-3">Title</th>
+                      <th className="p-3">Category</th>
+                      <th className="p-3">Type</th>
+                      <th className="p-3">Status</th>
+                      <th className="p-3 text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-[#f0f0f1]">
+                    {data.projectsData.map((project) => (
+                      <tr key={project.id} className="hover:bg-[#f6f7f7] transition-colors">
+                        <td className="p-3">
+                          <div
+                            onClick={() =>
+                              openMediaPicker((url) => {
+                                updateProject(project.id, { image: url });
+                                showToast("Updated project image!");
+                              })
+                            }
+                            className="relative w-12 h-12 rounded overflow-hidden border cursor-pointer group shrink-0"
+                            title="Click to change image"
+                          >
+                            <Image src={project.image} alt={project.title} fill className="object-cover" />
+                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white">
+                              <ImageIcon className="w-3.5 h-3.5" />
+                            </div>
+                          </div>
+                        </td>
+
+                        <td className="p-3 font-semibold text-gray-900">
+                          {editingProject?.id === project.id ? (
+                            <input
+                              type="text"
+                              value={editingProject.title}
+                              onChange={(e) =>
+                                setEditingProject({ ...editingProject, title: e.target.value })
+                              }
+                              className="p-1 border rounded w-full text-xs"
+                            />
+                          ) : (
+                            <div>
+                              <span className="font-bold text-sm text-[#1d2327]">{project.title}</span>
+                              <p className="text-[11px] text-gray-500 line-clamp-1 mt-0.5">{project.specs}</p>
+                            </div>
+                          )}
+                        </td>
+
+                        <td className="p-3">
+                          <span className="px-2 py-0.5 rounded bg-blue-50 text-[#2271b1] font-bold uppercase text-[10px]">
+                            {project.category}
+                          </span>
+                        </td>
+
+                        <td className="p-3 font-medium text-gray-600">{project.type}</td>
+
+                        <td className="p-3">
+                          <span className="px-2 py-0.5 rounded bg-green-50 text-green-700 font-bold uppercase text-[10px]">
+                            {project.status}
+                          </span>
+                        </td>
+
+                        <td className="p-3 text-right space-x-2">
+                          <button
+                            onClick={() =>
+                              openMediaPicker((url) => {
+                                updateProject(project.id, { image: url });
+                                showToast("Updated image!");
+                              })
+                            }
+                            className="text-[#2271b1] hover:underline text-xs"
+                          >
+                            Change Photo
+                          </button>
+                          <button
+                            onClick={() => {
+                              if (confirm("Are you sure you want to delete this project?")) {
+                                deleteProject(project.id);
+                                showToast("Project deleted.");
+                              }
+                            }}
+                            className="text-red-600 hover:underline text-xs"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* ================= SECTION 5: SERVICES ================= */}
+          {activeMenu === "services" && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Services Manager</h1>
+                  <p className="text-xs text-gray-500">Edit service titles, bullet points, and showcase images.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {data.servicesData.map((svc) => (
+                  <div
+                    key={svc.id}
+                    className="bg-white p-6 rounded-lg border border-[#c3c4c7] shadow-sm space-y-4"
+                  >
+                    <div className="flex items-center justify-between border-b pb-2">
+                      <h3 className="font-bold text-base text-[#1d2327]">{svc.title}</h3>
+                      <button
+                        onClick={() =>
+                          openMediaPicker((newImg) => {
+                            updateService(svc.id, { image: newImg });
+                            showToast("Updated service image!");
+                          })
+                        }
+                        className="text-xs font-bold text-[#2271b1] hover:underline"
+                      >
+                        Change Image
+                      </button>
+                    </div>
+
+                    <div className="relative h-44 rounded-lg overflow-hidden border bg-neutral-900">
+                      <Image src={svc.image} alt={svc.title} fill className="object-cover" />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                        Service Title
+                      </label>
+                      <input
+                        type="text"
+                        value={svc.title}
+                        onChange={(e) => updateService(svc.id, { title: e.target.value })}
+                        className="w-full p-2 text-sm border rounded"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                        Service Items / Offerings (One per line)
+                      </label>
+                      <textarea
+                        rows={4}
+                        value={svc.items.join("\n")}
+                        onChange={(e) =>
+                          updateService(svc.id, { items: e.target.value.split("\n").filter(Boolean) })
+                        }
+                        className="w-full p-2 text-xs border rounded"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ================= SECTION 6: TEAM ================= */}
+          {activeMenu === "team" && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Team &amp; Engineers Manager</h1>
+                  <p className="text-xs text-gray-500">Edit founder info, structural engineers, photos, and roles.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {data.teamMembers.map((member, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm space-y-3 flex flex-col justify-between"
+                  >
+                    <div className="space-y-3">
+                      <div className="relative h-48 rounded-lg overflow-hidden border bg-black">
+                        <Image src={member.image} alt={member.name} fill className="object-cover" />
+                        <button
+                          onClick={() =>
+                            openMediaPicker((url) => {
+                              updateTeamMember(idx, { image: url });
+                              showToast(`Updated photo for ${member.name}!`);
+                            })
+                          }
+                          className="absolute bottom-2 right-2 px-3 py-1 bg-black/80 hover:bg-black text-white text-[11px] font-bold rounded shadow"
+                        >
+                          Change Photo
+                        </button>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-gray-700 uppercase">Full Name</label>
+                        <input
+                          type="text"
+                          value={member.name}
+                          onChange={(e) => updateTeamMember(idx, { name: e.target.value })}
+                          className="w-full p-1.5 text-sm border rounded font-bold"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-gray-700 uppercase">Role / Title</label>
+                        <input
+                          type="text"
+                          value={member.role}
+                          onChange={(e) => updateTeamMember(idx, { role: e.target.value })}
+                          className="w-full p-1.5 text-xs border rounded"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-gray-700 uppercase">Bio / Description</label>
+                        <textarea
+                          rows={3}
+                          value={member.bio}
+                          onChange={(e) => updateTeamMember(idx, { bio: e.target.value })}
+                          className="w-full p-1.5 text-xs border rounded"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ================= SECTION 7: BLOG POSTS ================= */}
+          {activeMenu === "blog" && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Blog / Articles Manager</h1>
+                  <p className="text-xs text-gray-500">Create, edit, and publish new articles.</p>
+                </div>
+                <button
+                  onClick={() => setIsAddingPost(true)}
+                  className="px-4 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded shadow flex items-center gap-1.5"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Write New Post</span>
+                </button>
+              </div>
+
+              {/* Add New Post Editor */}
+              {isAddingPost && (
+                <div className="bg-white p-6 rounded-lg border-2 border-[#2271b1] shadow-lg space-y-4">
+                  <div className="flex items-center justify-between border-b pb-2">
+                    <h3 className="font-bold text-base text-[#1d2327]">New Post Editor</h3>
+                    <button onClick={() => setIsAddingPost(false)} className="text-gray-400 hover:text-black">
+                      Cancel
+                    </button>
+                  </div>
+
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Post Title</label>
+                      <input
+                        type="text"
+                        placeholder="Enter post title here..."
+                        value={newPost.title}
+                        onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
+                        className="w-full p-2.5 text-base font-bold border rounded"
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Category</label>
+                        <input
+                          type="text"
+                          placeholder="Renovation, Engineering, Architecture..."
+                          value={newPost.category}
+                          onChange={(e) => setNewPost({ ...newPost, category: e.target.value })}
+                          className="w-full p-2 text-xs border rounded"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Author</label>
+                        <input
+                          type="text"
+                          value={newPost.author}
+                          onChange={(e) => setNewPost({ ...newPost, author: e.target.value })}
+                          className="w-full p-2 text-xs border rounded"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Short Excerpt</label>
+                      <textarea
+                        rows={2}
+                        placeholder="Brief overview displayed on the blog card..."
+                        value={newPost.excerpt}
+                        onChange={(e) => setNewPost({ ...newPost, excerpt: e.target.value })}
+                        className="w-full p-2 text-xs border rounded"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Post Content</label>
+                      <textarea
+                        rows={6}
+                        placeholder="Full article content..."
+                        value={newPost.content}
+                        onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
+                        className="w-full p-3 text-sm border rounded font-mono"
+                      />
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-24 h-16 rounded border bg-black overflow-hidden shrink-0">
+                        <Image src={newPost.image} alt="Featured" fill className="object-cover" />
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => openMediaPicker((url) => setNewPost({ ...newPost, image: url }))}
+                        className="px-4 py-2 bg-gray-100 hover:bg-gray-200 border rounded text-xs font-bold text-[#2271b1]"
+                      >
+                        Set Featured Image
+                      </button>
+                    </div>
+
+                    <div className="pt-3 border-t flex justify-end gap-2">
+                      <button
+                        onClick={() => {
+                          if (newPost.title) {
+                            addBlogPost(newPost);
+                            setIsAddingPost(false);
+                            showToast("Article published!");
+                          }
+                        }}
+                        className="px-6 py-2 rounded bg-[#2271b1] text-white text-xs font-bold uppercase shadow"
+                      >
+                        Publish Post
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Posts List */}
+              <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm divide-y">
+                {data.blogPosts.map((post) => (
+                  <div key={post.id} className="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-16 h-12 rounded overflow-hidden border shrink-0 bg-neutral-900">
+                        <Image src={post.image} alt={post.title} fill className="object-cover" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-sm text-[#1d2327]">{post.title}</h4>
+                        <p className="text-xs text-gray-500">
+                          {post.category} • {post.date} • By {post.author}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={() =>
+                          openMediaPicker((url) => {
+                            updateBlogPost(post.id, { image: url });
+                            showToast("Updated featured image!");
+                          })
+                        }
+                        className="text-xs text-[#2271b1] hover:underline"
+                      >
+                        Change Photo
+                      </button>
+                      <button
+                        onClick={() => {
+                          if (confirm("Delete article?")) {
+                            deleteBlogPost(post.id);
+                            showToast("Article deleted.");
+                          }
+                        }}
+                        className="text-xs text-red-600 hover:underline"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ================= SECTION 8: SITE SETTINGS ================= */}
+          {activeMenu === "settings" && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">General Site Settings</h1>
+                  <p className="text-xs text-gray-500">Update company phone numbers, address, and email across all pages.</p>
+                </div>
+                <button
+                  onClick={() => {
+                    saveData(data);
+                    showToast("Settings saved!");
+                  }}
+                  className="px-6 py-2 rounded bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold uppercase shadow"
+                >
+                  Save Settings
+                </button>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg border border-[#c3c4c7] shadow-sm space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      Primary Phone
+                    </label>
+                    <input
+                      type="text"
+                      value={data.siteConfig.phone1}
+                      onChange={(e) => updateSiteConfig("phone1", e.target.value)}
+                      className="w-full p-2 text-sm border rounded"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      Secondary Phone
+                    </label>
+                    <input
+                      type="text"
+                      value={data.siteConfig.phone2}
+                      onChange={(e) => updateSiteConfig("phone2", e.target.value)}
+                      className="w-full p-2 text-sm border rounded"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      Official Email
+                    </label>
+                    <input
+                      type="email"
+                      value={data.siteConfig.email}
+                      onChange={(e) => updateSiteConfig("email", e.target.value)}
+                      className="w-full p-2 text-sm border rounded"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      Years of Experience Badge
+                    </label>
+                    <input
+                      type="text"
+                      value={data.siteConfig.stats.yearsExperience}
+                      onChange={(e) =>
+                        updateSiteConfig("stats", {
+                          ...data.siteConfig.stats,
+                          yearsExperience: e.target.value,
+                        })
+                      }
+                      className="w-full p-2 text-sm border rounded"
+                    />
+                  </div>
+
+                  <div className="md:col-span-2">
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      Physical Head Office Address (Jabalpur)
+                    </label>
+                    <textarea
+                      rows={2}
+                      value={data.siteConfig.address}
+                      onChange={(e) => updateSiteConfig("address", e.target.value)}
+                      className="w-full p-2 text-sm border rounded"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ================= SECTION 9: INQUIRIES & LEADS ================= */}
+          {activeMenu === "leads" && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Inquiries &amp; Customer Leads</h1>
+                  <p className="text-xs text-gray-500">Live consultation requests and contact messages from website visitors.</p>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm p-6 space-y-4">
+                <h3 className="font-bold text-base text-[#1d2327]">Free Consultation Submissions</h3>
+                <p className="text-xs text-gray-500">
+                  Leads generated from the bottom consultation bar and booking modal are automatically cataloged here.
+                </p>
+
+                <div className="border rounded divide-y text-xs">
+                  <div className="p-4 bg-gray-50 flex items-center justify-between font-bold text-gray-700">
+                    <span>Client Name &amp; Contact</span>
+                    <span>Project Scope</span>
+                  </div>
+                  <div className="p-4 flex items-center justify-between">
+                    <div>
+                      <p className="font-bold text-sm text-black">Dr. R. K. Agrawal</p>
+                      <p className="text-gray-500">+91 98261 44550 • rk.agrawal@hospital.org</p>
+                    </div>
+                    <span className="px-3 py-1 bg-amber-50 text-amber-800 rounded font-bold">
+                      Hospital &amp; Healthcare Wing
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </main>
+      </div>
+
+      {/* WordPress Media Library Modal */}
+      <MediaLibraryModal
+        isOpen={mediaModalOpen}
+        onClose={() => setMediaModalOpen(false)}
+        onSelectImage={(url) => {
+          mediaTargetCallback(url);
+          saveData(data);
+        }}
+      />
+    </div>
+  );
+}
