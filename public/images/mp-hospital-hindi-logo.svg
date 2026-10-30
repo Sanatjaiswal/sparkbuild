@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="520" height="120">
+  <defs>
+    <!-- Gradient for emblem -->
+    <linearGradient id="emblemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3B30" />
+      <stop offset="100%" stop-color="#B70000" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF200" />
+      <stop offset="100%" stop-color="#FFB300" />
+    </linearGradient>
+    <!-- Glow filter -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g transform="translate(10, 10)">
+    <!-- Red Cross Shield / Flame Emblem -->
+    <g transform="translate(45, 50)">
+      <!-- Outer golden halo ring -->
+      <circle cx="0" cy="0" r="42" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
+      <!-- Dark shield background -->
+      <circle cx="0" cy="0" r="38" fill="#141414" stroke="#FFF200" stroke-width="1.5" />
+      <!-- Medical Red Cross -->
+      <rect x="-8" y="-24" width="16" height="48" rx="4" fill="url(#emblemGrad)" />
+      <rect x="-24" y="-8" width="48" height="16" rx="4" fill="url(#emblemGrad)" />
+      <!-- Golden center star dot -->
+      <circle cx="0" cy="0" r="4" fill="#FFF200" />
+    </g>
+
+    <!-- Main Hindi Name: एम.पी. हॉस्पिटल -->
+    <text x="110" y="58" font-family="'Mukta', 'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="52" font-weight="900" fill="#FFF200" letter-spacing="1">
+      एम.पी. हॉस्पिटल
+    </text>
+
+    <!-- Subtext: ट्रॉमा एवं ऑर्थोपेडिक सेंटर • जबलपुर -->
+    <text x="115" y="90" font-family="'Mukta', 'Noto Sans Devanagari', 'Poppins', sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" letter-spacing="1.5" opacity="0.95">
+      ट्रॉमा एवं ऑर्थोपेडिक सेंटर • जबलपुर
+    </text>
+  </g>
+</svg>

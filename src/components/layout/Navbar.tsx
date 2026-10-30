@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { navItems, siteConfig } from "@/data/siteData";
 
 interface NavbarProps {
@@ -15,7 +15,6 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,42 +31,40 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
 
   return (
     <nav
-      className={`transition-all duration-300 ${
+      className={`w-full bg-black text-white transition-all duration-300 z-50 ${
         isScrolled
-          ? "fixed top-0 left-0 right-0 z-50 bg-[#111111]/95 backdrop-blur-md shadow-2xl py-3 border-b border-neutral-800"
-          : isHome
-          ? "bg-transparent py-4 text-white border-b border-white/10"
-          : "bg-[#111111] py-4 text-white border-b border-neutral-800"
+          ? "fixed top-0 left-0 right-0 bg-black/95 backdrop-blur-md shadow-2xl py-3 border-b border-neutral-800"
+          : "relative py-4 border-b border-neutral-900"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative h-12 w-52 sm:h-14 sm:w-64">
+          {/* Logo on the left */}
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
+            <div className="relative h-11 w-48 sm:h-12 sm:w-60">
               <Image
                 src="/images/mp-hospital-logo-white.svg"
                 alt="MP Hospital & Trauma Centre"
                 fill
-                sizes="(max-width: 640px) 210px, 260px"
+                sizes="(max-width: 640px) 190px, 240px"
                 className="object-contain"
                 priority
               />
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {/* Desktop Navigation Links (Center) */}
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-3 py-2 text-sm font-semibold rounded-md transition-all duration-200 ${
+                  className={`text-sm lg:text-base font-semibold transition-colors duration-150 ${
                     isActive
-                      ? "text-[#fff200] bg-white/10 font-bold"
-                      : "text-white/90 hover:text-[#fff200] hover:bg-white/5"
+                      ? "text-[#fff200] font-bold"
+                      : "text-white hover:text-[#fff200]"
                   }`}
                 >
                   {item.title}
@@ -76,14 +73,13 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             })}
           </div>
 
-          {/* Action Button */}
+          {/* Action Button: Yellow with rounded-md (Matches media_1793375380430_7499a50d.png) */}
           <div className="hidden sm:flex items-center gap-3">
             <Link
               href="/appointment-letter"
-              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm tracking-wide shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95"
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm tracking-wide transition-all duration-200 active:scale-95 shadow-sm"
             >
-              <span>Book Appointment</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>Get In Touch</span>
             </Link>
           </div>
 
@@ -91,7 +87,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none"
+              className="p-2 rounded-md text-white hover:bg-neutral-800 focus:outline-none"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
@@ -110,7 +106,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`py-3 px-4 text-base font-semibold rounded-lg transition-colors ${
+                  className={`py-3 px-4 text-base font-semibold rounded-md transition-colors ${
                     isActive
                       ? "bg-[#fff200] text-black font-bold"
                       : "text-gray-200 hover:bg-neutral-800"
@@ -125,19 +121,11 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
           <div className="pt-6 border-t border-neutral-800 space-y-4">
             <Link
               href="/appointment-letter"
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#fff200] text-black font-extrabold text-sm uppercase tracking-wider"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-md bg-[#fff200] text-black font-extrabold text-sm uppercase tracking-wider"
             >
-              <span>Book Appointment</span>
+              <span>Get In Touch</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
-
-            <a
-              href={`tel:${siteConfig.phone2Raw}`}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-red-600 text-white font-extrabold text-sm uppercase tracking-wider"
-            >
-              <Phone className="w-4 h-4" />
-              <span>24x7 Emergency: {siteConfig.phone2}</span>
-            </a>
           </div>
         </div>
       )}

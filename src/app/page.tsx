@@ -29,14 +29,14 @@ export default function HomePage() {
   const [lightboxData, setLightboxData] = useState<{ src: string; title: string } | null>(null);
 
   return (
-    <main className="min-h-screen flex flex-col bg-white relative">
-      {/* Absolute Transparent Header Over Hero Slider */}
-      <header className="absolute top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/90 via-black/40 to-transparent pointer-events-auto">
-        <TopBar />
-        <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
-      </header>
+    <main className="min-h-screen flex flex-col bg-white">
+      {/* Top Yellow Contact Bar (Matches media_1793375380430_7499a50d.png) */}
+      <TopBar />
 
-      {/* Hero Carousel (starts from y=0) */}
+      {/* Black Navigation Bar (Matches media_1793375380430_7499a50d.png) */}
+      <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
+
+      {/* Hero Carousel (Matches media_1793375380430_7499a50d.png) */}
       <HeroSlider onOpenConsultation={() => setConsultationOpen(true)} />
 
       {/* Trust & Stats Bar */}

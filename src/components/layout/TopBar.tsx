@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { usePathname } from "next/navigation";
 import { Phone, Mail } from "lucide-react";
 import { FacebookIcon, InstagramIcon, YoutubeIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 import { useCMS } from "@/context/CMSContext";
@@ -9,85 +8,75 @@ import { useCMS } from "@/context/CMSContext";
 export default function TopBar() {
   const { data } = useCMS();
   const siteConfig = data.siteConfig;
-  const pathname = usePathname();
-  const isHome = pathname === "/";
 
   return (
-    <div
-      className={`text-xs py-2.5 px-4 transition-colors duration-300 ${
-        isHome
-          ? "bg-transparent text-gray-200 border-b border-white/15"
-          : "bg-neutral-950 text-gray-300 border-b border-neutral-800"
-      }`}
-    >
+    <div className="bg-[#fff200] text-black text-xs font-semibold py-2 px-4 sm:px-6 lg:px-8 border-b border-black/10 select-none">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-        {/* Contact info */}
+        {/* Left Side: Contact Phone & Email */}
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6">
           <a
             href={`tel:${siteConfig.phone1Raw || siteConfig.phone1}`}
-            className="flex items-center gap-1.5 hover:text-[#fff200] transition-colors"
+            className="flex items-center gap-1.5 text-black hover:text-black/80 font-bold transition-colors"
           >
-            <Phone className="w-3.5 h-3.5 text-[#fff200]" />
-            <span className="font-semibold">{siteConfig.phone1}</span>
+            <Phone className="w-3.5 h-3.5 fill-black text-black" />
+            <span>{siteConfig.phone1}</span>
           </a>
-          <span className="hidden md:inline text-white/30">|</span>
-          <a
-            href={`tel:${siteConfig.phone2Raw || siteConfig.phone2}`}
-            className="flex items-center gap-1.5 hover:text-[#fff200] transition-colors"
-          >
-            <span className="px-1.5 py-0.5 rounded bg-red-600 text-white font-black text-[10px] uppercase">
-              24x7 Emergency
-            </span>
-            <span className="font-semibold">{siteConfig.phone2}</span>
-          </a>
-          <span className="hidden md:inline text-white/30">|</span>
+
           <a
             href={`mailto:${siteConfig.email}`}
-            className="hidden lg:flex items-center gap-1.5 hover:text-[#fff200] transition-colors"
+            className="flex items-center gap-1.5 text-black hover:text-black/80 font-bold transition-colors"
           >
-            <Mail className="w-3.5 h-3.5 text-[#fff200]" />
+            <Mail className="w-3.5 h-3.5 text-black stroke-[2.2]" />
             <span>{siteConfig.email}</span>
           </a>
         </div>
 
-        {/* Social Links */}
-        <div className="flex items-center gap-3">
-          <span className="text-gray-300 font-medium hidden sm:inline">Follow Us:</span>
+        {/* Right Side: Follow Us + Circular Social Icons (Matches media_1793375380430_7499a50d.png) */}
+        <div className="flex items-center gap-2.5">
+          <span className="text-black font-extrabold text-xs">Follow Us:</span>
+
+          {/* Facebook: Blue Circle */}
           <a
             href={siteConfig.socials.facebook}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
-            className="p-1 hover:text-[#fff200] transition-colors"
+            className="w-5 h-5 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-xs"
           >
-            <FacebookIcon className="w-3.5 h-3.5" />
+            <FacebookIcon className="w-3 h-3 fill-white text-white" />
           </a>
+
+          {/* Instagram: Dark Circle */}
           <a
             href={siteConfig.socials.instagram}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="p-1 hover:text-[#fff200] transition-colors"
+            className="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center hover:scale-110 transition-transform shadow-xs"
           >
-            <InstagramIcon className="w-3.5 h-3.5" />
+            <InstagramIcon className="w-3 h-3 fill-white text-white" />
           </a>
+
+          {/* YouTube: Red Circle */}
           <a
             href={siteConfig.socials.youtube}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="YouTube"
-            className="p-1 hover:text-[#fff200] transition-colors"
+            className="w-5 h-5 rounded-full bg-[#FF0000] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-xs"
           >
-            <YoutubeIcon className="w-3.5 h-3.5" />
+            <YoutubeIcon className="w-3 h-3 fill-white text-white" />
           </a>
+
+          {/* LinkedIn: Blue Circle */}
           <a
             href={siteConfig.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="p-1 hover:text-[#fff200] transition-colors"
+            className="w-5 h-5 rounded-full bg-[#0A66C2] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-xs"
           >
-            <LinkedinIcon className="w-3.5 h-3.5" />
+            <LinkedinIcon className="w-3 h-3 fill-white text-white" />
           </a>
         </div>
       </div>

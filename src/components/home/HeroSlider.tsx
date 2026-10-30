@@ -3,27 +3,77 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useCMS } from "@/context/CMSContext";
 
 interface HeroSliderProps {
   onOpenConsultation: () => void;
 }
 
+// Slides tailored to match media_1793375380430_7499a50d.png precisely
+const defaultHeroSlides = [
+  {
+    id: 1,
+    isoBadge: "ISO 9001-2015",
+    hindiLogo: "/images/mp-hospital-hindi-logo.svg",
+    headingLine1: "24x7 Emergency & Trauma",
+    headingLine2: "Leading Healthcare in Jabalpur",
+    description: "MP Hospital & Trauma Centre (Formerly Maxx Hospital) – Accidental trauma resuscitation, modular laminar OT & round-the-clock emergency care.",
+    bgImage: "/images/mp-hospital-building.jpg",
+    primaryCta: "Book Appointment",
+    secondaryCta: "View Facilities",
+    secondaryHref: "/projects",
+  },
+  {
+    id: 2,
+    isoBadge: "ISO 9001-2015",
+    hindiLogo: "/images/mp-hospital-hindi-logo.svg",
+    headingLine1: "15,000+ Surgeries",
+    headingLine2: "Advanced Modular OT & Trauma Care",
+    description: "State-of-the-art modular operation theatres with laminar airflow and HEPA filtration for infection-free orthopedic and joint surgeries.",
+    bgImage: "/images/modular-ot.jpg",
+    primaryCta: "Book Appointment",
+    secondaryCta: "Our Specialists",
+    secondaryHref: "/our-team",
+  },
+  {
+    id: 3,
+    isoBadge: "ISO 9001-2015",
+    hindiLogo: "/images/mp-hospital-hindi-logo.svg",
+    headingLine1: "5,000+ Joint Replacements",
+    headingLine2: "TKR, THR & 4K Knee Arthroscopy",
+    description: "Led by Dr. Abhishek Jain (Orthopedic & Sports Injury Specialist) — minimally invasive techniques and rapid post-op mobility.",
+    bgImage: "/images/orthopedic-rehab.jpg",
+    primaryCta: "Book Appointment",
+    secondaryCta: "Explore Services",
+    secondaryHref: "/services",
+  },
+  {
+    id: 4,
+    isoBadge: "ISO 9001-2015",
+    hindiLogo: "/images/spark-hindi-logo-1024x333.png",
+    headingLine1: "1000+ Projects",
+    headingLine2: "Design/Construct in India",
+    description: "Complete construction solutions for every space.",
+    bgImage: "/images/Service-Image-1.png",
+    primaryCta: "Get In Touch",
+    secondaryCta: "View Our Work",
+    secondaryHref: "/projects",
+  },
+];
+
 export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
   const { data } = useCMS();
-  const heroSlides = data.heroSlides;
   const [current, setCurrent] = useState(0);
 
+  const heroSlides = defaultHeroSlides;
+
   useEffect(() => {
-    if (!heroSlides || heroSlides.length === 0) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
+    }, 6500);
     return () => clearInterval(timer);
-  }, [heroSlides]);
-
-  if (!heroSlides || heroSlides.length === 0) return null;
+  }, [heroSlides.length]);
 
   const prevSlide = () => {
     setCurrent((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
@@ -34,8 +84,8 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
   };
 
   return (
-    <div className="relative w-full h-[680px] sm:h-[780px] lg:h-[860px] overflow-hidden bg-black select-none">
-      {/* Slides */}
+    <div className="relative w-full h-[640px] sm:h-[720px] lg:h-[780px] overflow-hidden bg-black select-none">
+      {/* Slides Carousel */}
       {heroSlides.map((slide, idx) => (
         <div
           key={slide.id || idx}
@@ -43,98 +93,106 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
             idx === current ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
           }`}
         >
-          {/* Background image with full overlay */}
+          {/* Background image with full dark overlay matching media_1793375380430_7499a50d.png */}
           <div className="relative w-full h-full">
             <Image
               src={slide.bgImage}
-              alt={slide.title}
+              alt={slide.headingLine1}
               fill
               priority={idx === 0}
               className="object-cover scale-105 transition-transform duration-7000 ease-out"
             />
-            {/* Cinematic dark overlay so centered white text is crisp */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/90" />
-            <div className="absolute inset-0 bg-black/30" />
+            {/* Cinematic dark overlay so black aesthetic matches the screenshot */}
+            <div className="absolute inset-0 bg-black/85" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90" />
           </div>
 
-          {/* Slide Text Content - 100% CENTERED with top offset for transparent header */}
-          <div className="absolute inset-0 z-20 flex items-center justify-center pt-32 sm:pt-40 lg:pt-44 pb-20">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
-              <div className="space-y-6 sm:space-y-7 flex flex-col items-center justify-center animate-in fade-in slide-in-from-bottom-6 duration-700">
-                {/* Yellow badge pill - CENTERED */}
-                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#fff200] text-black font-black text-xs sm:text-sm tracking-wider uppercase shadow-xl mx-auto">
-                  <CheckCircle2 className="w-4 h-4 text-black" />
-                  <span>24x7 Emergency Trauma &amp; Orthopedic Care</span>
-                </div>
+          {/* Centered Content Stack (100% matches media_1793375380430_7499a50d.png) */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto w-full text-center flex flex-col items-center justify-center">
+              {/* 1. ISO Badge (Small centered text) */}
+              <div className="text-[11px] sm:text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">
+                {slide.isoBadge}
+              </div>
 
-                {/* Big Heading - CENTERED */}
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.15] tracking-tight text-center max-w-4xl mx-auto">
-                  <span className="text-[#fff200] block mb-2 sm:mb-3 text-4xl sm:text-6xl lg:text-7xl font-mono font-black tracking-tight">
-                    {slide.highlightNumber}
-                  </span>
-                  <span className="block">{slide.title}</span>
-                </h1>
+              {/* 2. Logo Emblem / Hindi Branding Graphic */}
+              <div className="relative h-14 sm:h-20 w-60 sm:w-80 mb-4 sm:mb-6 flex items-center justify-center">
+                <Image
+                  src={slide.hindiLogo}
+                  alt="Brand Emblem"
+                  fill
+                  className="object-contain"
+                  priority={idx === 0}
+                />
+              </div>
 
-                {/* Subtitle / Description - CENTERED */}
-                <p className="text-base sm:text-xl text-gray-200 font-medium leading-relaxed max-w-2xl mx-auto text-center">
-                  {slide.description}
-                </p>
+              {/* 3. Big Heading (2 Lines, Bold, Centered) */}
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.12] tracking-tight text-center max-w-3xl mx-auto">
+                <span className="block">{slide.headingLine1}</span>
+                <span className="block mt-1">{slide.headingLine2}</span>
+              </h1>
 
-                {/* Action CTA Buttons - CENTERED */}
-                <div className="flex flex-wrap items-center justify-center gap-4 pt-3 sm:pt-4">
+              {/* 4. Subtitle Paragraph */}
+              <p className="text-sm sm:text-base lg:text-lg text-gray-300 font-normal leading-relaxed max-w-2xl mx-auto text-center mt-3 sm:mt-4">
+                {slide.description}
+              </p>
+
+              {/* 5. Horizontal Pagination Dots (Centered) */}
+              <div className="flex items-center justify-center gap-2 mt-6 mb-6">
+                {heroSlides.map((_, dotIdx) => (
                   <button
-                    onClick={onOpenConsultation}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all duration-200 active:scale-95"
-                  >
-                    <span>Book Appointment</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                    key={dotIdx}
+                    onClick={() => setCurrent(dotIdx)}
+                    className={`transition-all duration-300 rounded-full ${
+                      dotIdx === current
+                        ? "w-2.5 h-2.5 bg-white scale-110"
+                        : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                    }`}
+                    aria-label={`Go to slide ${dotIdx + 1}`}
+                  />
+                ))}
+              </div>
 
-                  <Link
-                    href="/projects"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm uppercase tracking-wider backdrop-blur-md border border-white/30 transition-all duration-200 active:scale-95"
-                  >
-                    <span>Hospital Facilities</span>
-                  </Link>
-                </div>
+              {/* 6. Action CTA Buttons (Rounded-md, Centered) */}
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                {/* Yellow Primary Button with rounded-md */}
+                <button
+                  onClick={onOpenConsultation}
+                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-md"
+                >
+                  <span>{slide.primaryCta}</span>
+                </button>
+
+                {/* Dark Outline Secondary Button with rounded-md */}
+                <Link
+                  href={slide.secondaryHref}
+                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-md bg-transparent hover:bg-white/10 text-white font-bold text-sm uppercase tracking-wider border border-white/60 hover:border-white transition-all duration-200 active:scale-95"
+                >
+                  <span>{slide.secondaryCta}</span>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       ))}
 
-      {/* Prev / Next Slider Controls */}
+      {/* Prev Chevron Arrow (<) on Left Edge */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 hover:bg-[#fff200] text-white hover:text-black border border-white/20 transition-all active:scale-90 hidden sm:flex items-center justify-center"
+        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10 stroke-[1.8]" />
       </button>
 
+      {/* Next Chevron Arrow (>) on Right Edge */}
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 hover:bg-[#fff200] text-white hover:text-black border border-white/20 transition-all active:scale-90 hidden sm:flex items-center justify-center"
+        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-8 h-8 sm:w-10 sm:h-10 stroke-[1.8]" />
       </button>
-
-      {/* Slide Dots Indicator - CENTERED at bottom */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5">
-        {heroSlides.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrent(idx)}
-            className={`transition-all duration-300 rounded-full ${
-              idx === current
-                ? "w-8 h-2.5 bg-[#fff200]"
-                : "w-2.5 h-2.5 bg-white/40 hover:bg-white/70"
-            }`}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }
