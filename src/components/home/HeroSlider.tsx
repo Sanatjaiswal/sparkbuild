@@ -10,7 +10,7 @@ interface HeroSliderProps {
   onOpenConsultation: () => void;
 }
 
-// Slides tailored to match media_1793375380430_7499a50d.png precisely
+// Slides tailored to match media_1793375927977_47bc6de4.png with ghost watermark text
 const defaultHeroSlides = [
   {
     id: 1,
@@ -20,6 +20,7 @@ const defaultHeroSlides = [
     headingLine2: "Leading Healthcare in Jabalpur",
     description: "MP Hospital & Trauma Centre (Formerly Maxx Hospital) – Accidental trauma resuscitation, modular laminar OT & round-the-clock emergency care.",
     bgImage: "/images/mp-hospital-building.jpg",
+    ghostText: "DEDICATED TO ADVANCED HEALTHCARE • MP HOSPITAL & TRAUMA CENTRE",
     primaryCta: "Book Appointment",
     secondaryCta: "View Facilities",
     secondaryHref: "/projects",
@@ -32,6 +33,7 @@ const defaultHeroSlides = [
     headingLine2: "Advanced Modular OT & Trauma Care",
     description: "State-of-the-art modular operation theatres with laminar airflow and HEPA filtration for infection-free orthopedic and joint surgeries.",
     bgImage: "/images/modular-ot.jpg",
+    ghostText: "DEDICATED TO ADVANCED HEALTHCARE • MP HOSPITAL & TRAUMA CENTRE",
     primaryCta: "Book Appointment",
     secondaryCta: "Our Specialists",
     secondaryHref: "/our-team",
@@ -44,6 +46,7 @@ const defaultHeroSlides = [
     headingLine2: "TKR, THR & 4K Knee Arthroscopy",
     description: "Led by Dr. Abhishek Jain (Orthopedic & Sports Injury Specialist) — minimally invasive techniques and rapid post-op mobility.",
     bgImage: "/images/orthopedic-rehab.jpg",
+    ghostText: "DEDICATED TO ADVANCED HEALTHCARE • MP HOSPITAL & TRAUMA CENTRE",
     primaryCta: "Book Appointment",
     secondaryCta: "Explore Services",
     secondaryHref: "/services",
@@ -56,6 +59,7 @@ const defaultHeroSlides = [
     headingLine2: "Design/Construct in India",
     description: "Complete construction solutions for every space.",
     bgImage: "/images/Service-Image-1.png",
+    ghostText: "DEDICATED TO THE TEAM SPARKBUILD • CONSTRUCT YOUR DREAM",
     primaryCta: "Get In Touch",
     secondaryCta: "View Our Work",
     secondaryHref: "/projects",
@@ -84,7 +88,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
   };
 
   return (
-    <div className="relative w-full h-[640px] sm:h-[720px] lg:h-[780px] overflow-hidden bg-black select-none">
+    <div className="relative w-full h-[680px] sm:h-[760px] lg:h-[820px] overflow-hidden bg-black select-none">
       {/* Slides Carousel */}
       {heroSlides.map((slide, idx) => (
         <div
@@ -93,7 +97,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
             idx === current ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
           }`}
         >
-          {/* Background image with full dark overlay matching media_1793375380430_7499a50d.png */}
+          {/* Background image covering full height (starts at y=0 behind the overlaid navbar) */}
           <div className="relative w-full h-full">
             <Image
               src={slide.bgImage}
@@ -102,13 +106,20 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
               priority={idx === 0}
               className="object-cover scale-105 transition-transform duration-7000 ease-out"
             />
-            {/* Cinematic dark overlay so black aesthetic matches the screenshot */}
-            <div className="absolute inset-0 bg-black/85" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90" />
+            {/* Translucent overlay gradients so background photo shows through navbar */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black/85" />
+            <div className="absolute inset-0 bg-black/30" />
           </div>
 
-          {/* Centered Content Stack (100% matches media_1793375380430_7499a50d.png) */}
-          <div className="absolute inset-0 z-20 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+          {/* Top Ghost / Watermark Text visible behind the translucent navbar (Matches media_1793375927977_47bc6de4.png) */}
+          <div className="absolute top-4 sm:top-5 left-0 right-0 z-10 pointer-events-none select-none overflow-hidden whitespace-nowrap opacity-30">
+            <div className="text-lg sm:text-2xl lg:text-3xl font-black text-white/60 tracking-wider uppercase pl-6 sm:pl-10">
+              {slide.ghostText}
+            </div>
+          </div>
+
+          {/* Centered Content Stack with top offset so it sits nicely below the overlaid navbar */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center pt-28 sm:pt-36 lg:pt-40 pb-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto w-full text-center flex flex-col items-center justify-center">
               {/* 1. ISO Badge (Small centered text) */}
               <div className="text-[11px] sm:text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">

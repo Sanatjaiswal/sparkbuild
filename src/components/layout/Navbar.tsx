@@ -15,6 +15,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,10 +32,12 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
 
   return (
     <nav
-      className={`w-full bg-black text-white transition-all duration-300 z-50 ${
+      className={`w-full text-white transition-all duration-300 z-40 ${
         isScrolled
           ? "fixed top-0 left-0 right-0 bg-black/95 backdrop-blur-md shadow-2xl py-3 border-b border-neutral-800"
-          : "relative py-4 border-b border-neutral-900"
+          : isHome
+          ? "absolute top-0 left-0 right-0 bg-black/45 backdrop-blur-[2px] py-4 border-b border-white/15"
+          : "relative bg-black py-4 border-b border-neutral-900"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,7 +76,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             })}
           </div>
 
-          {/* Action Button: Yellow with rounded-md (Matches media_1793375380430_7499a50d.png) */}
+          {/* Action Button: Yellow with rounded-md (Matches media_1793375927977_47bc6de4.png) */}
           <div className="hidden sm:flex items-center gap-3">
             <Link
               href="/appointment-letter"

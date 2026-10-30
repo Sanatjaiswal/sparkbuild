@@ -30,14 +30,17 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen flex flex-col bg-white">
-      {/* Top Yellow Contact Bar (Matches media_1793375380430_7499a50d.png) */}
+      {/* 1. Top Yellow Contact Bar (Solid bright yellow, matches media_1793375927977_47bc6de4.png) */}
       <TopBar />
 
-      {/* Black Navigation Bar (Matches media_1793375380430_7499a50d.png) */}
-      <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
+      {/* 2. Hero Section Container with Overlaid Translucent Navbar */}
+      <div className="relative w-full overflow-hidden">
+        {/* Translucent Navbar Overlaying the top of the Hero Section */}
+        <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
 
-      {/* Hero Carousel (Matches media_1793375380430_7499a50d.png) */}
-      <HeroSlider onOpenConsultation={() => setConsultationOpen(true)} />
+        {/* Hero Carousel (Extends full height from y=0 inside this relative container, behind the navbar) */}
+        <HeroSlider onOpenConsultation={() => setConsultationOpen(true)} />
+      </div>
 
       {/* Trust & Stats Bar */}
       <StatsBanner />
