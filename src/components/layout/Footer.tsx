@@ -146,11 +146,6 @@ export default function Footer() {
                   Contact Us
                 </Link>
               </li>
-              <li>
-                <Link href="/admin" className="text-xs text-neutral-500 hover:text-[#fff200] transition-colors font-bold">
-                  WordPress Admin Panel
-                </Link>
-              </li>
             </ul>
           </div>
 
