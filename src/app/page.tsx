@@ -29,14 +29,14 @@ export default function HomePage() {
   const [lightboxData, setLightboxData] = useState<{ src: string; title: string } | null>(null);
 
   return (
-    <main className="min-h-screen flex flex-col bg-white">
-      {/* Top Contact Bar */}
-      <TopBar />
+    <main className="min-h-screen flex flex-col bg-white relative">
+      {/* Absolute Transparent Header Over Hero Slider */}
+      <header className="absolute top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/90 via-black/40 to-transparent pointer-events-auto">
+        <TopBar />
+        <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
+      </header>
 
-      {/* Main Navigation */}
-      <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
-
-      {/* Hero Carousel */}
+      {/* Hero Carousel (starts from y=0) */}
       <HeroSlider onOpenConsultation={() => setConsultationOpen(true)} />
 
       {/* Trust & Stats Bar */}
@@ -45,33 +45,33 @@ export default function HomePage() {
       {/* Continuous Marquee Banner */}
       <MarqueeTicker />
 
-      {/* About Sparkbuild Section */}
+      {/* About Section */}
       <AboutSection />
 
-      {/* Services Grid */}
+      {/* 4 Cards Section (Matches Sparkbuild Card Design: Pale Yellow BG, Rounded Top Images, White Box With Black Border) */}
       <ServicesGrid onOpenConsultation={() => setConsultationOpen(true)} />
 
       {/* Built to Last CTA Banner */}
       <DreamCtaSection onOpenConsultation={() => setConsultationOpen(true)} />
 
-      {/* 4-Step Work Process */}
+      {/* 4-Step Care Process */}
       <ProcessSection />
 
-      {/* Featured Projects with Tabs */}
+      {/* Featured Hospital Facilities / Infrastructure Tabs */}
       <PortfolioTabs
         onOpenLightbox={(src, title) => setLightboxData({ src, title })}
       />
 
-      {/* Client Video Testimonials */}
+      {/* Client / Patient Video Testimonials */}
       <VideoTestimonials onPlayVideo={(id) => setActiveVideoId(id)} />
 
       {/* Awards & Certificates */}
       <CertificatesSection />
 
-      {/* Written Client Testimonials */}
+      {/* Written Patient Testimonials */}
       <TestimonialSlider />
 
-      {/* Why Sparkbuild / Proven & Trusted */}
+      {/* Why Choose MP Hospital */}
       <WhySparkbuild />
 
       {/* FAQs */}
@@ -98,12 +98,14 @@ export default function HomePage() {
         onClose={() => setActiveVideoId(null)}
       />
 
-      {/* Image Lightbox Preview Modal */}
-      <LightboxModal
-        imageSrc={lightboxData?.src || null}
-        title={lightboxData?.title}
-        onClose={() => setLightboxData(null)}
-      />
+      {/* Lightbox Modal */}
+      {lightboxData && (
+        <LightboxModal
+          imageSrc={lightboxData.src}
+          title={lightboxData.title}
+          onClose={() => setLightboxData(null)}
+        />
+      )}
     </main>
   );
 }

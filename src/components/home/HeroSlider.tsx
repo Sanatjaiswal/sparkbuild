@@ -34,7 +34,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
   };
 
   return (
-    <div className="relative w-full h-[550px] sm:h-[620px] lg:h-[700px] overflow-hidden bg-black select-none">
+    <div className="relative w-full h-[680px] sm:h-[780px] lg:h-[860px] overflow-hidden bg-black select-none">
       {/* Slides */}
       {heroSlides.map((slide, idx) => (
         <div
@@ -43,7 +43,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
             idx === current ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
           }`}
         >
-          {/* Background image with high contrast dark gradient overlay */}
+          {/* Background image with full overlay */}
           <div className="relative w-full h-full">
             <Image
               src={slide.bgImage}
@@ -52,48 +52,49 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
               priority={idx === 0}
               className="object-cover scale-105 transition-transform duration-7000 ease-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/50" />
+            {/* Cinematic dark overlay so centered white text is crisp */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/90" />
             <div className="absolute inset-0 bg-black/30" />
           </div>
 
-          {/* Slide Text Content */}
-          <div className="absolute inset-0 z-20 flex items-center">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-              <div className="max-w-3xl space-y-6 animate-in fade-in slide-in-from-bottom-6 duration-700">
-                {/* Yellow badge pill */}
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#fff200] text-black font-extrabold text-xs tracking-wider uppercase shadow-md">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>ISO Certified & Licensed Construction Partner</span>
+          {/* Slide Text Content - 100% CENTERED with top offset for transparent header */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center pt-32 sm:pt-40 lg:pt-44 pb-20">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+              <div className="space-y-6 sm:space-y-7 flex flex-col items-center justify-center animate-in fade-in slide-in-from-bottom-6 duration-700">
+                {/* Yellow badge pill - CENTERED */}
+                <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#fff200] text-black font-black text-xs sm:text-sm tracking-wider uppercase shadow-xl mx-auto">
+                  <CheckCircle2 className="w-4 h-4 text-black" />
+                  <span>24x7 Emergency Trauma &amp; Orthopedic Care</span>
                 </div>
 
-                {/* Big Heading */}
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
-                  <span className="text-[#fff200] block mb-1">
+                {/* Big Heading - CENTERED */}
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.15] tracking-tight text-center max-w-4xl mx-auto">
+                  <span className="text-[#fff200] block mb-2 sm:mb-3 text-4xl sm:text-6xl lg:text-7xl font-mono font-black tracking-tight">
                     {slide.highlightNumber}
                   </span>
-                  <span>{slide.title}</span>
+                  <span className="block">{slide.title}</span>
                 </h1>
 
-                {/* Subtitle / Description */}
-                <p className="text-base sm:text-xl text-gray-200 font-medium leading-relaxed max-w-2xl">
+                {/* Subtitle / Description - CENTERED */}
+                <p className="text-base sm:text-xl text-gray-200 font-medium leading-relaxed max-w-2xl mx-auto text-center">
                   {slide.description}
                 </p>
 
-                {/* Action CTA Buttons */}
-                <div className="flex flex-wrap items-center gap-4 pt-3">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95"
+                {/* Action CTA Buttons - CENTERED */}
+                <div className="flex flex-wrap items-center justify-center gap-4 pt-3 sm:pt-4">
+                  <button
+                    onClick={onOpenConsultation}
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all duration-200 active:scale-95"
                   >
-                    <span>Contact Us</span>
+                    <span>Book Appointment</span>
                     <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </button>
 
                   <Link
                     href="/projects"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm uppercase tracking-wider backdrop-blur-sm border border-white/30 transition-all duration-200 active:scale-95"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm uppercase tracking-wider backdrop-blur-md border border-white/30 transition-all duration-200 active:scale-95"
                   >
-                    <span>View Our Work</span>
+                    <span>Hospital Facilities</span>
                   </Link>
                 </div>
               </div>
@@ -105,21 +106,22 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
       {/* Prev / Next Slider Controls */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-full bg-black/40 hover:bg-[#fff200] text-white hover:text-black border border-white/20 transition-all active:scale-90"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 hover:bg-[#fff200] text-white hover:text-black border border-white/20 transition-all active:scale-90 hidden sm:flex items-center justify-center"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
+
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-full bg-black/40 hover:bg-[#fff200] text-white hover:text-black border border-white/20 transition-all active:scale-90"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 hover:bg-[#fff200] text-white hover:text-black border border-white/20 transition-all active:scale-90 hidden sm:flex items-center justify-center"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
 
-      {/* Slide Indicator Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5">
+      {/* Slide Dots Indicator - CENTERED at bottom */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5">
         {heroSlides.map((_, idx) => (
           <button
             key={idx}
@@ -127,7 +129,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
             className={`transition-all duration-300 rounded-full ${
               idx === current
                 ? "w-8 h-2.5 bg-[#fff200]"
-                : "w-2.5 h-2.5 bg-white/50 hover:bg-white"
+                : "w-2.5 h-2.5 bg-white/40 hover:bg-white/70"
             }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
