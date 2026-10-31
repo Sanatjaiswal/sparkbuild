@@ -211,7 +211,7 @@ export default function Footer() {
       </div>
 
       {/* Signature Medical Emerald Green Bottom Strip */}
-      <div className="bg-[#046F47] text-white pt-5 pb-28 lg:pb-5 px-4 sm:px-6 lg:px-8 border-t border-emerald-800">
+      <div className="bg-[#046F47] text-white py-5 px-4 sm:px-6 lg:px-8 border-t border-emerald-800">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-emerald-100 text-center lg:text-left">
           {/* Left: Copyright */}
           <p className="shrink-0">© {new Date().getFullYear()} MP Hospital and Trauma Centre (Formerly Maxx Hospital), Jabalpur. All Rights Reserved.</p>
