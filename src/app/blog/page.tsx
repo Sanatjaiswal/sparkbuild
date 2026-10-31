@@ -24,24 +24,27 @@ export default function BlogPage() {
       <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
 
       {/* Hero Header */}
-      <section className="bg-neutral-900 text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/70 z-10" />
+      <section className="bg-neutral-900 text-white py-20 sm:py-24 relative overflow-hidden flex items-center justify-center">
+        {/* Soft, balanced light overlay - dark blur reduced so hospital photos are bright & clearly visible */}
+        <div className="absolute inset-0 bg-black/30 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/diagnostic-center.jpg"
             alt="MP Hospital Health Blog"
             fill
-            className="object-cover"
+            priority
+            className="object-cover opacity-95 scale-105"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider shadow-md">
             Health &amp; Clinical Insights
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+          <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
             Bone Health, Trauma &amp; <span className="text-[#fff200]">Active Living</span>
           </h1>
-          <p className="text-base text-gray-300 font-normal">
+          <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
             Welcome to the MP Hospital Blog — expert guidance on knee &amp; hip replacement, accidental trauma recovery, sports injuries, and joint pain prevention from{" "}
             <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-2">
               Dr. Abhishek Jain
