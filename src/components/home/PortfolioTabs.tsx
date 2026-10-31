@@ -81,13 +81,6 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity" />
 
-                {/* Top Badge */}
-                <div className="absolute top-3 left-3 flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-white text-[11px] font-bold uppercase tracking-wider border border-white/20">
-                    {project.type}
-                  </span>
-                </div>
-
                 {/* Hover Expand Icon */}
                 <div className="absolute top-3 right-3 p-2 rounded-full bg-red-600 text-white opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
                   <Maximize2 className="w-4 h-4" />

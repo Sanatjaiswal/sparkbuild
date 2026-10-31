@@ -131,9 +131,6 @@ export default function ProjectsPage() {
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
 
                   <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-white text-[11px] font-bold uppercase tracking-wider border border-white/20">
-                      {project.type}
-                    </span>
                     <span className="px-2.5 py-1 rounded-full bg-[#046F47] text-white text-[10px] font-extrabold uppercase">
                       {project.status}
                     </span>
