@@ -107,13 +107,6 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
 
                 <div className="pt-3 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-700">
                   <span className="font-bold text-[#046F47]">Status: {project.status}</span>
-                  <button
-                    onClick={() => onOpenLightbox(project.image, project.title)}
-                    className="inline-flex items-center gap-1 font-bold text-red-600 hover:text-red-700"
-                  >
-                    <span>View Image</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
                 </div>
               </div>
             </div>
