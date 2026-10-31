@@ -45,13 +45,13 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
         <div className="flex items-center justify-between gap-4">
           {/* Logo on the left */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <div className="relative h-9 w-40 sm:h-11 sm:w-52">
+            <div className="relative h-10 w-44 sm:h-12 sm:w-56">
               <Image
                 src="/images/mp-hospital-logo-white.svg"
                 alt="MP Hospital & Trauma Centre"
                 fill
-                sizes="(max-width: 640px) 160px, 208px"
-                className="object-contain"
+                sizes="(max-width: 640px) 176px, 224px"
+                className="object-contain object-left"
                 priority
               />
             </div>
@@ -105,12 +105,12 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
         <div className="lg:hidden fixed inset-0 z-50 bg-[#111111]/98 backdrop-blur-xl text-white flex flex-col p-6 overflow-y-auto animate-in fade-in duration-200">
           {/* Mobile Menu Header */}
           <div className="flex items-center justify-between pb-4 border-b border-neutral-800">
-            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="relative h-9 w-40">
+            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="relative h-10 w-48">
               <Image
                 src="/images/mp-hospital-logo-white.svg"
                 alt="MP Hospital & Trauma Centre"
                 fill
-                className="object-contain"
+                className="object-contain object-left"
               />
             </Link>
             <button

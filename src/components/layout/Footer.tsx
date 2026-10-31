@@ -22,12 +22,12 @@ export default function Footer() {
           {/* Column 1: Brand & About */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
-              <div className="relative h-14 w-52 bg-white p-2 rounded-lg">
+              <div className="relative h-12 w-52 mb-1">
                 <Image
-                  src="/images/mp-hospital-logo.svg"
+                  src="/images/mp-hospital-logo-white.svg"
                   alt="MP Hospital & Trauma Centre"
                   fill
-                  className="object-contain p-1"
+                  className="object-contain object-left"
                 />
               </div>
             </Link>
