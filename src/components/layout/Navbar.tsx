@@ -134,13 +134,30 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
         mobileMenuOpen &&
         createPortal(
           <div
-            className="fixed inset-0 z-[99999] bg-neutral-950/98 backdrop-blur-2xl text-white flex flex-col h-[100dvh] w-screen overflow-hidden animate-in fade-in duration-200"
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: "100vw",
+              height: "100vh",
+              maxHeight: "100vh",
+              zIndex: 999999,
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "#111111",
+              color: "#ffffff",
+            }}
             role="dialog"
             aria-modal="true"
             aria-label="Mobile Navigation Menu"
           >
             {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-neutral-800 shrink-0 bg-neutral-900/95">
+            <div
+              style={{ flexShrink: 0 }}
+              className="flex items-center justify-between px-5 py-4 border-b border-neutral-800 bg-neutral-900/95"
+            >
               <Link href="/" onClick={() => setMobileMenuOpen(false)} className="relative h-10 w-48">
                 <Image
                   src="/images/mp-hospital-logo-white.svg"
@@ -159,8 +176,16 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
               </button>
             </div>
 
-            {/* Scrollable Content Body */}
-            <div className="flex-1 overflow-y-auto px-5 py-6 space-y-6">
+            {/* Scrollable Content Body with Explicit Flex Bounds */}
+            <div
+              style={{
+                flex: "1 1 0%",
+                minHeight: 0,
+                overflowY: "auto",
+                WebkitOverflowScrolling: "touch",
+              }}
+              className="px-5 py-6 space-y-6 text-white"
+            >
               {/* Navigation Links */}
               <div className="space-y-1.5">
                 <p className="text-[11px] font-extrabold uppercase tracking-widest text-neutral-400 px-3 pb-1">
