@@ -45,12 +45,12 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
         <div className="flex items-center justify-between gap-4">
           {/* Logo on the left */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <div className="relative h-10 w-44 sm:h-12 sm:w-56">
+            <div className="relative h-10 w-44 sm:h-12 sm:w-60 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
               <Image
                 src="/images/mp-hospital-logo-white.svg"
                 alt="MP Hospital & Trauma Centre"
                 fill
-                sizes="(max-width: 640px) 176px, 224px"
+                sizes="(max-width: 640px) 176px, 240px"
                 className="object-contain object-left"
                 priority
               />

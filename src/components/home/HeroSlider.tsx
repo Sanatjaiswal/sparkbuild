@@ -113,7 +113,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
           <div className="absolute inset-0 z-20 flex items-center justify-center pt-20 sm:pt-24 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto w-full text-center flex flex-col items-center justify-center">
               {/* 1. MP Hospital English Branding Graphic (Fixed Height) */}
-              <div className="relative h-11 sm:h-13 lg:h-15 w-52 sm:w-64 lg:w-72 mb-1.5 sm:mb-2 flex items-center justify-center drop-shadow-xl shrink-0">
+              <div className="relative h-12 sm:h-16 lg:h-20 w-60 sm:w-80 lg:w-96 mb-2 sm:mb-3 flex items-center justify-center drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] shrink-0">
                 <Image
                   src={slide.logo}
                   alt="MP Hospital & Trauma Centre"

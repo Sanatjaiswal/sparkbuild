@@ -96,23 +96,6 @@ export default function FloatingConsultation({
         </span>
       </a>
 
-      {/* Desktop Emergency Floating Dial Pill */}
-      <a
-        href={`tel:${siteConfig.phone1Raw || "07612626123"}`}
-        aria-label="24x7 Emergency Line"
-        className="hidden md:flex fixed bottom-6 left-6 z-40 bg-black/90 hover:bg-black text-white border-2 border-red-600 px-4 py-2.5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 items-center gap-2 group backdrop-blur-md"
-      >
-        <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shrink-0" />
-        <PhoneCall className="w-4 h-4 text-red-500 group-hover:rotate-12 transition-transform shrink-0" />
-        <div className="flex flex-col text-left">
-          <span className="text-[10px] font-extrabold uppercase tracking-wider text-red-400 leading-none">
-            24x7 Emergency Trauma
-          </span>
-          <span className="text-xs font-black text-white font-mono leading-tight">
-            0761-2626123
-          </span>
-        </div>
-      </a>
     </>
   );
 }
