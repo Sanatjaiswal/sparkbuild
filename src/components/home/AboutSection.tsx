@@ -74,7 +74,7 @@ export default function AboutSection() {
                 <div className="flex items-center gap-2">
                   <h4 className="text-base font-black text-black">Dr. Abhishek Jain</h4>
                   <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-black text-[#fff200]">
-                    Medical Director &amp; Chief Surgeon
+                    Director &amp; Senior Orthopedic Surgeon
                   </span>
                 </div>
                 <p className="text-xs font-semibold text-neutral-800">

@@ -14,7 +14,7 @@ interface HeroSliderProps {
 const hospitalHeroSlides = [
   {
     id: 1,
-    hindiLogo: "/images/mp-hospital-hindi-logo.svg",
+    logo: "/images/mp-hospital-logo-white.svg",
     headingLine1: "24x7 Emergency &",
     headingLine2: "Trauma Care Centre",
     description: "Premier Orthopedic, Accidental Polytrauma & Emergency Healthcare in Jabalpur",
@@ -25,7 +25,7 @@ const hospitalHeroSlides = [
   },
   {
     id: 2,
-    hindiLogo: "/images/mp-hospital-hindi-logo.svg",
+    logo: "/images/mp-hospital-logo-white.svg",
     headingLine1: "15,000+ Surgeries",
     headingLine2: "Modular OT & Trauma Care",
     description: "Class 10,000 Modular OTs with Laminar Airflow & Sterile HEPA Filtration",
@@ -36,7 +36,7 @@ const hospitalHeroSlides = [
   },
   {
     id: 3,
-    hindiLogo: "/images/mp-hospital-hindi-logo.svg",
+    logo: "/images/mp-hospital-logo-white.svg",
     headingLine1: "5,000+ Joint Replacements",
     headingLine2: "TKR, THR & 4K Arthroscopy",
     description: "Minimally Invasive Joint Care & Rapid Post-Op Rehabilitation by Dr. Abhishek Jain",
@@ -47,7 +47,7 @@ const hospitalHeroSlides = [
   },
   {
     id: 4,
-    hindiLogo: "/images/mp-hospital-hindi-logo.svg",
+    logo: "/images/mp-hospital-logo-white.svg",
     headingLine1: "Critical Care ICU &",
     headingLine2: "24x7 Life Support",
     description: "Multi-Parameter ICU, Digital X-Ray Diagnostics & Cashless Ayushman / TPA Support",
@@ -112,10 +112,10 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
           {/* Centered Content Stack: Clean, rock-solid equal alignment across all slides */}
           <div className="absolute inset-0 z-20 flex items-center justify-center pt-20 sm:pt-24 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto w-full text-center flex flex-col items-center justify-center">
-              {/* 1. MP Hospital Devanagari Branding Graphic (Fixed Height) */}
-              <div className="relative h-12 sm:h-14 lg:h-16 w-48 sm:w-60 lg:w-68 mb-1.5 sm:mb-2 flex items-center justify-center drop-shadow-lg shrink-0">
+              {/* 1. MP Hospital English Branding Graphic (Fixed Height) */}
+              <div className="relative h-11 sm:h-13 lg:h-15 w-52 sm:w-64 lg:w-72 mb-1.5 sm:mb-2 flex items-center justify-center drop-shadow-xl shrink-0">
                 <Image
-                  src={slide.hindiLogo}
+                  src={slide.logo}
                   alt="MP Hospital & Trauma Centre"
                   fill
                   className="object-contain"
@@ -124,9 +124,9 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
               </div>
 
               {/* Prominent Doctor Abhishek Jain Leadership Highlight Badge */}
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-black/80 border border-[#fff200] text-white text-[11px] sm:text-xs font-semibold mb-2 sm:mb-3 backdrop-blur-md shadow-xl shrink-0">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-black/85 border border-[#fff200] text-white text-[11px] sm:text-xs font-semibold mb-2 sm:mb-3 backdrop-blur-md shadow-xl shrink-0">
                 <span className="w-2 h-2 rounded-full bg-[#fff200] animate-pulse"></span>
-                <span className="text-gray-200">Chief Orthopedic Specialist:</span>
+                <span className="text-gray-200">Director:</span>
                 <span className="text-[#fff200] font-black tracking-wide">Dr. Abhishek Jain</span>
               </div>
 

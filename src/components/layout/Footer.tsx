@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, ArrowUp } from "lucide-react";
-import { FacebookIcon, InstagramIcon, YoutubeIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
+import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
 import { useCMS } from "@/context/CMSContext";
 
 export default function Footer() {
@@ -16,7 +16,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#111111] text-gray-300 pt-16 pb-24 md:pb-8 border-t border-neutral-800">
+    <footer className="bg-[#111111] text-gray-300 pt-16 pb-8 border-t border-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-neutral-800">
           {/* Column 1: Brand & About */}
@@ -56,24 +56,6 @@ export default function Footer() {
                 className="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-[#fff200] hover:text-black transition-colors"
               >
                 <InstagramIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={siteConfig.socials.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-[#fff200] hover:text-black transition-colors"
-              >
-                <YoutubeIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={siteConfig.socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-[#fff200] hover:text-black transition-colors"
-              >
-                <LinkedinIcon className="w-4 h-4" />
               </a>
             </div>
           </div>

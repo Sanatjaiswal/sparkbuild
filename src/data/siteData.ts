@@ -369,7 +369,7 @@ export const videoTestimonials: VideoTestimonial[] = [
 export const teamMembers: TeamMember[] = [
   {
     name: "Dr. Abhishek Jain",
-    role: "Medical Director & Chief Orthopedic Surgeon",
+    role: "Director & Senior Orthopedic Surgeon",
     qualification: "MBBS, MS (Orthopaedics), Fellowship in Joint Replacement & Arthroscopy",
     image: "/images/dr-abhishek-jain.jpg",
     bio: "Renowned orthopedic surgeon and trauma specialist in Jabalpur with over a decade of excellence in accidental trauma care, robotic & minimally invasive knee and hip replacements, and complex arthroscopic sports surgeries.",

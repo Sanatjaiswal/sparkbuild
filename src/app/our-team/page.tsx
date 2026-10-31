@@ -18,7 +18,7 @@ export default function OurTeamPage() {
 
   const founder = teamMembers[0] || {
     name: "Dr. Abhishek Jain",
-    role: "Medical Director & Chief Orthopedic Surgeon",
+    role: "Director & Senior Orthopedic Surgeon",
     image: "/images/dr-abhishek-jain.jpg",
     bio: "Renowned orthopedic surgeon and trauma specialist in Jabalpur with over a decade of surgical experience.",
   };

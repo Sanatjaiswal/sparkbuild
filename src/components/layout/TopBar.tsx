@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Phone, Mail } from "lucide-react";
-import { FacebookIcon, InstagramIcon, YoutubeIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
+import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
 import { useCMS } from "@/context/CMSContext";
 
 export default function TopBar() {
@@ -31,19 +31,19 @@ export default function TopBar() {
           </a>
         </div>
 
-        {/* Center Highlight: Dr. Abhishek Jain (Medical Director & Chief Orthopedic Surgeon) */}
+        {/* Center Highlight: Dr. Abhishek Jain (Director) */}
         <div className="hidden lg:flex items-center gap-1.5 text-black text-xs">
-          <span className="text-black/85 font-bold">Chief Orthopedic Surgeon:</span>
+          <span className="text-black/90 font-black uppercase tracking-wider">Director:</span>
           <span className="bg-black text-[#fff200] px-2.5 py-0.5 rounded-full font-black tracking-wide shadow-xs">
             Dr. Abhishek Jain
           </span>
         </div>
 
-        {/* Right Side: Follow Us + Circular Social Icons */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        {/* Right Side: Follow Us + Social Icons (Facebook & Instagram) */}
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           <span className="text-black font-extrabold text-xs hidden sm:inline">Follow Us:</span>
 
-          {/* Facebook: Blue Circle */}
+          {/* Facebook */}
           <a
             href={siteConfig.socials.facebook}
             target="_blank"
@@ -54,37 +54,15 @@ export default function TopBar() {
             <FacebookIcon className="w-3 h-3 fill-white text-white" />
           </a>
 
-          {/* Instagram: Dark Circle */}
+          {/* Instagram */}
           <a
             href={siteConfig.socials.instagram}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center hover:scale-110 transition-transform shadow-xs"
+            className="w-5 h-5 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-xs"
           >
             <InstagramIcon className="w-3 h-3 fill-white text-white" />
-          </a>
-
-          {/* YouTube: Red Circle */}
-          <a
-            href={siteConfig.socials.youtube}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="YouTube"
-            className="w-5 h-5 rounded-full bg-[#FF0000] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-xs"
-          >
-            <YoutubeIcon className="w-3 h-3 fill-white text-white" />
-          </a>
-
-          {/* LinkedIn: Blue Circle */}
-          <a
-            href={siteConfig.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="w-5 h-5 rounded-full bg-[#0A66C2] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-xs"
-          >
-            <LinkedinIcon className="w-3 h-3 fill-white text-white" />
           </a>
         </div>
       </div>

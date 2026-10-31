@@ -147,7 +147,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
           <div className="mt-auto pt-4 border-t border-neutral-800 space-y-3">
             {/* Mobile Doctor Highlight */}
             <div className="p-3 rounded-lg bg-neutral-900 border border-[#fff200]/40 flex items-center justify-between text-xs">
-              <span className="text-gray-300">Chief Orthopedic Specialist:</span>
+              <span className="text-gray-300">Director:</span>
               <span className="text-[#fff200] font-black tracking-wide">Dr. Abhishek Jain</span>
             </div>
 
