@@ -18,7 +18,7 @@ export default function AboutSection() {
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-neutral-100 border border-neutral-200 aspect-[4/3]">
               <Image
-                src="/images/mp-hospital-building.jpg"
+                src="/images/about-hospital-building.jpg"
                 alt="MP Hospital and Trauma Centre Building"
                 fill
                 className="object-cover"
