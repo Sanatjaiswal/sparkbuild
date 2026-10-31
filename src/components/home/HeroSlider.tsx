@@ -123,10 +123,10 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
               </div>
 
               {/* Prominent Doctor Abhishek Jain Leadership Highlight Badge */}
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-black/85 border border-[#fff200] text-white text-[11px] sm:text-xs font-semibold mb-2 sm:mb-3 backdrop-blur-md shadow-xl shrink-0">
-                <span className="w-2 h-2 rounded-full bg-[#fff200] animate-pulse"></span>
-                <span className="text-gray-200">Director:</span>
-                <span className="text-[#fff200] font-black tracking-wide">Dr. Abhishek Jain</span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-neutral-900 border border-emerald-500 shadow-2xl mb-2 sm:mb-3 shrink-0">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                <span className="text-neutral-700 text-xs font-bold uppercase tracking-wider">Director:</span>
+                <span className="text-red-600 font-black text-xs sm:text-sm tracking-wide">Dr. Abhishek Jain</span>
               </div>
 
               {/* 2. Big High-Impact 2-Line Heading with Equal Fixed Height (Zero Vertical Shift) */}
@@ -143,7 +143,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
                   {slide.description.includes("Dr. Abhishek Jain") ? (
                     <>
                       {slide.description.split("Dr. Abhishek Jain")[0]}
-                      <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-2">
+                      <span className="text-white font-black underline decoration-red-500 decoration-2">
                         Dr. Abhishek Jain
                       </span>
                       {slide.description.split("Dr. Abhishek Jain")[1]}
@@ -162,8 +162,8 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
                     onClick={() => setCurrent(dotIdx)}
                     className={`transition-all duration-300 rounded-full ${
                       dotIdx === current
-                        ? "w-2.5 h-2.5 bg-white scale-110 shadow-sm"
-                        : "w-2 h-2 bg-white/50 hover:bg-white/80"
+                        ? "w-3 h-3 bg-red-600 scale-110 shadow-sm"
+                        : "w-2 h-2 bg-white/60 hover:bg-white"
                     }`}
                     aria-label={`Go to slide ${dotIdx + 1}`}
                   />
@@ -172,18 +172,18 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
 
               {/* 5. Action CTA Buttons (Responsive Flow & Fixed Sizing) */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 shrink-0 w-full sm:w-auto px-4 sm:px-0">
-                {/* Yellow Primary Button: BOOK APPOINTMENT */}
+                {/* Emerald Green Primary Button: BOOK APPOINTMENT */}
                 <button
                   onClick={onOpenConsultation}
-                  className="w-full sm:w-auto inline-flex items-center justify-center h-10 sm:h-12 px-6 sm:px-8 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-xl whitespace-nowrap"
+                  className="w-full sm:w-auto inline-flex items-center justify-center h-10 sm:h-12 px-6 sm:px-8 rounded-md bg-[#046F47] hover:bg-[#035939] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-xl whitespace-nowrap cursor-pointer"
                 >
                   <span>{slide.primaryCta}</span>
                 </button>
 
-                {/* Dark Outline Secondary Button: HOSPITAL FACILITIES / OUR SPECIALISTS */}
+                {/* Clean White Outline Secondary Button */}
                 <Link
                   href={slide.secondaryHref}
-                  className="w-full sm:w-auto inline-flex items-center justify-center h-10 sm:h-12 px-6 sm:px-8 rounded-md bg-black/60 hover:bg-black/80 text-white font-bold text-xs sm:text-sm uppercase tracking-wider border-2 border-white/80 hover:border-white transition-all duration-200 active:scale-95 shadow-xl whitespace-nowrap"
+                  className="w-full sm:w-auto inline-flex items-center justify-center h-10 sm:h-12 px-6 sm:px-8 rounded-md bg-black/40 hover:bg-white hover:text-black text-white font-bold text-xs sm:text-sm uppercase tracking-wider border-2 border-white/90 hover:border-white transition-all duration-200 active:scale-95 shadow-xl whitespace-nowrap"
                 >
                   <span>{slide.secondaryCta}</span>
                 </Link>

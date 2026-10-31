@@ -16,24 +16,25 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#111111] text-gray-300 pt-16 pb-8 border-t border-neutral-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-neutral-800">
+    <footer className="bg-white text-neutral-700 border-t-4 border-red-600 select-none">
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Column 1: Brand & About */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
-              <div className="relative h-12 w-52 mb-1">
+              <div className="relative h-12 w-56 mb-2">
                 <Image
-                  src="/images/mp-hospital-logo-white.svg"
+                  src="/images/mp-hospital-nav-logo.png"
                   alt="MP Hospital & Trauma Centre"
                   fill
                   className="object-contain object-left"
                 />
               </div>
             </Link>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-sm text-neutral-600 leading-relaxed font-normal">
               MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) delivers advanced orthopedic, joint replacement, spine surgery, and 24x7 emergency trauma care under the expert direction of{" "}
-              <strong className="text-[#fff200] font-black underline decoration-yellow-400">
+              <strong className="text-[#046F47] font-black underline decoration-red-500">
                 Dr. Abhishek Jain
               </strong>
               .
@@ -44,7 +45,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-[#fff200] hover:text-black transition-colors"
+                className="w-9 h-9 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 flex items-center justify-center hover:bg-red-600 hover:text-white hover:border-red-600 transition-all shadow-xs"
               >
                 <FacebookIcon className="w-4 h-4" />
               </a>
@@ -53,83 +54,88 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-9 h-9 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-[#fff200] hover:text-black transition-colors"
+                className="w-9 h-9 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 flex items-center justify-center hover:bg-red-600 hover:text-white hover:border-red-600 transition-all shadow-xs"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Column 2: Company Menu */}
+          {/* Column 2: Quick Links */}
           <div>
-            <h4 className="text-white font-bold text-base uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-[#fff200] rounded-sm"></span>
-              Company
+            <h4 className="text-neutral-900 font-extrabold text-base uppercase tracking-wider mb-5 flex items-center gap-2">
+              <span className="w-2.5 h-2.5 bg-red-600 rounded-sm"></span>
+              Quick Links
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/" className="hover:text-[#fff200] transition-colors">
+                <Link href="/" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[#fff200] transition-colors">
+                <Link href="/about" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-[#fff200] transition-colors">
-                  Services
+                <Link href="/services" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
+                  Medical Services
                 </Link>
               </li>
               <li>
-                <Link href="/our-team" className="hover:text-[#fff200] transition-colors">
-                  Our Team
+                <Link href="/our-team" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
+                  Doctors &amp; Specialists
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="hover:text-[#fff200] transition-colors">
-                  Facilities
+                <Link href="/projects" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
+                  Hospital Facilities
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#fff200] transition-colors">
+                <Link href="/contact" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
                   Contact Us
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Support Menu */}
+          {/* Column 3: Patient Support */}
           <div>
-            <h4 className="text-white font-bold text-base uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-[#fff200] rounded-sm"></span>
-              Support
+            <h4 className="text-neutral-900 font-extrabold text-base uppercase tracking-wider mb-5 flex items-center gap-2">
+              <span className="w-2.5 h-2.5 bg-[#046F47] rounded-sm"></span>
+              Patient Support
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/blog" className="hover:text-[#fff200] transition-colors">
-                  Blog
+                <Link href="/appointment-letter" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
+                  Book Doctor OPD
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="hover:text-[#fff200] transition-colors">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="/wall-of-love" className="hover:text-[#fff200] transition-colors">
+                <Link href="/wall-of-love" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
                   Patient Stories &amp; Reviews
                 </Link>
               </li>
               <li>
-                <Link href="/appointment-letter" className="hover:text-[#fff200] transition-colors">
-                  Book Doctor Appointment
+                <Link href="/blog" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
+                  Health Blog
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#fff200] transition-colors">
-                  Contact Us
+                <Link href="/careers" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
+                  Careers at MP Hospital
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-condition" className="text-neutral-600 hover:text-red-600 font-medium transition-colors">
+                  Terms &amp; Conditions
                 </Link>
               </li>
             </ul>
@@ -137,65 +143,121 @@ export default function Footer() {
 
           {/* Column 4: Contact Us */}
           <div className="space-y-4">
-            <h4 className="text-white font-bold text-base uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-[#fff200] rounded-sm"></span>
-              Contact Us
+            <h4 className="text-neutral-900 font-extrabold text-base uppercase tracking-wider mb-5 flex items-center gap-2">
+              <span className="w-2.5 h-2.5 bg-red-600 rounded-sm"></span>
+              Emergency &amp; Help
             </h4>
+
+            {/* Phone */}
             <div className="flex items-start gap-3 text-sm">
-              <Phone className="w-4 h-4 text-[#fff200] shrink-0 mt-1" />
+              <div className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                <Phone className="w-4 h-4" />
+              </div>
               <div>
-                <p className="text-xs text-gray-400 font-medium">Call Us</p>
-                <a href={`tel:${siteConfig.phone1Raw || siteConfig.phone1}`} className="block text-white hover:text-[#fff200] font-semibold">
+                <p className="text-xs text-neutral-500 font-bold uppercase tracking-wider">24x7 Emergency Line</p>
+                <a
+                  href={`tel:${siteConfig.phone1Raw || siteConfig.phone1}`}
+                  className="block text-neutral-900 hover:text-red-600 font-extrabold text-sm"
+                >
                   {siteConfig.phone1}
                 </a>
-                <a href={`tel:${siteConfig.phone2Raw || siteConfig.phone2}`} className="block text-white hover:text-[#fff200] font-semibold">
+                <a
+                  href={`tel:${siteConfig.phone2Raw || siteConfig.phone2}`}
+                  className="block text-neutral-700 hover:text-red-600 font-semibold text-xs mt-0.5"
+                >
                   {siteConfig.phone2}
                 </a>
               </div>
             </div>
 
+            {/* Email */}
             <div className="flex items-start gap-3 text-sm">
-              <Mail className="w-4 h-4 text-[#fff200] shrink-0 mt-1" />
+              <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#046F47] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                <Mail className="w-4 h-4" />
+              </div>
               <div>
-                <p className="text-xs text-gray-400 font-medium">Send Email</p>
+                <p className="text-xs text-neutral-500 font-bold uppercase tracking-wider">Email Support</p>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="text-white hover:text-[#fff200] font-medium break-all"
+                  className="text-neutral-900 hover:text-red-600 font-semibold text-xs break-all"
                 >
                   {siteConfig.email}
                 </a>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 text-sm">
-              <MapPin className="w-4 h-4 text-[#fff200] shrink-0 mt-1" />
-              <div>
-                <p className="text-xs text-gray-400 font-medium">Address</p>
-                <p className="text-gray-300 leading-relaxed text-xs">
+            {/* Address / Location Highlighted */}
+            <div className="p-3.5 rounded-2xl bg-gradient-to-br from-red-50/90 via-white to-red-50/50 border border-red-200 shadow-xs flex items-start gap-3 text-sm transition-all hover:border-red-300">
+              <div className="w-8 h-8 rounded-lg bg-red-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                <MapPin className="w-4 h-4 text-white" />
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center justify-between gap-2">
+                  <p className="text-xs text-red-600 font-black uppercase tracking-wider">Hospital Location</p>
+                  <span className="text-[10px] font-bold text-[#046F47] bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Jabalpur, MP</span>
+                </div>
+                <p className="text-neutral-900 leading-relaxed text-xs font-semibold">
                   {siteConfig.address}
                 </p>
+                <a
+                  href="https://maps.google.com/?q=MP+Hospital+and+Trauma+Centre+Beoharbagh+Jabalpur"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] font-extrabold text-red-600 hover:text-red-700 hover:underline pt-0.5"
+                >
+                  <span>Open in Google Maps</span>
+                  <span>→</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} MP Hospital and Trauma Centre (Formerly Maxx Hospital). All Rights Reserved.</p>
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            <Link href="/privacy-policy" className="hover:text-gray-300 transition-colors">
-              Privacy Policy
+      {/* Signature Medical Emerald Green Bottom Strip */}
+      <div className="bg-[#046F47] text-white py-4.5 sm:py-5 px-4 sm:px-6 lg:px-8 border-t border-emerald-800">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-emerald-100 text-center lg:text-left">
+          {/* Left: Copyright */}
+          <p className="shrink-0">© {new Date().getFullYear()} MP Hospital and Trauma Centre (Formerly Maxx Hospital), Jabalpur. All Rights Reserved.</p>
+
+          {/* Center: Legal & Back to Top */}
+          <div className="flex items-center gap-6">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+              Privacy
             </Link>
-            <Link href="/terms-condition" className="hover:text-gray-300 transition-colors">
-              Terms & Condition
+            <Link href="/terms-condition" className="hover:text-white transition-colors">
+              Terms
             </Link>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-[#fff200] hover:underline font-semibold"
+              className="flex items-center gap-1.5 text-white hover:text-red-200 font-bold cursor-pointer transition-colors"
             >
-              <span>Scroll to Top</span>
+              <span>Back to Top</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
+          </div>
+
+          {/* Right End: Tech by Dora IT Zone (White BG Pill + High-Contrast Jet Black Logo) */}
+          <div className="flex items-center justify-center lg:justify-end shrink-0">
+            <a
+              href="https://doraitzone.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 bg-white hover:bg-neutral-50 text-neutral-900 px-4 py-1.5 rounded-full shadow-md border border-white hover:shadow-lg transition-all whitespace-nowrap group"
+              title="Dora IT Zone - Digital Marketing & Technology Solutions, Jabalpur"
+            >
+              <span className="text-[11px] text-neutral-700 font-bold tracking-wide">
+                tech by
+              </span>
+              <div className="relative h-4.5 w-[150px] shrink-0">
+                <Image
+                  src="/images/dora-it-zone-single-line-dark.png"
+                  alt="Dora IT Zone"
+                  fill
+                  className="object-contain group-hover:scale-105 transition-transform"
+                />
+              </div>
+            </a>
           </div>
         </div>
       </div>

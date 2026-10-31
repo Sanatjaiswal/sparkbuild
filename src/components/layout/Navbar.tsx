@@ -75,11 +75,11 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             })}
           </div>
 
-          {/* Right Side in Navbar: Clean Rectangular Button */}
+          {/* Right Side in Navbar: Clean Emerald Green Button */}
           <div className="hidden sm:flex items-center shrink-0">
             <button
               onClick={onOpenConsultation}
-              className="inline-flex items-center justify-center h-10 px-5 sm:px-6 lg:px-7 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-sm whitespace-nowrap border border-yellow-400"
+              className="inline-flex items-center justify-center h-10 px-5 sm:px-6 lg:px-7 rounded-md bg-[#046F47] hover:bg-[#035939] text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-md shadow-emerald-900/20 whitespace-nowrap cursor-pointer"
             >
               <span>Book Appointment</span>
             </button>
@@ -131,7 +131,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`py-3 px-4 text-base font-semibold rounded-lg transition-colors ${
                     isActive
-                      ? "bg-[#fff200] text-black font-bold"
+                      ? "bg-red-600 text-white font-bold"
                       : "text-gray-200 hover:bg-neutral-800/80 hover:text-white"
                   }`}
                 >
@@ -144,16 +144,16 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
           {/* Mobile Menu Footer & Quick Actions */}
           <div className="mt-auto pt-4 border-t border-neutral-800 space-y-3">
             {/* Mobile Doctor Highlight */}
-            <div className="p-3 rounded-lg bg-neutral-900 border border-[#fff200]/40 flex items-center justify-between text-xs">
-              <span className="text-gray-300">Director:</span>
-              <span className="text-[#fff200] font-black tracking-wide">Dr. Abhishek Jain</span>
+            <div className="p-3 rounded-lg bg-emerald-950/80 border border-emerald-500/50 flex items-center justify-between text-xs">
+              <span className="text-emerald-200">Director:</span>
+              <span className="text-white font-black tracking-wide">Dr. Abhishek Jain</span>
             </div>
 
             <a
               href={`tel:${siteConfig.phone1Raw || siteConfig.phone1}`}
               className="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-neutral-900 border border-neutral-700 text-white font-bold text-sm"
             >
-              <Phone className="w-4 h-4 text-[#fff200]" />
+              <Phone className="w-4 h-4 text-emerald-400" />
               <span>24x7 Helpline: {siteConfig.phone1}</span>
             </a>
 
@@ -162,7 +162,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
                 setMobileMenuOpen(false);
                 onOpenConsultation?.();
               }}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-lg bg-[#fff200] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg"
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-lg bg-[#046F47] hover:bg-[#035939] text-white font-extrabold text-sm uppercase tracking-wider shadow-lg cursor-pointer"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Appointment</span>

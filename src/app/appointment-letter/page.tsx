@@ -2,21 +2,21 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { CheckCircle2, Calendar, Phone, Sparkles } from "lucide-react";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingConsultation from "@/components/ui/FloatingConsultation";
-import { CheckCircle2, Calendar, Phone, Mail, User, Building, Clock, ShieldCheck, Sparkles } from "lucide-react";
 
 export default function AppointmentLetterPage() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
-    specialty: "Dr. Abhishek Jain (Orthopedics & Joint Replacement)",
+    cityLocation: "",
+    specialty: "Dr. Abhishek Jain (Orthopedics)",
+    preferredTime: "Morning",
     preferredDate: "",
-    preferredTime: "Morning OPD (10:30 AM - 1:30 PM)",
-    cityLocation: "Jabalpur",
     symptoms: "",
   });
 
@@ -30,44 +30,47 @@ export default function AppointmentLetterPage() {
       setLoading(false);
       setSubmitted(true);
       try {
-        const bookings = JSON.parse(localStorage.getItem("mphospital_appointments") || "[]");
-        bookings.push({ ...formData, dateCreated: new Date().toISOString() });
-        localStorage.setItem("mphospital_appointments", JSON.stringify(bookings));
+        const existing = JSON.parse(localStorage.getItem("mphospital_inquiries") || "[]");
+        existing.push({
+          ...formData,
+          id: Date.now().toString(),
+          date: new Date().toISOString(),
+          type: "OPD Appointment Request",
+        });
+        localStorage.setItem("mphospital_inquiries", JSON.stringify(existing));
       } catch (err) {
         console.error(err);
       }
-    }, 800);
+    }, 700);
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       <TopBar />
-      <Navbar />
+      <Navbar onOpenConsultation={() => {}} />
 
-      {/* Hero Header */}
-      <section className="bg-neutral-900 text-white py-20 sm:py-24 relative overflow-hidden flex items-center justify-center">
-        {/* Soft, balanced light overlay - dark blur reduced so hospital photos are bright & clearly visible */}
-        <div className="absolute inset-0 bg-black/30 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25 z-10" />
+      {/* Hero Banner */}
+      <section className="relative py-20 sm:py-24 bg-neutral-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/dr-abhishek-jain.jpg"
+            src="/images/orthopedic-rehab.jpg"
             alt="Doctor OPD Appointment"
             fill
             priority
-            className="object-cover opacity-95 scale-105"
+            className="object-cover opacity-90 scale-105"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider shadow-md">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider shadow-md">
             OPD &amp; Emergency Booking
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
-            Book Doctor <span className="text-[#fff200]">Appointment</span>
+            Book Doctor <span className="text-red-400">Appointment</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
             Schedule your in-person consultation with{" "}
-            <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-2">
+            <span className="text-white font-black underline decoration-red-500 decoration-2">
               Dr. Abhishek Jain
             </span>{" "}
             (Senior Orthopedic &amp; Trauma Specialist) at MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital).
@@ -82,10 +85,10 @@ export default function AppointmentLetterPage() {
             {/* Left: Why Book at MP Hospital */}
             <div className="lg:col-span-5 space-y-8">
               <div className="space-y-4">
-                <span className="text-xs font-black uppercase tracking-wider text-amber-600 px-3 py-1 bg-amber-50 rounded-full border border-amber-200">
+                <span className="text-xs font-black uppercase tracking-wider text-[#046F47] px-3.5 py-1 bg-emerald-50 rounded-full border border-emerald-200">
                   Why MP Hospital?
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-black leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 leading-tight">
                   Trusted Orthopedic &amp; Trauma Care
                 </h2>
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
@@ -105,12 +108,12 @@ export default function AppointmentLetterPage() {
                     key={idx}
                     className="p-4 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-start gap-3.5"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-black shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[#046F47] shrink-0 mt-0.5" />
                     <span className="text-sm font-semibold text-gray-800">
                       {item.includes("Dr. Abhishek Jain") ? (
                         <>
                           {item.split("Dr. Abhishek Jain")[0]}
-                          <span className="bg-[#fff200] text-black px-2 py-0.5 rounded font-black border border-black/10">
+                          <span className="bg-emerald-50 text-[#046F47] px-2 py-0.5 rounded font-black border border-emerald-200">
                             Dr. Abhishek Jain
                           </span>
                           {item.split("Dr. Abhishek Jain")[1]}
@@ -123,13 +126,13 @@ export default function AppointmentLetterPage() {
                 ))}
               </div>
 
-              <div className="p-6 rounded-3xl bg-neutral-900 text-white space-y-2">
-                <div className="flex items-center gap-2 text-[#fff200]">
-                  <Sparkles className="w-5 h-5" />
+              <div className="p-6 rounded-3xl bg-[#046F47] text-white space-y-2 border-2 border-emerald-600 shadow-md">
+                <div className="flex items-center gap-2 text-red-200">
+                  <Sparkles className="w-5 h-5 text-white" />
                   <span className="text-xs font-black uppercase tracking-wider">Emergency Line</span>
                 </div>
                 <h4 className="text-lg font-bold">24x7 Trauma Casualty Helpline</h4>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-emerald-100">
                   For critical trauma, road accidents, or ambulance dispatch, call 0761-2626123 or +91 76489-98668 immediately.
                 </p>
               </div>
@@ -138,17 +141,17 @@ export default function AppointmentLetterPage() {
             {/* Right: The Booking Form */}
             <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200 shadow-2xl">
               <div className="mb-8">
-                <span className="text-xs font-bold uppercase tracking-wider text-neutral-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#046F47]">
                   Quick Confirmation
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-black">
+                <h3 className="text-2xl sm:text-3xl font-black text-neutral-900">
                   Reserve Your Doctor Consultation
                 </h3>
               </div>
 
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
-                  <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 bg-emerald-100 text-[#046F47] rounded-full flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
                   <h4 className="text-2xl font-bold text-gray-900">Appointment Requested!</h4>
@@ -157,7 +160,7 @@ export default function AppointmentLetterPage() {
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="px-6 py-2.5 bg-black text-white rounded-full font-semibold text-sm hover:bg-[#fff200] hover:text-black transition-colors"
+                    className="px-6 py-2.5 bg-red-600 text-white rounded-full font-semibold text-sm hover:bg-red-700 transition-colors cursor-pointer"
                   >
                     Book Another Appointment
                   </button>
@@ -175,7 +178,7 @@ export default function AppointmentLetterPage() {
                         placeholder="Patient's full name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
                       />
                     </div>
                     <div>
@@ -188,7 +191,7 @@ export default function AppointmentLetterPage() {
                         placeholder="+91 76489 98668"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
                       />
                     </div>
                   </div>
@@ -203,7 +206,7 @@ export default function AppointmentLetterPage() {
                         placeholder="patient@gmail.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
                       />
                     </div>
                     <div>
@@ -216,7 +219,7 @@ export default function AppointmentLetterPage() {
                         placeholder="e.g. Beoharbagh, Jabalpur"
                         value={formData.cityLocation}
                         onChange={(e) => setFormData({ ...formData, cityLocation: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
                       />
                     </div>
                   </div>
@@ -229,14 +232,22 @@ export default function AppointmentLetterPage() {
                       <select
                         value={formData.specialty}
                         onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200] bg-white"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-white"
                       >
-                        <option value="Dr. Abhishek Jain (Orthopedics)">Dr. Abhishek Jain (Orthopedics &amp; Joint Care)</option>
-                        <option value="Total Knee / Hip Replacement">Joint Replacement (Knee / Hip)</option>
-                        <option value="Sports Injury & Arthroscopy">Arthroscopy &amp; Sports Injury</option>
-                        <option value="Emergency Trauma">24x7 Emergency Trauma Admission</option>
-                        <option value="Spine Surgery">Spine &amp; Neuro Trauma</option>
-                        <option value="Physiotherapy">Physiotherapy &amp; Rehabilitation</option>
+                        <option value="Dr. Abhishek Jain (Orthopedics & Joint Replacement)">Dr. Abhishek Jain - Orthopedics &amp; Joint Replacement</option>
+                        <option value="Dr. Akshay Juriani (Medicine & Respiratory)">Dr. Akshay Juriani - Medicine &amp; Respiratory</option>
+                        <option value="Dr. Prashant Singh Kushwaha (Neurosurgery & Spine)">Dr. Prashant Singh Kushwaha - Neurosurgery &amp; Spine</option>
+                        <option value="Dr. Mazid Ansari (General Surgery)">Dr. Mazid Ansari - General &amp; Laparoscopic Surgery</option>
+                        <option value="Dr. Deepesh Agrawal (Plastic & Reconstructive Surgery)">Dr. Deepesh Agrawal - Plastic &amp; Reconstructive</option>
+                        <option value="Dr. Swapnil Jain (Internal Medicine)">Dr. Swapnil Jain - Internal Medicine</option>
+                        <option value="Dr. Sneha Methwani (Gynecology & Obstetrics)">Dr. Sneha Methwani - Gynecology &amp; Obstetrics</option>
+                        <option value="Dr. Himanshu Jain (Anesthesia & Critical Care ICU)">Dr. Himanshu Jain - Anesthesia / ICU</option>
+                        <option value="Dr. Nishit Kumar (Anesthesiology & Pain Management)">Dr. Nishit Kumar - Anesthesiology</option>
+                        <option value="Dr. Abhijeet Jain (Radiology & DMRE)">Dr. Abhijeet Jain - Radiology &amp; DMRE</option>
+                        <option value="Dr. Arjit Saraf (Pathology & Lab)">Dr. Arjit Saraf - Pathology &amp; Lab</option>
+                        <option value="Dr. Ruby Sonker (Neuro Physiotherapy)">Dr. Ruby Sonker - Neuro Physiotherapy</option>
+                        <option value="Dr. Ravi Rathode (Orthopedic Physiotherapy)">Dr. Ravi Rathode - Orthopedic Physiotherapy</option>
+                        <option value="24x7 Emergency Trauma Admission">24x7 Emergency Trauma Admission</option>
                       </select>
                     </div>
 
@@ -247,7 +258,7 @@ export default function AppointmentLetterPage() {
                       <select
                         value={formData.preferredTime}
                         onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200] bg-white"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-white"
                       >
                         <option value="Morning">Morning OPD (10:30 AM - 1:30 PM)</option>
                         <option value="Evening">Evening OPD (5:30 PM - 8:30 PM)</option>
@@ -264,7 +275,7 @@ export default function AppointmentLetterPage() {
                       type="date"
                       value={formData.preferredDate}
                       onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
                     />
                   </div>
 
@@ -277,7 +288,7 @@ export default function AppointmentLetterPage() {
                       placeholder="Describe knee/joint pain, duration, accidental fracture, or specific consultation requirement..."
                       value={formData.symptoms}
                       onChange={(e) => setFormData({ ...formData, symptoms: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                      className="w-full p-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
                     />
                   </div>
 
@@ -285,7 +296,7 @@ export default function AppointmentLetterPage() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full py-4 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-[0.98] disabled:opacity-50"
+                      className="w-full py-4 rounded-full bg-red-600 hover:bg-red-700 text-white font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-red-600/30 transition-all active:scale-[0.98] disabled:opacity-50 cursor-pointer"
                     >
                       {loading ? "Confirming Slot..." : "Confirm Doctor Appointment"}
                     </button>

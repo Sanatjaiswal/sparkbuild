@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --primary-yellow: #fff200;
-  --primary-yellow-hover: #e6da00;
+  --primary-red: #D50011;
+  --primary-red-hover: #b8000f;
+  --primary-green: #046F47;
+  --primary-green-hover: #035939;
 }
 
 html {

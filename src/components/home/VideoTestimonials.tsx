@@ -18,15 +18,15 @@ export default function VideoTestimonials({ onPlayVideo }: VideoTestimonialsProp
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-red-50 border border-red-200 text-red-600 text-xs font-black uppercase tracking-wider shadow-xs">
             Patient Stories
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 tracking-tight">
             Real Patient Recoveries &amp; Success Stories
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
             Listen to inspiring stories of patients walking pain-free post-surgery and emergency trauma recoveries under{" "}
-            <span className="bg-[#fff200] text-black px-2.5 py-0.5 rounded font-black border border-black/10 shadow-xs">
+            <span className="bg-emerald-50 text-[#046F47] px-2.5 py-0.5 rounded font-black border border-emerald-200 shadow-xs">
               Dr. Abhishek Jain
             </span>
             .
@@ -38,7 +38,7 @@ export default function VideoTestimonials({ onPlayVideo }: VideoTestimonialsProp
           {videoTestimonials.map((video) => (
             <div
               key={video.id}
-              className="bg-neutral-900 rounded-2xl overflow-hidden shadow-xl border border-neutral-200 group cursor-pointer flex flex-col"
+              className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-neutral-200 group cursor-pointer flex flex-col transition-all duration-300"
               onClick={() => onPlayVideo(video.youtubeId)}
             >
               {/* Thumbnail Container */}
@@ -49,11 +49,11 @@ export default function VideoTestimonials({ onPlayVideo }: VideoTestimonialsProp
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+                <div className="absolute inset-0 bg-black/35 group-hover:bg-black/15 transition-colors" />
 
                 {/* Big Center Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-[#fff200] text-black flex items-center justify-center shadow-2xl group-hover:scale-115 transition-all duration-300">
+                  <div className="w-16 h-16 rounded-full bg-red-600 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-red-700 transition-all duration-300">
                     <Play className="w-7 h-7 fill-current ml-1" />
                   </div>
                 </div>
@@ -65,14 +65,14 @@ export default function VideoTestimonials({ onPlayVideo }: VideoTestimonialsProp
               </div>
 
               {/* Title & Info */}
-              <div className="p-5 flex-1 flex flex-col justify-between bg-neutral-900 text-white">
+              <div className="p-5 flex-1 flex flex-col justify-between bg-white text-neutral-900">
                 <div>
-                  <h3 className="text-base font-bold group-hover:text-[#fff200] transition-colors line-clamp-1">
+                  <h3 className="text-base font-bold text-neutral-900 group-hover:text-red-600 transition-colors line-clamp-1">
                     {video.title}
                   </h3>
-                  <p className="text-xs text-gray-400 mt-1">{video.clientName}</p>
+                  <p className="text-xs text-gray-500 mt-1">{video.clientName}</p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-neutral-800 flex items-center justify-between text-xs text-[#fff200] font-bold">
+                <div className="mt-4 pt-3 border-t border-neutral-100 flex items-center justify-between text-xs text-[#046F47] font-bold">
                   <span>Watch Patient Story</span>
                   <span className="text-gray-400 font-normal">HD Video</span>
                 </div>

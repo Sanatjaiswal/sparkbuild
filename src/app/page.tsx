@@ -30,13 +30,13 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen flex flex-col bg-white">
-      {/* 1. Top Yellow Contact Bar (Solid bright yellow, always on top) */}
+      {/* 1. Top Contact Bar (Emerald Green brand color, always on top) */}
       <TopBar />
 
-      {/* 2. Navigation Bar (Directly below TopBar, with -mb-[76px] overlaying the top of the HeroSlider) */}
+      {/* 2. Navigation Bar (Clean Hospital White Header) */}
       <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
 
-      {/* 3. Hero Carousel (Slides up underneath the translucent Navbar via negative margin) */}
+      {/* 3. Hero Carousel */}
       <HeroSlider onOpenConsultation={() => setConsultationOpen(true)} />
 
       {/* Trust & Stats Bar */}
@@ -48,7 +48,7 @@ export default function HomePage() {
       {/* About Section */}
       <AboutSection />
 
-      {/* 4 Specialties Cards Section: Pale Yellow BG, Rounded Top Images, White Box With Black Border */}
+      {/* 4 Specialties Cards Section */}
       <ServicesGrid onOpenConsultation={() => setConsultationOpen(true)} />
 
       {/* Built to Last CTA Banner */}

@@ -21,7 +21,10 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <TopBar />
+      
       <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
+
+
 
       {/* Hero Header */}
       <section className="bg-neutral-900 text-white py-20 sm:py-24 relative overflow-hidden flex items-center justify-center">

@@ -3,116 +3,124 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Check, ArrowRight, Calendar, HeartPulse, Bone, Crosshair, Building2 } from "lucide-react";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ConsultationModal from "@/components/ui/ConsultationModal";
 import FloatingConsultation from "@/components/ui/FloatingConsultation";
-import { Check, ArrowRight, Calendar, Activity, ShieldCheck, HeartPulse, Plus } from "lucide-react";
+import ConsultationModal from "@/components/ui/ConsultationModal";
+import { useCMS } from "@/context/CMSContext";
 
 export default function ServicesPage() {
+  const { data } = useCMS();
   const [consultationOpen, setConsultationOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState("Orthopedics & Trauma");
-
-  const openForService = (name: string) => {
-    setSelectedService(name);
-    setConsultationOpen(true);
-  };
+  const [selectedService, setSelectedService] = useState<string>("Orthopedic Consultation");
 
   const detailedServices = [
     {
-      title: "Orthopedic & Accidental Trauma Care",
-      tag: "Fractures, Polytrauma & Emergency Surgery",
-      image: "/images/modular-ot.jpg",
-      desc: "MP Hospital & Trauma Centre (Formerly Maxx Hospital) provides comprehensive accidental trauma management under Dr. Abhishek Jain. With a round-the-clock emergency surgical setup, we stabilize and treat life-threatening injuries, compound fractures, and crush injuries with minimal delay.",
+      title: "24x7 Emergency Trauma & Accidental Care",
+      icon: HeartPulse,
+      iconColor: "text-red-600",
+      tag: "Trauma Resuscitation",
+      image: "/images/emergency-ambulance.jpg",
+      desc: "Instant medical response for accidental polytrauma, fracture stabilization, crush injuries, and life-threatening emergencies. Featuring round-the-clock emergency casualty, standby orthopedic surgeons, ventilator ICU, and Advanced Life Support (ALS) ambulances.",
       benefits: [
-        "24x7 Emergency Polytrauma & Fracture Resuscitation",
-        "Complex Pelvic & Acetabular Reconstructive Surgeries",
-        "Minimally Invasive Plate Osteosynthesis (MIPO)",
-        "Pediatric and Geriatric Bone Fracture Care",
+        "Immediate Triage & Critical Care Resuscitation",
+        "Round-the-clock Orthopedic & Trauma Surgeons",
+        "Fully Equipped ALS Ambulance Fleet across Jabalpur",
+        "Direct Linkage to Emergency OT & Digital Radiography",
       ],
     },
     {
-      title: "Joint Replacement & Arthroplasty",
-      tag: "Total Knee, Hip & Shoulder Replacements",
+      title: "Joint Replacement & Minimally Invasive Arthroplasty",
+      icon: Bone,
+      iconColor: "text-[#046F47]",
+      tag: "Arthroplasty & Reconstruction",
       image: "/images/orthopedic-rehab.jpg",
-      desc: "Specialized in advanced joint replacement surgeries designed to restore complete, pain-free mobility to patients suffering from severe osteoarthritis, rheumatoid arthritis, or joint trauma. Our fast-track surgical protocol enables patients to stand and mobilize within 24 to 48 hours.",
+      desc: "Advanced total knee replacement (TKR), total hip replacement (THR), and partial joint resurfacing performed by Dr. Abhishek Jain. Designed for rapid pain relief, precision implant alignment, and fast postoperative mobility.",
       benefits: [
-        "Total Knee Replacement (TKR) with rapid mobility protocols",
-        "Total Hip Replacement (THR) – Cemented and Uncemented",
-        "Shoulder Joint Arthroplasty and Partial Joint Replacements",
-        "Computer-Navigated & High-Flexion Implants for longevity",
+        "Minimally Invasive Total Knee & Hip Replacement",
+        "Computer-Assisted Precision Component Alignment",
+        "Rapid Rehabilitation Protocol (Patients Walk within 24-48 Hours)",
+        "Ultra-Clean Class 10,000 Modular Operation Theatres",
       ],
     },
     {
-      title: "Arthroscopy & Sports Injury Clinic",
-      tag: "Keyhole Ligament & Joint Cartilage Surgery",
+      title: "Arthroscopy & Sports Injury Center",
+      icon: Crosshair,
+      iconColor: "text-red-600",
+      tag: "Keyhole Sports Surgery",
       image: "/images/arthroscopy-surgery.jpg",
-      desc: "Using state-of-the-art 4K ultra-high definition arthroscopic surgical cameras, our sports medicine unit repairs torn ligaments and damaged joint cartilage through keyhole incisions with negligible blood loss and minimal postoperative pain.",
+      desc: "Minimally invasive keyhole arthroscopic diagnosis and reconstruction for athletic tears and joint instability. Covering 4K high-definition knee arthroscopy, ACL/PCL ligament reconstruction, and rotator cuff repairs.",
       benefits: [
-        "ACL, PCL & Multi-Ligament Knee Reconstruction",
-        "Meniscus Tear Repair & Cartilage Restoration",
-        "Shoulder Arthroscopy for Rotator Cuff & Recurrent Dislocation",
-        "Personalized Athletic Rehab & Conditioning Program",
+        "4K HD Knee & Shoulder Arthroscopy",
+        "Anatomic ACL, PCL & Meniscal Root Repairs",
+        "Fast Recovery Day-Care Surgical Protocols",
+        "Tailored Sports Rehabilitation & Return-to-Play Plans",
       ],
     },
     {
-      title: "24x7 Critical Care ICU & Emergency",
-      tag: "Trauma Resuscitation & Intensive Life Support",
-      image: "/images/emergency-trauma-icu.jpg",
-      desc: "A fully equipped Intensive Care Unit (ICU) and Emergency Casualty department staffed by dedicated intensivists, critical care nurses, and on-call trauma surgeons. Outfitted with invasive mechanical ventilators, multi-parameter monitors, and an in-house pharmacy.",
+      title: "Modular Operation Theatres & Intensive Care ICU",
+      icon: Building2,
+      iconColor: "text-[#046F47]",
+      tag: "Critical Care Infrastructure",
+      image: "/images/modular-ot.jpg",
+      desc: "NABH-compliant modular surgical suites featuring HEPA-filtered laminar airflow that guarantees sterile conditions. Backed by multi-parameter monitored Trauma ICU beds staffed by dedicated intensivists.",
       benefits: [
-        "Dedicated Multi-Bed Trauma Intensive Care Unit (ICU)",
-        "Advanced Mechanical Ventilators and Telemetric Monitors",
-        "GPS-Enabled Advanced Life Support (ALS) Ambulance Network",
-        "Cashless Mediclaim, Ayushman Bharat & TPA Assistance Desk",
+        "Class 10,000 Sterile Laminar Airflow Environment",
+        "HEPA Air Filtration & Medical Gas Pipeline System",
+        "Multi-Parameter Patient Monitors & Advanced Ventilators",
+        "Zero-Infection Surgical Protocol for Implant Safety",
       ],
     },
   ];
 
   const processSteps = [
     {
-      num: "1",
-      title: "Emergency Triage & Consultation",
-      desc: "Immediate clinical assessment by trauma specialists, vitals stabilization, and high-resolution digital X-rays to accurately diagnose bone or ligament injury.",
+      num: 1,
+      title: "Emergency Triage & Evaluation",
+      desc: "Rapid casualty assessment, bedside digital radiography, vital stabilization, and immediate pain management.",
     },
     {
-      num: "2",
-      title: "Modular Surgical Excellence",
-      desc: "Precision surgical intervention performed inside sterile Class 10,000 modular operation theatres with laminar airflow, ensuring zero-infection outcomes.",
+      num: 2,
+      title: "Modular Surgical Intervention",
+      desc: "Sterile surgical precision in laminar airflow theatres with advanced implants and experienced surgical specialists.",
     },
     {
-      num: "3",
-      title: "Rehabilitation & Pain-Free Recovery",
-      desc: "Dedicated physical therapy team initiates tailored mobilization exercises within 24-48 hours, ensuring quick return to normal life and active mobility.",
+      num: 3,
+      title: "Active Rehab & Discharge",
+      desc: "Structured physiotherapy, early assisted mobilization, cashless insurance processing, and personalized home care guidance.",
     },
   ];
 
+  const openForService = (serviceName: string) => {
+    setSelectedService(serviceName);
+    setConsultationOpen(true);
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen bg-white">
       <TopBar />
       <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
 
-      {/* Hero Header */}
-      <section className="bg-neutral-900 text-white py-20 sm:py-24 relative overflow-hidden flex items-center justify-center">
-        {/* Soft, balanced light overlay - dark blur reduced so hospital photos are bright & clearly visible */}
-        <div className="absolute inset-0 bg-black/30 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25 z-10" />
+      {/* Header Banner */}
+      <section className="relative py-20 sm:py-24 bg-neutral-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10" />
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/modular-ot.jpg"
-            alt="MP Hospital Medical Services"
+            alt="Services at MP Hospital"
             fill
             priority
-            className="object-cover opacity-95 scale-105"
+            className="object-cover opacity-90 scale-105"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider shadow-md">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider shadow-md">
             Clinical Specialties
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
-            Our Medical <span className="text-[#fff200]">Specialties</span>
+            Our Medical <span className="text-red-400">Specialties</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
             MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) offers specialized orthopedic surgery, accidental trauma care, and intensive life support in Jabalpur.
@@ -131,7 +139,7 @@ export default function ServicesPage() {
               }`}
             >
               <div
-                className={`lg:col-span-6 relative rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 aspect-[4/3] bg-neutral-900 ${
+                className={`lg:col-span-6 relative rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 aspect-[4/3] bg-neutral-100 ${
                   idx % 2 === 1 ? "lg:order-2" : "lg:order-1"
                 }`}
               >
@@ -148,11 +156,14 @@ export default function ServicesPage() {
                   idx % 2 === 1 ? "lg:order-1" : "lg:order-2"
                 }`}
               >
-                <span className="text-xs font-extrabold uppercase tracking-wider text-amber-600 px-3 py-1 bg-amber-50 rounded-full border border-amber-200">
-                  {service.tag}
-                </span>
+                <div className="flex items-center gap-3">
+                  <service.icon className={`w-7 h-7 ${service.iconColor} stroke-[2.2] shrink-0`} />
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#046F47] px-3.5 py-1 bg-emerald-50 rounded-full border border-emerald-200">
+                    {service.tag}
+                  </span>
+                </div>
 
-                <h2 className="text-3xl sm:text-4xl font-black text-black leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 leading-tight">
                   {service.title}
                 </h2>
 
@@ -160,7 +171,7 @@ export default function ServicesPage() {
                   {service.desc.includes("Dr. Abhishek Jain") ? (
                     <>
                       {service.desc.split("Dr. Abhishek Jain")[0]}
-                      <span className="bg-[#fff200] text-black px-2 py-0.5 rounded font-black border border-black/10 shadow-xs">
+                      <span className="bg-emerald-50 text-[#046F47] px-2.5 py-0.5 rounded font-black border border-emerald-200 shadow-xs">
                         Dr. Abhishek Jain
                       </span>
                       {service.desc.split("Dr. Abhishek Jain")[1]}
@@ -171,12 +182,12 @@ export default function ServicesPage() {
                 </p>
 
                 <div className="space-y-3 pt-2">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-500">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#046F47]">
                     Clinical Highlights &amp; Care
                   </h4>
                   {service.benefits.map((benefit, bIdx) => (
                     <div key={bIdx} className="flex items-start gap-3">
-                      <span className="w-5 h-5 rounded-full bg-[#fff200] text-black flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-5 h-5 rounded-full bg-[#046F47] text-white flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                       </span>
                       <span className="text-sm font-semibold text-gray-800">{benefit}</span>
@@ -187,14 +198,14 @@ export default function ServicesPage() {
                 <div className="pt-4 flex items-center gap-4">
                   <button
                     onClick={() => openForService(service.title)}
-                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-md transition-all active:scale-95"
+                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#046F47] hover:bg-[#035939] text-white font-extrabold text-sm uppercase tracking-wider shadow-md shadow-emerald-900/25 transition-all active:scale-95 cursor-pointer"
                   >
                     <span>Book Appointment</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                   <Link
                     href="/contact"
-                    className="text-sm font-bold text-neutral-600 hover:text-black underline"
+                    className="text-sm font-bold text-neutral-600 hover:text-red-600 underline"
                   >
                     Contact Hospital
                   </Link>
@@ -206,16 +217,16 @@ export default function ServicesPage() {
       </section>
 
       {/* 3-Step Process */}
-      <section className="py-24 bg-neutral-900 text-white border-t border-neutral-800">
+      <section className="py-24 bg-neutral-50 text-neutral-900 border-t border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
+            <span className="inline-block px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-[#046F47] text-xs font-black uppercase tracking-wider shadow-xs">
               Clinical Pathway
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 tracking-tight">
               Our Patient Care Pathway
             </h2>
-            <p className="text-sm sm:text-base text-gray-300">
+            <p className="text-sm sm:text-base text-gray-600">
               Clear clinical milestones from casualty triage to modular surgery and active rehabilitation.
             </p>
           </div>
@@ -224,14 +235,14 @@ export default function ServicesPage() {
             {processSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-neutral-800/90 rounded-2xl p-8 border border-neutral-700 relative flex flex-col justify-between group hover:border-[#fff200] transition-colors"
+                className="bg-white rounded-2xl p-8 border border-neutral-200 shadow-sm relative flex flex-col justify-between group hover:border-red-500 hover:shadow-xl transition-all"
               >
                 <div className="space-y-4">
-                  <span className="text-5xl font-black text-[#fff200] font-mono">
+                  <span className="text-5xl font-black text-red-600 font-mono">
                     0{step.num}
                   </span>
-                  <h3 className="text-2xl font-bold text-white">{step.title}</h3>
-                  <p className="text-sm text-gray-300 leading-relaxed font-normal">
+                  <h3 className="text-2xl font-bold text-neutral-900">{step.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed font-normal">
                     {step.desc}
                   </p>
                 </div>
@@ -242,7 +253,7 @@ export default function ServicesPage() {
           <div className="text-center mt-14">
             <button
               onClick={() => setConsultationOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-xl transition-all active:scale-95"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-red-600 hover:bg-red-700 text-white font-extrabold text-sm uppercase tracking-wider shadow-xl shadow-red-600/30 transition-all active:scale-95 cursor-pointer"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Doctor Consultation</span>

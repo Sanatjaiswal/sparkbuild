@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, ArrowRight, ShieldCheck, Users, Building } from "lucide-react";
+import { ArrowRight, Award, Bone, HeartPulse, Stethoscope } from "lucide-react";
 import { useCMS } from "@/context/CMSContext";
 
 export default function AboutSection() {
@@ -49,7 +49,7 @@ export default function AboutSection() {
 
           {/* Right Column: Content */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#fff200]/40 border border-[#fff200] text-black text-xs font-black uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-[#046F47] text-xs font-black uppercase tracking-wider">
               <span>About MP Hospital</span>
             </div>
 
@@ -59,21 +59,19 @@ export default function AboutSection() {
 
             <p className="text-base text-gray-600 leading-relaxed font-normal">
               MP Hospital and Trauma Centre (Formerly Maxx Hospital) is dedicated to delivering clinical excellence in orthopedics, accidental trauma resuscitation, joint replacement, and sports medicine under the leadership of renowned surgeon{" "}
-              <span className="bg-[#fff200] text-black px-2.5 py-0.5 rounded font-black border border-black/10 shadow-xs">
+              <span className="bg-emerald-50 text-[#046F47] px-2.5 py-0.5 rounded font-black border border-emerald-200 shadow-xs">
                 Dr. Abhishek Jain
               </span>
               . With advanced laminar airflow modular operation theatres, a dedicated 24x7 Trauma ICU, and rapid rehabilitation protocols, we restore patient mobility and save lives every day.
             </p>
 
             {/* Dr. Abhishek Jain Leadership Spotlight Card */}
-            <div className="p-4 rounded-2xl bg-[#FEFCE8] border-2 border-[#fff200] flex items-center gap-4 shadow-sm">
-              <div className="w-12 h-12 rounded-xl bg-black text-[#fff200] flex items-center justify-center font-black text-lg shrink-0 shadow-md">
-                AJ
-              </div>
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-red-50/80 via-white to-emerald-50/60 border-2 border-red-200 flex items-center gap-4 shadow-sm group">
+              <Award className="w-8 h-8 text-red-600 stroke-[2.2] shrink-0 group-hover:scale-110 transition-transform" />
               <div className="space-y-0.5">
                 <div className="flex items-center gap-2">
                   <h4 className="text-base font-black text-black">Dr. Abhishek Jain</h4>
-                  <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-black text-[#fff200]">
+                  <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-red-600 text-white shadow-xs">
                     Director &amp; Senior Orthopedic Surgeon
                   </span>
                 </div>
@@ -83,22 +81,22 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Feature Bullets with Icons */}
+            {/* Feature Bullets with Bare Icons (NO boxes) */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-center space-y-1">
-                <Building className="w-6 h-6 text-[#111111] mx-auto mb-1" />
+              <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-emerald-500 hover:shadow-md transition-all group">
+                <Bone className="w-7 h-7 mx-auto mb-2 text-[#046F47] stroke-[2.2] group-hover:scale-110 transition-transform" />
                 <h4 className="text-xl font-black text-black">{siteConfig.stats.projectsCount || "15,000+"}</h4>
                 <p className="text-xs font-medium text-gray-600">Surgeries Performed</p>
               </div>
 
-              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-center space-y-1">
-                <ShieldCheck className="w-6 h-6 text-[#111111] mx-auto mb-1" />
+              <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-red-500 hover:shadow-md transition-all group">
+                <HeartPulse className="w-7 h-7 mx-auto mb-2 text-red-600 stroke-[2.2] group-hover:scale-110 transition-transform" />
                 <h4 className="text-xl font-black text-black">24x7</h4>
                 <p className="text-xs font-medium text-gray-600">Emergency &amp; Trauma</p>
               </div>
 
-              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-center space-y-1">
-                <Users className="w-6 h-6 text-[#111111] mx-auto mb-1" />
+              <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-emerald-500 hover:shadow-md transition-all group">
+                <Stethoscope className="w-7 h-7 mx-auto mb-2 text-[#046F47] stroke-[2.2] group-hover:scale-110 transition-transform" />
                 <h4 className="text-xl font-black text-black">{siteConfig.stats.yearsExperience || "10+ Years"}</h4>
                 <p className="text-xs font-medium text-gray-600">Trusted Care</p>
               </div>
@@ -107,7 +105,7 @@ export default function AboutSection() {
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-black text-white hover:bg-[#fff200] hover:text-black font-bold text-sm uppercase tracking-wider transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-red-600 text-white hover:bg-red-700 font-bold text-sm uppercase tracking-wider transition-all duration-200 shadow-md shadow-red-600/20"
               >
                 <span>Discover More</span>
                 <ArrowRight className="w-4 h-4" />

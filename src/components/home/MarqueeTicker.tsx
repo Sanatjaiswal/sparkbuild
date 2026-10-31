@@ -15,20 +15,20 @@ export default function MarqueeTicker() {
   ];
 
   return (
-    <div className="bg-[#fff200] py-3.5 overflow-hidden border-y border-yellow-400 select-none">
+    <div className="bg-red-600 py-3 overflow-hidden border-y border-red-700 select-none shadow-sm text-white">
       <div className="flex animate-marquee whitespace-nowrap">
         {[...items, ...items, ...items].map((text, idx) => (
           <div key={idx} className="flex items-center mx-6">
             {text.includes("Dr. Abhishek Jain") ? (
-              <span className="bg-black text-[#fff200] px-3 py-1 rounded-full font-black text-xs sm:text-sm tracking-widest uppercase shadow-md border border-black">
+              <span className="bg-white text-red-700 px-3 py-1 rounded-full font-black text-xs sm:text-sm tracking-widest uppercase shadow-md border border-white">
                 ⭐ {text}
               </span>
             ) : (
-              <span className="text-black font-black text-xs sm:text-sm tracking-widest uppercase">
+              <span className="text-white font-extrabold text-xs sm:text-sm tracking-widest uppercase">
                 {text}
               </span>
             )}
-            <span className="ml-6 w-2 h-2 rounded-full bg-black inline-block"></span>
+            <span className="ml-6 w-2 h-2 rounded-full bg-emerald-300 inline-block"></span>
           </div>
         ))}
       </div>

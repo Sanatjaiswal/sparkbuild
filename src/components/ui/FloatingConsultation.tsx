@@ -23,7 +23,7 @@ export default function FloatingConsultation({
          ======================================================== */}
       <aside
         aria-label="Mobile Emergency and Quick Actions"
-        className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#111111]/95 backdrop-blur-md border-t border-neutral-800 shadow-[0_-8px_30px_rgba(0,0,0,0.6)] px-2.5 py-2"
+        className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-neutral-900/95 backdrop-blur-md border-t border-neutral-800 shadow-[0_-8px_30px_rgba(0,0,0,0.6)] px-2.5 py-2"
         style={{ paddingBottom: "max(8px, env(safe-area-inset-bottom))" }}
       >
         <div className="max-w-lg mx-auto grid grid-cols-3 gap-2">
@@ -66,13 +66,13 @@ export default function FloatingConsultation({
           <button
             onClick={onOpenConsultation}
             aria-label="Book Doctor OPD Appointment"
-            className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#fff200] hover:bg-[#e6da00] text-black font-black text-center shadow-md active:scale-95 transition-all select-none cursor-pointer"
+            className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#046F47] hover:bg-[#035939] text-white font-black text-center shadow-md active:scale-95 transition-all select-none cursor-pointer"
           >
             <Calendar className="w-4 h-4 stroke-[2.5]" />
             <span className="text-[11px] uppercase tracking-wider font-black mt-0.5 leading-tight">
               Book OPD
             </span>
-            <span className="text-[9px] text-black/85 font-bold leading-tight">
+            <span className="text-[9px] text-emerald-100 font-bold leading-tight">
               Dr. Abhishek
             </span>
           </button>
@@ -95,7 +95,6 @@ export default function FloatingConsultation({
           Chat With Us
         </span>
       </a>
-
     </>
   );
 }

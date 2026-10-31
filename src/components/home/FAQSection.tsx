@@ -17,10 +17,10 @@ export default function FAQSection() {
     <section className="py-24 bg-white border-t border-neutral-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 space-y-3">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-[#046F47] text-xs font-black uppercase tracking-wider shadow-xs">
             FAQ&apos;s
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 tracking-tight">
             Frequently Asked Questions
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
@@ -38,14 +38,14 @@ export default function FAQSection() {
               >
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full flex items-center justify-between p-6 text-left bg-white hover:bg-neutral-50 transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left bg-white hover:bg-neutral-50 transition-colors cursor-pointer"
                 >
-                  <span className="text-base sm:text-lg font-bold text-black pr-4">
+                  <span className="text-base sm:text-lg font-bold text-neutral-900 pr-4">
                     {faq.question}
                   </span>
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                      isOpen ? "bg-[#fff200] text-black rotate-180" : "bg-neutral-100 text-gray-500"
+                      isOpen ? "bg-red-600 text-white rotate-180" : "bg-neutral-100 text-neutral-600"
                     }`}
                   >
                     <ChevronDown className="w-5 h-5" />

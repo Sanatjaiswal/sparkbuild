@@ -2,15 +2,17 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { Phone, Mail, MapPin, Send, CheckCircle2, Star } from "lucide-react";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ConsultationModal from "@/components/ui/ConsultationModal";
 import FloatingConsultation from "@/components/ui/FloatingConsultation";
-import { siteConfig } from "@/data/siteData";
-import { Phone, Mail, MapPin, Send, CheckCircle2, Clock, Star } from "lucide-react";
+import ConsultationModal from "@/components/ui/ConsultationModal";
+import { useCMS } from "@/context/CMSContext";
 
 export default function ContactPage() {
+  const { data } = useCMS();
+  const siteConfig = data.siteConfig;
   const [consultationOpen, setConsultationOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -29,40 +31,42 @@ export default function ContactPage() {
       setLoading(false);
       setSubmitted(true);
       try {
-        const list = JSON.parse(localStorage.getItem("mphospital_contacts") || "[]");
-        list.push({ ...formData, date: new Date().toISOString() });
-        localStorage.setItem("mphospital_contacts", JSON.stringify(list));
+        const existing = JSON.parse(localStorage.getItem("mphospital_messages") || "[]");
+        existing.push({
+          ...formData,
+          id: Date.now().toString(),
+          date: new Date().toISOString(),
+        });
+        localStorage.setItem("mphospital_messages", JSON.stringify(existing));
       } catch (err) {
         console.error(err);
       }
-    }, 700);
+    }, 600);
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       <TopBar />
       <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
 
-      {/* Hero Header */}
-      <section className="bg-neutral-900 text-white py-20 sm:py-24 relative overflow-hidden flex items-center justify-center">
-        {/* Soft, balanced light overlay - dark blur reduced so hospital photos are bright & clearly visible */}
-        <div className="absolute inset-0 bg-black/30 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25 z-10" />
+      {/* Header Banner */}
+      <section className="relative py-20 sm:py-24 bg-neutral-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10" />
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/mp-hospital-building.jpg"
             alt="Contact MP Hospital"
             fill
             priority
-            className="object-cover opacity-95 scale-105"
+            className="object-cover opacity-90 scale-105"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider shadow-md">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider shadow-md">
             Contact Hospital
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
-            Get In Touch With <span className="text-[#fff200]">MP Hospital</span>
+            Get In Touch With <span className="text-red-400">MP Hospital</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
             MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) – 24x7 Emergency Line: 0761-2626123, OPD Appointments &amp; Trauma Resuscitation in Jabalpur.
@@ -77,15 +81,15 @@ export default function ContactPage() {
             {/* Left: Contact Info */}
             <div className="lg:col-span-5 space-y-8">
               <div className="space-y-3">
-                <span className="text-xs font-black uppercase tracking-wider text-amber-600 px-3 py-1 bg-amber-50 rounded-full border border-amber-200">
+                <span className="text-xs font-black uppercase tracking-wider text-[#046F47] px-3.5 py-1 bg-emerald-50 rounded-full border border-emerald-200">
                   24x7 Emergency Care
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-black leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 leading-tight">
                   We’re Here When You Need Us Most
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed font-normal">
                   Located in Beoharbagh near Ghamapur Chowk, Jabalpur. Reach out for OPD appointments with{" "}
-                  <span className="bg-[#fff200] text-black px-2.5 py-0.5 rounded font-black border border-black/10 shadow-xs">
+                  <span className="bg-emerald-50 text-[#046F47] px-2.5 py-0.5 rounded font-black border border-emerald-200 shadow-xs">
                     Dr. Abhishek Jain
                   </span>
                   , accidental trauma admissions, ambulance services, or cashless TPA guidance.
@@ -93,14 +97,14 @@ export default function ContactPage() {
               </div>
 
               {/* Dr. Abhishek Jain OPD Timing Card */}
-              <div className="p-4 rounded-2xl bg-[#FEFCE8] border-2 border-[#fff200] shadow-sm flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-black text-[#fff200] flex items-center justify-center font-black text-sm shrink-0">
+              <div className="p-4 rounded-2xl bg-emerald-50/70 border-2 border-emerald-300 shadow-sm flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#046F47] text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
                   OPD
                 </div>
                 <div>
-                  <h4 className="text-sm font-black text-black">Dr. Abhishek Jain OPD Timings</h4>
+                  <h4 className="text-sm font-black text-neutral-900">Dr. Abhishek Jain OPD Timings</h4>
                   <p className="text-xs text-neutral-800 font-medium">Mon - Sat: 10:30 AM - 1:30 PM &amp; 5:30 PM - 8:30 PM</p>
-                  <p className="text-[11px] text-amber-700 font-bold mt-0.5">Emergency Trauma Consultation: 24x7 Available</p>
+                  <p className="text-[11px] text-[#046F47] font-bold mt-0.5">Emergency Trauma Consultation: 24x7 Available</p>
                 </div>
               </div>
 
@@ -112,7 +116,7 @@ export default function ContactPage() {
                   ))}
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-black">4.9 of 5 Stars</h4>
+                  <h4 className="text-sm font-bold text-neutral-900">4.9 of 5 Stars</h4>
                   <p className="text-xs text-gray-500">450+ Verified Patient Reviews</p>
                 </div>
               </div>
@@ -120,7 +124,7 @@ export default function ContactPage() {
               {/* Contact Cards */}
               <div className="space-y-4">
                 <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#fff200] text-black flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0 shadow-sm">
                     <Phone className="w-6 h-6 stroke-[2.2]" />
                   </div>
                   <div>
@@ -129,13 +133,13 @@ export default function ContactPage() {
                     </h4>
                     <a
                       href={`tel:${siteConfig.phone1Raw}`}
-                      className="block text-base font-extrabold text-black hover:text-amber-600"
+                      className="block text-base font-extrabold text-neutral-900 hover:text-red-600"
                     >
                       {siteConfig.phone1}
                     </a>
                     <a
                       href={`tel:${siteConfig.phone2Raw}`}
-                      className="block text-sm font-bold text-gray-700 hover:text-amber-600"
+                      className="block text-sm font-bold text-gray-700 hover:text-red-600"
                     >
                       {siteConfig.phone2}
                     </a>
@@ -143,7 +147,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#fff200] text-black flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-[#046F47] text-white flex items-center justify-center shrink-0 shadow-sm">
                     <Mail className="w-6 h-6 stroke-[2.2]" />
                   </div>
                   <div>
@@ -152,24 +156,38 @@ export default function ContactPage() {
                     </h4>
                     <a
                       href={`mailto:${siteConfig.email}`}
-                      className="text-sm font-bold text-black hover:text-amber-600 break-all"
+                      className="text-sm font-bold text-neutral-900 hover:text-red-600 break-all"
                     >
                       {siteConfig.email}
                     </a>
                   </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#fff200] text-black flex items-center justify-center shrink-0">
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-red-50/70 via-white to-red-50/30 border-2 border-red-200 shadow-md flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0 shadow-md">
                     <MapPin className="w-6 h-6 stroke-[2.2]" />
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">
-                      Hospital Address
-                    </h4>
-                    <p className="text-xs text-gray-700 leading-relaxed font-medium">
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <h4 className="text-xs font-black text-red-600 uppercase tracking-wider">
+                        Hospital Location &amp; Campus
+                      </h4>
+                      <span className="text-[10px] font-extrabold text-[#046F47] bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                        Jabalpur, MP
+                      </span>
+                    </div>
+                    <p className="text-xs text-neutral-900 leading-relaxed font-semibold">
                       {siteConfig.address}
                     </p>
+                    <a
+                      href="https://maps.google.com/?q=MP+Hospital+and+Trauma+Centre+Beoharbagh+Jabalpur"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-extrabold text-red-600 hover:text-red-700 hover:underline pt-1"
+                    >
+                      <span>Get Live Driving Directions on Google Maps</span>
+                      <span>→</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -177,14 +195,14 @@ export default function ContactPage() {
 
             {/* Right: Interactive Contact Form */}
             <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200 shadow-xl">
-              <h3 className="text-2xl font-black text-black mb-2">Send Us a Direct Message</h3>
+              <h3 className="text-2xl font-black text-neutral-900 mb-2">Send Us a Direct Message</h3>
               <p className="text-xs text-gray-500 mb-8">
                 We respond promptly for appointments, emergency admissions, and medical inquiries.
               </p>
 
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
-                  <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 bg-emerald-100 text-[#046F47] rounded-full flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
                   <h4 className="text-2xl font-bold text-gray-900">Message Received!</h4>
@@ -193,7 +211,7 @@ export default function ContactPage() {
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="px-6 py-2.5 bg-black text-white rounded-full font-semibold text-sm hover:bg-[#fff200] hover:text-black transition-colors"
+                    className="px-6 py-2.5 bg-red-600 text-white rounded-full font-semibold text-sm hover:bg-red-700 transition-colors cursor-pointer"
                   >
                     Send Another Message
                   </button>
@@ -211,7 +229,7 @@ export default function ContactPage() {
                         placeholder="John"
                         value={formData.firstName}
                         onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200] focus:border-black"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
                       />
                     </div>
                     <div>
@@ -224,7 +242,7 @@ export default function ContactPage() {
                         placeholder="Doe"
                         value={formData.lastName}
                         onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200] focus:border-black"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
                       />
                     </div>
                   </div>
@@ -240,7 +258,7 @@ export default function ContactPage() {
                         placeholder="john@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200] focus:border-black"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
                       />
                     </div>
                     <div>
@@ -253,7 +271,7 @@ export default function ContactPage() {
                         placeholder="+91 97133 37277"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200] focus:border-black"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
                       />
                     </div>
                   </div>
@@ -268,14 +286,14 @@ export default function ContactPage() {
                       placeholder="Describe your symptoms, joint issue, trauma details, or inquiry for Dr. Abhishek Jain..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#fff200] focus:border-black"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-4 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2"
+                    className="w-full py-4 rounded-full bg-red-600 hover:bg-red-700 text-white font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-red-600/30 transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-4 h-4" />
                     <span>{loading ? "Sending..." : "Submit Message"}</span>
@@ -310,4 +328,3 @@ export default function ContactPage() {
     </div>
   );
 }
-
