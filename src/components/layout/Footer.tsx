@@ -211,7 +211,7 @@ export default function Footer() {
       </div>
 
       {/* Signature Medical Emerald Green Bottom Strip */}
-      <div className="bg-[#046F47] text-white py-5 px-4 sm:px-6 lg:px-8 border-t border-emerald-800">
+      <div id="footer-bottom-strip" className="bg-[#046F47] text-white py-5 px-4 sm:px-6 lg:px-8 border-t border-emerald-800">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-emerald-100 text-center lg:text-left">
           {/* Left: Copyright */}
           <p className="shrink-0 text-center lg:text-left">
@@ -242,18 +242,18 @@ export default function Footer() {
 
           {/* Right End: Tech by Dora IT Zone & Desktop Back to Top */}
           <div className="flex items-center justify-center lg:justify-end gap-3.5 shrink-0">
-            {/* White BG Pill with Perfectly Aligned Fonts */}
+            {/* White BG Pill with Reduced Padding & Smaller Font */}
             <a
               href="https://doraitzone.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white hover:bg-neutral-50 text-neutral-900 px-3.5 py-1.5 rounded-full shadow-md border border-white hover:shadow-lg transition-all whitespace-nowrap group"
+              className="inline-flex items-center gap-2 bg-white hover:bg-neutral-50 text-neutral-900 px-2.5 py-1 sm:px-3 sm:py-1 rounded-full shadow-xs border border-white hover:shadow-md transition-all whitespace-nowrap group"
               title="Dora IT Zone - Digital Marketing & Technology Solutions, Jabalpur"
             >
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-neutral-800 leading-none">
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-neutral-700 leading-none">
                 tech by
               </span>
-              <div className="relative h-4.5 w-[142px] shrink-0">
+              <div className="relative h-3.5 w-[110px] sm:h-4 sm:w-[125px] shrink-0">
                 <Image
                   src="/images/dora-it-zone-single-line-dark.png"
                   alt="Dora IT Zone"
