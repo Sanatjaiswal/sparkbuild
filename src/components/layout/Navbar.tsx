@@ -33,21 +33,19 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
 
   return (
     <nav
-      className={`w-full text-white transition-all duration-300 ${
+      className={`w-full bg-white text-neutral-900 transition-all duration-300 border-b border-neutral-200/90 ${
         isScrolled
-          ? "fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md shadow-2xl py-3 border-b border-neutral-800"
-          : isHome
-          ? "-mb-[74px] sm:-mb-[76px] relative z-30 bg-transparent py-4 border-none shadow-none"
-          : "relative z-30 bg-black py-4 border-b border-neutral-900"
+          ? "fixed top-0 left-0 right-0 z-50 shadow-md py-2.5 bg-white/98 backdrop-blur-md"
+          : "relative z-30 py-3 shadow-xs"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
           {/* Logo on the left */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <div className="relative h-10 w-44 sm:h-12 sm:w-60 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
+            <div className="relative h-10 w-44 sm:h-12 sm:w-60">
               <Image
-                src="/images/mp-hospital-logo-white.svg"
+                src="/images/mp-hospital-nav-logo.png"
                 alt="MP Hospital & Trauma Centre"
                 fill
                 sizes="(max-width: 640px) 176px, 240px"
@@ -57,18 +55,18 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links: 6 Clean Items (Responsive Spacing) */}
-          <div className="hidden lg:flex items-center gap-4 xl:gap-7 2xl:gap-8 shrink-0">
+          {/* Desktop Navigation Links: Clean High-Contrast Dark Text */}
+          <div className="hidden lg:flex items-center gap-5 xl:gap-8 shrink-0">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-xs lg:text-[13px] xl:text-[15px] font-semibold transition-colors duration-150 ${
+                  className={`text-xs lg:text-[13px] xl:text-[15px] font-bold transition-colors duration-150 ${
                     isActive
-                      ? "text-[#fff200] font-bold"
-                      : "text-white/90 hover:text-[#fff200]"
+                      ? "text-red-600 font-extrabold"
+                      : "text-neutral-800 hover:text-red-600"
                   }`}
                 >
                   {item.title}
@@ -77,11 +75,11 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             })}
           </div>
 
-          {/* Right Side in Navbar: Clean Rectangular Button (Matches media_1793384522144_0dd79b8f.png) */}
+          {/* Right Side in Navbar: Clean Rectangular Button */}
           <div className="hidden sm:flex items-center shrink-0">
             <button
               onClick={onOpenConsultation}
-              className="inline-flex items-center justify-center h-9 sm:h-10 px-5 sm:px-6 lg:px-7 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-md whitespace-nowrap"
+              className="inline-flex items-center justify-center h-10 px-5 sm:px-6 lg:px-7 rounded-md bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-sm whitespace-nowrap border border-yellow-400"
             >
               <span>Book Appointment</span>
             </button>
@@ -91,10 +89,10 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-md text-white hover:bg-neutral-800 focus:outline-none"
+              className="p-2 rounded-md text-neutral-800 hover:bg-neutral-100 focus:outline-none"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
+              {mobileMenuOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6 text-black" />}
             </button>
           </div>
         </div>

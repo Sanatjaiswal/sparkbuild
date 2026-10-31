@@ -96,24 +96,23 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
           }`}
         >
           {/* Background image: Bright, clear, vivid hospital photos with reduced dark overlay */}
-          <div className="relative w-full h-full bg-neutral-950">
+          <div className="relative w-full h-full bg-neutral-900">
             <Image
               src={slide.bgImage}
               alt={slide.headingLine1}
               fill
               priority={idx === 0}
-              className="object-cover opacity-90 scale-105 transition-transform duration-7000 ease-out"
+              className="object-cover opacity-100 scale-105 transition-transform duration-7000 ease-out"
             />
-            {/* Soft, light balanced overlay - Dark blur reduced so images are clearly visible */}
-            <div className="absolute inset-0 bg-black/35" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+            {/* Soft, light balanced overlay - Top where navbar/logo sits has ZERO dark shadow, bottom has subtle gradient for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
           </div>
 
           {/* Centered Content Stack: Clean, rock-solid equal alignment across all slides */}
-          <div className="absolute inset-0 z-20 flex items-center justify-center pt-20 sm:pt-24 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8">
+          <div className="absolute inset-0 z-20 flex items-center justify-center pt-8 sm:pt-12 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto w-full text-center flex flex-col items-center justify-center">
               {/* 1. MP Hospital English Branding Graphic (Fixed Height) */}
-              <div className="relative h-12 sm:h-16 lg:h-20 w-60 sm:w-80 lg:w-96 mb-2 sm:mb-3 flex items-center justify-center drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] shrink-0">
+              <div className="relative h-12 sm:h-16 lg:h-20 w-60 sm:w-80 lg:w-96 mb-2 sm:mb-3 flex items-center justify-center shrink-0">
                 <Image
                   src={slide.logo}
                   alt="MP Hospital & Trauma Centre"
