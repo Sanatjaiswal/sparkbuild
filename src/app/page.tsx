@@ -12,7 +12,6 @@ import ServicesGrid from "@/components/home/ServicesGrid";
 import DreamCtaSection from "@/components/home/DreamCtaSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import PortfolioTabs from "@/components/home/PortfolioTabs";
-import VideoTestimonials from "@/components/home/VideoTestimonials";
 import CertificatesSection from "@/components/home/CertificatesSection";
 import TestimonialSlider from "@/components/home/TestimonialSlider";
 import WhyHospital from "@/components/home/WhyHospital";
@@ -61,9 +60,6 @@ export default function HomePage() {
       <PortfolioTabs
         onOpenLightbox={(src, title) => setLightboxData({ src, title })}
       />
-
-      {/* Client / Patient Video Testimonials */}
-      <VideoTestimonials onPlayVideo={(id) => setActiveVideoId(id)} />
 
       {/* Awards & Certificates */}
       <CertificatesSection />
