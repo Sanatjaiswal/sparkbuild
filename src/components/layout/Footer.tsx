@@ -214,38 +214,46 @@ export default function Footer() {
       <div className="bg-[#046F47] text-white py-5 px-4 sm:px-6 lg:px-8 border-t border-emerald-800">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-emerald-100 text-center lg:text-left">
           {/* Left: Copyright */}
-          <p className="shrink-0">© {new Date().getFullYear()} MP Hospital and Trauma Centre (Formerly Maxx Hospital), Jabalpur. All Rights Reserved.</p>
+          <p className="shrink-0 text-center lg:text-left">
+            © {new Date().getFullYear()} MP Hospital and Trauma Centre (Formerly Maxx Hospital), Jabalpur. All Rights Reserved.
+          </p>
 
-          {/* Center: Legal & Back to Top */}
-          <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">
-              Privacy
-            </Link>
-            <Link href="/terms-condition" className="hover:text-white transition-colors">
-              Terms
-            </Link>
+          {/* Center: Legal Links */}
+          <div className="flex items-center justify-between lg:justify-center w-full lg:w-auto gap-6 px-1">
+            <div className="flex items-center gap-5">
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">
+                Privacy
+              </Link>
+              <Link href="/terms-condition" className="hover:text-white transition-colors">
+                Terms
+              </Link>
+            </div>
+
+            {/* Mobile Only: Back to Top shifted right as per red arrow with subtle blinking pulse */}
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-white hover:text-red-200 font-bold cursor-pointer transition-colors"
+              className="lg:hidden inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold cursor-pointer border border-white/20 shadow-xs transition-all active:scale-95 animate-pulse"
+              title="Back to Top"
             >
               <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
+              <ArrowUp className="w-3.5 h-3.5 text-emerald-300" />
             </button>
           </div>
 
-          {/* Right End: Tech by Dora IT Zone (White BG Pill + High-Contrast Jet Black Logo) */}
-          <div className="flex items-center justify-center lg:justify-end shrink-0">
+          {/* Right End: Tech by Dora IT Zone & Desktop Back to Top */}
+          <div className="flex items-center justify-center lg:justify-end gap-3.5 shrink-0">
+            {/* White BG Pill with Perfectly Aligned Fonts */}
             <a
               href="https://doraitzone.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-white hover:bg-neutral-50 text-neutral-900 px-4 py-1.5 rounded-full shadow-md border border-white hover:shadow-lg transition-all whitespace-nowrap group"
+              className="inline-flex items-center gap-2 bg-white hover:bg-neutral-50 text-neutral-900 px-3.5 py-1.5 rounded-full shadow-md border border-white hover:shadow-lg transition-all whitespace-nowrap group"
               title="Dora IT Zone - Digital Marketing & Technology Solutions, Jabalpur"
             >
-              <span className="text-[11px] text-neutral-700 font-bold tracking-wide">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-neutral-800 leading-none">
                 tech by
               </span>
-              <div className="relative h-4.5 w-[150px] shrink-0">
+              <div className="relative h-4.5 w-[142px] shrink-0">
                 <Image
                   src="/images/dora-it-zone-single-line-dark.png"
                   alt="Dora IT Zone"
@@ -254,6 +262,16 @@ export default function Footer() {
                 />
               </div>
             </a>
+
+            {/* Desktop Only: Back to Top (Shifted Right with subtle blinking pulse) */}
+            <button
+              onClick={scrollToTop}
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold cursor-pointer border border-white/20 shadow-xs transition-all active:scale-95 animate-pulse"
+              title="Back to Top"
+            >
+              <span>Back to Top</span>
+              <ArrowUp className="w-3.5 h-3.5 text-emerald-300" />
+            </button>
           </div>
         </div>
       </div>
