@@ -29,6 +29,9 @@ import {
   Calendar,
   AlertCircle,
   Eye,
+  Lock,
+  User,
+  LogOut,
 } from "lucide-react";
 import { ProjectItem, BlogPost, TeamMember, ServiceItem } from "@/data/siteData";
 
@@ -121,6 +124,144 @@ export default function WordPressAdmin() {
     bio: "Senior consultant specialist at MP Hospital & Trauma Centre, Jabalpur.",
   });
 
+  // Admin Authentication & Login/Logout State
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isAuthChecking, setIsAuthChecking] = useState<boolean>(true);
+  const [usernameInput, setUsernameInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+  const [loginError, setLoginError] = useState("");
+
+  useEffect(() => {
+    const authSession = typeof window !== "undefined" ? sessionStorage.getItem("mphospital_admin_auth") : null;
+    const authLocal = typeof window !== "undefined" ? localStorage.getItem("mphospital_admin_auth") : null;
+    if (authSession === "true" || authLocal === "true") {
+      setIsAuthenticated(true);
+    }
+    setIsAuthChecking(false);
+  }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoginError("");
+
+    const validPasswords = ["mphospital@2025", "admin123", "mphospital123", "admin"];
+    const validUsernames = ["admin", "mphospital", "drabhishek"];
+
+    const user = usernameInput.trim().toLowerCase();
+    const pass = passwordInput.trim();
+
+    if (validUsernames.includes(user) && validPasswords.includes(pass)) {
+      sessionStorage.setItem("mphospital_admin_auth", "true");
+      localStorage.setItem("mphospital_admin_auth", "true");
+      setIsAuthenticated(true);
+      showToast("Welcome to MP Hospital Admin Portal!");
+    } else {
+      setLoginError("Invalid username or password. Please try again.");
+    }
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("mphospital_admin_auth");
+    localStorage.removeItem("mphospital_admin_auth");
+    setIsAuthenticated(false);
+    setUsernameInput("");
+    setPasswordInput("");
+    setLoginError("");
+    showToast("Logged out successfully.");
+  };
+
+  if (isAuthChecking) {
+    return (
+      <div className="min-h-screen bg-[#f0f0f1] flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-[#2271b1] border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#1d2327] via-neutral-900 to-[#111111] text-white flex flex-col items-center justify-center p-4 select-none">
+        <div className="w-full max-w-sm bg-white text-neutral-900 rounded-2xl shadow-2xl p-8 border border-neutral-200">
+          <div className="text-center space-y-2 mb-6">
+            <div className="relative h-12 w-48 mx-auto">
+              <Image
+                src="/images/mp-hospital-nav-logo.png"
+                alt="MP Hospital & Trauma Centre"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="pt-2">
+              <h2 className="text-lg font-black text-neutral-900">Hospital Admin Portal</h2>
+              <p className="text-xs text-neutral-500">Sign in to manage website content, doctors &amp; settings</p>
+            </div>
+          </div>
+
+          <form onSubmit={handleLogin} className="space-y-4">
+            {loginError && (
+              <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs font-semibold flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
+                <span>{loginError}</span>
+              </div>
+            )}
+
+            <div>
+              <label className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
+                Username
+              </label>
+              <div className="relative">
+                <User className="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  required
+                  placeholder="admin"
+                  value={usernameInput}
+                  onChange={(e) => setUsernameInput(e.target.value)}
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#046F47] focus:ring-1 focus:ring-[#046F47]"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1">
+                Password
+              </label>
+              <div className="relative">
+                <Lock className="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="password"
+                  required
+                  placeholder="••••••••"
+                  value={passwordInput}
+                  onChange={(e) => setPasswordInput(e.target.value)}
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#046F47] focus:ring-1 focus:ring-[#046F47]"
+                />
+              </div>
+              <p className="text-[10px] text-neutral-400 mt-1">Default credentials: admin / admin123</p>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-2.5 rounded-lg bg-[#046F47] hover:bg-[#035939] text-white font-black text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer mt-2"
+            >
+              Sign In to Admin
+            </button>
+          </form>
+
+          <div className="mt-6 pt-4 border-t border-neutral-100 text-center">
+            <Link
+              href="/"
+              className="text-xs text-neutral-500 hover:text-red-600 font-semibold transition-colors"
+            >
+              ← Back to MPHospital.in
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#f0f0f1] text-[#2c3338] flex flex-col font-sans select-none">
       {/* WordPress Top Admin Bar */}
@@ -156,7 +297,15 @@ export default function WordPressAdmin() {
             <Save className="w-3 h-3" />
             <span>Publish Changes</span>
           </button>
-          <span className="text-gray-400">Howdy, <strong>Admin</strong></span>
+          <span className="text-gray-300">Howdy, <strong className="text-white">Admin</strong></span>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-1.5 text-xs text-red-400 hover:text-white hover:bg-red-600/80 px-2.5 py-1 rounded bg-neutral-800 border border-neutral-700 transition-all cursor-pointer font-bold shadow-xs"
+            title="Log out of Admin Panel"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            <span>Log Out</span>
+          </button>
         </div>
       </header>
 
@@ -211,8 +360,15 @@ export default function WordPressAdmin() {
             })}
           </nav>
 
-          <div className="p-4 border-t border-[#2c3338] text-[11px] text-gray-500">
-            Next.js WordPress CMS v2.0
+          <button
+            onClick={handleLogout}
+            className="w-full p-3.5 border-t border-[#2c3338] text-red-400 hover:text-white hover:bg-red-950/40 flex items-center gap-2.5 text-xs font-bold transition-all cursor-pointer"
+          >
+            <LogOut className="w-4 h-4 text-red-400" />
+            <span>Log Out Admin</span>
+          </button>
+          <div className="p-3 border-t border-[#2c3338] text-[10px] text-gray-500 text-center">
+            MP Hospital CMS v2.0
           </div>
         </aside>
 

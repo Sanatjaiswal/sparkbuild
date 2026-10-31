@@ -129,3 +129,4 @@ export default function AmbulanceModal({ isOpen, onClose }: AmbulanceModalProps)
     </div>
   );
 }
+
