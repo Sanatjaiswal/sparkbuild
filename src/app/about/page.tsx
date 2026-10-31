@@ -121,8 +121,8 @@ export default function AboutPage() {
             </div>
 
             <div className="space-y-3 pt-6 md:pt-0 md:pl-6">
-              <span className="text-5xl font-black text-white font-mono">24x7</span>
-              <h3 className="text-lg font-bold text-emerald-100">Emergency Commitment</h3>
+              <span className="text-5xl font-light text-white font-mono tracking-wider">24x7</span>
+              <h3 className="text-lg font-medium text-emerald-100">Emergency Commitment</h3>
               <p className="text-xs text-emerald-100/90 max-w-xs mx-auto leading-relaxed">
                 Round-the-clock emergency casualty, standby surgeons, ICU ventilators, and ALS ambulance ready to respond at any minute.
               </p>

@@ -47,6 +47,9 @@ export interface TeamMember {
   role: string;
   department?: string;
   qualification?: string;
+  qualifications?: string;
+  specialty?: string;
+  experience?: string;
   image: string;
   bio: string;
 }
@@ -95,6 +98,8 @@ export const siteConfig = {
   phone2Raw: "+917648998668",
   emergencyPhone: "+91 76489-98668",
   emergencyPhoneRaw: "+917648998668",
+  ambulancePhone: "0761-2626123",
+  ambulancePhoneRaw: "07612626123",
   email: "info@mphospital.in",
   altEmail: "drabhishekjain@gmail.com",
   address: "1/1, High Court Road / Dr. Radha Krishnan Chowk, Beoharbagh, Near Ghamapur Chowk (Beside Beoharbagh Petrol Pump, Opposite Modern X-Ray Pathology Centre), Jabalpur, Madhya Pradesh 482001",

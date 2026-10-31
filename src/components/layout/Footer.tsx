@@ -150,11 +150,9 @@ export default function Footer() {
 
             {/* Phone */}
             <div className="flex items-start gap-3 text-sm">
-              <div className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-                <Phone className="w-4 h-4" />
-              </div>
+              <Phone className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs text-neutral-500 font-bold uppercase tracking-wider">24x7 Emergency Line</p>
+                <p className="text-xs text-neutral-500 font-medium uppercase tracking-wider">24x7 Emergency Line</p>
                 <a
                   href={`tel:${siteConfig.phone1Raw || siteConfig.phone1}`}
                   className="block text-neutral-900 hover:text-red-600 font-extrabold text-sm"
@@ -172,11 +170,9 @@ export default function Footer() {
 
             {/* Email */}
             <div className="flex items-start gap-3 text-sm">
-              <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#046F47] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-                <Mail className="w-4 h-4" />
-              </div>
+              <Mail className="w-5 h-5 text-[#046F47] shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs text-neutral-500 font-bold uppercase tracking-wider">Email Support</p>
+                <p className="text-xs text-neutral-500 font-medium uppercase tracking-wider">Email Support</p>
                 <a
                   href={`mailto:${siteConfig.email}`}
                   className="text-neutral-900 hover:text-red-600 font-semibold text-xs break-all"

@@ -4,8 +4,9 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Calendar, Phone } from "lucide-react";
+import { Menu, X, Calendar, Phone, Ambulance } from "lucide-react";
 import { navItems, siteConfig } from "@/data/siteData";
+import AmbulanceModal from "@/components/ui/AmbulanceModal";
 
 interface NavbarProps {
   onOpenConsultation?: () => void;
@@ -14,6 +15,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenConsultation }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isAmbulanceOpen, setIsAmbulanceOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
@@ -75,11 +77,22 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             })}
           </div>
 
-          {/* Right Side in Navbar: Clean Emerald Green Button */}
-          <div className="hidden sm:flex items-center shrink-0">
+          {/* Right Side in Navbar: Ambulance + Book Appointment */}
+          <div className="hidden sm:flex items-center gap-2 sm:gap-2.5 shrink-0">
+            {/* 24x7 Ambulance Button */}
+            <button
+              onClick={() => setIsAmbulanceOpen(true)}
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 h-10 px-3.5 sm:px-4 rounded-md bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-md shadow-red-900/20 whitespace-nowrap cursor-pointer group"
+              title="24x7 Emergency Ambulance Service"
+            >
+              <Ambulance className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 group-hover:scale-110 transition-transform" />
+              <span>Ambulance</span>
+            </button>
+
+            {/* Book Appointment Button */}
             <button
               onClick={onOpenConsultation}
-              className="inline-flex items-center justify-center h-10 px-5 sm:px-6 lg:px-7 rounded-md bg-[#046F47] hover:bg-[#035939] text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-md shadow-emerald-900/20 whitespace-nowrap cursor-pointer"
+              className="inline-flex items-center justify-center h-10 px-4 sm:px-6 lg:px-7 rounded-md bg-[#046F47] hover:bg-[#035939] text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-md shadow-emerald-900/20 whitespace-nowrap cursor-pointer"
             >
               <span>Book Appointment</span>
             </button>
@@ -157,19 +170,35 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
               <span>24x7 Helpline: {siteConfig.phone1}</span>
             </a>
 
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenConsultation?.();
-              }}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-lg bg-[#046F47] hover:bg-[#035939] text-white font-extrabold text-sm uppercase tracking-wider shadow-lg cursor-pointer"
-            >
-              <Calendar className="w-4 h-4" />
-              <span>Book Appointment</span>
-            </button>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setIsAmbulanceOpen(true);
+                }}
+                className="flex items-center justify-center gap-1.5 py-3 rounded-lg bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-md cursor-pointer"
+              >
+                <Ambulance className="w-4 h-4" />
+                <span>Ambulance</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenConsultation?.();
+                }}
+                className="flex items-center justify-center gap-1.5 py-3 rounded-lg bg-[#046F47] hover:bg-[#035939] text-white font-extrabold text-xs uppercase tracking-wider shadow-md cursor-pointer"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Book OPD</span>
+              </button>
+            </div>
           </div>
         </div>
       )}
+
+      {/* Ambulance Emergency Hotline Modal */}
+      <AmbulanceModal isOpen={isAmbulanceOpen} onClose={() => setIsAmbulanceOpen(false)} />
     </nav>
   );
 }

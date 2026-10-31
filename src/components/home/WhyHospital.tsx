@@ -64,10 +64,10 @@ export default function WhyHospital() {
               </div>
 
               <div className="p-4 sm:p-6 rounded-2xl bg-red-50/80 border border-red-200 text-center space-y-1 shadow-xs">
-                <span className="text-2xl sm:text-4xl font-black text-red-600">
+                <span className="text-2xl sm:text-4xl font-light tracking-wider text-red-600">
                   24x7
                 </span>
-                <p className="text-xs font-bold uppercase tracking-wider text-neutral-700">
+                <p className="text-xs font-medium uppercase tracking-wider text-neutral-700">
                   Trauma Emergency
                 </p>
                 <p className="text-[11px] text-neutral-500">0761-2626123</p>

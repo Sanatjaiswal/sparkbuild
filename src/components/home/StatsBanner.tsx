@@ -36,7 +36,7 @@ export default function StatsBanner() {
               >
                 <Icon className={`w-8 h-8 ${item.iconColor} stroke-[2.2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform`} />
                 <div className="space-y-1.5">
-                  <h3 className="text-base font-black text-neutral-900 tracking-wide">
+                  <h3 className="text-base font-extrabold text-neutral-900 tracking-wide">
                     {item.title}
                   </h3>
                   <p className="text-xs text-neutral-600 leading-relaxed">

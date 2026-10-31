@@ -63,7 +63,17 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  const heroSlides = hospitalHeroSlides;
+  const heroSlides =
+    data?.heroSlides && data.heroSlides.length > 0
+      ? data.heroSlides.map((slide, idx) => ({
+          id: slide.id || idx + 1,
+          logo: "/images/mp-hospital-logo-white.svg",
+          headingLine1: (slide as any).headingLine1 || slide.highlightNumber || "24x7 Emergency &",
+          headingLine2: (slide as any).headingLine2 || slide.title || "Trauma Care Centre",
+          description: slide.description,
+          bgImage: slide.bgImage || "/images/mp-hospital-building.jpg",
+        }))
+      : hospitalHeroSlides;
 
   useEffect(() => {
     if (isPaused) return;
@@ -132,8 +142,26 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
               {/* 2. Big High-Impact 2-Line Heading with Equal Fixed Height (Zero Vertical Shift) */}
               <div className="min-h-[76px] sm:min-h-[110px] lg:min-h-[135px] flex flex-col items-center justify-center w-full shrink-0">
                 <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight sm:leading-[1.08] tracking-tight text-center max-w-4xl mx-auto drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
-                  <span className="block">{slide.headingLine1}</span>
-                  <span className="block mt-1 sm:mt-2">{slide.headingLine2}</span>
+                  <span className="block">
+                    {slide.headingLine1.includes("24x7") ? (
+                      <>
+                        <span className="font-light text-white/85">24x7</span>{" "}
+                        {slide.headingLine1.replace("24x7", "").trim()}
+                      </>
+                    ) : (
+                      slide.headingLine1
+                    )}
+                  </span>
+                  <span className="block mt-1 sm:mt-2">
+                    {slide.headingLine2.includes("24x7") ? (
+                      <>
+                        <span className="font-light text-white/85">24x7</span>{" "}
+                        {slide.headingLine2.replace("24x7", "").trim()}
+                      </>
+                    ) : (
+                      slide.headingLine2
+                    )}
+                  </span>
                 </h1>
               </div>
 
@@ -155,7 +183,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
               </div>
 
               {/* 4. Horizontal Pagination Dots (Fixed Height) */}
-              <div className="h-6 flex items-center justify-center gap-2 my-3 sm:my-5 shrink-0">
+              <div className="h-6 flex items-center justify-center gap-2 mt-4 sm:mt-6 shrink-0">
                 {heroSlides.map((_, dotIdx) => (
                   <button
                     key={dotIdx}
@@ -168,25 +196,6 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
                     aria-label={`Go to slide ${dotIdx + 1}`}
                   />
                 ))}
-              </div>
-
-              {/* 5. Action CTA Buttons (Responsive Flow & Fixed Sizing) */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 shrink-0 w-full sm:w-auto px-4 sm:px-0">
-                {/* Emerald Green Primary Button: BOOK APPOINTMENT */}
-                <button
-                  onClick={onOpenConsultation}
-                  className="w-full sm:w-auto inline-flex items-center justify-center h-10 sm:h-12 px-6 sm:px-8 rounded-md bg-[#046F47] hover:bg-[#035939] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-xl whitespace-nowrap cursor-pointer"
-                >
-                  <span>{slide.primaryCta}</span>
-                </button>
-
-                {/* Clean White Outline Secondary Button */}
-                <Link
-                  href={slide.secondaryHref}
-                  className="w-full sm:w-auto inline-flex items-center justify-center h-10 sm:h-12 px-6 sm:px-8 rounded-md bg-black/40 hover:bg-white hover:text-black text-white font-bold text-xs sm:text-sm uppercase tracking-wider border-2 border-white/90 hover:border-white transition-all duration-200 active:scale-95 shadow-xl whitespace-nowrap"
-                >
-                  <span>{slide.secondaryCta}</span>
-                </Link>
               </div>
             </div>
           </div>

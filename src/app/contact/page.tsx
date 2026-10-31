@@ -81,7 +81,7 @@ export default function ContactPage() {
             {/* Left: Contact Info */}
             <div className="lg:col-span-5 space-y-8">
               <div className="space-y-3">
-                <span className="text-xs font-black uppercase tracking-wider text-[#046F47] px-3.5 py-1 bg-emerald-50 rounded-full border border-emerald-200">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#046F47] px-3.5 py-1 bg-emerald-50 rounded-full border border-emerald-200">
                   24x7 Emergency Care
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 leading-tight">

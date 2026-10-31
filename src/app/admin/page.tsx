@@ -109,6 +109,18 @@ export default function WordPressAdmin() {
     content: "",
   });
 
+  // New Doctor Modal State
+  const [isAddingDoctor, setIsAddingDoctor] = useState(false);
+  const [newDoctor, setNewDoctor] = useState<TeamMember>({
+    name: "",
+    role: "Consultant Specialist",
+    specialty: "Orthopedics & Joint Replacement",
+    qualifications: "MBBS, M.S. (Ortho)",
+    experience: "8+ Years",
+    image: "/images/dr-abhishek-jain.jpg",
+    bio: "Senior consultant specialist at MP Hospital & Trauma Centre, Jabalpur.",
+  });
+
   return (
     <div className="min-h-screen bg-[#f0f0f1] text-[#2c3338] flex flex-col font-sans select-none">
       {/* WordPress Top Admin Bar */}
@@ -738,12 +750,152 @@ export default function WordPressAdmin() {
           {/* ================= SECTION 6: TEAM ================= */}
           {activeMenu === "team" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div>
                   <h1 className="text-2xl font-bold text-[#1d2327]">Doctors &amp; Clinical Team Manager</h1>
-                  <p className="text-xs text-gray-500">Edit Medical Director info, orthopedic surgeons, photos, and clinical qualifications.</p>
+                  <p className="text-xs text-gray-500">Edit Medical Director info, orthopedic surgeons, photos, specialties, and clinical qualifications.</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setIsAddingDoctor(true)}
+                    className="px-4 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded shadow flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>Add New Consultant</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      saveData(data);
+                      showToast("All doctor profiles saved live!");
+                    }}
+                    className="px-4 py-2 bg-[#046F47] hover:bg-[#035939] text-white text-xs font-bold rounded shadow flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <Save className="w-4 h-4" />
+                    <span>Save All</span>
+                  </button>
                 </div>
               </div>
+
+              {/* Add New Doctor Form */}
+              {isAddingDoctor && (
+                <div className="bg-white p-6 rounded-lg border-2 border-[#2271b1] shadow-md space-y-4 animate-in fade-in">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <h3 className="font-bold text-sm text-[#1d2327]">Add New Consultant Profile</h3>
+                    <button
+                      onClick={() => setIsAddingDoctor(false)}
+                      className="text-xs text-gray-500 hover:text-black font-bold"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Doctor Full Name</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Dr. Ramesh Patel"
+                        value={newDoctor.name}
+                        onChange={(e) => setNewDoctor({ ...newDoctor, name: e.target.value })}
+                        className="w-full p-2 text-sm border rounded font-bold"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Role / Designation</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Senior Consultant Orthopedic Surgeon"
+                        value={newDoctor.role}
+                        onChange={(e) => setNewDoctor({ ...newDoctor, role: e.target.value })}
+                        className="w-full p-2 text-sm border rounded"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Clinical Specialty</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Spine Surgery & Joint Reconstruction"
+                        value={newDoctor.specialty || ""}
+                        onChange={(e) => setNewDoctor({ ...newDoctor, specialty: e.target.value })}
+                        className="w-full p-2 text-sm border rounded"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Medical Qualifications</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. MBBS, M.S. (Ortho)"
+                        value={newDoctor.qualifications || ""}
+                        onChange={(e) => setNewDoctor({ ...newDoctor, qualifications: e.target.value })}
+                        className="w-full p-2 text-sm border rounded"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Clinical Experience</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. 10+ Years"
+                        value={newDoctor.experience || ""}
+                        onChange={(e) => setNewDoctor({ ...newDoctor, experience: e.target.value })}
+                        className="w-full p-2 text-sm border rounded"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Doctor Photo URL</label>
+                      <div className="flex gap-2">
+                        <input
+                          type="text"
+                          value={newDoctor.image}
+                          onChange={(e) => setNewDoctor({ ...newDoctor, image: e.target.value })}
+                          className="w-full p-2 text-xs border rounded"
+                        />
+                        <button
+                          type="button"
+                          onClick={() =>
+                            openMediaPicker((url) => {
+                              setNewDoctor({ ...newDoctor, image: url });
+                            })
+                          }
+                          className="px-3 py-2 bg-gray-100 border text-xs font-bold rounded whitespace-nowrap"
+                        >
+                          Choose
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Professional Bio / Overview</label>
+                      <textarea
+                        rows={2}
+                        value={newDoctor.bio || ""}
+                        onChange={(e) => setNewDoctor({ ...newDoctor, bio: e.target.value })}
+                        className="w-full p-2 text-xs border rounded"
+                        placeholder="Brief summary of clinical expertise and hospital department..."
+                      />
+                    </div>
+                  </div>
+
+                  <div className="pt-3 border-t flex justify-end gap-2">
+                    <button
+                      onClick={() => {
+                        if (newDoctor.name.trim()) {
+                          addTeamMember(newDoctor);
+                          setIsAddingDoctor(false);
+                          showToast(`Added ${newDoctor.name} to team!`);
+                        }
+                      }}
+                      className="px-6 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded shadow uppercase tracking-wide cursor-pointer"
+                    >
+                      Save New Consultant
+                    </button>
+                  </div>
+                </div>
+              )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {data.teamMembers.map((member, idx) => (
@@ -761,7 +913,7 @@ export default function WordPressAdmin() {
                               showToast(`Updated photo for ${member.name}!`);
                             })
                           }
-                          className="absolute bottom-2 right-2 px-3 py-1 bg-black/80 hover:bg-black text-white text-[11px] font-bold rounded shadow"
+                          className="absolute bottom-2 right-2 px-3 py-1 bg-black/80 hover:bg-black text-white text-[11px] font-bold rounded shadow cursor-pointer"
                         >
                           Change Photo
                         </button>
@@ -787,15 +939,65 @@ export default function WordPressAdmin() {
                         />
                       </div>
 
+                      <div className="grid grid-cols-2 gap-2">
+                        <div>
+                          <label className="block text-xs font-bold text-gray-700 uppercase">Specialty</label>
+                          <input
+                            type="text"
+                            value={member.specialty || ""}
+                            onChange={(e) => updateTeamMember(idx, { specialty: e.target.value })}
+                            className="w-full p-1.5 text-xs border rounded"
+                            placeholder="Specialty"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-gray-700 uppercase">Qualifications</label>
+                          <input
+                            type="text"
+                            value={member.qualifications || ""}
+                            onChange={(e) => updateTeamMember(idx, { qualifications: e.target.value })}
+                            className="w-full p-1.5 text-xs border rounded"
+                            placeholder="MBBS, MS"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-gray-700 uppercase">Experience</label>
+                        <input
+                          type="text"
+                          value={member.experience || ""}
+                          onChange={(e) => updateTeamMember(idx, { experience: e.target.value })}
+                          className="w-full p-1.5 text-xs border rounded"
+                          placeholder="e.g. 10+ Years"
+                        />
+                      </div>
+
                       <div>
                         <label className="block text-xs font-bold text-gray-700 uppercase">Bio / Description</label>
                         <textarea
-                          rows={3}
-                          value={member.bio}
+                          rows={2}
+                          value={member.bio || ""}
                           onChange={(e) => updateTeamMember(idx, { bio: e.target.value })}
                           className="w-full p-1.5 text-xs border rounded"
                         />
                       </div>
+                    </div>
+
+                    <div className="pt-2 border-t flex items-center justify-between">
+                      <span className="text-[11px] text-gray-400 font-mono">#{idx + 1}</span>
+                      <button
+                        onClick={() => {
+                          if (confirm(`Are you sure you want to delete ${member.name} from the clinical team?`)) {
+                            deleteTeamMember(idx);
+                            showToast(`Deleted ${member.name}.`);
+                          }
+                        }}
+                        className="text-xs text-red-600 hover:text-red-800 font-bold flex items-center gap-1 cursor-pointer"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                        <span>Delete</span>
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -1006,6 +1208,32 @@ export default function WordPressAdmin() {
                       value={data.siteConfig.phone2}
                       onChange={(e) => updateSiteConfig("phone2", e.target.value)}
                       className="w-full p-2 text-sm border rounded"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-red-600 uppercase mb-1 flex items-center gap-1.5">
+                      <span>24x7 Ambulance Helpline</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={data.siteConfig.ambulancePhone || data.siteConfig.phone1}
+                      onChange={(e) => updateSiteConfig("ambulancePhone", e.target.value)}
+                      className="w-full p-2 text-sm border-2 border-red-200 rounded font-bold"
+                      placeholder="0761-2626123"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      Emergency Trauma Mobile
+                    </label>
+                    <input
+                      type="text"
+                      value={data.siteConfig.emergencyPhone || data.siteConfig.phone2}
+                      onChange={(e) => updateSiteConfig("emergencyPhone", e.target.value)}
+                      className="w-full p-2 text-sm border rounded"
+                      placeholder="+91 76489-98668"
                     />
                   </div>
 

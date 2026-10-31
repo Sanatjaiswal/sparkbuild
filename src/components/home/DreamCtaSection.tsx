@@ -12,7 +12,7 @@ export default function DreamCtaSection({ onOpenConsultation }: DreamCtaSectionP
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="bg-gradient-to-r from-red-50/80 via-white to-emerald-50/70 rounded-3xl p-6 sm:p-10 lg:p-14 border-2 border-red-200/90 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10">
           <div className="max-w-2xl space-y-4 text-center lg:text-left">
-            <span className="inline-block px-3.5 py-1 rounded-full bg-[#046F47] text-white text-xs font-black uppercase tracking-wider shadow-xs">
+            <span className="inline-block px-3.5 py-1 rounded-full bg-[#046F47] text-white text-xs font-semibold uppercase tracking-wider shadow-xs">
               24x7 Emergency &amp; Trauma Care
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 leading-tight">

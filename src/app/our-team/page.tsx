@@ -263,7 +263,7 @@ export default function OurTeamPage() {
                     >
                       <Phone className="w-6 h-6 text-red-600 stroke-[2.2] shrink-0 group-hover:scale-110 transition-transform" />
                       <div>
-                        <p className="text-[10px] font-black uppercase tracking-wider text-red-600">24x7 Emergency Trauma Desk</p>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-red-600">24x7 Emergency Trauma Desk</p>
                         <p className="text-xs font-black text-neutral-900 mt-0.5">0761-4004100 • 24x7 On-Call</p>
                       </div>
                     </a>

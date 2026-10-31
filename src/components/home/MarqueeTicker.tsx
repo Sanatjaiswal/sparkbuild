@@ -24,7 +24,7 @@ export default function MarqueeTicker() {
                 ⭐ {text}
               </span>
             ) : (
-              <span className="text-white font-extrabold text-xs sm:text-sm tracking-widest uppercase">
+              <span className="text-white font-semibold text-xs sm:text-sm tracking-wider uppercase">
                 {text}
               </span>
             )}

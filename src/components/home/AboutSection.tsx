@@ -42,7 +42,7 @@ export default function AboutSection() {
               </div>
               <div>
                 <p className="text-[11px] font-bold text-gray-500 uppercase">NABH / ISO Standards</p>
-                <p className="text-xs font-black text-black">24x7 Emergency Trauma</p>
+                <p className="text-xs font-semibold text-neutral-800">24x7 Emergency Trauma</p>
               </div>
             </div>
           </div>
