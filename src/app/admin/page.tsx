@@ -90,12 +90,12 @@ export default function WordPressAdmin() {
   const [newProject, setNewProject] = useState<ProjectItem>({
     id: `project-${Date.now()}`,
     title: "",
-    category: "domestic",
-    type: "Residential",
+    category: "mega",
+    type: "Healthcare",
     status: "Completed",
     specs: "",
-    highlights: ["Completed with ISO standards", "Modern elevation"],
-    image: "/images/Project-Img-1.png",
+    highlights: ["24x7 Emergency Care", "Modern Infrastructure"],
+    image: "/images/modular-ot.jpg",
   });
 
   // New Post Modal State
@@ -603,13 +603,13 @@ export default function WordPressAdmin() {
 
               <div className="bg-white p-6 rounded-lg border border-[#c3c4c7] shadow-sm">
                 <p className="text-sm text-gray-600 mb-4">
-                  Click the button below to browse all 113+ site images, upload pictures from your computer, or copy their public URLs.
+                  Click the button below to browse all site images, upload pictures from your computer, or copy their public URLs.
                 </p>
                 <button
                   onClick={() => openMediaPicker(() => {})}
                   className="px-6 py-3 rounded bg-[#1d2327] hover:bg-[#2271b1] text-white text-xs font-bold uppercase tracking-wider"
                 >
-                  Open Full WordPress Media Browser
+                  Open Hospital Media Library
                 </button>
               </div>
             </div>
@@ -661,10 +661,10 @@ export default function WordPressAdmin() {
                         onChange={(e) => setNewProject({ ...newProject, category: e.target.value as any })}
                         className="w-full p-2 text-sm border rounded bg-white"
                       >
-                        <option value="mega">Mega Projects</option>
-                        <option value="domestic">Domestic Projects</option>
-                        <option value="facade">Facade Designs</option>
-                        <option value="interior">Interior Designs</option>
+                        <option value="mega">Modular OT &amp; Surgical</option>
+                        <option value="domestic">Emergency &amp; Trauma ICU</option>
+                        <option value="facade">Diagnostics &amp; Fleet</option>
+                        <option value="interior">Patient Rooms &amp; Rehab</option>
                       </select>
                     </div>
 
@@ -675,11 +675,9 @@ export default function WordPressAdmin() {
                         onChange={(e) => setNewProject({ ...newProject, type: e.target.value as any })}
                         className="w-full p-2 text-sm border rounded bg-white"
                       >
-                        <option value="Residential">Residential</option>
-                        <option value="Commercial">Commercial</option>
-                        <option value="Healthcare">Healthcare / Hospital</option>
-                        <option value="Mega">Mega</option>
-                        <option value="Institutional">Institutional</option>
+                        <option value="Healthcare">Healthcare Wing</option>
+                        <option value="Institutional">ICU / Emergency Unit</option>
+                        <option value="Commercial">Outpatient Clinic (OPD)</option>
                       </select>
                     </div>
 

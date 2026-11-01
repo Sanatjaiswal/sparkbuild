@@ -15,7 +15,7 @@ export default function MediaLibraryModal({
   isOpen,
   onClose,
   onSelectImage,
-  title = "Select Image from WordPress Media Library",
+  title = "Select Image from Hospital Media Library",
 }: MediaLibraryModalProps) {
   const [tab, setTab] = useState<"library" | "upload">("library");
   const [images, setImages] = useState<{ filename: string; url: string }[]>([]);
