@@ -12,7 +12,6 @@ import {
   Building,
   Wrench,
   Users,
-  MessageSquare,
   HelpCircle,
   Settings,
   Mail,
@@ -60,7 +59,7 @@ export default function WordPressAdmin() {
 
   // Active Sidebar Section
   const [activeMenu, setActiveMenu] = useState<
-    "dashboard" | "pages" | "media" | "projects" | "services" | "team" | "testimonials" | "blog" | "faqs" | "settings" | "leads"
+    "dashboard" | "pages" | "media" | "projects" | "services" | "team" | "blog" | "faqs" | "settings" | "leads"
   >("dashboard");
 
   // Media Library Modal state
@@ -335,7 +334,6 @@ export default function WordPressAdmin() {
               { id: "projects", label: "Projects / Portfolio", icon: Building },
               { id: "services", label: "Services", icon: Wrench },
               { id: "team", label: "Our Team", icon: Users },
-              { id: "testimonials", label: "Testimonials & Videos", icon: MessageSquare },
               { id: "blog", label: "Blog Posts", icon: Edit },
               { id: "faqs", label: "FAQ's", icon: HelpCircle },
               { id: "settings", label: "Site Settings", icon: Settings },
