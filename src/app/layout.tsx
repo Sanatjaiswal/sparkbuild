@@ -3,6 +3,7 @@ import "./globals.css";
 import { CMSProvider } from "@/context/CMSContext";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mphospital.in"),
   title: "MP Hospital & Trauma Centre Jabalpur – Formerly Maxx Hospital | 24x7 Emergency & Orthopedics",
   description:
     "MP Hospital & Trauma Centre (Formerly Maxx Hospital) in Beoharbagh, Jabalpur led by Dr. Abhishek Jain. Leading center for Total Knee/Hip Replacement, Accidental Polytrauma, Sports Injury Arthroscopy, Spine Care, Modular OT, and 24x7 ICU.",
@@ -18,6 +19,17 @@ export const metadata: Metadata = {
     "24x7 Emergency Jabalpur",
     "Arthroscopy Jabalpur",
   ],
+  alternates: {
+    canonical: "https://mphospital.in",
+  },
+  openGraph: {
+    title: "MP Hospital & Trauma Centre Jabalpur – Formerly Maxx Hospital",
+    description: "24x7 Emergency, Accidental Polytrauma, Total Knee/Hip Replacement & ICU Care in Beoharbagh, Jabalpur.",
+    url: "https://mphospital.in",
+    siteName: "MP Hospital & Trauma Centre",
+    locale: "en_IN",
+    type: "website",
+  },
   icons: {
     icon: "/images/mp-hospital-logo.svg",
   },
