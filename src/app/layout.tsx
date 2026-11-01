@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/images/mp-hospital-logo.svg",
   },
+  verification: {
+    google: "googlee4cbd8ada6d64925",
+  },
 };
 
 export default function RootLayout({
