@@ -62,17 +62,15 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
           {/* Logo on the left */}
-          <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <div className="relative h-10 w-44 sm:h-12 sm:w-60">
-              <Image
-                src="/images/mp-hospital-nav-logo.png"
-                alt="MP Hospital & Trauma Centre"
-                fill
-                sizes="(max-width: 640px) 176px, 240px"
-                className="object-contain object-left"
-                priority
-              />
-            </div>
+          <Link href="/" className="flex items-center gap-2.5 group shrink-0 py-0.5" aria-label="MP Hospital & Trauma Centre Jabalpur Home">
+            <Image
+              src="/images/mp-hospital-registered-logo.png"
+              alt="MP Hospital & Trauma Centre"
+              width={76}
+              height={66}
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform duration-200 group-hover:scale-102"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation Links: Clean High-Contrast Dark Text */}
@@ -158,12 +156,13 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
               style={{ flexShrink: 0 }}
               className="flex items-center justify-between px-5 py-4 border-b border-neutral-800 bg-neutral-900/95"
             >
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="relative h-10 w-48">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center p-1.5 bg-white rounded-xl shadow-xs">
                 <Image
-                  src="/images/mp-hospital-logo-white.svg"
+                  src="/images/mp-hospital-registered-logo.png"
                   alt="MP Hospital & Trauma Centre"
-                  fill
-                  className="object-contain object-left"
+                  width={64}
+                  height={56}
+                  className="h-11 w-auto object-contain"
                   priority
                 />
               </Link>

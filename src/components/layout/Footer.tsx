@@ -22,15 +22,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Column 1: Brand & About */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block">
-              <div className="relative h-12 w-56 mb-2">
-                <Image
-                  src="/images/mp-hospital-nav-logo.png"
-                  alt="MP Hospital & Trauma Centre"
-                  fill
-                  className="object-contain object-left"
-                />
-              </div>
+            <Link href="/" className="inline-block mb-1" aria-label="MP Hospital & Trauma Centre Jabalpur Home">
+              <Image
+                src="/images/mp-hospital-registered-logo.png"
+                alt="MP Hospital & Trauma Centre"
+                width={88}
+                height={77}
+                className="h-16 sm:h-20 w-auto object-contain"
+              />
             </Link>
             <p className="text-sm text-neutral-600 leading-relaxed font-normal">
               MP Hospital &amp; Trauma Centre delivers advanced orthopedic, joint replacement, spine surgery, and 24x7 emergency trauma care under the expert direction of{" "}

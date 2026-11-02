@@ -30,7 +30,11 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/images/mp-hospital-logo.svg",
+    icon: [
+      { url: "/images/mp-hospital-logo.svg", type: "image/svg+xml" },
+      { url: "/images/mp-hospital-registered-logo.png", type: "image/png" },
+    ],
+    apple: "/images/mp-hospital-registered-logo.png",
   },
   verification: {
     google: "googlee4cbd8ada6d64925",
