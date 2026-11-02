@@ -31,14 +31,6 @@ export default function TopBar() {
           </a>
         </div>
 
-        {/* Center Highlight: Dr. Abhishek Jain (Director) */}
-        <div className="hidden lg:flex items-center gap-1.5 text-white text-xs">
-          <span className="text-emerald-100 font-bold uppercase tracking-wider text-[11px]">Director:</span>
-          <span className="bg-white text-[#046F47] px-2.5 py-0.5 rounded-full font-black tracking-wide shadow-xs border border-emerald-200">
-            Dr. Abhishek Jain
-          </span>
-        </div>
-
         {/* Right Side: Follow Us + Social Icons (Facebook & Instagram) */}
         <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           <span className="text-white font-bold text-xs hidden sm:inline">Follow Us:</span>
