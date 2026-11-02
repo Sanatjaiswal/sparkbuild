@@ -31,10 +31,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/mp-hospital-logo.svg", type: "image/svg+xml" },
-      { url: "/images/mp-hospital-registered-logo.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "64x64", type: "image/x-icon" },
+      { url: "/images/mp-hospital-emblem.png", type: "image/png" },
+      { url: "/images/mp-hospital-emblem.svg", type: "image/svg+xml" },
     ],
-    apple: "/images/mp-hospital-registered-logo.png",
+    apple: "/images/mp-hospital-emblem.png",
   },
   verification: {
     google: "googlee4cbd8ada6d64925",
