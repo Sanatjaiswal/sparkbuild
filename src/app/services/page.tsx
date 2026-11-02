@@ -123,7 +123,7 @@ export default function ServicesPage() {
             Our Medical <span className="text-red-400">Specialties</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
-            MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) offers specialized orthopedic surgery, accidental trauma care, and intensive life support in Jabalpur.
+            MP Hospital &amp; Trauma Centre offers specialized orthopedic surgery, accidental trauma care, and intensive life support in Jabalpur.
           </p>
         </div>
       </section>

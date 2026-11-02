@@ -4,7 +4,7 @@ export default function MarqueeTicker() {
   const items = [
     "24x7 Emergency & Trauma Centre",
     "Dr. Abhishek Jain (Orthopedic Specialist)",
-    "Formerly Maxx Hospital",
+    "Advanced Life Support Ambulance",
     "Total Knee & Hip Replacement",
     "Arthroscopy & Sports Medicine",
     "Class 10,000 Modular OT",

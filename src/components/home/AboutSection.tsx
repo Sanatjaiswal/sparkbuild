@@ -58,7 +58,7 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-base text-gray-600 leading-relaxed font-normal">
-              MP Hospital and Trauma Centre (Formerly Maxx Hospital) is dedicated to delivering clinical excellence in orthopedics, accidental trauma resuscitation, joint replacement, and sports medicine under the leadership of renowned surgeon{" "}
+              MP Hospital and Trauma Centre is dedicated to delivering clinical excellence in orthopedics, accidental trauma resuscitation, joint replacement, and sports medicine under the leadership of renowned surgeon{" "}
               <span className="bg-emerald-50 text-[#046F47] px-2.5 py-0.5 rounded font-black border border-emerald-200 shadow-xs">
                 Dr. Abhishek Jain
               </span>

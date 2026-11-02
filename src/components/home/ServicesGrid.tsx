@@ -86,7 +86,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
             Comprehensive Orthopedic &amp; Trauma Care
           </h2>
           <p className="text-sm sm:text-base text-neutral-700 font-medium">
-            MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) – Led by{" "}
+            MP Hospital &amp; Trauma Centre – Led by{" "}
             <span className="bg-emerald-50 text-[#046F47] border border-emerald-200 px-2.5 py-0.5 rounded-full font-black shadow-xs">
               Dr. Abhishek Jain
             </span>

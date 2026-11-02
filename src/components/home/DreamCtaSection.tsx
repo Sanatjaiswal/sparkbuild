@@ -23,7 +23,7 @@ export default function DreamCtaSection({ onOpenConsultation }: DreamCtaSectionP
               <span className="text-[#046F47] font-black underline decoration-red-500 decoration-2">
                 Dr. Abhishek Jain
               </span>
-              , or advanced orthopedic surgery, MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) provides trusted care round the clock.
+              , or advanced orthopedic surgery, MP Hospital &amp; Trauma Centre provides trusted care round the clock.
             </p>
           </div>
 

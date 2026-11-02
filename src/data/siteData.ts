@@ -90,7 +90,7 @@ export interface CareerJob {
 export const siteConfig = {
   name: "MP Hospital",
   fullName: "MP Hospital and Trauma Centre",
-  formerName: "Formerly Maxx Hospital & Trauma Centre",
+  formerName: "",
   tagline: "Leading Orthopedic, Joint Replacement & 24x7 Trauma Care Centre in Jabalpur",
   phone1: "0761-2626123",
   phone1Raw: "07612626123",
@@ -111,14 +111,14 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/company/mp-hospital-trauma-centre",
   },
   stats: {
+    surgeriesCount: "15,000+",
     projectsCount: "15,000+",
-    sqftConstructed: "5,000+",
-    realEstateProjects: "24x7",
-    megaProjects: "50+",
-    verticals: "8+",
+    jointReplacements: "5,000+",
+    emergencyTrauma: "24x7",
+    modularOTs: "Class 10,000",
     satisfactionRate: "99%+",
     yearsExperience: "10+ Years",
-    structuralWarranty: "100%",
+    infectionControl: "100%",
   }
 };
 
@@ -136,7 +136,7 @@ export const heroSlides: HeroSlide[] = [
     id: 1,
     highlightNumber: "24x7",
     title: "Emergency & Trauma Care in Jabalpur",
-    description: "MP Hospital & Trauma Centre (Formerly Maxx Hospital) – Dedicated accidental trauma resuscitation, advanced surgical infrastructure, and round-the-clock emergency team.",
+    description: "MP Hospital & Trauma Centre – Dedicated accidental trauma resuscitation, advanced surgical infrastructure, and round-the-clock emergency team.",
     bgImage: "/images/mp-hospital-building.jpg",
   },
   {
@@ -164,7 +164,7 @@ export const heroSlides: HeroSlide[] = [
     id: 5,
     highlightNumber: "10+ Yrs",
     title: "Trusted Healthcare Legacy in Mahakoshal",
-    description: "Continuing the trusted legacy of Maxx Hospital with expanded facilities, digital diagnostics, Ayushman/Cashless TPA, and compassionate patient care.",
+    description: "Continuing our trusted 10+ year legacy with expanded facilities, digital diagnostics, Ayushman/Cashless TPA, and compassionate patient care.",
     bgImage: "/images/diagnostic-center.jpg",
   },
 ];
@@ -325,7 +325,7 @@ export const projectsData: ProjectItem[] = [
     type: "Healthcare",
     status: "Completed",
     specs: "Multi-storey modern hospital building located in Beoharbagh, Jabalpur, featuring wheelchair ramps, reception, and pharmacy.",
-    highlights: ["Central Prime Jabalpur Location", "Ample Stretcher & Patient Access", "Formerly Maxx Hospital"],
+    highlights: ["Central Prime Jabalpur Location", "Ample Stretcher & Patient Access", "24x7 Emergency Services"],
     image: "/images/mp-hospital-building.jpg",
   },
 ];
@@ -526,7 +526,7 @@ export const testimonials = [
   {
     name: "Mahesh Chouksey",
     project: "Emergency Road Accident Trauma",
-    text: "My brother met with a major highway accident with multiple bone fractures. The 24x7 emergency and trauma ICU team at MP Hospital (formerly Maxx Hospital) saved his leg with timely surgery. Highly grateful to Dr. Abhishek Jain.",
+    text: "My brother met with a major highway accident with multiple bone fractures. The 24x7 emergency and trauma ICU team at MP Hospital saved his leg with timely surgery. Highly grateful to Dr. Abhishek Jain.",
     rating: 5,
   },
   {
@@ -549,8 +549,8 @@ export const faqsData: FAQItem[] = [
     answer: "Yes, MP Hospital and Trauma Centre operates a round-the-clock (24/7) emergency trauma unit with immediate casualty reception, on-call trauma surgeons, anesthesiologists, digital X-ray, in-house pharmacy, and Advanced Life Support (ALS) ambulances. Call our emergency hotline at 0761-2626123 or +91 76489-98668.",
   },
   {
-    question: "Is MP Hospital the same as Maxx Hospital?",
-    answer: "Yes! MP Hospital and Trauma Centre was formerly known as Maxx Hospital & Trauma Centre. We have rebranded and modernized our healthcare infrastructure under the leadership of Dr. Abhishek Jain, continuing our 10+ year legacy of trusted orthopedic, spine, and trauma care in Jabalpur.",
+    question: "What makes MP Hospital a leading trauma center in Jabalpur?",
+    answer: "MP Hospital and Trauma Centre combines high-tech laminar flow modular operation theatres, a dedicated 24x7 Trauma ICU, modern digital radiology, and an experienced multidisciplinary team under Dr. Abhishek Jain, ensuring round-the-clock emergency care and rapid orthopedic recovery.",
   },
   {
     question: "What are the OPD consultation timings for Dr. Abhishek Jain?",

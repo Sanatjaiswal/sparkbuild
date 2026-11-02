@@ -28,7 +28,7 @@ export default function TermsConditionPage() {
           <div>
             <h2 className="text-xl font-bold text-black mb-2">1. Acceptance of Terms</h2>
             <p>
-              Welcome to MP Hospital &amp; Trauma Centre (formerly Maxx Hospital), Jabalpur. By accessing or using our website, requesting appointments, or utilizing our clinical services, you agree to comply with and be bound by these Terms and Conditions. Please review them carefully.
+              Welcome to MP Hospital &amp; Trauma Centre, Jabalpur. By accessing or using our website, requesting appointments, or utilizing our clinical services, you agree to comply with and be bound by these Terms and Conditions. Please review them carefully.
             </p>
           </div>
 

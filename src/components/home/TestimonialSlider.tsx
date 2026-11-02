@@ -17,7 +17,7 @@ export default function TestimonialSlider() {
             Words of Gratitude From Our Patients
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
-            Real experiences from families and patients treated at MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital).
+            Real experiences from families and patients treated at MP Hospital &amp; Trauma Centre.
           </p>
         </div>
 

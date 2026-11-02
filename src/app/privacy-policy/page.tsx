@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
           <div>
             <h2 className="text-xl font-bold text-black mb-2">1. Introduction</h2>
             <p>
-              At MP Hospital &amp; Trauma Centre (formerly Maxx Hospital), we value your trust and are committed to protecting your privacy and medical confidentiality. This Privacy Policy explains how we collect, use, and safeguard your personal information when you visit our website (mphospital.in), request a doctor consultation, or engage with our clinical and surgical healthcare services.
+              At MP Hospital &amp; Trauma Centre, we value your trust and are committed to protecting your privacy and medical confidentiality. This Privacy Policy explains how we collect, use, and safeguard your personal information when you visit our website (mphospital.in), request a doctor consultation, or engage with our clinical and surgical healthcare services.
             </p>
           </div>
 

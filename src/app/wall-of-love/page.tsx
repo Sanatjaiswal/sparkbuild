@@ -72,7 +72,7 @@ export default function WallOfLovePage() {
             Voices Behind <span className="text-red-400">Every Healing</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
-            At MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital), patient trust is proven through restored mobility, pain-free lives, and critical trauma rescues.
+            At MP Hospital &amp; Trauma Centre, patient trust is proven through restored mobility, pain-free lives, and critical trauma rescues.
           </p>
         </div>
       </section>

@@ -73,7 +73,7 @@ export default function AppointmentLetterPage() {
             <span className="text-white font-black underline decoration-red-500 decoration-2">
               Dr. Abhishek Jain
             </span>{" "}
-            (Senior Orthopedic &amp; Trauma Specialist) at MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital).
+            (Senior Orthopedic &amp; Trauma Specialist) at MP Hospital &amp; Trauma Centre.
           </p>
         </div>
       </section>

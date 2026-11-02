@@ -208,7 +208,7 @@ export default function OurTeamPage() {
                   <div className="relative p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200/80">
                     <Quote className="w-8 h-8 text-[#046F47]/20 absolute top-3 right-3" />
                     <blockquote className="text-sm sm:text-base text-neutral-800 leading-relaxed font-medium italic relative z-10">
-                      &ldquo;At MP Hospital &amp; Trauma Centre (formerly Maxx Hospital), our clinical mission is rapid emergency resuscitation, zero-delay trauma surgeries, and precision robotic joint restorations to return every patient to active, pain-free mobility.&rdquo;
+                      &ldquo;At MP Hospital &amp; Trauma Centre, our clinical mission is rapid emergency resuscitation, zero-delay trauma surgeries, and precision robotic joint restorations to return every patient to active, pain-free mobility.&rdquo;
                     </blockquote>
                   </div>
 

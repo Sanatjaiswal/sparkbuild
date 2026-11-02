@@ -41,7 +41,7 @@ export default function AboutPage() {
             Healing With Purpose, <span className="text-red-400">Backed by Trust</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
-            MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) – Transforming Orthopedic, Trauma &amp; Critical Care in Jabalpur.
+            MP Hospital &amp; Trauma Centre – Transforming Orthopedic, Trauma &amp; Critical Care in Jabalpur.
           </p>
         </div>
       </section>
@@ -52,13 +52,13 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
               <span className="text-xs font-black uppercase tracking-wider text-[#046F47]">
-                Formerly Maxx Hospital &amp; Trauma Centre
+                Premier Healthcare Institution
               </span>
               <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 leading-tight">
                 Orthopedic Excellence &amp; 24x7 Trauma Resuscitation
               </h2>
               <p className="text-base text-gray-700 leading-relaxed font-normal">
-                Originally established as Maxx Hospital &amp; Trauma Centre and now modernized as MP Hospital and Trauma Centre, our institution has been a beacon of surgical hope and trauma recovery across Jabalpur and the greater Mahakoshal region.
+                Established with a legacy of surgical excellence, MP Hospital and Trauma Centre has been a beacon of surgical hope and trauma recovery across Jabalpur and the greater Mahakoshal region.
               </p>
               <p className="text-base text-gray-700 leading-relaxed font-normal">
                 Under the clinical leadership of{" "}

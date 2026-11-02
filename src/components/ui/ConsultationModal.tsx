@@ -101,9 +101,9 @@ export default function ConsultationModal({
               <h4 className="text-2xl font-bold text-gray-900">Appointment Requested!</h4>
               <p className="text-sm text-gray-600 max-w-sm mx-auto">
                 Thank you, <strong>{formData.name}</strong>. Our hospital reception desk will contact you at{" "}
-                <strong>{formData.phone}</strong> to confirm your consultation slot with{" "}
+                <strong>{formData.phone}</strong> to confirm your consultation slot for{" "}
                 <span className="text-[#046F47] font-black bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
-                  Dr. Abhishek Jain
+                  {formData.projectScope || "Dr. Abhishek Jain (Orthopedics)"}
                 </span>
                 .
               </p>

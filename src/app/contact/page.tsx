@@ -69,7 +69,7 @@ export default function ContactPage() {
             Get In Touch With <span className="text-red-400">MP Hospital</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
-            MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) – 24x7 Emergency Line: 0761-2626123, OPD Appointments &amp; Trauma Resuscitation in Jabalpur.
+            MP Hospital &amp; Trauma Centre – 24x7 Emergency Line: 0761-2626123, OPD Appointments &amp; Trauma Resuscitation in Jabalpur.
           </p>
         </div>
       </section>

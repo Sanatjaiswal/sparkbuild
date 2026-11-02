@@ -33,7 +33,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sm text-neutral-600 leading-relaxed font-normal">
-              MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) delivers advanced orthopedic, joint replacement, spine surgery, and 24x7 emergency trauma care under the expert direction of{" "}
+              MP Hospital &amp; Trauma Centre delivers advanced orthopedic, joint replacement, spine surgery, and 24x7 emergency trauma care under the expert direction of{" "}
               <strong className="text-[#046F47] font-black underline decoration-red-500">
                 Dr. Abhishek Jain
               </strong>
@@ -215,7 +215,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-emerald-100 text-center lg:text-left">
           {/* Left: Copyright */}
           <p className="shrink-0 text-center lg:text-left">
-            © {new Date().getFullYear()} MP Hospital and Trauma Centre (Formerly Maxx Hospital), Jabalpur. All Rights Reserved.
+            © {new Date().getFullYear()} MP Hospital and Trauma Centre, Jabalpur. All Rights Reserved.
           </p>
 
           {/* Center: Legal Links */}

@@ -130,6 +130,23 @@ export default function WordPressAdmin() {
   const [passwordInput, setPasswordInput] = useState("");
   const [loginError, setLoginError] = useState("");
 
+  // Real-time leads state
+  const [patientInquiries, setPatientInquiries] = useState<any[]>([]);
+  const [contactMessages, setContactMessages] = useState<any[]>([]);
+  const [jobApplications, setJobApplications] = useState<any[]>([]);
+
+  const loadLeads = () => {
+    if (typeof window !== "undefined") {
+      try {
+        setPatientInquiries(JSON.parse(localStorage.getItem("mphospital_inquiries") || "[]"));
+        setContactMessages(JSON.parse(localStorage.getItem("mphospital_messages") || "[]"));
+        setJobApplications(JSON.parse(localStorage.getItem("mphospital_applications") || "[]"));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  };
+
   useEffect(() => {
     const authSession = typeof window !== "undefined" ? sessionStorage.getItem("mphospital_admin_auth") : null;
     const authLocal = typeof window !== "undefined" ? localStorage.getItem("mphospital_admin_auth") : null;
@@ -138,6 +155,31 @@ export default function WordPressAdmin() {
     }
     setIsAuthChecking(false);
   }, []);
+
+  useEffect(() => {
+    loadLeads();
+  }, [activeMenu]);
+
+  const deleteInquiry = (id: string) => {
+    const updated = patientInquiries.filter((item) => item.id !== id);
+    setPatientInquiries(updated);
+    localStorage.setItem("mphospital_inquiries", JSON.stringify(updated));
+    showToast("Inquiry removed.");
+  };
+
+  const deleteMessage = (id: string) => {
+    const updated = contactMessages.filter((item) => item.id !== id);
+    setContactMessages(updated);
+    localStorage.setItem("mphospital_messages", JSON.stringify(updated));
+    showToast("Message removed.");
+  };
+
+  const deleteApplication = (index: number) => {
+    const updated = jobApplications.filter((_, idx) => idx !== index);
+    setJobApplications(updated);
+    localStorage.setItem("mphospital_applications", JSON.stringify(updated));
+    showToast("Application removed.");
+  };
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -331,7 +373,7 @@ export default function WordPressAdmin() {
               { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
               { id: "pages", label: "Pages & Hero", icon: FileText },
               { id: "media", label: "Media Library", icon: ImageIcon },
-              { id: "projects", label: "Projects / Portfolio", icon: Building },
+              { id: "projects", label: "Hospital Facilities", icon: Building },
               { id: "services", label: "Services", icon: Wrench },
               { id: "team", label: "Our Team", icon: Users },
               { id: "blog", label: "Blog Posts", icon: Edit },
@@ -618,15 +660,15 @@ export default function WordPressAdmin() {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-[#1d2327]">Projects &amp; Portfolio Manager</h1>
-                  <p className="text-xs text-gray-500">Add, edit titles, change photos, and categorize showcase projects.</p>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Hospital Facilities &amp; Infrastructure</h1>
+                  <p className="text-xs text-gray-500">Add, edit titles, change photos, and categorize showcase facilities and hospital wings.</p>
                 </div>
                 <button
                   onClick={() => setIsAddingProject(true)}
                   className="px-4 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded shadow flex items-center gap-1.5"
                 >
                   <Plus className="w-4 h-4" />
-                  <span>Add New Project</span>
+                  <span>Add New Facility</span>
                 </button>
               </div>
 
@@ -1439,32 +1481,162 @@ export default function WordPressAdmin() {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-[#1d2327]">Inquiries &amp; Customer Leads</h1>
-                  <p className="text-xs text-gray-500">Live consultation requests and contact messages from website visitors.</p>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Patient Inquiries &amp; Appointments</h1>
+                  <p className="text-xs text-gray-500">Real-time doctor appointment bookings and contact inquiries from patients.</p>
                 </div>
+                <button
+                  onClick={loadLeads}
+                  className="px-3 py-1.5 bg-[#f0f0f1] hover:bg-[#dcdcde] text-gray-700 text-xs font-bold rounded flex items-center gap-1.5 transition-colors"
+                >
+                  <RefreshCw className="w-3.5 h-3.5" />
+                  <span>Refresh Leads</span>
+                </button>
               </div>
 
+              {/* 1. Doctor Appointment Requests */}
               <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm p-6 space-y-4">
-                <h3 className="font-bold text-base text-[#1d2327]">Free Consultation Submissions</h3>
-                <p className="text-xs text-gray-500">
-                  Leads generated from the bottom consultation bar and booking modal are automatically cataloged here.
-                </p>
-
-                <div className="border rounded divide-y text-xs">
-                  <div className="p-4 bg-gray-50 flex items-center justify-between font-bold text-gray-700">
-                    <span>Client Name &amp; Contact</span>
-                    <span>Project Scope</span>
-                  </div>
-                  <div className="p-4 flex items-center justify-between">
-                    <div>
-                      <p className="font-bold text-sm text-black">Dr. R. K. Agrawal</p>
-                      <p className="text-gray-500">+91 98261 44550 • rk.agrawal@hospital.org</p>
-                    </div>
-                    <span className="px-3 py-1 bg-amber-50 text-amber-800 rounded font-bold">
-                      Hospital &amp; Healthcare Wing
-                    </span>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="font-bold text-base text-[#1d2327] flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-red-600" />
+                      Doctor Appointment Requests ({patientInquiries.length})
+                    </h3>
+                    <p className="text-xs text-gray-500">
+                      Submissions from &quot;Book Appointment&quot; modal and Doctor OPD booking page.
+                    </p>
                   </div>
                 </div>
+
+                {patientInquiries.length === 0 ? (
+                  <div className="p-8 text-center border-2 border-dashed rounded-lg bg-gray-50">
+                    <p className="text-sm text-gray-500 font-medium">No new appointment requests yet.</p>
+                    <p className="text-xs text-gray-400 mt-1">When patients submit the booking form, they will appear here instantly.</p>
+                  </div>
+                ) : (
+                  <div className="border rounded divide-y text-xs">
+                    <div className="p-3 bg-gray-50 grid grid-cols-1 md:grid-cols-4 font-bold text-gray-700 gap-2">
+                      <span>Patient Details</span>
+                      <span>Doctor / Specialty</span>
+                      <span>Preferred Slot / Notes</span>
+                      <span className="text-right">Action</span>
+                    </div>
+                    {patientInquiries.map((inq: any, idx: number) => (
+                      <div key={inq.id || idx} className="p-4 grid grid-cols-1 md:grid-cols-4 gap-2 items-center hover:bg-gray-50/50">
+                        <div>
+                          <p className="font-bold text-sm text-neutral-900">{inq.name || "Patient"}</p>
+                          <a href={`tel:${inq.phone}`} className="text-red-600 font-bold hover:underline block">{inq.phone}</a>
+                          {inq.email && <p className="text-gray-500 text-[11px]">{inq.email}</p>}
+                        </div>
+                        <div>
+                          <span className="px-2.5 py-1 bg-emerald-50 text-[#046F47] rounded font-bold border border-emerald-200 inline-block">
+                            {inq.specialty || inq.projectScope || inq.serviceType || "Orthopedics"}
+                          </span>
+                        </div>
+                        <div>
+                          <p className="text-gray-700 font-medium">{inq.preferredTime || inq.preferredDate || "General Slot"}</p>
+                          {inq.symptoms && <p className="text-gray-500 text-[11px] line-clamp-1 italic">&ldquo;{inq.symptoms}&rdquo;</p>}
+                        </div>
+                        <div className="flex md:justify-end">
+                          <button
+                            onClick={() => deleteInquiry(inq.id)}
+                            className="p-1.5 text-red-600 hover:bg-red-50 rounded transition-colors"
+                            title="Delete Lead"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* 2. Contact Page Messages */}
+              <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm p-6 space-y-4">
+                <h3 className="font-bold text-base text-[#1d2327] flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-[#046F47]" />
+                  Contact Form Messages ({contactMessages.length})
+                </h3>
+
+                {contactMessages.length === 0 ? (
+                  <div className="p-6 text-center border-2 border-dashed rounded-lg bg-gray-50">
+                    <p className="text-sm text-gray-500 font-medium">No contact messages received yet.</p>
+                  </div>
+                ) : (
+                  <div className="border rounded divide-y text-xs">
+                    <div className="p-3 bg-gray-50 grid grid-cols-1 md:grid-cols-3 font-bold text-gray-700 gap-2">
+                      <span>Sender</span>
+                      <span>Message</span>
+                      <span className="text-right">Action</span>
+                    </div>
+                    {contactMessages.map((msg: any, idx: number) => (
+                      <div key={msg.id || idx} className="p-4 grid grid-cols-1 md:grid-cols-3 gap-2 items-center hover:bg-gray-50/50">
+                        <div>
+                          <p className="font-bold text-sm text-neutral-900">{msg.firstName} {msg.lastName}</p>
+                          <a href={`tel:${msg.phone}`} className="text-red-600 font-bold hover:underline block">{msg.phone}</a>
+                          {msg.email && <p className="text-gray-500 text-[11px]">{msg.email}</p>}
+                        </div>
+                        <div>
+                          <p className="text-gray-700 italic">&ldquo;{msg.message}&rdquo;</p>
+                        </div>
+                        <div className="flex md:justify-end">
+                          <button
+                            onClick={() => deleteMessage(msg.id)}
+                            className="p-1.5 text-red-600 hover:bg-red-50 rounded transition-colors"
+                            title="Delete Message"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* 3. Career Applications */}
+              <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm p-6 space-y-4">
+                <h3 className="font-bold text-base text-[#1d2327] flex items-center gap-2">
+                  <Users className="w-4 h-4 text-blue-600" />
+                  Hospital Job Applications ({jobApplications.length})
+                </h3>
+
+                {jobApplications.length === 0 ? (
+                  <div className="p-6 text-center border-2 border-dashed rounded-lg bg-gray-50">
+                    <p className="text-sm text-gray-500 font-medium">No job applications submitted yet.</p>
+                  </div>
+                ) : (
+                  <div className="border rounded divide-y text-xs">
+                    <div className="p-3 bg-gray-50 grid grid-cols-1 md:grid-cols-3 font-bold text-gray-700 gap-2">
+                      <span>Applicant</span>
+                      <span>Position</span>
+                      <span className="text-right">Action</span>
+                    </div>
+                    {jobApplications.map((app: any, idx: number) => (
+                      <div key={idx} className="p-4 grid grid-cols-1 md:grid-cols-3 gap-2 items-center hover:bg-gray-50/50">
+                        <div>
+                          <p className="font-bold text-sm text-neutral-900">{app.firstName} {app.lastName}</p>
+                          <a href={`tel:${app.phone}`} className="text-red-600 font-bold hover:underline block">{app.phone}</a>
+                          {app.email && <p className="text-gray-500 text-[11px]">{app.email}</p>}
+                        </div>
+                        <div>
+                          <span className="px-2 py-0.5 bg-blue-50 text-blue-700 rounded font-bold border border-blue-200">
+                            {app.jobTitle || "Hospital Staff"}
+                          </span>
+                        </div>
+                        <div className="flex md:justify-end">
+                          <button
+                            onClick={() => deleteApplication(idx)}
+                            className="p-1.5 text-red-600 hover:bg-red-50 rounded transition-colors"
+                            title="Delete Application"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           )}

@@ -77,7 +77,7 @@ export default function CareersPage() {
             Heal With Compassion – <span className="text-[#fff200]">Grow With Us</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
-            Join MP Hospital &amp; Trauma Centre (Formerly Maxx Hospital) in Jabalpur. Shape the future of trauma care, nursing excellence, and orthopedic surgical support.
+            Join MP Hospital &amp; Trauma Centre in Jabalpur. Shape the future of trauma care, nursing excellence, and orthopedic surgical support.
           </p>
         </div>
       </section>
@@ -94,7 +94,7 @@ export default function CareersPage() {
                 Why Build Your Healthcare Career With Us
               </h2>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
-                At MP Hospital &amp; Trauma Centre (formerly Maxx Hospital), you’re more than an employee — you are a life-saver and care partner. We value your clinical skills, prioritize continuous learning, and foster a culture of medical excellence.
+                At MP Hospital &amp; Trauma Centre, you’re more than an employee — you are a life-saver and care partner. We value your clinical skills, prioritize continuous learning, and foster a culture of medical excellence.
               </p>
 
               <div className="space-y-3 pt-2">
