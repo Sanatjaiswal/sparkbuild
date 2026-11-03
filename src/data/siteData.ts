@@ -108,8 +108,8 @@ export const siteConfig = {
   googleMapsUrl: "https://maps.google.com/maps?q=Beoharbagh+Near+Ghamapur+Chowk+Jabalpur+Madhya+Pradesh&t=&z=16&ie=UTF8&iwloc=&output=embed",
   socials: {
     whatsapp: "https://wa.me/917648998668",
-    facebook: "https://www.facebook.com/mphospitaljabalpur",
-    instagram: "https://www.instagram.com/mphospital_jabalpur",
+    facebook: "https://www.facebook.com/MPHospitalandTraumaCentre/",
+    instagram: "https://www.instagram.com/mphospitaljabalpur/",
     youtube: "https://www.youtube.com/@MPHospitalJabalpur",
     linkedin: "https://www.linkedin.com/company/mp-hospital-trauma-centre",
   },
@@ -521,25 +521,25 @@ export const awardsData: AwardItem[] = [
 
 export const testimonials = [
   {
-    name: "Smt. Pushpa Agrawal",
+    name: "",
     project: "Total Knee Replacement",
     text: "I was suffering from severe knee arthritis for 6 years and could barely walk. Dr. Abhishek Jain performed knee replacement surgery at MP Hospital. Within 2 days I was walking with support and now I live pain-free. Blessed care!",
     rating: 5,
   },
   {
-    name: "Mahesh Chouksey",
+    name: "",
     project: "Emergency Road Accident Trauma",
     text: "My brother met with a major highway accident with multiple bone fractures. The 24x7 emergency and trauma ICU team at MP Hospital saved his leg with timely surgery. Highly grateful to Dr. Abhishek Jain.",
     rating: 5,
   },
   {
-    name: "Sunil Soni",
+    name: "",
     project: "Arthroscopic ACL Reconstruction",
     text: "Tore my ligament playing cricket. The arthroscopic surgery was completely smooth with tiny keyhole cuts. The physiotherapy unit got me back on my feet quickly. Cleanest hospital in Jabalpur!",
     rating: 5,
   },
   {
-    name: "Rajesh K. Gupta",
+    name: "",
     project: "Hip Replacement & Cashless TPA",
     text: "From admission to discharge, the cashless mediclaim process was seamless. The nursing staff and modular OT infrastructure are truly top-grade. Highly recommend MP Hospital to everyone in Jabalpur.",
     rating: 5,

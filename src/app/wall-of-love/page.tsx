@@ -22,25 +22,25 @@ export default function WallOfLovePage() {
   const extendedTestimonials = [
     ...testimonials,
     {
-      name: "Suresh Patidar",
+      name: "",
       project: "Accidental Polytrauma Recovery",
       text: "After a severe highway accident, MP Hospital’s emergency trauma surgeons acted with lightning speed. The 24x7 ICU care, modular OT surgery, and post-op rehabilitation brought me back to my feet within 3 months. Immense gratitude to Dr. Abhishek Jain.",
       rating: 5,
     },
     {
-      name: "Meenakshi Tiwari",
+      name: "",
       project: "Bilateral Knee Arthroplasty",
       text: "I was bedridden with severe osteoarthritis for 4 years. Dr. Abhishek Jain recommended bilateral knee replacement. The surgery in the modular OT was painless, and I walked with support on day two. Today I walk unassisted with zero pain.",
       rating: 5,
     },
     {
-      name: "Karan Singhania",
+      name: "",
       project: "Shoulder Arthroscopy & Rotator Cuff",
       text: "Top-class sports injury care right here in Jabalpur! Keyhole arthroscopy was done so cleanly with minimal incision. Within 6 weeks I regained full shoulder range of motion. MP Hospital is truly world-class.",
       rating: 5,
     },
     {
-      name: "Radhika Agrawal",
+      name: "",
       project: "Elderly Hip Fracture & Rehab",
       text: "My 78-year-old grandmother suffered a hip fracture. MP Hospital’s team admitted her late at night, stabilized her vitals, and completed successful hip replacement the next morning. Clean hospital environment and caring nursing staff.",
       rating: 5,
@@ -216,8 +216,10 @@ export default function WallOfLovePage() {
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-neutral-200">
-                  <h4 className="text-sm font-bold text-neutral-900">{item.name}</h4>
-                  <p className="text-[11px] text-sky-700 font-semibold">{item.project}</p>
+                  {item.name ? (
+                    <h4 className="text-sm font-bold text-neutral-900">{item.name}</h4>
+                  ) : null}
+                  <p className="text-xs font-bold text-sky-700">{item.project}</p>
                 </div>
               </div>
             ))}

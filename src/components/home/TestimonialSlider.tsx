@@ -65,8 +65,10 @@ export default function TestimonialSlider() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-neutral-200">
-                <h4 className="text-base font-bold text-neutral-900">{item.name}</h4>
-                <p className="text-xs text-[#008ec7] font-semibold">{item.project}</p>
+                {item.name ? (
+                  <h4 className="text-base font-bold text-neutral-900">{item.name}</h4>
+                ) : null}
+                <p className="text-sm font-bold text-[#008ec7]">{item.project}</p>
               </div>
             </div>
           ))}
