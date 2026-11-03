@@ -230,7 +230,7 @@ export default function CareersPage() {
             <div className="p-5 sm:p-6 overflow-y-auto">
               {appSubmitted ? (
                 <div className="text-center py-8 space-y-4">
-                  <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
                   <h4 className="text-2xl font-bold text-gray-900">Application Submitted!</h4>

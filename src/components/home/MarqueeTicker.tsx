@@ -28,7 +28,7 @@ export default function MarqueeTicker() {
                 {text}
               </span>
             )}
-            <span className="ml-6 w-2 h-2 rounded-full bg-emerald-300 inline-block"></span>
+            <span className="ml-6 w-2 h-2 rounded-full bg-orange-200 inline-block"></span>
           </div>
         ))}
       </div>

@@ -17,7 +17,7 @@ export default function WhyHospital() {
     },
     {
       icon: Stethoscope,
-      iconColor: "text-[#046F47]",
+      iconColor: "text-orange-500",
       title: "Senior Orthopedic Specialists",
       desc: "Experienced surgical team led by Dr. Abhishek Jain with 10+ years in joint replacement, sports injury & complex trauma.",
     },
@@ -29,7 +29,7 @@ export default function WhyHospital() {
     },
     {
       icon: ShieldCheck,
-      iconColor: "text-[#046F47]",
+      iconColor: "text-orange-500",
       title: "Cashless Mediclaim & TPA",
       desc: "Hassle-free insurance pre-authorization desk supporting major mediclaim policies and Ayushman Bharat coverage.",
     },
@@ -53,8 +53,8 @@ export default function WhyHospital() {
 
             {/* Quick Stat Cards */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="p-4 sm:p-6 rounded-2xl bg-emerald-50/80 border border-emerald-200 text-center space-y-1 shadow-xs">
-                <span className="text-2xl sm:text-4xl font-black text-[#046F47]">
+              <div className="p-4 sm:p-6 rounded-2xl bg-orange-50/80 border border-orange-200 text-center space-y-1 shadow-xs">
+                <span className="text-2xl sm:text-4xl font-black text-orange-600">
                   15,000+
                 </span>
                 <p className="text-xs font-bold uppercase tracking-wider text-neutral-700">
@@ -86,7 +86,7 @@ export default function WhyHospital() {
               </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
                 With a trusted 10+ year legacy of excellence, MP Hospital &amp; Trauma Centre is Jabalpur’s leading destination for orthopedic surgeries, joint replacement, spine stabilization, and emergency trauma care under{" "}
-                <span className="text-[#046F47] font-black underline decoration-red-500 decoration-2">
+                <span className="text-orange-600 font-black underline decoration-red-500 decoration-2">
                   Dr. Abhishek Jain
                 </span>
                 .

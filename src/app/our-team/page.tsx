@@ -143,7 +143,7 @@ export default function OurTeamPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-12 border border-neutral-200 shadow-xl relative overflow-hidden">
               {/* Brand Accent Top Line */}
-              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#046F47] via-red-600 to-[#046F47]" />
+              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#FB923C] via-red-600 to-[#FB923C]" />
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 {/* Left Column: Doctor's Executive Portrait Card */}
@@ -173,7 +173,7 @@ export default function OurTeamPage() {
                         <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mt-0.5">Surgical Mastery</p>
                       </div>
                       <div className="px-2">
-                        <p className="text-base font-black text-[#046F47] leading-tight">10,000+</p>
+                        <p className="text-base font-black text-orange-600 leading-tight">10,000+</p>
                         <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mt-0.5">Trauma Surgeries</p>
                       </div>
                     </div>
@@ -189,7 +189,7 @@ export default function OurTeamPage() {
                         <ShieldCheck className="w-3.5 h-3.5" />
                         {founder.role}
                       </span>
-                      <span className="inline-flex items-center gap-1 text-xs font-extrabold text-[#046F47] bg-emerald-50 border border-emerald-300 px-3 py-1 rounded-full">
+                      <span className="inline-flex items-center gap-1 text-xs font-extrabold text-orange-600 bg-orange-50 border border-orange-300 px-3 py-1 rounded-full">
                         <Stethoscope className="w-3.5 h-3.5" />
                         {founder.department}
                       </span>
@@ -199,14 +199,14 @@ export default function OurTeamPage() {
                       {founder.name}
                     </h2>
 
-                    <p className="text-sm sm:text-base font-extrabold text-[#046F47]">
+                    <p className="text-sm sm:text-base font-extrabold text-orange-600">
                       {founder.qualification} • Senior Joint Replacement &amp; Polytrauma Specialist
                     </p>
                   </div>
 
                   {/* Clinical Philosophy Quote */}
-                  <div className="relative p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200/80">
-                    <Quote className="w-8 h-8 text-[#046F47]/20 absolute top-3 right-3" />
+                  <div className="relative p-5 rounded-2xl bg-orange-50/60 border border-orange-200/80">
+                    <Quote className="w-8 h-8 text-[#FB923C]/20 absolute top-3 right-3" />
                     <blockquote className="text-sm sm:text-base text-neutral-800 leading-relaxed font-medium italic relative z-10">
                       &ldquo;At MP Hospital &amp; Trauma Centre, our clinical mission is rapid emergency resuscitation, zero-delay trauma surgeries, and precision robotic joint restorations to return every patient to active, pain-free mobility.&rdquo;
                     </blockquote>
@@ -214,8 +214,8 @@ export default function OurTeamPage() {
 
                   {/* Clinical Expertise 4-Card Grid with Bare Icons (NO boxes) */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                    <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-emerald-500/50 hover:bg-emerald-50/20 transition-all flex items-start gap-3.5 group/card shadow-xs">
-                      <Bone className="w-5 h-5 text-[#046F47] stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
+                    <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-orange-500/50 hover:bg-orange-50/20 transition-all flex items-start gap-3.5 group/card shadow-xs">
+                      <Bone className="w-5 h-5 text-orange-500 stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
                       <div>
                         <h4 className="text-xs font-black text-neutral-900">Robotic Joint Replacement</h4>
                         <p className="text-[11px] text-neutral-500 leading-snug mt-0.5">Total knee &amp; hip reconstruction with rapid recovery protocols.</p>
@@ -230,8 +230,8 @@ export default function OurTeamPage() {
                       </div>
                     </div>
 
-                    <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-emerald-500/50 hover:bg-emerald-50/20 transition-all flex items-start gap-3.5 group/card shadow-xs">
-                      <Crosshair className="w-5 h-5 text-[#046F47] stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
+                    <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-orange-500/50 hover:bg-orange-50/20 transition-all flex items-start gap-3.5 group/card shadow-xs">
+                      <Crosshair className="w-5 h-5 text-orange-500 stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
                       <div>
                         <h4 className="text-xs font-black text-neutral-900">4K Sports Arthroscopy</h4>
                         <p className="text-[11px] text-neutral-500 leading-snug mt-0.5">Minimally invasive ACL, PCL &amp; meniscus sports restorations.</p>
@@ -249,10 +249,10 @@ export default function OurTeamPage() {
 
                   {/* Consultation Timings & Emergency Trauma Line */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                    <div className="p-4 rounded-2xl bg-emerald-50/90 border border-emerald-200 flex items-center gap-3 shadow-xs">
-                      <Clock className="w-6 h-6 text-[#046F47] stroke-[2.2] shrink-0" />
+                    <div className="p-4 rounded-2xl bg-orange-50/90 border border-orange-200 flex items-center gap-3 shadow-xs">
+                      <Clock className="w-6 h-6 text-[#FB923C] stroke-[2.2] shrink-0" />
                       <div>
-                        <p className="text-[10px] font-black uppercase tracking-wider text-[#046F47]">OPD Consultation Hours</p>
+                        <p className="text-[10px] font-black uppercase tracking-wider text-[#FB923C]">OPD Consultation Hours</p>
                         <p className="text-xs font-black text-neutral-900 mt-0.5">Mon – Sat: 10:30 AM – 1:30 PM &amp; 5:30 PM – 8:30 PM</p>
                       </div>
                     </div>
@@ -279,7 +279,7 @@ export default function OurTeamPage() {
       <section className="py-16 sm:py-20 bg-white flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-[#046F47] text-xs font-black uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-300 text-orange-600 text-xs font-black uppercase tracking-wider">
               <Stethoscope className="w-3.5 h-3.5" />
               13 Senior Consultants
             </span>
@@ -300,7 +300,7 @@ export default function OurTeamPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                   activeCategory === cat
-                    ? "bg-[#046F47] text-white shadow-md shadow-emerald-900/20"
+                    ? "bg-[#FB923C] text-white shadow-md shadow-orange-900/20"
                     : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-neutral-200/80"
                 }`}
               >
@@ -343,18 +343,18 @@ export default function OurTeamPage() {
                             Director &amp; Chief
                           </span>
                         ) : (
-                          <span className="px-2.5 py-1 rounded-full bg-[#046F47] text-white text-[10px] font-black uppercase tracking-wider shadow">
+                          <span className="px-2.5 py-1 rounded-full bg-[#FB923C] text-white text-[10px] font-black uppercase tracking-wider shadow">
                             Consultant
                           </span>
                         )}
-                        <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-xs text-[#046F47] text-[10px] font-extrabold uppercase tracking-wider shadow-xs border border-emerald-100">
+                        <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-xs text-orange-600 text-[10px] font-extrabold uppercase tracking-wider shadow-xs border border-orange-100">
                           {member.department || "Specialist"}
                         </span>
                       </div>
 
                       {/* Overlay Title at bottom of photo */}
                       <div className="absolute bottom-3 left-3 right-3 text-white">
-                        <p className="text-[11px] font-extrabold text-emerald-300 uppercase tracking-wider">
+                        <p className="text-[11px] font-extrabold text-orange-200 uppercase tracking-wider">
                           {member.role}
                         </p>
                         <h3 className="text-xl font-black drop-shadow-sm">{member.name}</h3>
@@ -383,8 +383,8 @@ export default function OurTeamPage() {
                   {/* Clean Footer Status (NO appointment booking button) */}
                   <div className="px-6 pb-5 pt-0">
                     <div className="pt-3 border-t border-neutral-100 flex items-center justify-between text-[11px] font-bold text-neutral-500">
-                      <span className="flex items-center gap-1 text-[#046F47]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#046F47]" />
+                      <span className="flex items-center gap-1 text-orange-600">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-orange-600" />
                         <span>Verified Specialist</span>
                       </span>
                       <span className="text-neutral-400">MP Hospital</span>
@@ -402,7 +402,7 @@ export default function OurTeamPage() {
               </p>
               <button
                 onClick={() => setActiveCategory("All Specialists")}
-                className="mt-3 px-5 py-2 rounded-full bg-[#046F47] text-white text-xs font-bold uppercase tracking-wider cursor-pointer"
+                className="mt-3 px-5 py-2 rounded-full bg-[#FB923C] hover:bg-[#F97316] text-white text-xs font-bold uppercase tracking-wider cursor-pointer"
               >
                 View All 13 Specialists
               </button>
@@ -426,7 +426,7 @@ export default function OurTeamPage() {
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs hover:shadow-md transition-all flex items-start gap-4 group">
-              <Building2 className="w-8 h-8 text-[#046F47] stroke-[2.2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+              <Building2 className="w-8 h-8 text-orange-500 stroke-[2.2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
               <div>
                 <h4 className="text-sm font-black text-neutral-900">Modular OT Complexes</h4>
                 <p className="text-xs text-neutral-500 mt-1">
@@ -446,7 +446,7 @@ export default function OurTeamPage() {
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs hover:shadow-md transition-all flex items-start gap-4 group">
-              <ShieldCheck className="w-8 h-8 text-[#046F47] stroke-[2.2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+              <ShieldCheck className="w-8 h-8 text-orange-500 stroke-[2.2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
               <div>
                 <h4 className="text-sm font-black text-neutral-900">Diagnostics &amp; Rehab</h4>
                 <p className="text-xs text-neutral-500 mt-1">
@@ -459,15 +459,15 @@ export default function OurTeamPage() {
       </section>
 
       {/* Careers Banner */}
-      <section className="py-14 bg-gradient-to-r from-[#046F47] via-emerald-800 to-emerald-950 text-white text-center">
+      <section className="py-14 bg-gradient-to-r from-[#FB923C] via-orange-500 to-orange-600 text-white text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-4">
-          <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-emerald-200 text-xs font-bold uppercase tracking-wider">
+          <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider">
             Hospital Careers
           </span>
           <h3 className="text-2xl sm:text-3xl font-black text-white">
             Join Our Clinical &amp; Surgical Faculty
           </h3>
-          <p className="text-xs sm:text-sm text-emerald-100 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-orange-50 max-w-xl mx-auto leading-relaxed">
             We welcome passionate resident medical officers, ICU nurses, operation theatre
             technicians, and rehabilitation therapists to our growing team in Jabalpur.
           </p>

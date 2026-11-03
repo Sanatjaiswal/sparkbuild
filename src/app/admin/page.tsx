@@ -261,7 +261,7 @@ export default function WordPressAdmin() {
                   placeholder="admin"
                   value={usernameInput}
                   onChange={(e) => setUsernameInput(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#046F47] focus:ring-1 focus:ring-[#046F47]"
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#FB923C] focus:ring-1 focus:ring-[#FB923C]"
                 />
               </div>
             </div>
@@ -278,7 +278,7 @@ export default function WordPressAdmin() {
                   placeholder="••••••••"
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#046F47] focus:ring-1 focus:ring-[#046F47]"
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#FB923C] focus:ring-1 focus:ring-[#FB923C]"
                 />
               </div>
               <p className="text-[10px] text-neutral-400 mt-1">Default credentials: admin / admin123</p>
@@ -286,7 +286,7 @@ export default function WordPressAdmin() {
 
             <button
               type="submit"
-              className="w-full py-2.5 rounded-lg bg-[#046F47] hover:bg-[#035939] text-white font-black text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer mt-2"
+              className="w-full py-2.5 rounded-lg bg-[#FB923C] hover:bg-[#F97316] text-white font-black text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer mt-2"
             >
               Sign In to Admin
             </button>
@@ -966,7 +966,7 @@ export default function WordPressAdmin() {
                       saveData(data);
                       showToast("All doctor profiles saved live!");
                     }}
-                    className="px-4 py-2 bg-[#046F47] hover:bg-[#035939] text-white text-xs font-bold rounded shadow flex items-center gap-1.5 cursor-pointer"
+                    className="px-4 py-2 bg-[#FB923C] hover:bg-[#F97316] text-white text-xs font-bold rounded shadow flex items-center gap-1.5 cursor-pointer"
                   >
                     <Save className="w-4 h-4" />
                     <span>Save All</span>
@@ -1532,7 +1532,7 @@ export default function WordPressAdmin() {
                           {inq.email && <p className="text-gray-500 text-[11px]">{inq.email}</p>}
                         </div>
                         <div>
-                          <span className="px-2.5 py-1 bg-emerald-50 text-[#046F47] rounded font-bold border border-emerald-200 inline-block">
+                          <span className="px-2.5 py-1 bg-orange-50 text-orange-600 rounded font-bold border border-orange-200 inline-block">
                             {inq.specialty || inq.projectScope || inq.serviceType || "Orthopedics"}
                           </span>
                         </div>
@@ -1558,7 +1558,7 @@ export default function WordPressAdmin() {
               {/* 2. Contact Page Messages */}
               <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm p-6 space-y-4">
                 <h3 className="font-bold text-base text-[#1d2327] flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-[#046F47]" />
+                  <Mail className="w-4 h-4 text-orange-500" />
                   Contact Form Messages ({contactMessages.length})
                 </h3>
 

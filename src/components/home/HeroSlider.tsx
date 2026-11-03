@@ -135,8 +135,8 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
               </div>
 
               {/* Prominent Doctor Abhishek Jain Leadership Highlight Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-neutral-900 border border-emerald-500 shadow-2xl mb-2 sm:mb-3 shrink-0">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-neutral-900 border border-orange-400 shadow-2xl mb-2 sm:mb-3 shrink-0">
+                <span className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span>
                 <span className="text-neutral-700 text-xs font-bold uppercase tracking-wider">Director:</span>
                 <span className="text-red-600 font-black text-xs sm:text-sm tracking-wide">Dr. Abhishek Jain</span>
               </div>

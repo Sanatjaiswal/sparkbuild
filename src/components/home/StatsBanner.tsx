@@ -11,7 +11,7 @@ export default function StatsBanner() {
     },
     {
       icon: Award,
-      iconColor: "text-[#046F47]",
+      iconColor: "text-orange-500",
       title: "10+ Years Surgical Excellence",
       desc: "Led by Dr. Abhishek Jain with over 15,000+ successful orthopedic surgeries, trauma rescues, and 5,000+ joint replacements.",
     },

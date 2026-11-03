@@ -6,7 +6,7 @@ export default function ProcessSection() {
     <section className="py-24 bg-white border-t border-neutral-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-[#046F47] text-xs font-black uppercase tracking-wider shadow-xs">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-orange-50 border border-orange-300 text-orange-600 text-xs font-black uppercase tracking-wider shadow-xs">
             Patient Pathway
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 tracking-tight">
@@ -42,7 +42,7 @@ export default function ProcessSection() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-neutral-200 flex items-center justify-between">
-                <span className="text-xs font-extrabold uppercase tracking-wider text-[#046F47]">
+                <span className="text-xs font-extrabold uppercase tracking-wider text-orange-600">
                   Stage {idx + 1}
                 </span>
                 <span className="text-xs text-neutral-400 font-medium">MP Hospital</span>

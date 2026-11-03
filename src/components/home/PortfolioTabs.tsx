@@ -99,7 +99,7 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
                 </div>
 
                 <div className="pt-3 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-700">
-                  <span className="font-bold text-[#046F47]">Status: {project.status}</span>
+                  <span className="font-bold text-orange-600">Status: {project.status}</span>
                 </div>
               </div>
             </div>

@@ -44,7 +44,7 @@ export default function TestimonialSlider() {
                   {item.text.includes("Dr. Abhishek Jain") ? (
                     <>
                       {item.text.split("Dr. Abhishek Jain")[0]}
-                      <span className="font-black text-[#046F47] bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded not-italic">
+                      <span className="font-black text-orange-600 bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded not-italic">
                         Dr. Abhishek Jain
                       </span>
                       {item.text.split("Dr. Abhishek Jain")[1]}
@@ -52,7 +52,7 @@ export default function TestimonialSlider() {
                   ) : item.text.includes("Dr. Jain") ? (
                     <>
                       {item.text.split("Dr. Jain")[0]}
-                      <span className="font-black text-[#046F47] bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded not-italic">
+                      <span className="font-black text-orange-600 bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded not-italic">
                         Dr. Jain
                       </span>
                       {item.text.split("Dr. Jain")[1]}
@@ -66,7 +66,7 @@ export default function TestimonialSlider() {
 
               <div className="mt-6 pt-4 border-t border-neutral-200">
                 <h4 className="text-base font-bold text-neutral-900">{item.name}</h4>
-                <p className="text-xs text-[#046F47] font-semibold">{item.project}</p>
+                <p className="text-xs text-orange-600 font-semibold">{item.project}</p>
               </div>
             </div>
           ))}

@@ -74,10 +74,10 @@ export default function ConsultationModal({
         className="relative w-full max-w-lg max-h-[92vh] flex flex-col bg-white rounded-2xl shadow-2xl overflow-hidden border border-neutral-200"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header Banner - Emerald Green with Medical Red Underline */}
-        <div className="bg-[#046F47] px-5 sm:px-6 py-4 sm:py-5 text-white flex items-center justify-between border-b-4 border-red-600 shrink-0">
+        {/* Header Banner - Light Orange with Medical Red Underline */}
+        <div className="bg-[#FB923C] px-5 sm:px-6 py-4 sm:py-5 text-white flex items-center justify-between border-b-4 border-red-600 shrink-0">
           <div>
-            <span className="inline-block bg-white text-[#046F47] text-[11px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1 shadow-xs">
+            <span className="inline-block bg-white text-[#FB923C] text-[11px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1 shadow-xs">
               MP Hospital &amp; Trauma Centre
             </span>
             <h3 className="text-lg sm:text-xl font-bold">Book Doctor OPD Appointment</h3>
@@ -95,14 +95,14 @@ export default function ConsultationModal({
         <div className="p-5 sm:p-6 overflow-y-auto">
           {submitted ? (
             <div className="text-center py-8 space-y-4">
-              <div className="w-16 h-16 bg-emerald-100 text-[#046F47] rounded-full flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle className="w-10 h-10" />
               </div>
               <h4 className="text-2xl font-bold text-gray-900">Appointment Requested!</h4>
               <p className="text-sm text-gray-600 max-w-sm mx-auto">
                 Thank you, <strong>{formData.name}</strong>. Our hospital reception desk will contact you at{" "}
                 <strong>{formData.phone}</strong> to confirm your consultation slot for{" "}
-                <span className="text-[#046F47] font-black bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
+                <span className="text-orange-600 font-black bg-orange-50 border border-orange-200 px-2 py-0.5 rounded">
                   {formData.projectScope || "Dr. Abhishek Jain (Orthopedics)"}
                 </span>
                 .
@@ -236,7 +236,7 @@ export default function ConsultationModal({
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 rounded-full bg-[#046F47] hover:bg-[#035939] text-white font-extrabold text-sm tracking-wide shadow-md shadow-emerald-900/30 transition-all active:scale-[0.98] disabled:opacity-50 cursor-pointer uppercase"
+                  className="w-full py-3 rounded-full bg-[#FB923C] hover:bg-[#F97316] text-white font-extrabold text-sm tracking-wide shadow-md shadow-orange-900/30 transition-all active:scale-[0.98] disabled:opacity-50 cursor-pointer uppercase"
                 >
                   {loading ? "Booking Appointment..." : "Confirm Doctor Appointment"}
                 </button>

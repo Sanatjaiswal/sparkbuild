@@ -82,7 +82,7 @@ export default function WallOfLovePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-neutral-50 rounded-3xl p-8 sm:p-10 border border-neutral-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-2 text-center md:text-left">
-              <span className="text-xs font-black uppercase tracking-wider text-[#046F47]">
+              <span className="text-xs font-black uppercase tracking-wider text-orange-600">
                 Rated Across Jabalpur &amp; MP
               </span>
               <h2 className="text-2xl sm:text-3xl font-black text-neutral-900">
@@ -122,7 +122,7 @@ export default function WallOfLovePage() {
       <section className="py-20 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
-            <span className="text-xs font-black uppercase tracking-wider text-[#046F47] px-3.5 py-1 bg-emerald-50 rounded-full border border-emerald-200">
+            <span className="text-xs font-black uppercase tracking-wider text-orange-600 px-3.5 py-1 bg-orange-50 rounded-full border border-orange-200">
               Verified Video Walkthroughs
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-neutral-900">
@@ -195,7 +195,7 @@ export default function WallOfLovePage() {
                     {item.text.includes("Dr. Abhishek Jain") ? (
                       <>
                         {item.text.split("Dr. Abhishek Jain")[0]}
-                        <span className="font-black text-[#046F47] bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded not-italic">
+                        <span className="font-black text-orange-600 bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded not-italic">
                           Dr. Abhishek Jain
                         </span>
                         {item.text.split("Dr. Abhishek Jain")[1]}
@@ -203,7 +203,7 @@ export default function WallOfLovePage() {
                     ) : item.text.includes("Dr. Jain") ? (
                       <>
                         {item.text.split("Dr. Jain")[0]}
-                        <span className="font-black text-[#046F47] bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded not-italic">
+                        <span className="font-black text-orange-600 bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded not-italic">
                           Dr. Jain
                         </span>
                         {item.text.split("Dr. Jain")[1]}
@@ -217,7 +217,7 @@ export default function WallOfLovePage() {
 
                 <div className="mt-4 pt-3 border-t border-neutral-200">
                   <h4 className="text-sm font-bold text-neutral-900">{item.name}</h4>
-                  <p className="text-[11px] text-[#046F47] font-semibold">{item.project}</p>
+                  <p className="text-[11px] text-orange-600 font-semibold">{item.project}</p>
                 </div>
               </div>
             ))}
@@ -226,16 +226,16 @@ export default function WallOfLovePage() {
       </section>
 
       {/* Book Consultation CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#046F47] to-emerald-900 text-white text-center">
+      <section className="py-16 bg-gradient-to-r from-[#FB923C] to-orange-500 text-white text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-4">
           <h3 className="text-3xl font-black text-white">Experience Compassionate Healthcare at MP Hospital</h3>
-          <p className="text-sm text-emerald-100">
+          <p className="text-sm text-orange-50">
             Join thousands of relieved patients across Madhya Pradesh who regained active, pain-free mobility. Book your appointment with Dr. Abhishek Jain today.
           </p>
           <div className="pt-2">
             <button
               onClick={() => setConsultationOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white hover:bg-emerald-50 text-[#046F47] font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white hover:bg-orange-50 text-[#FB923C] font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Doctor Appointment</span>

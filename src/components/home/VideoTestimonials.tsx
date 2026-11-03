@@ -26,7 +26,7 @@ export default function VideoTestimonials({ onPlayVideo }: VideoTestimonialsProp
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
             Listen to inspiring stories of patients walking pain-free post-surgery and emergency trauma recoveries under{" "}
-            <span className="bg-emerald-50 text-[#046F47] px-2.5 py-0.5 rounded font-black border border-emerald-200 shadow-xs">
+            <span className="bg-orange-50 text-orange-600 px-2.5 py-0.5 rounded font-black border border-orange-200 shadow-xs">
               Dr. Abhishek Jain
             </span>
             .
@@ -72,7 +72,7 @@ export default function VideoTestimonials({ onPlayVideo }: VideoTestimonialsProp
                   </h3>
                   <p className="text-xs text-gray-500 mt-1">{video.clientName}</p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-neutral-100 flex items-center justify-between text-xs text-[#046F47] font-bold">
+                <div className="mt-4 pt-3 border-t border-neutral-100 flex items-center justify-between text-xs text-orange-600 font-bold">
                   <span>Watch Patient Story</span>
                   <span className="text-gray-400 font-normal">HD Video</span>
                 </div>

@@ -85,7 +85,7 @@ export default function AppointmentLetterPage() {
             {/* Left: Why Book at MP Hospital */}
             <div className="lg:col-span-5 space-y-8">
               <div className="space-y-4">
-                <span className="text-xs font-black uppercase tracking-wider text-[#046F47] px-3.5 py-1 bg-emerald-50 rounded-full border border-emerald-200">
+                <span className="text-xs font-black uppercase tracking-wider text-orange-600 px-3.5 py-1 bg-orange-50 rounded-full border border-orange-200">
                   Why MP Hospital?
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 leading-tight">
@@ -108,12 +108,12 @@ export default function AppointmentLetterPage() {
                     key={idx}
                     className="p-4 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-start gap-3.5"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-[#046F47] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
                     <span className="text-sm font-semibold text-gray-800">
                       {item.includes("Dr. Abhishek Jain") ? (
                         <>
                           {item.split("Dr. Abhishek Jain")[0]}
-                          <span className="bg-emerald-50 text-[#046F47] px-2 py-0.5 rounded font-black border border-emerald-200">
+                          <span className="bg-orange-50 text-orange-600 px-2 py-0.5 rounded font-black border border-orange-200">
                             Dr. Abhishek Jain
                           </span>
                           {item.split("Dr. Abhishek Jain")[1]}
@@ -126,13 +126,13 @@ export default function AppointmentLetterPage() {
                 ))}
               </div>
 
-              <div className="p-6 rounded-3xl bg-[#046F47] text-white space-y-2 border-2 border-emerald-600 shadow-md">
+              <div className="p-6 rounded-3xl bg-[#FB923C] text-white space-y-2 border-2 border-orange-400 shadow-md">
                 <div className="flex items-center gap-2 text-red-200">
                   <Sparkles className="w-5 h-5 text-white" />
                   <span className="text-xs font-black uppercase tracking-wider">Emergency Line</span>
                 </div>
                 <h4 className="text-lg font-bold">24x7 Trauma Casualty Helpline</h4>
-                <p className="text-xs text-emerald-100">
+                <p className="text-xs text-orange-50">
                   For critical trauma, road accidents, or ambulance dispatch, call 0761-2626123 or +91 76489-98668 immediately.
                 </p>
               </div>
@@ -141,7 +141,7 @@ export default function AppointmentLetterPage() {
             {/* Right: The Booking Form */}
             <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200 shadow-2xl">
               <div className="mb-8">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#046F47]">
+                <span className="text-xs font-bold uppercase tracking-wider text-orange-600">
                   Quick Confirmation
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-black text-neutral-900">
@@ -151,7 +151,7 @@ export default function AppointmentLetterPage() {
 
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
-                  <div className="w-16 h-16 bg-emerald-100 text-[#046F47] rounded-full flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
                   <h4 className="text-2xl font-bold text-gray-900">Appointment Requested!</h4>
