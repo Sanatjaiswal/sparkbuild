@@ -10,30 +10,30 @@ export default function TopBar() {
   const siteConfig = data.siteConfig;
 
   return (
-    <div className="bg-[#abe0f6] text-[#073854] text-xs font-bold h-10 px-3 sm:px-6 lg:px-8 border-none shadow-xs select-none relative z-40 flex items-center">
+    <div className="bg-[#00BFFF] text-white text-xs font-bold h-10 px-3 sm:px-6 lg:px-8 border-none shadow-xs select-none relative z-40 flex items-center">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-2 overflow-hidden">
         {/* Left Side: Contact Phone & Email */}
         <div className="flex items-center gap-3 sm:gap-6 shrink-0">
           <a
             href={`tel:${siteConfig.phone1Raw || siteConfig.phone1}`}
-            className="flex items-center gap-1.5 text-[#073854] hover:text-[#034b6e] font-extrabold transition-colors text-xs whitespace-nowrap"
+            className="flex items-center gap-1.5 text-white hover:text-sky-100 font-extrabold transition-colors text-xs whitespace-nowrap"
           >
-            <Phone className="w-3.5 h-3.5 fill-[#073854] text-[#073854] shrink-0" />
+            <Phone className="w-3.5 h-3.5 fill-white text-white shrink-0" />
             <span>{siteConfig.phone1}</span>
           </a>
 
           <a
             href={`mailto:${siteConfig.email}`}
-            className="hidden md:flex items-center gap-1.5 text-[#073854] hover:text-[#034b6e] font-extrabold transition-colors text-xs whitespace-nowrap"
+            className="hidden md:flex items-center gap-1.5 text-white hover:text-sky-100 font-extrabold transition-colors text-xs whitespace-nowrap"
           >
-            <Mail className="w-3.5 h-3.5 text-[#073854] stroke-[2.2] shrink-0" />
+            <Mail className="w-3.5 h-3.5 text-white stroke-[2.2] shrink-0" />
             <span>{siteConfig.email}</span>
           </a>
         </div>
 
         {/* Right Side: Follow Us + Social Icons (Facebook & Instagram) */}
         <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-          <span className="text-[#073854] font-extrabold text-xs hidden sm:inline">Follow Us:</span>
+          <span className="text-white font-extrabold text-xs hidden sm:inline">Follow Us:</span>
 
           {/* Facebook */}
           <a

@@ -62,7 +62,7 @@ export default function AboutPage() {
               </p>
               <p className="text-base text-gray-700 leading-relaxed font-normal">
                 Under the clinical leadership of{" "}
-                <span className="bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded font-black border border-sky-200 shadow-xs">
+                <span className="bg-sky-50 text-[#008ec7] px-2.5 py-0.5 rounded font-black border border-sky-300 shadow-xs">
                   Dr. Abhishek Jain
                 </span>{" "}
                 (Senior Orthopedic Surgeon &amp; Sports Injury Specialist), MP Hospital provides comprehensive services in complex accidental polytrauma, minimally invasive total knee and hip replacements, 4K arthroscopic reconstructions, spine surgery, and intensive critical care.
@@ -71,7 +71,7 @@ export default function AboutPage() {
               <div className="pt-2">
                 <button
                   onClick={() => setConsultationOpen(true)}
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#abe0f6] hover:bg-[#8ecef1] text-[#073854] font-extrabold text-sm uppercase tracking-wider shadow-md shadow-sky-900/15 transition-all active:scale-95 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#00BFFF] hover:bg-[#009fe3] text-white font-extrabold text-sm uppercase tracking-wider shadow-md shadow-sky-500/25 transition-all active:scale-95 cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Book Consultation</span>
@@ -101,29 +101,29 @@ export default function AboutPage() {
       </section>
 
       {/* Big Numbers & Stats */}
-      <section className="py-16 bg-[#abe0f6] text-[#073854] border-y border-[#8ecef1] select-none">
+      <section className="py-16 bg-[#00BFFF] text-white border-y border-sky-400 select-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-sky-300/60">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-sky-200/50">
             <div className="space-y-3 pt-6 md:pt-0">
-              <span className="text-5xl font-black text-[#073854] font-mono">15,000+</span>
-              <h3 className="text-lg font-black text-[#073854]">Surgeries Performed</h3>
-              <p className="text-xs text-[#073854]/80 max-w-xs mx-auto leading-relaxed">
+              <span className="text-5xl font-black text-white font-mono">15,000+</span>
+              <h3 className="text-lg font-black text-white">Surgeries Performed</h3>
+              <p className="text-xs text-sky-50 max-w-xs mx-auto leading-relaxed">
                 Successful orthopedic, joint reconstruction, and accidental trauma operations completed with infection-free outcomes.
               </p>
             </div>
 
             <div className="space-y-3 pt-6 md:pt-0 md:pl-6">
-              <span className="text-5xl font-black text-[#073854] font-mono">99%+</span>
-              <h3 className="text-lg font-black text-[#073854]">Patient Satisfaction</h3>
-              <p className="text-xs text-[#073854]/80 max-w-xs mx-auto leading-relaxed">
+              <span className="text-5xl font-black text-white font-mono">99%+</span>
+              <h3 className="text-lg font-black text-white">Patient Satisfaction</h3>
+              <p className="text-xs text-sky-50 max-w-xs mx-auto leading-relaxed">
                 Reflecting our dedicated nursing care, transparent billing, Ayushman / Cashless TPA support, and rapid patient recovery.
               </p>
             </div>
 
             <div className="space-y-3 pt-6 md:pt-0 md:pl-6">
-              <span className="text-5xl font-bold text-[#073854] font-mono tracking-wider">24x7</span>
-              <h3 className="text-lg font-black text-[#073854]">Emergency Commitment</h3>
-              <p className="text-xs text-[#073854]/80 max-w-xs mx-auto leading-relaxed">
+              <span className="text-5xl font-bold text-white font-mono tracking-wider">24x7</span>
+              <h3 className="text-lg font-black text-white">Emergency Commitment</h3>
+              <p className="text-xs text-sky-50 max-w-xs mx-auto leading-relaxed">
                 Round-the-clock emergency casualty, standby surgeons, ICU ventilators, and ALS ambulance ready to respond at any minute.
               </p>
             </div>
@@ -135,7 +135,7 @@ export default function AboutPage() {
       <section className="py-24 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="inline-block px-3.5 py-1 rounded-full bg-sky-50 border border-sky-300 text-sky-700 text-xs font-black uppercase tracking-wider shadow-xs">
+            <span className="inline-block px-3.5 py-1 rounded-full bg-sky-50 border border-sky-300 text-[#008ec7] text-xs font-black uppercase tracking-wider shadow-xs">
               Core Principles
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 tracking-tight">

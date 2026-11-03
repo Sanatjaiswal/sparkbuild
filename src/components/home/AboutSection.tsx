@@ -49,7 +49,7 @@ export default function AboutSection() {
 
           {/* Right Column: Content */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-50 border border-sky-300 text-sky-700 text-xs font-black uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-50 border border-sky-300 text-[#008ec7] text-xs font-black uppercase tracking-wider">
               <span>About MP Hospital</span>
             </div>
 
@@ -59,7 +59,7 @@ export default function AboutSection() {
 
             <p className="text-base text-gray-600 leading-relaxed font-normal">
               MP Hospital and Trauma Centre is dedicated to delivering clinical excellence in orthopedics, accidental trauma resuscitation, joint replacement, and sports medicine under the leadership of renowned surgeon{" "}
-              <span className="bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded font-black border border-sky-200 shadow-xs">
+              <span className="bg-sky-50 text-[#008ec7] px-2.5 py-0.5 rounded font-black border border-sky-300 shadow-xs">
                 Dr. Abhishek Jain
               </span>
               . With advanced laminar airflow modular operation theatres, a dedicated 24x7 Trauma ICU, and rapid rehabilitation protocols, we restore patient mobility and save lives every day.
@@ -84,7 +84,7 @@ export default function AboutSection() {
             {/* Feature Bullets with Bare Icons (NO boxes) */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
-                <Bone className="w-7 h-7 mx-auto mb-2 text-sky-600 stroke-[2.2] group-hover:scale-110 transition-transform" />
+                <Bone className="w-7 h-7 mx-auto mb-2 text-[#00BFFF] stroke-[2.2] group-hover:scale-110 transition-transform" />
                 <h4 className="text-xl font-black text-black">{siteConfig.stats.projectsCount || "15,000+"}</h4>
                 <p className="text-xs font-medium text-gray-600">Surgeries Performed</p>
               </div>
@@ -96,7 +96,7 @@ export default function AboutSection() {
               </div>
 
               <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
-                <Stethoscope className="w-7 h-7 mx-auto mb-2 text-sky-600 stroke-[2.2] group-hover:scale-110 transition-transform" />
+                <Stethoscope className="w-7 h-7 mx-auto mb-2 text-[#00BFFF] stroke-[2.2] group-hover:scale-110 transition-transform" />
                 <h4 className="text-xl font-black text-black">{siteConfig.stats.yearsExperience || "10+ Years"}</h4>
                 <p className="text-xs font-medium text-gray-600">Trusted Care</p>
               </div>

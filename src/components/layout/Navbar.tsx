@@ -109,7 +109,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             {/* Book Appointment Button */}
             <button
               onClick={onOpenConsultation}
-              className="inline-flex items-center justify-center h-10 px-4 sm:px-6 lg:px-7 rounded-md bg-[#abe0f6] hover:bg-[#8ecef1] text-[#073854] font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-md shadow-sky-900/15 whitespace-nowrap cursor-pointer"
+              className="inline-flex items-center justify-center h-10 px-4 sm:px-6 lg:px-7 rounded-md bg-[#00BFFF] hover:bg-[#009fe3] text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-md shadow-sky-500/25 whitespace-nowrap cursor-pointer"
             >
               <span>Book Appointment</span>
             </button>
@@ -234,7 +234,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
                       setMobileMenuOpen(false);
                       onOpenConsultation?.();
                     }}
-                    className="flex items-center justify-center gap-2 py-3.5 px-3 rounded-xl bg-[#abe0f6] hover:bg-[#8ecef1] text-[#073854] font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-sky-900/20 active:scale-95 transition-all cursor-pointer"
+                    className="flex items-center justify-center gap-2 py-3.5 px-3 rounded-xl bg-[#00BFFF] hover:bg-[#009fe3] text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-sky-500/30 active:scale-95 transition-all cursor-pointer"
                   >
                     <Calendar className="w-4 h-4" />
                     <span>Book OPD</span>

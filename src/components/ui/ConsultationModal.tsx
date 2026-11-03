@@ -75,16 +75,16 @@ export default function ConsultationModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Banner - Sky Blue with Medical Red Underline */}
-        <div className="bg-[#abe0f6] px-5 sm:px-6 py-4 sm:py-5 text-[#073854] flex items-center justify-between border-b-4 border-red-600 shrink-0">
+        <div className="bg-[#00BFFF] px-5 sm:px-6 py-4 sm:py-5 text-white flex items-center justify-between border-b-4 border-red-600 shrink-0">
           <div>
-            <span className="inline-block bg-white text-[#0369a1] text-[11px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1 shadow-xs">
+            <span className="inline-block bg-white text-[#008ec7] text-[11px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1 shadow-xs">
               MP Hospital &amp; Trauma Centre
             </span>
-            <h3 className="text-lg sm:text-xl font-black text-[#073854]">Book Doctor OPD Appointment</h3>
+            <h3 className="text-lg sm:text-xl font-black text-white">Book Doctor OPD Appointment</h3>
           </div>
           <button
             onClick={onClose}
-            className="text-[#073854] hover:text-black p-1 rounded-full hover:bg-black/10 transition-colors cursor-pointer"
+            className="text-white hover:text-sky-100 p-1 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-6 h-6" />
@@ -236,7 +236,7 @@ export default function ConsultationModal({
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 rounded-full bg-[#abe0f6] hover:bg-[#8ecef1] text-[#073854] font-black text-sm tracking-wide shadow-md shadow-sky-900/15 transition-all active:scale-[0.98] disabled:opacity-50 cursor-pointer uppercase"
+                  className="w-full py-3 rounded-full bg-[#00BFFF] hover:bg-[#009fe3] text-white font-extrabold text-sm tracking-wide shadow-md shadow-sky-500/25 transition-all active:scale-[0.98] disabled:opacity-50 cursor-pointer uppercase"
                 >
                   {loading ? "Booking Appointment..." : "Confirm Doctor Appointment"}
                 </button>

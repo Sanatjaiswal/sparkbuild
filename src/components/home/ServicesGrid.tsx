@@ -30,7 +30,7 @@ const hospitalCards = [
     title: "Orthopedic Surgery & Joint Replacement",
     image: "/images/modular-ot.jpg",
     icon: Bone,
-    iconColor: "text-sky-600",
+    iconColor: "text-[#00BFFF]",
     items: [
       "Total Knee & Hip Replacement (TKR/THR)",
       "Complex Fracture & Pelvic Reconstruction",
@@ -58,7 +58,7 @@ const hospitalCards = [
     title: "Critical Care ICU & Advanced Diagnostics",
     image: "/images/emergency-trauma-icu.jpg",
     icon: Activity,
-    iconColor: "text-sky-600",
+    iconColor: "text-[#00BFFF]",
     items: [
       "Multi-Parameter Mechanical Ventilator ICU",
       "Deluxe & General Patient Inpatient Rooms",
@@ -87,7 +87,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
           </h2>
           <p className="text-sm sm:text-base text-neutral-700 font-medium">
             MP Hospital &amp; Trauma Centre – Led by{" "}
-            <span className="bg-sky-50 text-sky-700 border border-sky-200 px-2.5 py-0.5 rounded-full font-black shadow-xs">
+            <span className="bg-sky-50 text-[#008ec7] border border-sky-300 px-2.5 py-0.5 rounded-full font-black shadow-xs">
               Dr. Abhishek Jain
             </span>
             , offering specialized orthopedics, trauma resuscitation, joint replacement, and sports surgery in Jabalpur.
@@ -131,7 +131,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
                         key={idx}
                         className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-neutral-800 leading-snug"
                       >
-                        <span className="text-sky-600 font-black text-sm shrink-0 mt-0.5 leading-none">
+                        <span className="text-[#00BFFF] font-black text-sm shrink-0 mt-0.5 leading-none">
                           ✔
                         </span>
                         <span>{item}</span>
@@ -142,7 +142,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
                   {/* Bottom Action CTA */}
                   <button
                     onClick={onOpenConsultation}
-                    className="w-full py-2.5 px-4 rounded-full bg-[#abe0f6] hover:bg-[#8ecef1] text-[#073854] font-black text-xs tracking-wider uppercase transition-all duration-200 mt-2 shadow-sm flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
+                    className="w-full py-2.5 px-4 rounded-full bg-[#00BFFF] hover:bg-[#009fe3] text-white font-extrabold text-xs tracking-wider uppercase transition-all duration-200 mt-2 shadow-md shadow-sky-500/25 flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
                   >
                     <span>Book Consultation</span>
                     <ArrowRight className="w-3.5 h-3.5" />

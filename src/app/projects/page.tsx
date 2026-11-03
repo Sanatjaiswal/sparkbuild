@@ -97,7 +97,7 @@ export default function ProjectsPage() {
                 onClick={() => setActiveStatus(st.id)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activeStatus === st.id
-                    ? "bg-[#abe0f6] text-[#073854] shadow-xs"
+                    ? "bg-[#00BFFF] text-white shadow-xs"
                     : "text-neutral-600 hover:text-neutral-900 bg-white border border-neutral-300"
                 }`}
               >
@@ -131,7 +131,7 @@ export default function ProjectsPage() {
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
 
                   <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-full bg-[#abe0f6] text-[#073854] text-[10px] font-black uppercase">
+                    <span className="px-2.5 py-1 rounded-full bg-[#00BFFF] text-white text-[10px] font-extrabold uppercase">
                       {project.status}
                     </span>
                   </div>
@@ -155,12 +155,12 @@ export default function ProjectsPage() {
                   {/* Highlights */}
                   {project.highlights && project.highlights.length > 0 && (
                     <div className="space-y-1.5 pt-2 border-t border-neutral-100">
-                      <p className="text-[11px] font-bold text-sky-700 uppercase tracking-wider">
+                      <p className="text-[11px] font-bold text-[#008ec7] uppercase tracking-wider">
                         Key Highlights
                       </p>
                       {project.highlights.map((h, i) => (
                         <div key={i} className="flex items-center gap-2 text-xs text-gray-700 font-medium">
-                          <Check className="w-3.5 h-3.5 text-sky-600 shrink-0" />
+                          <Check className="w-3.5 h-3.5 text-[#00BFFF] shrink-0" />
                           <span>{h}</span>
                         </div>
                       ))}
@@ -170,7 +170,7 @@ export default function ProjectsPage() {
                   <div className="pt-3 border-t border-neutral-100 flex items-center justify-between">
                     <button
                       onClick={() => setLightboxData({ src: project.image, title: project.title })}
-                      className="text-xs font-bold text-sky-700 hover:underline cursor-pointer"
+                      className="text-xs font-bold text-[#008ec7] hover:underline cursor-pointer"
                     >
                       Enlarge Photo
                     </button>
@@ -189,12 +189,12 @@ export default function ProjectsPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#abe0f6] to-[#7ecbf2] text-[#073854] text-center">
+      <section className="py-16 bg-gradient-to-r from-[#00BFFF] to-[#008ec7] text-white text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-4">
-          <h3 className="text-3xl font-black text-[#073854]">Need Clinical Care or Emergency Admission?</h3>
-          <p className="text-sm text-[#073854]/90">
+          <h3 className="text-3xl font-black text-white">Need Clinical Care or Emergency Admission?</h3>
+          <p className="text-sm text-sky-50">
             From joint replacement consultations with{" "}
-            <span className="text-[#073854] font-black underline decoration-red-600 decoration-2">
+            <span className="text-white font-black underline decoration-red-500 decoration-2">
               Dr. Abhishek Jain
             </span>{" "}
             to 24x7 accidental polytrauma resuscitation and modular surgery, our medical team is ready to assist you.
@@ -202,7 +202,7 @@ export default function ProjectsPage() {
           <div className="pt-2">
             <button
               onClick={() => setConsultationOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white hover:bg-sky-50 text-[#0369a1] font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white hover:bg-sky-50 text-[#008ec7] font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Doctor Consultation</span>

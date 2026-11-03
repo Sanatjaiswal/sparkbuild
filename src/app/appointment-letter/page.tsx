@@ -126,13 +126,13 @@ export default function AppointmentLetterPage() {
                 ))}
               </div>
 
-              <div className="p-6 rounded-3xl bg-[#abe0f6] text-[#073854] space-y-2 border-2 border-sky-300 shadow-md">
-                <div className="flex items-center gap-2 text-red-600">
-                  <Sparkles className="w-5 h-5 text-red-600" />
+              <div className="p-6 rounded-3xl bg-[#00BFFF] text-white space-y-2 border-2 border-sky-400 shadow-md">
+                <div className="flex items-center gap-2 text-white">
+                  <Sparkles className="w-5 h-5 text-white" />
                   <span className="text-xs font-black uppercase tracking-wider">Emergency Line</span>
                 </div>
-                <h4 className="text-lg font-black text-[#073854]">24x7 Trauma Casualty Helpline</h4>
-                <p className="text-xs text-[#073854]/80">
+                <h4 className="text-lg font-black text-white">24x7 Trauma Casualty Helpline</h4>
+                <p className="text-xs text-sky-50">
                   For critical trauma, road accidents, or ambulance dispatch, call 0761-2626123 or +91 76489-98668 immediately.
                 </p>
               </div>

@@ -54,7 +54,7 @@ export default function CertificatesSection() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
             <ShieldCheck className="w-10 h-10 text-red-600 stroke-[2.2] shrink-0" />
             <div className="space-y-1">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-sky-700">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-[#008ec7]">
                 Official Healthcare Standards
               </span>
               <h4 className="text-lg sm:text-xl font-bold text-neutral-900">
@@ -67,7 +67,7 @@ export default function CertificatesSection() {
           </div>
 
           <div className="shrink-0 flex items-center gap-3 w-full sm:w-auto">
-            <div className="w-full sm:w-auto text-center px-5 py-2 rounded-full bg-[#abe0f6] text-[#073854] font-black text-xs tracking-wider uppercase shadow-xs">
+            <div className="w-full sm:w-auto text-center px-5 py-2 rounded-full bg-[#00BFFF] text-white font-black text-xs tracking-wider uppercase shadow-xs">
               24x7 Emergency Care
             </div>
           </div>

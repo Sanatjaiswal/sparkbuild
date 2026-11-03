@@ -89,7 +89,7 @@ export default function ContactPage() {
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed font-normal">
                   Located in Beoharbagh near Ghamapur Chowk, Jabalpur. Reach out for OPD appointments with{" "}
-                  <span className="bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded font-black border border-sky-200 shadow-xs">
+                  <span className="bg-sky-50 text-[#008ec7] px-2.5 py-0.5 rounded font-black border border-sky-300 shadow-xs">
                     Dr. Abhishek Jain
                   </span>
                   , accidental trauma admissions, ambulance services, or cashless TPA guidance.
@@ -98,13 +98,13 @@ export default function ContactPage() {
 
               {/* Dr. Abhishek Jain OPD Timing Card */}
               <div className="p-4 rounded-2xl bg-sky-50/70 border-2 border-sky-200 shadow-sm flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-[#abe0f6] text-[#073854] flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+                <div className="w-10 h-10 rounded-xl bg-[#00BFFF] text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
                   OPD
                 </div>
                 <div>
                   <h4 className="text-sm font-black text-neutral-900">Dr. Abhishek Jain OPD Timings</h4>
                   <p className="text-xs text-neutral-800 font-medium">Mon - Sat: 10:30 AM - 1:30 PM &amp; 5:30 PM - 8:30 PM</p>
-                  <p className="text-[11px] text-sky-800 font-bold mt-0.5">Emergency Trauma Consultation: 24x7 Available</p>
+                  <p className="text-[11px] text-[#008ec7] font-bold mt-0.5">Emergency Trauma Consultation: 24x7 Available</p>
                 </div>
               </div>
 
@@ -147,7 +147,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#abe0f6] text-[#073854] flex items-center justify-center shrink-0 shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-[#00BFFF] text-white flex items-center justify-center shrink-0 shadow-sm">
                     <Mail className="w-6 h-6 stroke-[2.2]" />
                   </div>
                   <div>

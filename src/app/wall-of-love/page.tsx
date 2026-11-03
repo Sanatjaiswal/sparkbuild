@@ -226,16 +226,16 @@ export default function WallOfLovePage() {
       </section>
 
       {/* Book Consultation CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#abe0f6] to-[#7ecbf2] text-[#073854] text-center">
+      <section className="py-16 bg-gradient-to-r from-[#00BFFF] to-[#008ec7] text-white text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-4">
-          <h3 className="text-3xl font-black text-[#073854]">Experience Compassionate Healthcare at MP Hospital</h3>
-          <p className="text-sm text-[#073854]/90">
+          <h3 className="text-3xl font-black text-white">Experience Compassionate Healthcare at MP Hospital</h3>
+          <p className="text-sm text-sky-50">
             Join thousands of relieved patients across Madhya Pradesh who regained active, pain-free mobility. Book your appointment with Dr. Abhishek Jain today.
           </p>
           <div className="pt-2">
             <button
               onClick={() => setConsultationOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white hover:bg-sky-50 text-[#0369a1] font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white hover:bg-sky-50 text-[#008ec7] font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
             >
               <Calendar className="w-4 h-4" />
               <span>Book Doctor Appointment</span>

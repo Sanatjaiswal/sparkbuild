@@ -34,7 +34,7 @@ export default function Footer() {
             </Link>
             <p className="text-sm text-neutral-600 leading-relaxed font-normal">
               MP Hospital &amp; Trauma Centre delivers advanced orthopedic, joint replacement, spine surgery, and 24x7 emergency trauma care under the expert direction of{" "}
-              <strong className="text-[#0284c7] font-black underline decoration-red-500">
+              <strong className="text-[#00BFFF] font-black underline decoration-red-500">
                 Dr. Abhishek Jain
               </strong>
               .
@@ -104,7 +104,7 @@ export default function Footer() {
           {/* Column 3: Patient Support */}
           <div>
             <h4 className="text-neutral-900 font-extrabold text-base uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-[#abe0f6] rounded-sm"></span>
+              <span className="w-2.5 h-2.5 bg-[#00BFFF] rounded-sm"></span>
               Patient Support
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -170,7 +170,7 @@ export default function Footer() {
 
             {/* Email */}
             <div className="flex items-start gap-3 text-sm">
-              <Mail className="w-5 h-5 text-[#0284c7] shrink-0 mt-0.5" />
+              <Mail className="w-5 h-5 text-[#00BFFF] shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs text-neutral-500 font-medium uppercase tracking-wider">Email Support</p>
                 <a
@@ -190,7 +190,7 @@ export default function Footer() {
               <div className="space-y-1">
                 <div className="flex items-center justify-between gap-2">
                   <p className="text-xs text-red-600 font-black uppercase tracking-wider">Hospital Location</p>
-                  <span className="text-[10px] font-bold text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">Jabalpur, MP</span>
+                  <span className="text-[10px] font-bold text-[#008ec7] bg-sky-50 px-2 py-0.5 rounded border border-sky-200">Jabalpur, MP</span>
                 </div>
                 <p className="text-neutral-900 leading-relaxed text-xs font-semibold">
                   {siteConfig.address}
@@ -210,9 +210,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Sky Blue Bottom Strip */}
-      <div id="footer-bottom-strip" className="bg-[#abe0f6] text-[#073854] py-5 px-4 sm:px-6 lg:px-8 border-t border-[#8ecef1]">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-[#073854] font-medium text-center lg:text-left">
+      {/* Deep Sky Blue Bottom Strip */}
+      <div id="footer-bottom-strip" className="bg-[#00BFFF] text-white py-5 px-4 sm:px-6 lg:px-8 border-t border-sky-400">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-sky-50 font-medium text-center lg:text-left">
           {/* Left: Copyright */}
           <p className="shrink-0 text-center lg:text-left">
             © {new Date().getFullYear()} MP Hospital and Trauma Centre, Jabalpur. All Rights Reserved.

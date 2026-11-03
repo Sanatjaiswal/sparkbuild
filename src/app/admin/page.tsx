@@ -261,7 +261,7 @@ export default function WordPressAdmin() {
                   placeholder="admin"
                   value={usernameInput}
                   onChange={(e) => setUsernameInput(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#abe0f6] focus:ring-1 focus:ring-[#abe0f6]"
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF]"
                 />
               </div>
             </div>
@@ -278,7 +278,7 @@ export default function WordPressAdmin() {
                   placeholder="••••••••"
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#abe0f6] focus:ring-1 focus:ring-[#abe0f6]"
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF]"
                 />
               </div>
               <p className="text-[10px] text-neutral-400 mt-1">Default credentials: admin / admin123</p>
@@ -286,7 +286,7 @@ export default function WordPressAdmin() {
 
             <button
               type="submit"
-              className="w-full py-2.5 rounded-lg bg-[#abe0f6] hover:bg-[#8ecef1] text-[#073854] font-black text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer mt-2"
+              className="w-full py-2.5 rounded-lg bg-[#00BFFF] hover:bg-[#009fe3] text-white font-black text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer mt-2"
             >
               Sign In to Admin
             </button>
@@ -966,7 +966,7 @@ export default function WordPressAdmin() {
                       saveData(data);
                       showToast("All doctor profiles saved live!");
                     }}
-                    className="px-4 py-2 bg-[#abe0f6] hover:bg-[#8ecef1] text-[#073854] text-xs font-black rounded shadow flex items-center gap-1.5 cursor-pointer"
+                    className="px-4 py-2 bg-[#00BFFF] hover:bg-[#009fe3] text-white text-xs font-black rounded shadow flex items-center gap-1.5 cursor-pointer"
                   >
                     <Save className="w-4 h-4" />
                     <span>Save All</span>
