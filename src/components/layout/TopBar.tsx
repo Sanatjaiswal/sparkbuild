@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Phone, Mail } from "lucide-react";
-import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
+import { FacebookIcon, InstagramIcon, WhatsappIcon } from "@/components/ui/SocialIcons";
 import { useCMS } from "@/context/CMSContext";
 
 export default function TopBar() {
@@ -23,17 +23,40 @@ export default function TopBar() {
           </a>
 
           <a
+            href="https://wa.me/917648998668"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-1.5 text-white hover:text-emerald-200 font-extrabold transition-colors text-xs whitespace-nowrap"
+            title="Chat on WhatsApp"
+          >
+            <WhatsappIcon className="w-3.5 h-3.5 fill-white text-white shrink-0" />
+            <span>+91 76489-98668</span>
+          </a>
+
+          <a
             href={`mailto:${siteConfig.email}`}
-            className="hidden md:flex items-center gap-1.5 text-white hover:text-sky-100 font-extrabold transition-colors text-xs whitespace-nowrap"
+            className="hidden lg:flex items-center gap-1.5 text-white hover:text-sky-100 font-extrabold transition-colors text-xs whitespace-nowrap"
           >
             <Mail className="w-3.5 h-3.5 text-white stroke-[2.2] shrink-0" />
             <span>{siteConfig.email}</span>
           </a>
         </div>
 
-        {/* Right Side: Follow Us + Social Icons (Facebook & Instagram) */}
+        {/* Right Side: Follow Us + Social Icons (WhatsApp, Facebook & Instagram) */}
         <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           <span className="text-white font-extrabold text-xs hidden sm:inline">Follow Us:</span>
+
+          {/* WhatsApp */}
+          <a
+            href="https://wa.me/917648998668"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            className="w-5 h-5 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-xs"
+            title="WhatsApp: +91 76489-98668"
+          >
+            <WhatsappIcon className="w-3 h-3 fill-white text-white" />
+          </a>
 
           {/* Facebook */}
           <a

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { X, Phone, Ambulance, ShieldCheck, MapPin, Clock } from "lucide-react";
+import { WhatsappIcon } from "@/components/ui/SocialIcons";
 import { siteConfig } from "@/data/siteData";
 
 interface AmbulanceModalProps {
@@ -101,6 +102,31 @@ export default function AmbulanceModal({ isOpen, onClose }: AmbulanceModalProps)
             </div>
             <span className="text-xs font-black text-[#008EC7] bg-white px-3 py-1.5 rounded-lg border border-sky-200 shadow-xs uppercase tracking-wide group-hover:bg-[#008EC7] group-hover:text-white transition-all">
               Call Direct
+            </span>
+          </a>
+
+          {/* WhatsApp Emergency Line */}
+          <a
+            href={`https://wa.me/917648998668?text=${encodeURIComponent("EMERGENCY: Ambulance required at this location: ")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between p-3.5 rounded-xl bg-emerald-50 border-2 border-emerald-200 hover:border-emerald-500 hover:bg-emerald-100/70 transition-all group cursor-pointer shadow-xs"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                <WhatsappIcon className="w-5 h-5 fill-white text-white" />
+              </div>
+              <div className="text-left">
+                <p className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">
+                  WhatsApp / Share Location
+                </p>
+                <p className="text-base font-extrabold text-neutral-900 group-hover:text-emerald-700 transition-colors">
+                  +91 76489-98668
+                </p>
+              </div>
+            </div>
+            <span className="text-xs font-black text-emerald-700 bg-white px-3 py-1.5 rounded-lg border border-emerald-200 shadow-xs uppercase tracking-wide group-hover:bg-[#25D366] group-hover:text-white transition-all">
+              Chat Live
             </span>
           </a>
 

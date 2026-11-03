@@ -64,7 +64,7 @@ const hospitalCards = [
       "Deluxe & General Patient Inpatient Rooms",
       "Round-the-Clock Emergency Pathology",
       "Comprehensive Post-Surgery Physiotherapy",
-      "Ayushman Bharat & Cashless TPA Mediclaim",
+      "Cashless TPA Mediclaim & Health Insurance",
     ],
   },
 ];

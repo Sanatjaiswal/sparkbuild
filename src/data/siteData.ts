@@ -96,6 +96,8 @@ export const siteConfig = {
   phone1Raw: "07612626123",
   phone2: "+91 76489-98668",
   phone2Raw: "+917648998668",
+  whatsapp: "+91 76489-98668",
+  whatsappRaw: "917648998668",
   emergencyPhone: "+91 76489-98668",
   emergencyPhoneRaw: "+917648998668",
   ambulancePhone: "0761-2626123",
@@ -105,6 +107,7 @@ export const siteConfig = {
   address: "1/1, High Court Road, Beside Beoharbagh Petrol Pump, opp. Modern X-Ray Pathology Centre, BeoharBagh, Jabalpur, Madhya Pradesh 482001",
   googleMapsUrl: "https://maps.google.com/maps?q=Beoharbagh+Near+Ghamapur+Chowk+Jabalpur+Madhya+Pradesh&t=&z=16&ie=UTF8&iwloc=&output=embed",
   socials: {
+    whatsapp: "https://wa.me/917648998668",
     facebook: "https://www.facebook.com/mphospitaljabalpur",
     instagram: "https://www.instagram.com/mphospital_jabalpur",
     youtube: "https://www.youtube.com/@MPHospitalJabalpur",
@@ -164,7 +167,7 @@ export const heroSlides: HeroSlide[] = [
     id: 5,
     highlightNumber: "10+ Yrs",
     title: "Trusted Healthcare Legacy in Mahakoshal",
-    description: "Continuing our trusted 10+ year legacy with expanded facilities, digital diagnostics, Ayushman/Cashless TPA, and compassionate patient care.",
+    description: "Continuing our trusted 10+ year legacy with expanded facilities, digital diagnostics, Cashless Mediclaim/TPA, and compassionate patient care.",
     bgImage: "/images/diagnostic-center.jpg",
   },
 ];
@@ -557,7 +560,7 @@ export const faqsData: FAQItem[] = [
     answer: "Dr. Abhishek Jain (Orthopedic Surgeon & Trauma Specialist) is available for OPD consultations Monday through Saturday. Morning OPD is generally 10:30 AM to 1:30 PM and evening OPD is 5:30 PM to 8:30 PM. We strongly recommend booking your appointment online or calling +91 76489-98668 prior to visiting.",
   },
   {
-    question: "Do you accept Ayushman Bharat and Cashless Mediclaim Insurance?",
+    question: "Do you accept Cashless Mediclaim and Health Insurance?",
     answer: "Yes, we accept major health insurance policies, corporate TPAs, and cashless mediclaim. Our dedicated TPA helpdesk assists patients and families with quick pre-authorization, seamless document verification, and cashless discharge processing.",
   },
   {

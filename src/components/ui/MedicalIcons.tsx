@@ -634,7 +634,7 @@ export function StethoscopeBadgeIcon({ className = "w-10 h-10", size = 48 }: Ico
 }
 
 /**
- * 13. Cashless Mediclaim & Ayushman Bharat Insurance
+ * 13. Cashless Mediclaim & Health Insurance
  * Authentic Flaticon style: Health insurance smartcard with chip, protective shield & gold checkmark
  */
 export function CashlessTPAIcon({ className = "w-10 h-10", size = 48 }: IconProps) {

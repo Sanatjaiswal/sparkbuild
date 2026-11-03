@@ -11,7 +11,7 @@ export default function MarqueeTicker() {
     "Trauma Critical Care ICU",
     "Digital X-Ray & Emergency Diagnostics",
     "Emergency Line: 0761-2626123",
-    "Cashless Mediclaim & Ayushman TPA",
+    "Cashless Mediclaim & Corporate TPA",
   ];
 
   return (

@@ -102,7 +102,7 @@ export default function AppointmentLetterPage() {
                   "State-of-the-art digital X-ray and in-house diagnostic pathology",
                   "Class 10,000 modular operation theatres with HEPA filtration",
                   "24x7 emergency trauma ICU & round-the-clock ALS ambulance availability",
-                  "Cashless mediclaim, Ayushman Bharat, and corporate insurance desk",
+                  "Cashless mediclaim, corporate health insurance, and dedicated TPA desk",
                 ].map((item, idx) => (
                   <div
                     key={idx}

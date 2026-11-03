@@ -50,7 +50,7 @@ const hospitalHeroSlides = [
     logo: "/images/mp-hospital-registered-logo.png",
     headingLine1: "Critical Care ICU &",
     headingLine2: "24x7 Life Support",
-    description: "Multi-Parameter ICU, Digital X-Ray Diagnostics & Cashless Ayushman / TPA Support",
+    description: "Multi-Parameter ICU, Digital X-Ray Diagnostics & Cashless Mediclaim / TPA Support",
     bgImage: "/images/emergency-trauma-icu.jpg",
     primaryCta: "Book Appointment",
     secondaryCta: "Emergency Contact",

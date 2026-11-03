@@ -18,7 +18,8 @@
       "facebook": "https://www.facebook.com/mphospitaljabalpur",
       "instagram": "https://www.instagram.com/mphospital_jabalpur",
       "youtube": "https://www.youtube.com/@MPHospitalJabalpur",
-      "linkedin": "https://www.linkedin.com/company/mp-hospital-trauma-centre"
+      "linkedin": "https://www.linkedin.com/company/mp-hospital-trauma-centre",
+      "whatsapp": "https://wa.me/917648998668"
     },
     "stats": {
       "projectsCount": "15,000+",
@@ -29,7 +30,9 @@
       "satisfactionRate": "99%+",
       "yearsExperience": "10+ Years",
       "structuralWarranty": "100%"
-    }
+    },
+    "whatsapp": "+91 76489-98668",
+    "whatsappRaw": "917648998668"
   },
   "heroSlides": [
     {
@@ -64,7 +67,7 @@
       "id": 5,
       "highlightNumber": "10+ Yrs",
       "title": "Trusted Healthcare Legacy in Mahakoshal",
-      "description": "Continuing the trusted legacy of Maxx Hospital with expanded facilities, digital diagnostics, Ayushman/Cashless TPA, and compassionate patient care.",
+      "description": "Continuing our trusted 10+ year legacy with expanded facilities, digital diagnostics, Cashless Mediclaim/TPA, and compassionate patient care.",
       "bgImage": "/images/diagnostic-center.jpg"
     }
   ],
@@ -369,7 +372,7 @@
       "answer": "Dr. Abhishek Jain (Orthopedic Surgeon & Trauma Specialist) is available for OPD consultations Monday through Saturday. Morning OPD is generally 10:30 AM to 1:30 PM and evening OPD is 5:30 PM to 8:30 PM. We strongly recommend booking your appointment online or calling +91 76489-98668 prior to visiting."
     },
     {
-      "question": "Do you accept Ayushman Bharat and Cashless Mediclaim Insurance?",
+      "question": "Do you accept Cashless Mediclaim and Health Insurance?",
       "answer": "Yes, we accept major health insurance policies, corporate TPAs, and cashless mediclaim. Our dedicated TPA helpdesk assists patients and families with quick pre-authorization, seamless document verification, and cashless discharge processing."
     },
     {

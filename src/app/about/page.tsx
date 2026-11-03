@@ -116,7 +116,7 @@ export default function AboutPage() {
               <span className="text-5xl font-black text-white font-mono">99%+</span>
               <h3 className="text-lg font-black text-white">Patient Satisfaction</h3>
               <p className="text-xs text-sky-50 max-w-xs mx-auto leading-relaxed">
-                Reflecting our dedicated nursing care, transparent billing, Ayushman / Cashless TPA support, and rapid patient recovery.
+                Reflecting our dedicated nursing care, transparent billing, Cashless Mediclaim / TPA support, and rapid patient recovery.
               </p>
             </div>
 
@@ -213,7 +213,7 @@ export default function AboutPage() {
                   "Senior Orthopedic Surgeon & Trauma Specialist on site",
                   "Class 10,000 modular operation theatres with HEPA filtration",
                   "24x7 Emergency Casualty & Advanced Life Support (ALS) Ambulance",
-                  "Full cashless insurance, Ayushman Bharat, and TPA pre-authorization support",
+                  "Full cashless insurance, corporate mediclaim, and TPA pre-authorization support",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-sky-600 shrink-0" />

@@ -31,7 +31,7 @@ export default function WhyHospital() {
       icon: ShieldCheck,
       iconColor: "text-[#008EC7]",
       title: "Cashless Mediclaim & TPA",
-      desc: "Hassle-free insurance pre-authorization desk supporting major mediclaim policies and Ayushman Bharat coverage.",
+      desc: "Hassle-free insurance pre-authorization desk supporting major mediclaim policies and corporate TPA coverage.",
     },
   ];
 

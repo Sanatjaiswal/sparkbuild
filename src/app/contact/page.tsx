@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Phone, Mail, MapPin, Send, CheckCircle2, Star } from "lucide-react";
+import { WhatsappIcon } from "@/components/ui/SocialIcons";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -145,6 +146,28 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
+
+                <a
+                  href={`https://wa.me/917648998668?text=${encodeURIComponent("Hello MP Hospital, I would like to inquire about OPD consultation with Dr. Abhishek Jain.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-5 rounded-2xl bg-white hover:bg-emerald-50/40 border border-neutral-200 hover:border-emerald-500 shadow-sm flex items-start gap-4 transition-all group cursor-pointer"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                    <WhatsappIcon className="w-6 h-6 fill-white text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">
+                      Chat on WhatsApp
+                    </h4>
+                    <span className="block text-base font-extrabold text-neutral-900 group-hover:text-emerald-700">
+                      +91 76489-98668
+                    </span>
+                    <p className="text-[11px] text-emerald-600 font-bold mt-0.5">
+                      Direct WhatsApp OPD Assistance
+                    </p>
+                  </div>
+                </a>
 
                 <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-[#008EC7] text-white flex items-center justify-center shrink-0 shadow-sm">

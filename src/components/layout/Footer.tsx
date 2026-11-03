@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Mail, MapPin, ArrowUp } from "lucide-react";
-import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
+import { FacebookIcon, InstagramIcon, WhatsappIcon } from "@/components/ui/SocialIcons";
 import { useCMS } from "@/context/CMSContext";
 
 export default function Footer() {
@@ -40,6 +40,16 @@ export default function Footer() {
               .
             </p>
             <div className="flex items-center gap-3 pt-2">
+              <a
+                href="https://wa.me/917648998668"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="w-9 h-9 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 flex items-center justify-center hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all shadow-xs"
+                title="WhatsApp: +91 76489-98668"
+              >
+                <WhatsappIcon className="w-4 h-4 fill-currentColor" />
+              </a>
               <a
                 href={siteConfig.socials.facebook}
                 target="_blank"
@@ -164,6 +174,24 @@ export default function Footer() {
                   className="block text-neutral-700 hover:text-red-600 font-semibold text-xs mt-0.5"
                 >
                   {siteConfig.phone2}
+                </a>
+              </div>
+            </div>
+
+            {/* WhatsApp */}
+            <div className="flex items-start gap-3 text-sm">
+              <span className="w-5 h-5 rounded-full bg-[#25D366] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                <WhatsappIcon className="w-3 h-3 fill-white" />
+              </span>
+              <div>
+                <p className="text-xs text-neutral-500 font-medium uppercase tracking-wider">WhatsApp Consultation</p>
+                <a
+                  href="https://wa.me/917648998668"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-neutral-900 hover:text-[#25D366] font-extrabold text-sm transition-colors"
+                >
+                  +91 76489-98668
                 </a>
               </div>
             </div>
