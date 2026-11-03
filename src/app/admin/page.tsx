@@ -855,7 +855,7 @@ export default function WordPressAdmin() {
                                 showToast("Updated image!");
                               })
                             }
-                            className="text-[#2271b1] hover:underline text-xs"
+                            className="text-[#2271b1] hover:text-blue-800 text-xs transition-colors"
                           >
                             Change Photo
                           </button>
@@ -866,7 +866,7 @@ export default function WordPressAdmin() {
                                 showToast("Project deleted.");
                               }
                             }}
-                            className="text-red-600 hover:underline text-xs"
+                            className="text-red-600 hover:text-red-800 text-xs transition-colors"
                           >
                             Delete
                           </button>
@@ -904,7 +904,7 @@ export default function WordPressAdmin() {
                             showToast("Updated service image!");
                           })
                         }
-                        className="text-xs font-bold text-[#2271b1] hover:underline"
+                        className="text-xs font-bold text-[#2271b1] hover:text-blue-800 transition-colors"
                       >
                         Change Image
                       </button>
@@ -1342,7 +1342,7 @@ export default function WordPressAdmin() {
                             showToast("Updated featured image!");
                           })
                         }
-                        className="text-xs text-[#2271b1] hover:underline"
+                        className="text-xs text-[#2271b1] hover:text-blue-800 transition-colors"
                       >
                         Change Photo
                       </button>
@@ -1353,7 +1353,7 @@ export default function WordPressAdmin() {
                             showToast("Article deleted.");
                           }
                         }}
-                        className="text-xs text-red-600 hover:underline"
+                        className="text-xs text-red-600 hover:text-red-800 transition-colors"
                       >
                         Delete
                       </button>
@@ -1528,7 +1528,7 @@ export default function WordPressAdmin() {
                       <div key={inq.id || idx} className="p-4 grid grid-cols-1 md:grid-cols-4 gap-2 items-center hover:bg-gray-50/50">
                         <div>
                           <p className="font-bold text-sm text-neutral-900">{inq.name || "Patient"}</p>
-                          <a href={`tel:${inq.phone}`} className="text-red-600 font-bold hover:underline block">{inq.phone}</a>
+                          <a href={`tel:${inq.phone}`} className="text-red-600 font-bold hover:text-red-700 block transition-colors">{inq.phone}</a>
                           {inq.email && <p className="text-gray-500 text-[11px]">{inq.email}</p>}
                         </div>
                         <div>
@@ -1577,7 +1577,7 @@ export default function WordPressAdmin() {
                       <div key={msg.id || idx} className="p-4 grid grid-cols-1 md:grid-cols-3 gap-2 items-center hover:bg-gray-50/50">
                         <div>
                           <p className="font-bold text-sm text-neutral-900">{msg.firstName} {msg.lastName}</p>
-                          <a href={`tel:${msg.phone}`} className="text-red-600 font-bold hover:underline block">{msg.phone}</a>
+                          <a href={`tel:${msg.phone}`} className="text-red-600 font-bold hover:text-red-700 block transition-colors">{msg.phone}</a>
                           {msg.email && <p className="text-gray-500 text-[11px]">{msg.email}</p>}
                         </div>
                         <div>
@@ -1620,7 +1620,7 @@ export default function WordPressAdmin() {
                       <div key={idx} className="p-4 grid grid-cols-1 md:grid-cols-3 gap-2 items-center hover:bg-gray-50/50">
                         <div>
                           <p className="font-bold text-sm text-neutral-900">{app.firstName} {app.lastName}</p>
-                          <a href={`tel:${app.phone}`} className="text-red-600 font-bold hover:underline block">{app.phone}</a>
+                          <a href={`tel:${app.phone}`} className="text-red-600 font-bold hover:text-red-700 block transition-colors">{app.phone}</a>
                           {app.email && <p className="text-gray-500 text-[11px]">{app.email}</p>}
                         </div>
                         <div>

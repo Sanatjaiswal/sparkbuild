@@ -88,7 +88,7 @@ export default function ContactPage() {
                   We’re Here When You Need Us Most
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed font-normal">
-                  Located in Beoharbagh near Ghamapur Chowk, Jabalpur. Reach out for OPD appointments with{" "}
+                  Located at 1/1, High Court Road, Beside Beoharbagh Petrol Pump, opp. Modern X-Ray Pathology Centre, Jabalpur. Reach out for OPD appointments with{" "}
                   <span className="bg-sky-50 text-[#008ec7] px-2.5 py-0.5 rounded font-black border border-sky-300 shadow-xs">
                     Dr. Abhishek Jain
                   </span>

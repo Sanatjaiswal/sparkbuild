@@ -74,7 +74,7 @@ export default function ConsultationModal({
         className="relative w-full max-w-lg max-h-[92vh] flex flex-col bg-white rounded-2xl shadow-2xl overflow-hidden border border-neutral-200"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header Banner - Sky Blue with Medical Red Underline */}
+        {/* Header Banner - Sky Blue */}
         <div className="bg-[#008EC7] px-5 sm:px-6 py-4 sm:py-5 text-white flex items-center justify-between border-b-4 border-red-600 shrink-0">
           <div>
             <span className="inline-block bg-white text-[#008EC7] text-[11px] font-black uppercase px-2.5 py-0.5 rounded-full mb-1 shadow-xs">
