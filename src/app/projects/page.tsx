@@ -97,7 +97,7 @@ export default function ProjectsPage() {
                 onClick={() => setActiveStatus(st.id)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activeStatus === st.id
-                    ? "bg-[#00BFFF] text-white shadow-xs"
+                    ? "bg-[#008EC7] text-white shadow-xs"
                     : "text-neutral-600 hover:text-neutral-900 bg-white border border-neutral-300"
                 }`}
               >
@@ -131,7 +131,7 @@ export default function ProjectsPage() {
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
 
                   <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-full bg-[#00BFFF] text-white text-[10px] font-extrabold uppercase">
+                    <span className="px-2.5 py-1 rounded-full bg-[#008EC7] text-white text-[10px] font-extrabold uppercase">
                       {project.status}
                     </span>
                   </div>
@@ -160,7 +160,7 @@ export default function ProjectsPage() {
                       </p>
                       {project.highlights.map((h, i) => (
                         <div key={i} className="flex items-center gap-2 text-xs text-gray-700 font-medium">
-                          <Check className="w-3.5 h-3.5 text-[#00BFFF] shrink-0" />
+                          <Check className="w-3.5 h-3.5 text-[#008EC7] shrink-0" />
                           <span>{h}</span>
                         </div>
                       ))}
@@ -170,7 +170,7 @@ export default function ProjectsPage() {
                   <div className="pt-3 border-t border-neutral-100 flex items-center justify-between">
                     <button
                       onClick={() => setLightboxData({ src: project.image, title: project.title })}
-                      className="text-xs font-bold text-[#008ec7] hover:underline cursor-pointer"
+                      className="text-xs font-bold text-[#008ec7] cursor-pointer"
                     >
                       Enlarge Photo
                     </button>
@@ -189,12 +189,12 @@ export default function ProjectsPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#00BFFF] to-[#008ec7] text-white text-center">
+      <section className="py-16 bg-gradient-to-r from-[#008EC7] to-[#00709e] text-white text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-4">
           <h3 className="text-3xl font-black text-white">Need Clinical Care or Emergency Admission?</h3>
           <p className="text-sm text-sky-50">
             From joint replacement consultations with{" "}
-            <span className="text-white font-black underline decoration-red-500 decoration-2">
+            <span className="text-white font-black">
               Dr. Abhishek Jain
             </span>{" "}
             to 24x7 accidental polytrauma resuscitation and modular surgery, our medical team is ready to assist you.

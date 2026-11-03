@@ -49,7 +49,7 @@ export default function BlogPage() {
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
             Welcome to the MP Hospital Blog — expert guidance on knee &amp; hip replacement, accidental trauma recovery, sports injuries, and joint pain prevention from{" "}
-            <span className="text-[#fff200] font-black underline decoration-yellow-400 decoration-2">
+            <span className="text-[#fff200] font-black">
               Dr. Abhishek Jain
             </span>
             .
@@ -174,7 +174,7 @@ export default function BlogPage() {
                 <h4 className="font-bold text-sm text-black">Need Orthopedic or Trauma Consultation?</h4>
                 <p className="text-xs text-gray-600">
                   Consult{" "}
-                  <strong className="text-black font-black underline decoration-yellow-400">
+                  <strong className="text-black font-black">
                     Dr. Abhishek Jain
                   </strong>{" "}
                   and our senior medical team at MP Hospital &amp; Trauma Centre for personalized bone, joint, or trauma evaluation.

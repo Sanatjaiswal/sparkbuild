@@ -98,7 +98,7 @@ export default function ContactPage() {
 
               {/* Dr. Abhishek Jain OPD Timing Card */}
               <div className="p-4 rounded-2xl bg-sky-50/70 border-2 border-sky-200 shadow-sm flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-[#00BFFF] text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+                <div className="w-10 h-10 rounded-xl bg-[#008EC7] text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
                   OPD
                 </div>
                 <div>
@@ -147,7 +147,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#00BFFF] text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-[#008EC7] text-white flex items-center justify-center shrink-0 shadow-sm">
                     <Mail className="w-6 h-6 stroke-[2.2]" />
                   </div>
                   <div>
@@ -183,7 +183,7 @@ export default function ContactPage() {
                       href="https://maps.google.com/?q=MP+Hospital+and+Trauma+Centre+Beoharbagh+Jabalpur"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-extrabold text-red-600 hover:text-red-700 hover:underline pt-1"
+                      className="inline-flex items-center gap-1 text-xs font-extrabold text-red-600 hover:text-red-700 pt-1"
                     >
                       <span>Get Live Driving Directions on Google Maps</span>
                       <span>→</span>

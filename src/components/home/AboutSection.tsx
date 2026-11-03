@@ -84,7 +84,7 @@ export default function AboutSection() {
             {/* Feature Bullets with Bare Icons (NO boxes) */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
-                <Bone className="w-7 h-7 mx-auto mb-2 text-[#00BFFF] stroke-[2.2] group-hover:scale-110 transition-transform" />
+                <Bone className="w-7 h-7 mx-auto mb-2 text-[#008EC7] stroke-[2.2] group-hover:scale-110 transition-transform" />
                 <h4 className="text-xl font-black text-black">{siteConfig.stats.projectsCount || "15,000+"}</h4>
                 <p className="text-xs font-medium text-gray-600">Surgeries Performed</p>
               </div>
@@ -96,7 +96,7 @@ export default function AboutSection() {
               </div>
 
               <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
-                <Stethoscope className="w-7 h-7 mx-auto mb-2 text-[#00BFFF] stroke-[2.2] group-hover:scale-110 transition-transform" />
+                <Stethoscope className="w-7 h-7 mx-auto mb-2 text-[#008EC7] stroke-[2.2] group-hover:scale-110 transition-transform" />
                 <h4 className="text-xl font-black text-black">{siteConfig.stats.yearsExperience || "10+ Years"}</h4>
                 <p className="text-xs font-medium text-gray-600">Trusted Care</p>
               </div>

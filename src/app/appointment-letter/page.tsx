@@ -70,7 +70,7 @@ export default function AppointmentLetterPage() {
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
             Schedule your in-person consultation with{" "}
-            <span className="text-white font-black underline decoration-red-500 decoration-2">
+            <span className="text-white font-black">
               Dr. Abhishek Jain
             </span>{" "}
             (Senior Orthopedic &amp; Trauma Specialist) at MP Hospital &amp; Trauma Centre.
@@ -126,7 +126,7 @@ export default function AppointmentLetterPage() {
                 ))}
               </div>
 
-              <div className="p-6 rounded-3xl bg-[#00BFFF] text-white space-y-2 border-2 border-sky-400 shadow-md">
+              <div className="p-6 rounded-3xl bg-[#008EC7] text-white space-y-2 border-2 border-sky-400 shadow-md">
                 <div className="flex items-center gap-2 text-white">
                   <Sparkles className="w-5 h-5 text-white" />
                   <span className="text-xs font-black uppercase tracking-wider">Emergency Line</span>

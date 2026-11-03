@@ -30,7 +30,7 @@ const hospitalCards = [
     title: "Orthopedic Surgery & Joint Replacement",
     image: "/images/modular-ot.jpg",
     icon: Bone,
-    iconColor: "text-[#00BFFF]",
+    iconColor: "text-[#008EC7]",
     items: [
       "Total Knee & Hip Replacement (TKR/THR)",
       "Complex Fracture & Pelvic Reconstruction",
@@ -58,7 +58,7 @@ const hospitalCards = [
     title: "Critical Care ICU & Advanced Diagnostics",
     image: "/images/emergency-trauma-icu.jpg",
     icon: Activity,
-    iconColor: "text-[#00BFFF]",
+    iconColor: "text-[#008EC7]",
     items: [
       "Multi-Parameter Mechanical Ventilator ICU",
       "Deluxe & General Patient Inpatient Rooms",
@@ -131,7 +131,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
                         key={idx}
                         className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-neutral-800 leading-snug"
                       >
-                        <span className="text-[#00BFFF] font-black text-sm shrink-0 mt-0.5 leading-none">
+                        <span className="text-[#008EC7] font-black text-sm shrink-0 mt-0.5 leading-none">
                           ✔
                         </span>
                         <span>{item}</span>
@@ -142,7 +142,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
                   {/* Bottom Action CTA */}
                   <button
                     onClick={onOpenConsultation}
-                    className="w-full py-2.5 px-4 rounded-full bg-[#00BFFF] hover:bg-[#009fe3] text-white font-extrabold text-xs tracking-wider uppercase transition-all duration-200 mt-2 shadow-md shadow-sky-500/25 flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
+                    className="w-full py-2.5 px-4 rounded-full bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-xs tracking-wider uppercase transition-all duration-200 mt-2 shadow-md shadow-sky-600/20 flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
                   >
                     <span>Book Consultation</span>
                     <ArrowRight className="w-3.5 h-3.5" />

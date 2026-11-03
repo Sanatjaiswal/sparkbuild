@@ -143,7 +143,7 @@ export default function OurTeamPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-12 border border-neutral-200 shadow-xl relative overflow-hidden">
               {/* Brand Accent Top Line */}
-              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#00BFFF] via-red-600 to-[#00BFFF]" />
+              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#008EC7] via-red-600 to-[#008EC7]" />
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 {/* Left Column: Doctor's Executive Portrait Card */}
@@ -206,7 +206,7 @@ export default function OurTeamPage() {
 
                   {/* Clinical Philosophy Quote */}
                   <div className="relative p-5 rounded-2xl bg-sky-50/60 border border-sky-200/80">
-                    <Quote className="w-8 h-8 text-[#00BFFF]/20 absolute top-3 right-3" />
+                    <Quote className="w-8 h-8 text-[#008EC7]/20 absolute top-3 right-3" />
                     <blockquote className="text-sm sm:text-base text-neutral-800 leading-relaxed font-medium italic relative z-10">
                       &ldquo;At MP Hospital &amp; Trauma Centre, our clinical mission is rapid emergency resuscitation, zero-delay trauma surgeries, and precision robotic joint restorations to return every patient to active, pain-free mobility.&rdquo;
                     </blockquote>
@@ -215,7 +215,7 @@ export default function OurTeamPage() {
                   {/* Clinical Expertise 4-Card Grid with Bare Icons (NO boxes) */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                     <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-sky-400 hover:bg-sky-50/30 transition-all flex items-start gap-3.5 group/card shadow-xs">
-                      <Bone className="w-5 h-5 text-[#00BFFF] stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
+                      <Bone className="w-5 h-5 text-[#008EC7] stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
                       <div>
                         <h4 className="text-xs font-black text-neutral-900">Robotic Joint Replacement</h4>
                         <p className="text-[11px] text-neutral-500 leading-snug mt-0.5">Total knee &amp; hip reconstruction with rapid recovery protocols.</p>
@@ -231,7 +231,7 @@ export default function OurTeamPage() {
                     </div>
 
                     <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-sky-400 hover:bg-sky-50/30 transition-all flex items-start gap-3.5 group/card shadow-xs">
-                      <Crosshair className="w-5 h-5 text-[#00BFFF] stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
+                      <Crosshair className="w-5 h-5 text-[#008EC7] stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
                       <div>
                         <h4 className="text-xs font-black text-neutral-900">4K Sports Arthroscopy</h4>
                         <p className="text-[11px] text-neutral-500 leading-snug mt-0.5">Minimally invasive ACL, PCL &amp; meniscus sports restorations.</p>
@@ -300,7 +300,7 @@ export default function OurTeamPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                   activeCategory === cat
-                    ? "bg-[#00BFFF] text-white shadow-md shadow-sky-500/25"
+                    ? "bg-[#008EC7] text-white shadow-md shadow-sky-600/20"
                     : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-neutral-200/80"
                 }`}
               >
@@ -343,7 +343,7 @@ export default function OurTeamPage() {
                             Director &amp; Chief
                           </span>
                         ) : (
-                          <span className="px-2.5 py-1 rounded-full bg-[#00BFFF] text-white text-[10px] font-black uppercase tracking-wider shadow">
+                          <span className="px-2.5 py-1 rounded-full bg-[#008EC7] text-white text-[10px] font-black uppercase tracking-wider shadow">
                             Consultant
                           </span>
                         )}
@@ -402,7 +402,7 @@ export default function OurTeamPage() {
               </p>
               <button
                 onClick={() => setActiveCategory("All Specialists")}
-                className="mt-3 px-5 py-2 rounded-full bg-[#00BFFF] hover:bg-[#009fe3] text-white text-xs font-bold uppercase tracking-wider cursor-pointer"
+                className="mt-3 px-5 py-2 rounded-full bg-[#008EC7] hover:bg-[#0077a8] text-white text-xs font-bold uppercase tracking-wider cursor-pointer"
               >
                 View All 13 Specialists
               </button>
@@ -426,7 +426,7 @@ export default function OurTeamPage() {
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs hover:shadow-md transition-all flex items-start gap-4 group">
-              <Building2 className="w-8 h-8 text-[#00BFFF] stroke-[2.2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+              <Building2 className="w-8 h-8 text-[#008EC7] stroke-[2.2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
               <div>
                 <h4 className="text-sm font-black text-neutral-900">Modular OT Complexes</h4>
                 <p className="text-xs text-neutral-500 mt-1">
@@ -446,7 +446,7 @@ export default function OurTeamPage() {
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs hover:shadow-md transition-all flex items-start gap-4 group">
-              <ShieldCheck className="w-8 h-8 text-[#00BFFF] stroke-[2.2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+              <ShieldCheck className="w-8 h-8 text-[#008EC7] stroke-[2.2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
               <div>
                 <h4 className="text-sm font-black text-neutral-900">Diagnostics &amp; Rehab</h4>
                 <p className="text-xs text-neutral-500 mt-1">
@@ -459,7 +459,7 @@ export default function OurTeamPage() {
       </section>
 
       {/* Careers Banner */}
-      <section className="py-14 bg-gradient-to-r from-[#00BFFF] via-[#009fe3] to-[#008ec7] text-white text-center">
+      <section className="py-14 bg-gradient-to-r from-[#008EC7] via-[#007bb0] to-[#006f9e] text-white text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-4">
           <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider">
             Hospital Careers

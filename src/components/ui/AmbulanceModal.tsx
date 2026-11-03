@@ -87,19 +87,19 @@ export default function AmbulanceModal({ isOpen, onClose }: AmbulanceModalProps)
             className="flex items-center justify-between p-4 rounded-xl bg-sky-50 border-2 border-sky-200 hover:border-sky-400 hover:bg-sky-100/70 transition-all group cursor-pointer shadow-xs"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#00BFFF] text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-lg bg-[#008EC7] text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
                 <Phone className="w-5 h-5 fill-white text-white" />
               </div>
               <div className="text-left">
-                <p className="text-[11px] font-bold text-[#008ec7] uppercase tracking-wider">
+                <p className="text-[11px] font-bold text-[#008EC7] uppercase tracking-wider">
                   Trauma Mobile Line
                 </p>
-                <p className="text-base font-extrabold text-neutral-900 group-hover:text-[#008ec7] transition-colors">
+                <p className="text-base font-extrabold text-neutral-900 group-hover:text-[#008EC7] transition-colors">
                   {siteConfig.phone2 || "+91 76489-98668"}
                 </p>
               </div>
             </div>
-            <span className="text-xs font-black text-[#008ec7] bg-white px-3 py-1.5 rounded-lg border border-sky-200 shadow-xs uppercase tracking-wide group-hover:bg-[#00BFFF] group-hover:text-white transition-all">
+            <span className="text-xs font-black text-[#008EC7] bg-white px-3 py-1.5 rounded-lg border border-sky-200 shadow-xs uppercase tracking-wide group-hover:bg-[#008EC7] group-hover:text-white transition-all">
               Call Direct
             </span>
           </a>
@@ -111,7 +111,7 @@ export default function AmbulanceModal({ isOpen, onClose }: AmbulanceModalProps)
               <span>Instant 24x7</span>
             </div>
             <div className="p-2 bg-neutral-50 rounded-lg border border-neutral-200/80">
-              <ShieldCheck className="w-4 h-4 text-[#00BFFF] mx-auto mb-1" />
+              <ShieldCheck className="w-4 h-4 text-[#008EC7] mx-auto mb-1" />
               <span>ALS Ventilator</span>
             </div>
             <div className="p-2 bg-neutral-50 rounded-lg border border-neutral-200/80">

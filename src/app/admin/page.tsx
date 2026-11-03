@@ -261,7 +261,7 @@ export default function WordPressAdmin() {
                   placeholder="admin"
                   value={usernameInput}
                   onChange={(e) => setUsernameInput(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF]"
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#008EC7] focus:ring-1 focus:ring-[#008EC7]"
                 />
               </div>
             </div>
@@ -278,7 +278,7 @@ export default function WordPressAdmin() {
                   placeholder="••••••••"
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#00BFFF] focus:ring-1 focus:ring-[#00BFFF]"
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#008EC7] focus:ring-1 focus:ring-[#008EC7]"
                 />
               </div>
               <p className="text-[10px] text-neutral-400 mt-1">Default credentials: admin / admin123</p>
@@ -286,7 +286,7 @@ export default function WordPressAdmin() {
 
             <button
               type="submit"
-              className="w-full py-2.5 rounded-lg bg-[#00BFFF] hover:bg-[#009fe3] text-white font-black text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer mt-2"
+              className="w-full py-2.5 rounded-lg bg-[#008EC7] hover:bg-[#0077a8] text-white font-black text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer mt-2"
             >
               Sign In to Admin
             </button>
@@ -479,17 +479,17 @@ export default function WordPressAdmin() {
                     <h3 className="font-bold text-sm text-[#1d2327] mb-2">Next Steps</h3>
                     <ul className="space-y-1 text-xs text-[#2271b1]">
                       <li>
-                        <button onClick={() => setActiveMenu("projects")} className="hover:underline">
+                        <button onClick={() => setActiveMenu("projects")} className="hover:text-blue-800 transition-colors">
                           • Add or edit portfolio projects ({data.projectsData.length})
                         </button>
                       </li>
                       <li>
-                        <button onClick={() => setActiveMenu("media")} className="hover:underline">
+                        <button onClick={() => setActiveMenu("media")} className="hover:text-blue-800 transition-colors">
                           • Browse Media Library
                         </button>
                       </li>
                       <li>
-                        <button onClick={() => setActiveMenu("blog")} className="hover:underline">
+                        <button onClick={() => setActiveMenu("blog")} className="hover:text-blue-800 transition-colors">
                           • Write a new blog post
                         </button>
                       </li>
@@ -499,12 +499,12 @@ export default function WordPressAdmin() {
                     <h3 className="font-bold text-sm text-[#1d2327] mb-2">More Actions</h3>
                     <ul className="space-y-1 text-xs text-[#2271b1]">
                       <li>
-                        <button onClick={() => setActiveMenu("settings")} className="hover:underline">
+                        <button onClick={() => setActiveMenu("settings")} className="hover:text-blue-800 transition-colors">
                           • Change phone number & office address
                         </button>
                       </li>
                       <li>
-                        <button onClick={() => setActiveMenu("team")} className="hover:underline">
+                        <button onClick={() => setActiveMenu("team")} className="hover:text-blue-800 transition-colors">
                           • Update doctors &amp; medical team bios
                         </button>
                       </li>
@@ -966,7 +966,7 @@ export default function WordPressAdmin() {
                       saveData(data);
                       showToast("All doctor profiles saved live!");
                     }}
-                    className="px-4 py-2 bg-[#00BFFF] hover:bg-[#009fe3] text-white text-xs font-black rounded shadow flex items-center gap-1.5 cursor-pointer"
+                    className="px-4 py-2 bg-[#008EC7] hover:bg-[#0077a8] text-white text-xs font-black rounded shadow flex items-center gap-1.5 cursor-pointer"
                   >
                     <Save className="w-4 h-4" />
                     <span>Save All</span>

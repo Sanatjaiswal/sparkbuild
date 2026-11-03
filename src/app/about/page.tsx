@@ -71,7 +71,7 @@ export default function AboutPage() {
               <div className="pt-2">
                 <button
                   onClick={() => setConsultationOpen(true)}
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#00BFFF] hover:bg-[#009fe3] text-white font-extrabold text-sm uppercase tracking-wider shadow-md shadow-sky-500/25 transition-all active:scale-95 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-sm uppercase tracking-wider shadow-md shadow-sky-600/20 transition-all active:scale-95 cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Book Consultation</span>
@@ -101,7 +101,7 @@ export default function AboutPage() {
       </section>
 
       {/* Big Numbers & Stats */}
-      <section className="py-16 bg-[#00BFFF] text-white border-y border-sky-400 select-none">
+      <section className="py-16 bg-[#008EC7] text-white border-y border-sky-400 select-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-sky-200/50">
             <div className="space-y-3 pt-6 md:pt-0">

@@ -67,7 +67,7 @@ export default function CertificatesSection() {
           </div>
 
           <div className="shrink-0 flex items-center gap-3 w-full sm:w-auto">
-            <div className="w-full sm:w-auto text-center px-5 py-2 rounded-full bg-[#00BFFF] text-white font-black text-xs tracking-wider uppercase shadow-xs">
+            <div className="w-full sm:w-auto text-center px-5 py-2 rounded-full bg-[#008EC7] text-white font-black text-xs tracking-wider uppercase shadow-xs">
               24x7 Emergency Care
             </div>
           </div>

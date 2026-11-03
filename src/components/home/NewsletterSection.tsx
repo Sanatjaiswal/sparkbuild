@@ -24,7 +24,7 @@ export default function NewsletterSection() {
   return (
     <section className="py-20 bg-neutral-50 border-t border-neutral-200 select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-[#00BFFF] to-[#008ec7] text-white rounded-3xl p-8 sm:p-14 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
+        <div className="bg-gradient-to-r from-[#008EC7] to-[#00709e] text-white rounded-3xl p-8 sm:p-14 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
           <div className="max-w-xl space-y-3 text-center lg:text-left">
             <span className="inline-block px-3.5 py-1 rounded-full bg-white text-[#008ec7] text-xs font-black uppercase tracking-wider shadow-xs">
               Health &amp; Wellness Updates
@@ -34,7 +34,7 @@ export default function NewsletterSection() {
             </h2>
             <p className="text-sm text-sky-50 font-normal leading-relaxed">
               Subscribe to regular health tips, joint care advice from{" "}
-              <strong className="text-white font-black underline decoration-red-500 decoration-2">
+              <strong className="text-white font-black">
                 Dr. Abhishek Jain
               </strong>
               , and announcements for free community health camps at MP Hospital &amp; Trauma Centre.

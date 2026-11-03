@@ -43,7 +43,7 @@ export default function StatsBanner() {
                     {item.desc.includes("Dr. Abhishek Jain") ? (
                       <>
                         {item.desc.split("Dr. Abhishek Jain")[0]}
-                        <span className="text-red-600 font-black underline decoration-red-500 decoration-1">
+                        <span className="text-red-600 font-black">
                           Dr. Abhishek Jain
                         </span>
                         {item.desc.split("Dr. Abhishek Jain")[1]}

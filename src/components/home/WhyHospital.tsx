@@ -17,7 +17,7 @@ export default function WhyHospital() {
     },
     {
       icon: Stethoscope,
-      iconColor: "text-[#00BFFF]",
+      iconColor: "text-[#008EC7]",
       title: "Senior Orthopedic Specialists",
       desc: "Experienced surgical team led by Dr. Abhishek Jain with 10+ years in joint replacement, sports injury & complex trauma.",
     },
@@ -29,7 +29,7 @@ export default function WhyHospital() {
     },
     {
       icon: ShieldCheck,
-      iconColor: "text-[#00BFFF]",
+      iconColor: "text-[#008EC7]",
       title: "Cashless Mediclaim & TPA",
       desc: "Hassle-free insurance pre-authorization desk supporting major mediclaim policies and Ayushman Bharat coverage.",
     },
@@ -86,7 +86,7 @@ export default function WhyHospital() {
               </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
                 With a trusted 10+ year legacy of excellence, MP Hospital &amp; Trauma Centre is Jabalpur’s leading destination for orthopedic surgeries, joint replacement, spine stabilization, and emergency trauma care under{" "}
-                <span className="text-[#008ec7] font-black underline decoration-red-500 decoration-2">
+                <span className="text-[#008ec7] font-black">
                   Dr. Abhishek Jain
                 </span>
                 .

@@ -187,7 +187,7 @@ export default function ServicesPage() {
                   </h4>
                   {service.benefits.map((benefit, bIdx) => (
                     <div key={bIdx} className="flex items-start gap-3">
-                      <span className="w-5 h-5 rounded-full bg-[#00BFFF] text-white flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-5 h-5 rounded-full bg-[#008EC7] text-white flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                       </span>
                       <span className="text-sm font-semibold text-gray-800">{benefit}</span>
@@ -198,14 +198,14 @@ export default function ServicesPage() {
                 <div className="pt-4 flex items-center gap-4">
                   <button
                     onClick={() => openForService(service.title)}
-                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#00BFFF] hover:bg-[#009fe3] text-white font-black text-sm uppercase tracking-wider shadow-md shadow-sky-500/25 transition-all active:scale-95 cursor-pointer"
+                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#008EC7] hover:bg-[#0077a8] text-white font-black text-sm uppercase tracking-wider shadow-md shadow-sky-600/20 transition-all active:scale-95 cursor-pointer"
                   >
                     <span>Book Appointment</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                   <Link
                     href="/contact"
-                    className="text-sm font-bold text-neutral-600 hover:text-red-600 underline"
+                    className="text-sm font-bold text-neutral-600 hover:text-red-600 transition-colors"
                   >
                     Contact Hospital
                   </Link>

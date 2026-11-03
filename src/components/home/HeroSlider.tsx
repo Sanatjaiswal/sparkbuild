@@ -166,7 +166,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
                   {slide.description.includes("Dr. Abhishek Jain") ? (
                     <>
                       {slide.description.split("Dr. Abhishek Jain")[0]}
-                      <span className="text-white font-black underline decoration-red-500 decoration-2">
+                      <span className="text-white font-black">
                         Dr. Abhishek Jain
                       </span>
                       {slide.description.split("Dr. Abhishek Jain")[1]}

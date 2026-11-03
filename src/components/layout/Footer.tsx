@@ -34,7 +34,7 @@ export default function Footer() {
             </Link>
             <p className="text-sm text-neutral-600 leading-relaxed font-normal">
               MP Hospital &amp; Trauma Centre delivers advanced orthopedic, joint replacement, spine surgery, and 24x7 emergency trauma care under the expert direction of{" "}
-              <strong className="text-[#00BFFF] font-black underline decoration-red-500">
+              <strong className="text-[#008EC7] font-black">
                 Dr. Abhishek Jain
               </strong>
               .
@@ -104,7 +104,7 @@ export default function Footer() {
           {/* Column 3: Patient Support */}
           <div>
             <h4 className="text-neutral-900 font-extrabold text-base uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-[#00BFFF] rounded-sm"></span>
+              <span className="w-2.5 h-2.5 bg-[#008EC7] rounded-sm"></span>
               Patient Support
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -170,7 +170,7 @@ export default function Footer() {
 
             {/* Email */}
             <div className="flex items-start gap-3 text-sm">
-              <Mail className="w-5 h-5 text-[#00BFFF] shrink-0 mt-0.5" />
+              <Mail className="w-5 h-5 text-[#008EC7] shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs text-neutral-500 font-medium uppercase tracking-wider">Email Support</p>
                 <a
@@ -199,7 +199,7 @@ export default function Footer() {
                   href="https://maps.google.com/?q=MP+Hospital+and+Trauma+Centre+Beoharbagh+Jabalpur"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[11px] font-extrabold text-red-600 hover:text-red-700 hover:underline pt-0.5"
+                  className="inline-flex items-center gap-1 text-[11px] font-extrabold text-red-600 hover:text-red-700 pt-0.5"
                 >
                   <span>Open in Google Maps</span>
                   <span>→</span>
@@ -210,8 +210,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Deep Sky Blue Bottom Strip */}
-      <div id="footer-bottom-strip" className="bg-[#00BFFF] text-white py-5 px-4 sm:px-6 lg:px-8 border-t border-sky-400">
+      {/* Rich Medical Cerulean Blue Bottom Strip */}
+      <div id="footer-bottom-strip" className="bg-[#008EC7] text-white py-5 px-4 sm:px-6 lg:px-8 border-t border-sky-400">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-sky-50 font-medium text-center lg:text-left">
           {/* Left: Copyright */}
           <p className="shrink-0 text-center lg:text-left">

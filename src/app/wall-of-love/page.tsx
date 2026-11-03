@@ -226,7 +226,7 @@ export default function WallOfLovePage() {
       </section>
 
       {/* Book Consultation CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#00BFFF] to-[#008ec7] text-white text-center">
+      <section className="py-16 bg-gradient-to-r from-[#008EC7] to-[#00709e] text-white text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-4">
           <h3 className="text-3xl font-black text-white">Experience Compassionate Healthcare at MP Hospital</h3>
           <p className="text-sm text-sky-50">
