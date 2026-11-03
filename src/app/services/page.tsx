@@ -34,7 +34,7 @@ export default function ServicesPage() {
     {
       title: "Joint Replacement & Minimally Invasive Arthroplasty",
       icon: Bone,
-      iconColor: "text-orange-500",
+      iconColor: "text-sky-600",
       tag: "Arthroplasty & Reconstruction",
       image: "/images/orthopedic-rehab.jpg",
       desc: "Advanced total knee replacement (TKR), total hip replacement (THR), and partial joint resurfacing performed by Dr. Abhishek Jain. Designed for rapid pain relief, precision implant alignment, and fast postoperative mobility.",
@@ -62,7 +62,7 @@ export default function ServicesPage() {
     {
       title: "Modular Operation Theatres & Intensive Care ICU",
       icon: Building2,
-      iconColor: "text-orange-500",
+      iconColor: "text-sky-600",
       tag: "Critical Care Infrastructure",
       image: "/images/modular-ot.jpg",
       desc: "NABH-compliant modular surgical suites featuring HEPA-filtered laminar airflow that guarantees sterile conditions. Backed by multi-parameter monitored Trauma ICU beds staffed by dedicated intensivists.",
@@ -158,7 +158,7 @@ export default function ServicesPage() {
               >
                 <div className="flex items-center gap-3">
                   <service.icon className={`w-7 h-7 ${service.iconColor} stroke-[2.2] shrink-0`} />
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-orange-600 px-3.5 py-1 bg-orange-50 rounded-full border border-orange-200">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-sky-700 px-3.5 py-1 bg-sky-50 rounded-full border border-sky-200">
                     {service.tag}
                   </span>
                 </div>
@@ -171,7 +171,7 @@ export default function ServicesPage() {
                   {service.desc.includes("Dr. Abhishek Jain") ? (
                     <>
                       {service.desc.split("Dr. Abhishek Jain")[0]}
-                      <span className="bg-orange-50 text-orange-600 px-2.5 py-0.5 rounded font-black border border-orange-200 shadow-xs">
+                      <span className="bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded font-black border border-sky-200 shadow-xs">
                         Dr. Abhishek Jain
                       </span>
                       {service.desc.split("Dr. Abhishek Jain")[1]}
@@ -182,12 +182,12 @@ export default function ServicesPage() {
                 </p>
 
                 <div className="space-y-3 pt-2">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-sky-700">
                     Clinical Highlights &amp; Care
                   </h4>
                   {service.benefits.map((benefit, bIdx) => (
                     <div key={bIdx} className="flex items-start gap-3">
-                      <span className="w-5 h-5 rounded-full bg-[#FB923C] text-white flex items-center justify-center shrink-0 mt-0.5">
+                      <span className="w-5 h-5 rounded-full bg-[#abe0f6] text-[#073854] flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                       </span>
                       <span className="text-sm font-semibold text-gray-800">{benefit}</span>
@@ -198,7 +198,7 @@ export default function ServicesPage() {
                 <div className="pt-4 flex items-center gap-4">
                   <button
                     onClick={() => openForService(service.title)}
-                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#FB923C] hover:bg-[#F97316] text-white font-extrabold text-sm uppercase tracking-wider shadow-md shadow-orange-900/25 transition-all active:scale-95 cursor-pointer"
+                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#abe0f6] hover:bg-[#8ecef1] text-[#073854] font-black text-sm uppercase tracking-wider shadow-md shadow-sky-900/15 transition-all active:scale-95 cursor-pointer"
                   >
                     <span>Book Appointment</span>
                     <ArrowRight className="w-4 h-4" />
@@ -220,7 +220,7 @@ export default function ServicesPage() {
       <section className="py-24 bg-neutral-50 text-neutral-900 border-t border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="inline-block px-3.5 py-1 rounded-full bg-orange-50 border border-orange-300 text-orange-600 text-xs font-black uppercase tracking-wider shadow-xs">
+            <span className="inline-block px-3.5 py-1 rounded-full bg-sky-50 border border-sky-300 text-sky-700 text-xs font-black uppercase tracking-wider shadow-xs">
               Clinical Pathway
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 tracking-tight">

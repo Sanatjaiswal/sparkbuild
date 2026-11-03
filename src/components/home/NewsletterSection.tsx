@@ -24,17 +24,17 @@ export default function NewsletterSection() {
   return (
     <section className="py-20 bg-neutral-50 border-t border-neutral-200 select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-[#FB923C] to-orange-500 text-white rounded-3xl p-8 sm:p-14 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
+        <div className="bg-gradient-to-r from-[#abe0f6] to-[#7ecbf2] text-[#073854] rounded-3xl p-8 sm:p-14 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-10">
           <div className="max-w-xl space-y-3 text-center lg:text-left">
-            <span className="inline-block px-3.5 py-1 rounded-full bg-white text-orange-600 text-xs font-black uppercase tracking-wider shadow-xs">
+            <span className="inline-block px-3.5 py-1 rounded-full bg-white text-[#0369a1] text-xs font-black uppercase tracking-wider shadow-xs">
               Health &amp; Wellness Updates
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Stay Informed on <span className="text-red-100">Bone &amp; Joint Health</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-[#073854] tracking-tight">
+              Stay Informed on <span className="text-red-600">Bone &amp; Joint Health</span>
             </h2>
-            <p className="text-sm text-orange-50 font-normal leading-relaxed">
+            <p className="text-sm text-[#073854]/90 font-normal leading-relaxed">
               Subscribe to regular health tips, joint care advice from{" "}
-              <strong className="text-white font-black underline decoration-white decoration-2">
+              <strong className="text-[#073854] font-black underline decoration-red-600 decoration-2">
                 Dr. Abhishek Jain
               </strong>
               , and announcements for free community health camps at MP Hospital &amp; Trauma Centre.

@@ -81,7 +81,7 @@ export default function ContactPage() {
             {/* Left: Contact Info */}
             <div className="lg:col-span-5 space-y-8">
               <div className="space-y-3">
-                <span className="text-xs font-semibold uppercase tracking-wider text-orange-600 px-3.5 py-1 bg-orange-50 rounded-full border border-orange-200">
+                <span className="text-xs font-semibold uppercase tracking-wider text-sky-700 px-3.5 py-1 bg-sky-50 rounded-full border border-sky-200">
                   24x7 Emergency Care
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-neutral-900 leading-tight">
@@ -89,7 +89,7 @@ export default function ContactPage() {
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed font-normal">
                   Located in Beoharbagh near Ghamapur Chowk, Jabalpur. Reach out for OPD appointments with{" "}
-                  <span className="bg-orange-50 text-orange-600 px-2.5 py-0.5 rounded font-black border border-orange-200 shadow-xs">
+                  <span className="bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded font-black border border-sky-200 shadow-xs">
                     Dr. Abhishek Jain
                   </span>
                   , accidental trauma admissions, ambulance services, or cashless TPA guidance.
@@ -97,14 +97,14 @@ export default function ContactPage() {
               </div>
 
               {/* Dr. Abhishek Jain OPD Timing Card */}
-              <div className="p-4 rounded-2xl bg-orange-50/70 border-2 border-orange-300 shadow-sm flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-[#FB923C] text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+              <div className="p-4 rounded-2xl bg-sky-50/70 border-2 border-sky-200 shadow-sm flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#abe0f6] text-[#073854] flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
                   OPD
                 </div>
                 <div>
                   <h4 className="text-sm font-black text-neutral-900">Dr. Abhishek Jain OPD Timings</h4>
                   <p className="text-xs text-neutral-800 font-medium">Mon - Sat: 10:30 AM - 1:30 PM &amp; 5:30 PM - 8:30 PM</p>
-                  <p className="text-[11px] text-orange-700 font-bold mt-0.5">Emergency Trauma Consultation: 24x7 Available</p>
+                  <p className="text-[11px] text-sky-800 font-bold mt-0.5">Emergency Trauma Consultation: 24x7 Available</p>
                 </div>
               </div>
 
@@ -147,7 +147,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#FB923C] text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-[#abe0f6] text-[#073854] flex items-center justify-center shrink-0 shadow-sm">
                     <Mail className="w-6 h-6 stroke-[2.2]" />
                   </div>
                   <div>
@@ -172,7 +172,7 @@ export default function ContactPage() {
                       <h4 className="text-xs font-black text-red-600 uppercase tracking-wider">
                         Hospital Location &amp; Campus
                       </h4>
-                      <span className="text-[10px] font-extrabold text-orange-600 bg-orange-50 px-2.5 py-0.5 rounded-full border border-orange-200">
+                      <span className="text-[10px] font-extrabold text-sky-800 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">
                         Jabalpur, MP
                       </span>
                     </div>
@@ -202,7 +202,7 @@ export default function ContactPage() {
 
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
-                  <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
                   <h4 className="text-2xl font-bold text-gray-900">Message Received!</h4>

@@ -84,22 +84,22 @@ export default function AmbulanceModal({ isOpen, onClose }: AmbulanceModalProps)
           {/* Secondary Mobile Emergency Line */}
           <a
             href={`tel:${siteConfig.phone2Raw || "+917648998668"}`}
-            className="flex items-center justify-between p-4 rounded-xl bg-orange-50 border-2 border-orange-200 hover:border-orange-500 hover:bg-orange-100/70 transition-all group cursor-pointer shadow-xs"
+            className="flex items-center justify-between p-4 rounded-xl bg-sky-50 border-2 border-sky-200 hover:border-sky-400 hover:bg-sky-100/70 transition-all group cursor-pointer shadow-xs"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#FB923C] text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
-                <Phone className="w-5 h-5 fill-white" />
+              <div className="w-10 h-10 rounded-lg bg-[#abe0f6] text-[#073854] flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                <Phone className="w-5 h-5 fill-[#073854]" />
               </div>
               <div className="text-left">
-                <p className="text-[11px] font-bold text-orange-800 uppercase tracking-wider">
+                <p className="text-[11px] font-bold text-sky-800 uppercase tracking-wider">
                   Trauma Mobile Line
                 </p>
-                <p className="text-base font-extrabold text-neutral-900 group-hover:text-orange-600 transition-colors">
+                <p className="text-base font-extrabold text-neutral-900 group-hover:text-sky-700 transition-colors">
                   {siteConfig.phone2 || "+91 76489-98668"}
                 </p>
               </div>
             </div>
-            <span className="text-xs font-black text-orange-600 bg-white px-3 py-1.5 rounded-lg border border-orange-200 shadow-xs uppercase tracking-wide group-hover:bg-[#FB923C] group-hover:text-white transition-all">
+            <span className="text-xs font-black text-sky-700 bg-white px-3 py-1.5 rounded-lg border border-sky-200 shadow-xs uppercase tracking-wide group-hover:bg-[#abe0f6] group-hover:text-[#073854] transition-all">
               Call Direct
             </span>
           </a>
@@ -111,7 +111,7 @@ export default function AmbulanceModal({ isOpen, onClose }: AmbulanceModalProps)
               <span>Instant 24x7</span>
             </div>
             <div className="p-2 bg-neutral-50 rounded-lg border border-neutral-200/80">
-              <ShieldCheck className="w-4 h-4 text-orange-500 mx-auto mb-1" />
+              <ShieldCheck className="w-4 h-4 text-sky-600 mx-auto mb-1" />
               <span>ALS Ventilator</span>
             </div>
             <div className="p-2 bg-neutral-50 rounded-lg border border-neutral-200/80">
