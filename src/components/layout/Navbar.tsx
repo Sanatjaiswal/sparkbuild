@@ -61,14 +61,14 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
-          {/* Logo on the left */}
-          <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="MP Hospital & Trauma Centre Jabalpur Home">
+          {/* Official Registered Stacked Logo on the left */}
+          <Link href="/" className="flex items-center gap-2 group shrink-0 py-0.5" aria-label="MP Hospital & Trauma Centre Jabalpur Home">
             <Image
-              src="/images/mp-hospital-nav-logo.png"
+              src="/images/mp-hospital-registered-logo.png"
               alt="MP Hospital & Trauma Centre"
-              width={320}
-              height={58}
-              className="h-11 sm:h-13 md:h-14 lg:h-15 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.01]"
+              width={180}
+              height={157}
+              className="h-16 sm:h-18 md:h-20 w-auto object-contain transition-transform duration-200 group-hover:scale-102"
               priority
               unoptimized
             />
@@ -157,13 +157,13 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
               style={{ flexShrink: 0 }}
               className="flex items-center justify-between px-5 py-4 border-b border-neutral-800 bg-neutral-900/95"
             >
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center px-3 py-1.5 bg-white rounded-xl shadow-xs">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center p-2 bg-white rounded-xl shadow-xs">
                 <Image
-                  src="/images/mp-hospital-nav-logo.png"
+                  src="/images/mp-hospital-registered-logo.png"
                   alt="MP Hospital & Trauma Centre"
-                  width={220}
-                  height={40}
-                  className="h-10 w-auto object-contain"
+                  width={140}
+                  height={122}
+                  className="h-14 w-auto object-contain"
                   priority
                   unoptimized
                 />

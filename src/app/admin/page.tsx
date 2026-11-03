@@ -226,11 +226,11 @@ export default function WordPressAdmin() {
           <div className="text-center space-y-2 mb-6">
             <div className="flex justify-center mb-3">
               <Image
-                src="/images/mp-hospital-nav-logo.png"
+                src="/images/mp-hospital-registered-logo.png"
                 alt="MP Hospital & Trauma Centre"
-                width={280}
-                height={52}
-                className="h-12 w-auto object-contain"
+                width={160}
+                height={140}
+                className="h-20 w-auto object-contain"
                 priority
                 unoptimized
               />
@@ -357,9 +357,9 @@ export default function WordPressAdmin() {
         {/* WordPress Left Navigation Sidebar */}
         <aside className="w-56 bg-[#1d2327] text-[#c3c4c7] flex flex-col shrink-0 overflow-y-auto">
           <div className="p-4 border-b border-[#2c3338] flex items-center gap-2.5">
-            <div className="p-1.5 bg-white rounded-lg shrink-0">
+            <div className="p-1 bg-white rounded-lg shrink-0">
               <Image
-                src="/images/mp-hospital-emblem.png"
+                src="/images/mp-hospital-registered-logo.png"
                 alt="Logo"
                 width={36}
                 height={36}

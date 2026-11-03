@@ -14,7 +14,7 @@ interface HeroSliderProps {
 const hospitalHeroSlides = [
   {
     id: 1,
-    logo: "/images/mp-hospital-nav-logo.png",
+    logo: "/images/mp-hospital-registered-logo.png",
     headingLine1: "24x7 Emergency &",
     headingLine2: "Trauma Care Centre",
     description: "Premier Orthopedic, Accidental Polytrauma & Emergency Healthcare in Jabalpur",
@@ -25,7 +25,7 @@ const hospitalHeroSlides = [
   },
   {
     id: 2,
-    logo: "/images/mp-hospital-nav-logo.png",
+    logo: "/images/mp-hospital-registered-logo.png",
     headingLine1: "15,000+ Surgeries",
     headingLine2: "Modular OT & Trauma Care",
     description: "Class 10,000 Modular OTs with Laminar Airflow & Sterile HEPA Filtration",
@@ -36,7 +36,7 @@ const hospitalHeroSlides = [
   },
   {
     id: 3,
-    logo: "/images/mp-hospital-nav-logo.png",
+    logo: "/images/mp-hospital-registered-logo.png",
     headingLine1: "5,000+ Joint Replacements",
     headingLine2: "TKR, THR & 4K Arthroscopy",
     description: "Minimally Invasive Joint Care & Rapid Post-Op Rehabilitation by Dr. Abhishek Jain",
@@ -47,7 +47,7 @@ const hospitalHeroSlides = [
   },
   {
     id: 4,
-    logo: "/images/mp-hospital-nav-logo.png",
+    logo: "/images/mp-hospital-registered-logo.png",
     headingLine1: "Critical Care ICU &",
     headingLine2: "24x7 Life Support",
     description: "Multi-Parameter ICU, Digital X-Ray Diagnostics & Cashless Ayushman / TPA Support",
@@ -67,7 +67,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
     data?.heroSlides && data.heroSlides.length > 0
       ? data.heroSlides.map((slide, idx) => ({
           id: slide.id || idx + 1,
-          logo: "/images/mp-hospital-nav-logo.png",
+          logo: "/images/mp-hospital-registered-logo.png",
           headingLine1: (slide as any).headingLine1 || slide.highlightNumber || "24x7 Emergency &",
           headingLine2: (slide as any).headingLine2 || slide.title || "Trauma Care Centre",
           description: slide.description,
@@ -121,14 +121,14 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
           {/* Centered Content Stack: Clean, rock-solid equal alignment across all slides */}
           <div className="absolute inset-0 z-20 flex items-center justify-center pt-8 sm:pt-12 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto w-full text-center flex flex-col items-center justify-center">
-              {/* 1. MP Hospital English Branding Graphic (Registered Logo) */}
-              <div className="mb-3 sm:mb-4 px-4 py-2 sm:px-6 sm:py-2.5 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl inline-flex items-center justify-center shrink-0 border border-white/50">
+              {/* 1. Official Registered Trademark Logo (Large & Clear) */}
+              <div className="mb-3 sm:mb-4 p-3 sm:p-4 bg-white/98 backdrop-blur-md rounded-2xl shadow-2xl inline-flex items-center justify-center shrink-0 border border-white/60">
                 <Image
                   src={slide.logo}
                   alt="MP Hospital & Trauma Centre"
-                  width={380}
-                  height={70}
-                  className="h-12 sm:h-16 lg:h-20 w-auto object-contain"
+                  width={240}
+                  height={209}
+                  className="h-24 sm:h-32 lg:h-36 w-auto object-contain"
                   priority={idx === 0}
                   unoptimized
                 />

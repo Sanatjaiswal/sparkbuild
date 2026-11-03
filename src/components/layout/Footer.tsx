@@ -22,13 +22,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Column 1: Brand & About */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block mb-2" aria-label="MP Hospital & Trauma Centre Jabalpur Home">
+            <Link href="/" className="inline-block mb-3" aria-label="MP Hospital & Trauma Centre Jabalpur Home">
               <Image
-                src="/images/mp-hospital-nav-logo.png"
+                src="/images/mp-hospital-registered-logo.png"
                 alt="MP Hospital & Trauma Centre"
-                width={300}
-                height={55}
-                className="h-13 sm:h-16 w-auto object-contain"
+                width={180}
+                height={157}
+                className="h-20 sm:h-24 w-auto object-contain"
                 unoptimized
               />
             </Link>
