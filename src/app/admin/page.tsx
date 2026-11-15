@@ -31,15 +31,21 @@ import {
   Lock,
   User,
   LogOut,
+  ArrowUp,
+  ArrowDown,
+  X,
 } from "lucide-react";
-import { ProjectItem, BlogPost, TeamMember, ServiceItem } from "@/data/siteData";
+import { HeroSlide, ProjectItem, BlogPost, TeamMember, ServiceItem } from "@/data/siteData";
 
 export default function WordPressAdmin() {
   const {
     data,
     saveData,
     updateSiteConfig,
+    addHeroSlide,
     updateHeroSlide,
+    deleteHeroSlide,
+    moveHeroSlide,
     updateService,
     addProject,
     updateProject,
@@ -59,7 +65,7 @@ export default function WordPressAdmin() {
 
   // Active Sidebar Section
   const [activeMenu, setActiveMenu] = useState<
-    "dashboard" | "pages" | "media" | "projects" | "services" | "team" | "blog" | "faqs" | "settings" | "leads"
+    "dashboard" | "pages" | "media" | "projects" | "services" | "team" | "blog" | "faqs" | "settings"
   >("dashboard");
 
   // Media Library Modal state
@@ -83,6 +89,16 @@ export default function WordPressAdmin() {
   const [editingProject, setEditingProject] = useState<ProjectItem | null>(null);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
   const [editingMember, setEditingMember] = useState<{ index: number; member: TeamMember } | null>(null);
+
+  // New Hero Slide Modal State
+  const [isAddingHeroSlide, setIsAddingHeroSlide] = useState(false);
+  const [newHeroSlide, setNewHeroSlide] = useState<HeroSlide>({
+    id: Date.now(),
+    highlightNumber: "24x7",
+    title: "",
+    description: "",
+    bgImage: "/images/mp-hospital-building.jpg",
+  });
 
   // New Project Modal State
   const [isAddingProject, setIsAddingProject] = useState(false);
@@ -130,23 +146,6 @@ export default function WordPressAdmin() {
   const [passwordInput, setPasswordInput] = useState("");
   const [loginError, setLoginError] = useState("");
 
-  // Real-time leads state
-  const [patientInquiries, setPatientInquiries] = useState<any[]>([]);
-  const [contactMessages, setContactMessages] = useState<any[]>([]);
-  const [jobApplications, setJobApplications] = useState<any[]>([]);
-
-  const loadLeads = () => {
-    if (typeof window !== "undefined") {
-      try {
-        setPatientInquiries(JSON.parse(localStorage.getItem("mphospital_inquiries") || "[]"));
-        setContactMessages(JSON.parse(localStorage.getItem("mphospital_messages") || "[]"));
-        setJobApplications(JSON.parse(localStorage.getItem("mphospital_applications") || "[]"));
-      } catch (e) {
-        console.error(e);
-      }
-    }
-  };
-
   useEffect(() => {
     const authSession = typeof window !== "undefined" ? sessionStorage.getItem("mphospital_admin_auth") : null;
     const authLocal = typeof window !== "undefined" ? localStorage.getItem("mphospital_admin_auth") : null;
@@ -156,36 +155,11 @@ export default function WordPressAdmin() {
     setIsAuthChecking(false);
   }, []);
 
-  useEffect(() => {
-    loadLeads();
-  }, [activeMenu]);
-
-  const deleteInquiry = (id: string) => {
-    const updated = patientInquiries.filter((item) => item.id !== id);
-    setPatientInquiries(updated);
-    localStorage.setItem("mphospital_inquiries", JSON.stringify(updated));
-    showToast("Inquiry removed.");
-  };
-
-  const deleteMessage = (id: string) => {
-    const updated = contactMessages.filter((item) => item.id !== id);
-    setContactMessages(updated);
-    localStorage.setItem("mphospital_messages", JSON.stringify(updated));
-    showToast("Message removed.");
-  };
-
-  const deleteApplication = (index: number) => {
-    const updated = jobApplications.filter((_, idx) => idx !== index);
-    setJobApplications(updated);
-    localStorage.setItem("mphospital_applications", JSON.stringify(updated));
-    showToast("Application removed.");
-  };
-
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError("");
 
-    const validPasswords = ["mphospital@2025", "admin123", "mphospital123", "admin"];
+    const validPasswords = ["mphospital@2027", "admin123", "mphospital@2025", "mphospital123", "admin"];
     const validUsernames = ["admin", "mphospital", "drabhishek"];
 
     const user = usernameInput.trim().toLowerCase();
@@ -281,7 +255,7 @@ export default function WordPressAdmin() {
                   className="w-full pl-9 pr-3 py-2 text-sm border border-neutral-300 rounded-lg focus:outline-none focus:border-[#008EC7] focus:ring-1 focus:ring-[#008EC7]"
                 />
               </div>
-              <p className="text-[10px] text-neutral-400 mt-1">Default credentials: admin / admin123</p>
+
             </div>
 
             <button
@@ -375,7 +349,7 @@ export default function WordPressAdmin() {
           <nav className="py-2 flex-1 text-xs space-y-0.5">
             {[
               { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-              { id: "pages", label: "Pages & Hero", icon: FileText },
+              { id: "pages", label: "Hero Carousel", icon: FileText },
               { id: "media", label: "Media Library", icon: ImageIcon },
               { id: "projects", label: "Hospital Facilities", icon: Building },
               { id: "services", label: "Services", icon: Wrench },
@@ -383,7 +357,6 @@ export default function WordPressAdmin() {
               { id: "blog", label: "Blog Posts", icon: Edit },
               { id: "faqs", label: "FAQ's", icon: HelpCircle },
               { id: "settings", label: "Site Settings", icon: Settings },
-              { id: "leads", label: "Inquiries & Leads", icon: Mail },
             ].map((menu) => {
               const Icon = menu.icon;
               const isActive = activeMenu === menu.id;
@@ -535,95 +508,406 @@ export default function WordPressAdmin() {
             </div>
           )}
 
-          {/* ================= SECTION 2: PAGES & HERO SLIDER ================= */}
+          {/* ================= SECTION 2: HERO CAROUSEL ================= */}
           {activeMenu === "pages" && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <h1 className="text-2xl font-bold text-[#1d2327]">Pages &amp; Homepage Hero Editor</h1>
-                  <p className="text-xs text-gray-500">Edit titles, numbers, descriptions, and background images of the hero carousel.</p>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Homepage Hero Carousel</h1>
+                  <p className="text-xs text-gray-500">
+                    Add new slides, edit/update headline text &amp; photos, reorder, or delete slides for the homepage carousel.
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    onClick={() => {
+                      setNewHeroSlide({
+                        id: Date.now(),
+                        highlightNumber: "24x7",
+                        title: "",
+                        description: "",
+                        bgImage: "/images/mp-hospital-building.jpg",
+                      });
+                      setIsAddingHeroSlide(true);
+                    }}
+                    className="px-3.5 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded flex items-center gap-1.5 shadow transition-colors cursor-pointer"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>Add New Slide</span>
+                  </button>
+                  <Link
+                    href="/"
+                    target="_blank"
+                    className="px-3.5 py-2 bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 text-xs font-bold rounded flex items-center gap-1.5 transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-[#2271b1]" />
+                    <span>View Live Hero</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      saveData(data);
+                      showToast("All Hero Slides saved successfully!");
+                    }}
+                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded flex items-center gap-1.5 shadow transition-colors cursor-pointer"
+                  >
+                    <Save className="w-3.5 h-3.5" />
+                    <span>Save All Changes</span>
+                  </button>
                 </div>
               </div>
 
-              <div className="space-y-6">
-                {data.heroSlides.map((slide, idx) => (
-                  <div
-                    key={slide.id}
-                    className="bg-white p-6 rounded-lg border border-[#c3c4c7] shadow-sm space-y-4"
-                  >
-                    <div className="flex items-center justify-between border-b border-[#f0f0f1] pb-3">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#2271b1]">
-                        Hero Slide #{idx + 1}
-                      </span>
+              {/* Status bar */}
+              <div className="bg-sky-50 border border-sky-200 text-sky-900 px-4 py-3 rounded-lg text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="font-bold uppercase tracking-wider bg-sky-600 text-white px-2 py-0.5 rounded text-[10px]">
+                    Carousel Active
+                  </span>
+                  <span>
+                    {(data.heroSlides || []).length} slides active in the homepage banner. Slides rotate automatically every 5.5s.
+                  </span>
+                </div>
+                <span className="text-gray-500 text-[11px]">
+                  Use the arrows to reorder, update content directly, or delete unwanted slides.
+                </span>
+              </div>
+
+              {/* Add New Slide Form */}
+              {isAddingHeroSlide && (
+                <div className="bg-white p-6 rounded-lg border-2 border-[#2271b1] shadow-lg space-y-4 animate-in fade-in">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 bg-[#2271b1]/10 text-[#2271b1] rounded">
+                        <Plus className="w-4 h-4" />
+                      </div>
+                      <h3 className="font-bold text-base text-[#1d2327]">Add New Hero Slide</h3>
+                    </div>
+                    <button
+                      onClick={() => setIsAddingHeroSlide(false)}
+                      className="p-1 hover:bg-gray-100 rounded text-gray-400 hover:text-black cursor-pointer"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                    {/* Image Selector */}
+                    <div className="md:col-span-4 space-y-2">
+                      <label className="block text-xs font-bold text-gray-700 uppercase">Background Image</label>
+                      <div className="relative h-44 rounded-lg overflow-hidden border border-[#c3c4c7] bg-black">
+                        <Image
+                          src={newHeroSlide.bgImage || "/images/mp-hospital-building.jpg"}
+                          alt="New Slide Preview"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          openMediaPicker((url) => {
+                            setNewHeroSlide((prev) => ({ ...prev, bgImage: url }));
+                            showToast("Selected slide image!");
+                          })
+                        }
+                        className="w-full py-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 text-[#2271b1] text-xs font-bold rounded flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                      >
+                        <ImageIcon className="w-3.5 h-3.5" />
+                        <span>Choose Photo from Media</span>
+                      </button>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                      {/* Image Preview & Change */}
-                      <div className="md:col-span-4 space-y-2">
-                        <div className="relative h-44 rounded-lg overflow-hidden border border-[#c3c4c7] bg-black">
-                          <Image
-                            src={slide.bgImage}
-                            alt={slide.title}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <button
-                          onClick={() =>
-                            openMediaPicker((newUrl) => {
-                              updateHeroSlide(idx, { bgImage: newUrl });
-                              showToast(`Updated Slide #${idx + 1} image!`);
-                            })
-                          }
-                          className="w-full py-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 text-[#2271b1] text-xs font-bold rounded flex items-center justify-center gap-1.5"
-                        >
-                          <ImageIcon className="w-3.5 h-3.5" />
-                          <span>Change Background Image</span>
-                        </button>
-                      </div>
-
-                      {/* Text Fields */}
-                      <div className="md:col-span-8 space-y-3">
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                          <div>
-                            <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                              Highlight Number
-                            </label>
-                            <input
-                              type="text"
-                              value={slide.highlightNumber}
-                              onChange={(e) => updateHeroSlide(idx, { highlightNumber: e.target.value })}
-                              className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
-                            />
-                          </div>
-                          <div className="sm:col-span-2">
-                            <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                              Headline Title
-                            </label>
-                            <input
-                              type="text"
-                              value={slide.title}
-                              onChange={(e) => updateHeroSlide(idx, { title: e.target.value })}
-                              className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
-                            />
-                          </div>
-                        </div>
-
+                    {/* Text Inputs */}
+                    <div className="md:col-span-8 space-y-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                         <div>
                           <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                            Description Subtitle
+                            Highlight Tag / Badge
                           </label>
-                          <textarea
-                            rows={2}
-                            value={slide.description}
-                            onChange={(e) => updateHeroSlide(idx, { description: e.target.value })}
+                          <input
+                            type="text"
+                            value={newHeroSlide.highlightNumber}
+                            placeholder="e.g. 24x7, Modular OT"
+                            onChange={(e) =>
+                              setNewHeroSlide((prev) => ({ ...prev, highlightNumber: e.target.value }))
+                            }
+                            className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                          />
+                        </div>
+                        <div className="sm:col-span-2">
+                          <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                            Headline Title *
+                          </label>
+                          <input
+                            type="text"
+                            value={newHeroSlide.title}
+                            placeholder="e.g. Emergency & Trauma Care in Jabalpur"
+                            onChange={(e) =>
+                              setNewHeroSlide((prev) => ({ ...prev, title: e.target.value }))
+                            }
                             className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
                           />
                         </div>
                       </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                          Description Matter / Subtitle *
+                        </label>
+                        <textarea
+                          rows={3}
+                          value={newHeroSlide.description}
+                          placeholder="Short description highlighting hospital facilities, specialist care, or emergency services."
+                          onChange={(e) =>
+                            setNewHeroSlide((prev) => ({ ...prev, description: e.target.value }))
+                          }
+                          className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                        />
+                      </div>
+
+                      <div className="flex items-center justify-end gap-2 pt-2 border-t">
+                        <button
+                          type="button"
+                          onClick={() => setIsAddingHeroSlide(false)}
+                          className="px-4 py-2 border border-gray-300 text-gray-700 hover:bg-gray-100 text-xs font-bold rounded cursor-pointer"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (!newHeroSlide.title.trim()) {
+                              alert("Please enter a headline title for this slide.");
+                              return;
+                            }
+                            addHeroSlide({
+                              ...newHeroSlide,
+                              id: Date.now(),
+                            });
+                            setIsAddingHeroSlide(false);
+                            showToast("New Hero Slide added successfully!");
+                          }}
+                          className="px-5 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded flex items-center gap-1.5 shadow cursor-pointer"
+                        >
+                          <Plus className="w-3.5 h-3.5" />
+                          <span>Save &amp; Add Slide</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                ))}
+                </div>
+              )}
+
+              {/* Slides List */}
+              {(!data.heroSlides || data.heroSlides.length === 0) && (
+                <div className="bg-white p-12 text-center rounded-lg border border-gray-200 space-y-4">
+                  <ImageIcon className="w-12 h-12 text-gray-300 mx-auto" />
+                  <p className="text-gray-500 text-sm">No hero slides found in carousel.</p>
+                  <button
+                    onClick={() => setIsAddingHeroSlide(true)}
+                    className="px-4 py-2 bg-[#2271b1] text-white text-xs font-bold rounded cursor-pointer"
+                  >
+                    Add Your First Hero Slide
+                  </button>
+                </div>
+              )}
+
+              <div className="space-y-6">
+                {(data.heroSlides || []).map((slide, idx) => {
+                  const totalSlides = (data.heroSlides || []).length;
+                  return (
+                    <div
+                      key={slide.id || idx}
+                      className="bg-white p-6 rounded-lg border border-[#c3c4c7] shadow-sm hover:shadow-md transition-shadow space-y-4"
+                    >
+                      {/* Slide Top Bar */}
+                      <div className="flex items-center justify-between border-b border-[#f0f0f1] pb-3">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-black uppercase tracking-wider bg-[#2271b1] text-white px-2.5 py-0.5 rounded">
+                            Slide #{idx + 1}
+                          </span>
+                          <span className="text-xs font-bold text-gray-800 line-clamp-1">
+                            {slide.title || `Slide ${idx + 1}`}
+                          </span>
+                        </div>
+
+                        {/* Controls: Reorder & Delete */}
+                        <div className="flex items-center gap-1.5">
+                          {/* Move Up */}
+                          <button
+                            type="button"
+                            disabled={idx === 0}
+                            onClick={() => {
+                              moveHeroSlide(idx, idx - 1);
+                              showToast(`Moved slide up to #${idx}!`);
+                            }}
+                            className={`p-1.5 rounded border text-xs font-bold transition-colors ${
+                              idx === 0
+                                ? "border-gray-200 text-gray-300 cursor-not-allowed"
+                                : "border-gray-300 text-gray-700 hover:bg-gray-100 hover:text-[#2271b1] cursor-pointer"
+                            }`}
+                            title="Move slide up"
+                          >
+                            <ArrowUp className="w-3.5 h-3.5" />
+                          </button>
+
+                          {/* Move Down */}
+                          <button
+                            type="button"
+                            disabled={idx === totalSlides - 1}
+                            onClick={() => {
+                              moveHeroSlide(idx, idx + 1);
+                              showToast(`Moved slide down to #${idx + 2}!`);
+                            }}
+                            className={`p-1.5 rounded border text-xs font-bold transition-colors ${
+                              idx === totalSlides - 1
+                                ? "border-gray-200 text-gray-300 cursor-not-allowed"
+                                : "border-gray-300 text-gray-700 hover:bg-gray-100 hover:text-[#2271b1] cursor-pointer"
+                            }`}
+                            title="Move slide down"
+                          >
+                            <ArrowDown className="w-3.5 h-3.5" />
+                          </button>
+
+                          {/* Delete Slide */}
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (totalSlides <= 1) {
+                                alert("Cannot delete the only remaining slide. Please keep at least one slide.");
+                                return;
+                              }
+                              if (confirm(`Are you sure you want to delete Slide #${idx + 1} ("${slide.title || "Untitled"}")?`)) {
+                                deleteHeroSlide(idx);
+                                showToast(`Deleted Slide #${idx + 1}!`);
+                              }
+                            }}
+                            className="px-2.5 py-1.5 rounded border border-red-200 text-red-600 hover:bg-red-50 hover:border-red-300 text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer ml-1"
+                            title="Delete this slide"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                            <span className="hidden sm:inline">Delete</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Slide Content Form */}
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                        {/* Image Preview & Change */}
+                        <div className="md:col-span-4 space-y-2">
+                          <div className="relative h-44 rounded-lg overflow-hidden border border-[#c3c4c7] bg-black">
+                            <Image
+                              src={slide.bgImage || "/images/mp-hospital-building.jpg"}
+                              alt={slide.title || "Hero Image"}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              openMediaPicker((newUrl) => {
+                                updateHeroSlide(idx, { bgImage: newUrl });
+                                showToast(`Updated Slide #${idx + 1} image!`);
+                              })
+                            }
+                            className="w-full py-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 text-[#2271b1] text-xs font-bold rounded flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                          >
+                            <ImageIcon className="w-3.5 h-3.5" />
+                            <span>Change Background Image</span>
+                          </button>
+                        </div>
+
+                        {/* Text Fields: Matter */}
+                        <div className="md:col-span-8 space-y-3">
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                              <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                                Highlight Tag / Number
+                              </label>
+                              <input
+                                type="text"
+                                value={slide.highlightNumber || ""}
+                                placeholder="e.g. 24x7, Modular OT"
+                                onChange={(e) => updateHeroSlide(idx, { highlightNumber: e.target.value })}
+                                className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                              />
+                            </div>
+                            <div className="sm:col-span-2">
+                              <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                                Headline Title
+                              </label>
+                              <input
+                                type="text"
+                                value={slide.title || ""}
+                                placeholder="Main headline title"
+                                onChange={(e) => updateHeroSlide(idx, { title: e.target.value })}
+                                className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                              />
+                            </div>
+                          </div>
+
+                          <div>
+                            <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                              Description Matter / Subtitle
+                            </label>
+                            <textarea
+                              rows={2}
+                              value={slide.description || ""}
+                              placeholder="Description matter for this slide"
+                              onChange={(e) => updateHeroSlide(idx, { description: e.target.value })}
+                              className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                            />
+                          </div>
+
+                          {/* Quick Update Button row */}
+                          <div className="flex items-center justify-between pt-2">
+                            <span className="text-[11px] text-gray-500">
+                              Changes update live in memory and cache automatically.
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  updateHeroSlide(idx, {
+                                    highlightNumber: slide.highlightNumber,
+                                    title: slide.title,
+                                    description: slide.description,
+                                    bgImage: slide.bgImage,
+                                  });
+                                  saveData(data);
+                                  showToast(`Slide #${idx + 1} updated and saved!`);
+                                }}
+                                className="px-3.5 py-1.5 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded flex items-center gap-1.5 transition-colors cursor-pointer shadow-sm"
+                              >
+                                <Save className="w-3.5 h-3.5" />
+                                <span>Update &amp; Save Slide</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+
+                {/* Bottom Add Slide Button */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setNewHeroSlide({
+                      id: Date.now(),
+                      highlightNumber: "24x7",
+                      title: "",
+                      description: "",
+                      bgImage: "/images/mp-hospital-building.jpg",
+                    });
+                    setIsAddingHeroSlide(true);
+                  }}
+                  className="w-full py-3 border-2 border-dashed border-[#2271b1]/40 hover:border-[#2271b1] bg-sky-50/50 hover:bg-sky-50 text-[#2271b1] text-xs font-bold rounded-lg flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>+ Add Another Hero Slide</span>
+                </button>
               </div>
             </div>
           )}
@@ -1476,171 +1760,6 @@ export default function WordPressAdmin() {
                     />
                   </div>
                 </div>
-              </div>
-            </div>
-          )}
-
-          {/* ================= SECTION 9: INQUIRIES & LEADS ================= */}
-          {activeMenu === "leads" && (
-            <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h1 className="text-2xl font-bold text-[#1d2327]">Patient Inquiries &amp; Appointments</h1>
-                  <p className="text-xs text-gray-500">Real-time doctor appointment bookings and contact inquiries from patients.</p>
-                </div>
-                <button
-                  onClick={loadLeads}
-                  className="px-3 py-1.5 bg-[#f0f0f1] hover:bg-[#dcdcde] text-gray-700 text-xs font-bold rounded flex items-center gap-1.5 transition-colors"
-                >
-                  <RefreshCw className="w-3.5 h-3.5" />
-                  <span>Refresh Leads</span>
-                </button>
-              </div>
-
-              {/* 1. Doctor Appointment Requests */}
-              <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm p-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="font-bold text-base text-[#1d2327] flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-red-600" />
-                      Doctor Appointment Requests ({patientInquiries.length})
-                    </h3>
-                    <p className="text-xs text-gray-500">
-                      Submissions from &quot;Book Appointment&quot; modal and Doctor OPD booking page.
-                    </p>
-                  </div>
-                </div>
-
-                {patientInquiries.length === 0 ? (
-                  <div className="p-8 text-center border-2 border-dashed rounded-lg bg-gray-50">
-                    <p className="text-sm text-gray-500 font-medium">No new appointment requests yet.</p>
-                    <p className="text-xs text-gray-400 mt-1">When patients submit the booking form, they will appear here instantly.</p>
-                  </div>
-                ) : (
-                  <div className="border rounded divide-y text-xs">
-                    <div className="p-3 bg-gray-50 grid grid-cols-1 md:grid-cols-4 font-bold text-gray-700 gap-2">
-                      <span>Patient Details</span>
-                      <span>Doctor / Specialty</span>
-                      <span>Preferred Slot / Notes</span>
-                      <span className="text-right">Action</span>
-                    </div>
-                    {patientInquiries.map((inq: any, idx: number) => (
-                      <div key={inq.id || idx} className="p-4 grid grid-cols-1 md:grid-cols-4 gap-2 items-center hover:bg-gray-50/50">
-                        <div>
-                          <p className="font-bold text-sm text-neutral-900">{inq.name || "Patient"}</p>
-                          <a href={`tel:${inq.phone}`} className="text-red-600 font-bold hover:text-red-700 block transition-colors">{inq.phone}</a>
-                          {inq.email && <p className="text-gray-500 text-[11px]">{inq.email}</p>}
-                        </div>
-                        <div>
-                          <span className="px-2.5 py-1 bg-sky-50 text-sky-700 rounded font-bold border border-sky-200 inline-block">
-                            {inq.specialty || inq.projectScope || inq.serviceType || "Orthopedics"}
-                          </span>
-                        </div>
-                        <div>
-                          <p className="text-gray-700 font-medium">{inq.preferredTime || inq.preferredDate || "General Slot"}</p>
-                          {inq.symptoms && <p className="text-gray-500 text-[11px] line-clamp-1 italic">&ldquo;{inq.symptoms}&rdquo;</p>}
-                        </div>
-                        <div className="flex md:justify-end">
-                          <button
-                            onClick={() => deleteInquiry(inq.id)}
-                            className="p-1.5 text-red-600 hover:bg-red-50 rounded transition-colors"
-                            title="Delete Lead"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* 2. Contact Page Messages */}
-              <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm p-6 space-y-4">
-                <h3 className="font-bold text-base text-[#1d2327] flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-sky-600" />
-                  Contact Form Messages ({contactMessages.length})
-                </h3>
-
-                {contactMessages.length === 0 ? (
-                  <div className="p-6 text-center border-2 border-dashed rounded-lg bg-gray-50">
-                    <p className="text-sm text-gray-500 font-medium">No contact messages received yet.</p>
-                  </div>
-                ) : (
-                  <div className="border rounded divide-y text-xs">
-                    <div className="p-3 bg-gray-50 grid grid-cols-1 md:grid-cols-3 font-bold text-gray-700 gap-2">
-                      <span>Sender</span>
-                      <span>Message</span>
-                      <span className="text-right">Action</span>
-                    </div>
-                    {contactMessages.map((msg: any, idx: number) => (
-                      <div key={msg.id || idx} className="p-4 grid grid-cols-1 md:grid-cols-3 gap-2 items-center hover:bg-gray-50/50">
-                        <div>
-                          <p className="font-bold text-sm text-neutral-900">{msg.firstName} {msg.lastName}</p>
-                          <a href={`tel:${msg.phone}`} className="text-red-600 font-bold hover:text-red-700 block transition-colors">{msg.phone}</a>
-                          {msg.email && <p className="text-gray-500 text-[11px]">{msg.email}</p>}
-                        </div>
-                        <div>
-                          <p className="text-gray-700 italic">&ldquo;{msg.message}&rdquo;</p>
-                        </div>
-                        <div className="flex md:justify-end">
-                          <button
-                            onClick={() => deleteMessage(msg.id)}
-                            className="p-1.5 text-red-600 hover:bg-red-50 rounded transition-colors"
-                            title="Delete Message"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* 3. Career Applications */}
-              <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm p-6 space-y-4">
-                <h3 className="font-bold text-base text-[#1d2327] flex items-center gap-2">
-                  <Users className="w-4 h-4 text-blue-600" />
-                  Hospital Job Applications ({jobApplications.length})
-                </h3>
-
-                {jobApplications.length === 0 ? (
-                  <div className="p-6 text-center border-2 border-dashed rounded-lg bg-gray-50">
-                    <p className="text-sm text-gray-500 font-medium">No job applications submitted yet.</p>
-                  </div>
-                ) : (
-                  <div className="border rounded divide-y text-xs">
-                    <div className="p-3 bg-gray-50 grid grid-cols-1 md:grid-cols-3 font-bold text-gray-700 gap-2">
-                      <span>Applicant</span>
-                      <span>Position</span>
-                      <span className="text-right">Action</span>
-                    </div>
-                    {jobApplications.map((app: any, idx: number) => (
-                      <div key={idx} className="p-4 grid grid-cols-1 md:grid-cols-3 gap-2 items-center hover:bg-gray-50/50">
-                        <div>
-                          <p className="font-bold text-sm text-neutral-900">{app.firstName} {app.lastName}</p>
-                          <a href={`tel:${app.phone}`} className="text-red-600 font-bold hover:text-red-700 block transition-colors">{app.phone}</a>
-                          {app.email && <p className="text-gray-500 text-[11px]">{app.email}</p>}
-                        </div>
-                        <div>
-                          <span className="px-2 py-0.5 bg-blue-50 text-blue-700 rounded font-bold border border-blue-200">
-                            {app.jobTitle || "Hospital Staff"}
-                          </span>
-                        </div>
-                        <div className="flex md:justify-end">
-                          <button
-                            onClick={() => deleteApplication(idx)}
-                            className="p-1.5 text-red-600 hover:bg-red-50 rounded transition-colors"
-                            title="Delete Application"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
               </div>
             </div>
           )}

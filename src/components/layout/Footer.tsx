@@ -259,25 +259,30 @@ export default function Footer() {
           </div>
 
           {/* Right End: Tech by Dora IT Zone & Back to Top */}
-          <div className="flex items-center justify-center lg:justify-end gap-3 shrink-0">
-            {/* White BG Pill with Reduced Padding & Smaller Font */}
+          <div className="flex items-center justify-center lg:justify-end gap-3 sm:gap-4 shrink-0">
+            {/* Tech by Dora IT Zone (Crisp White - No Dull Haze, No White BG) */}
             <a
               href="https://doraitzone.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white hover:bg-neutral-50 text-neutral-900 px-2.5 py-0.5 sm:px-3 sm:py-0.5 rounded-full shadow-xs border border-white hover:shadow-md transition-all whitespace-nowrap group"
+              className="inline-flex items-center gap-1.5 sm:gap-2 text-white hover:text-sky-100 transition-all whitespace-nowrap group py-0.5"
               title="Dora IT Zone - Digital Marketing & Technology Solutions, Jabalpur"
             >
-              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-neutral-700 leading-none">
+              <span className="text-[10.5px] sm:text-[11px] font-medium tracking-wide text-sky-100 leading-none">
                 tech by
               </span>
-              <div className="relative h-3.5 w-[110px] sm:h-3.5 sm:w-[115px] shrink-0">
-                <Image
-                  src="/images/dora-it-zone-single-line-dark.png"
-                  alt="Dora IT Zone"
-                  fill
-                  className="object-contain group-hover:scale-105 transition-transform"
-                />
+              <div className="flex items-center gap-1.5">
+                <div className="relative h-[15px] w-[60px] sm:h-4 sm:w-[64px] shrink-0">
+                  <Image
+                    src="/images/dora_wordmark_white.png"
+                    alt="DORA"
+                    fill
+                    className="object-contain group-hover:scale-105 transition-transform"
+                  />
+                </div>
+                <span className="text-[11px] sm:text-[11.5px] font-bold tracking-[0.16em] text-white uppercase leading-none">
+                  IT ZONE
+                </span>
               </div>
             </a>
 

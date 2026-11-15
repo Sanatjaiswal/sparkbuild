@@ -17,15 +17,26 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
 
   const tabs = [
     { id: "all", label: "All Facilities" },
-    { id: "mega", label: "Surgical & Modular OT" },
-    { id: "domestic", label: "Emergency & ICU" },
+    { id: "rooms", label: "Patient Rooms (General, Semi, Private)" },
+    { id: "emergency", label: "Casualty, ICU & OT" },
     { id: "facade", label: "Diagnostics & Fleet" },
-    { id: "interior", label: "Inpatient & Rehab" },
   ];
 
   const filteredProjects =
     activeTab === "all"
-      ? projectsData.slice(0, 8)
+      ? projectsData
+      : activeTab === "rooms"
+      ? projectsData.filter((p) =>
+          ["general-inpatient-ward", "semi-private-ward", "private-deluxe-room"].includes(p.id)
+        )
+      : activeTab === "emergency" || activeTab === "domestic"
+      ? projectsData.filter((p) =>
+          ["emergency-casualty", "emergency-trauma-icu-suite", "modular-operation-theatre", "arthroscopy-minimally-invasive"].includes(p.id)
+        )
+      : activeTab === "interior"
+      ? projectsData.filter((p) =>
+          ["general-inpatient-ward", "semi-private-ward", "private-deluxe-room", "physiotherapy-rehab-center"].includes(p.id)
+        )
       : projectsData.filter((p) => p.category === activeTab);
 
   return (
@@ -33,7 +44,7 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-red-50 border border-red-200 text-red-600 text-xs font-black uppercase tracking-wider shadow-xs">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-sky-50 border border-sky-200 text-[#008EC7] text-xs font-black uppercase tracking-wider shadow-xs">
             Hospital Infrastructure
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 tracking-tight">
@@ -52,8 +63,8 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
               onClick={() => setActiveTab(tab.id)}
               className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase transition-all duration-200 cursor-pointer ${
                 activeTab === tab.id
-                  ? "bg-red-600 text-white shadow-md shadow-red-600/20"
-                  : "bg-white text-neutral-700 border border-neutral-300 hover:border-red-500 hover:text-red-600 shadow-xs"
+                  ? "bg-[#008EC7] text-white shadow-md shadow-[#008EC7]/20"
+                  : "bg-white text-neutral-700 border border-neutral-300 hover:border-[#008EC7] hover:text-[#008EC7] shadow-xs"
               }`}
             >
               {tab.label}
@@ -66,7 +77,7 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-2xl overflow-hidden border border-neutral-200 hover:border-red-500 hover:shadow-xl transition-all duration-300 flex flex-col group shadow-sm"
+              className="bg-white rounded-2xl overflow-hidden border border-neutral-200 hover:border-[#008EC7] hover:shadow-xl hover:shadow-[#008EC7]/10 transition-all duration-300 flex flex-col group shadow-sm"
             >
               {/* Image & Lightbox trigger */}
               <div
@@ -79,10 +90,53 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity" />
+
+                {/* Room Category & Status Badge */}
+                <div className="absolute top-3 left-3 flex items-center gap-1.5 z-10">
+                  {project.id === "general-inpatient-ward" && (
+                    <span className="px-3 py-1 rounded-full bg-emerald-600 text-white text-[10.5px] font-black uppercase tracking-wider shadow-md">
+                      General Ward
+                    </span>
+                  )}
+                  {project.id === "semi-private-ward" && (
+                    <span className="px-3 py-1 rounded-full bg-[#008EC7] text-white text-[10.5px] font-black uppercase tracking-wider shadow-md">
+                      Semi-Private Ward
+                    </span>
+                  )}
+                  {project.id === "private-deluxe-room" && (
+                    <span className="px-3 py-1 rounded-full bg-sky-600 text-white text-[10.5px] font-black uppercase tracking-wider shadow-md">
+                      Private Room
+                    </span>
+                  )}
+                  {project.id === "emergency-casualty" && (
+                    <span className="px-3 py-1 rounded-full bg-red-600 text-white text-[10.5px] font-black uppercase tracking-wider shadow-md">
+                      Casualty &amp; Triage
+                    </span>
+                  )}
+                  {project.id === "emergency-trauma-icu-suite" && (
+                    <span className="px-3 py-1 rounded-full bg-red-600 text-white text-[10.5px] font-black uppercase tracking-wider shadow-md">
+                      ICU Suite
+                    </span>
+                  )}
+                  {project.id === "modular-operation-theatre" && (
+                    <span className="px-3 py-1 rounded-full bg-indigo-600 text-white text-[10.5px] font-black uppercase tracking-wider shadow-md">
+                      Modular OT
+                    </span>
+                  )}
+                  {project.id === "physiotherapy-rehab-center" && (
+                    <span className="px-3 py-1 rounded-full bg-emerald-600 text-white text-[10.5px] font-black uppercase tracking-wider shadow-md">
+                      Physiotherapy &amp; Rehab
+                    </span>
+                  )}
+                  {project.id === "diagnostic-radiology-center" && (
+                    <span className="px-3 py-1 rounded-full bg-amber-600 text-white text-[10.5px] font-black uppercase tracking-wider shadow-md">
+                      OPD &amp; Reception
+                    </span>
+                  )}
+                </div>
 
                 {/* Hover Expand Icon */}
-                <div className="absolute top-3 right-3 p-2 rounded-full bg-red-600 text-white opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
+                <div className="absolute top-3 right-3 p-2 rounded-full bg-[#008EC7] text-white opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
                   <Maximize2 className="w-4 h-4" />
                 </div>
               </div>
@@ -90,7 +144,7 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
               {/* Content */}
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
-                  <h3 className="text-xl font-bold text-neutral-900 group-hover:text-red-600 transition-colors leading-snug">
+                  <h3 className="text-xl font-bold text-neutral-900 group-hover:text-[#008EC7] transition-colors leading-snug">
                     {project.title}
                   </h3>
                   <p className="text-xs text-neutral-600 mt-2 line-clamp-2 leading-relaxed">
@@ -98,8 +152,29 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
                   </p>
                 </div>
 
+                {/* Highlights */}
+                {project.highlights && project.highlights.length > 0 && (
+                  <div className="space-y-1.5 pt-2 border-t border-neutral-100">
+                    <p className="text-[10.5px] font-bold text-[#008ec7] uppercase tracking-wider">
+                      Key Highlights
+                    </p>
+                    {project.highlights.slice(0, 3).map((h, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs text-neutral-700 font-medium">
+                        <span className="text-[#008EC7] font-bold text-sm leading-none">✓</span>
+                        <span className="line-clamp-1">{h}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 <div className="pt-3 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-700">
-                  <span className="font-bold text-sky-700">Status: {project.status}</span>
+                  <span className="font-bold text-sky-800 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    24x7 Inpatient Care
+                  </span>
+                  <span className="text-xs font-bold text-[#008ec7] group-hover:translate-x-0.5 transition-transform">
+                    View Facility →
+                  </span>
                 </div>
               </div>
             </div>
@@ -110,7 +185,7 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
         <div className="text-center mt-14">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-red-600/25 transition-all active:scale-95"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#008EC7] hover:bg-[#00709e] text-white font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-[#008EC7]/25 transition-all active:scale-95"
           >
             <span>View All Facilities</span>
             <ArrowRight className="w-4 h-4" />

@@ -222,7 +222,7 @@ export default function OurTeamPage() {
                       </div>
                     </div>
 
-                    <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-red-500/50 hover:bg-red-50/20 transition-all flex items-start gap-3.5 group/card shadow-xs">
+                    <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-sky-400 hover:bg-sky-50/30 transition-all flex items-start gap-3.5 group/card shadow-xs">
                       <HeartPulse className="w-5 h-5 text-red-600 stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
                       <div>
                         <h4 className="text-xs font-black text-neutral-900">Complex Polytrauma Care</h4>
@@ -238,7 +238,7 @@ export default function OurTeamPage() {
                       </div>
                     </div>
 
-                    <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-red-500/50 hover:bg-red-50/20 transition-all flex items-start gap-3.5 group/card shadow-xs">
+                    <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-sky-400 hover:bg-sky-50/30 transition-all flex items-start gap-3.5 group/card shadow-xs">
                       <Building2 className="w-5 h-5 text-red-600 stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
                       <div>
                         <h4 className="text-xs font-black text-neutral-900">Modular OT Complexes</h4>

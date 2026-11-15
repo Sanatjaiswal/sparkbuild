@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { X } from "lucide-react";
 
@@ -15,11 +16,39 @@ export default function LightboxModal({
   title,
   onClose,
 }: LightboxModalProps) {
-  if (!imageSrc) return null;
+  const [mounted, setMounted] = useState(false);
 
-  return (
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (imageSrc) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [imageSrc]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    if (imageSrc) {
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [imageSrc, onClose]);
+
+  if (!imageSrc || !mounted) return null;
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md animate-in fade-in duration-200"
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
@@ -28,7 +57,7 @@ export default function LightboxModal({
       >
         <button
           onClick={onClose}
-          className="absolute -top-12 right-0 p-2 text-white hover:text-[#fff200] transition-colors"
+          className="absolute -top-12 right-0 p-2 text-white hover:text-sky-400 transition-colors cursor-pointer"
           aria-label="Close image"
         >
           <X className="w-8 h-8" />
@@ -49,7 +78,8 @@ export default function LightboxModal({
           </p>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 

@@ -21,10 +21,9 @@ export default function ProjectsPage() {
 
   const categories = [
     { id: "all", label: "All Facilities" },
-    { id: "mega", label: "Modular OT & Surgical" },
-    { id: "domestic", label: "Emergency & Trauma ICU" },
+    { id: "rooms", label: "Patient Rooms (General, Semi, Private)" },
+    { id: "emergency", label: "Casualty, ICU & OT" },
     { id: "facade", label: "Diagnostics & Fleet" },
-    { id: "interior", label: "Patient Rooms & Rehab" },
   ];
 
   const statuses = [
@@ -34,7 +33,18 @@ export default function ProjectsPage() {
   ];
 
   const filtered = projectsData.filter((item) => {
-    const matchCat = activeCategory === "all" || item.category === activeCategory;
+    let matchCat = false;
+    if (activeCategory === "all") {
+      matchCat = true;
+    } else if (activeCategory === "rooms") {
+      matchCat = ["general-inpatient-ward", "semi-private-ward", "private-deluxe-room"].includes(item.id);
+    } else if (activeCategory === "emergency" || activeCategory === "domestic") {
+      matchCat = ["emergency-casualty", "emergency-trauma-icu-suite", "modular-operation-theatre", "arthroscopy-minimally-invasive"].includes(item.id) || item.category === "domestic" || item.category === "mega";
+    } else if (activeCategory === "interior") {
+      matchCat = item.category === "interior" || ["general-inpatient-ward", "semi-private-ward", "private-deluxe-room"].includes(item.id);
+    } else {
+      matchCat = item.category === activeCategory;
+    }
     const matchStatus = activeStatus === "all" || item.status.toLowerCase().includes(activeStatus);
     return matchCat && matchStatus;
   });
@@ -46,22 +56,22 @@ export default function ProjectsPage() {
 
       {/* Header Banner */}
       <section className="relative py-20 sm:py-24 bg-neutral-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/10 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/modular-ot.jpg"
+            src="/images/facilities-banner.jpg"
             alt="MP Hospital Facilities"
             fill
             priority
-            className="object-cover opacity-90 scale-105"
+            className="object-cover opacity-95 scale-100"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider shadow-md">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-[#008EC7] text-white text-xs font-black uppercase tracking-wider shadow-md">
             Hospital Infrastructure
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
-            Advanced Clinical <span className="text-red-400">Facilities</span>
+            Advanced Clinical <span className="text-sky-300">Facilities</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
             Take a virtual tour of MP Hospital &amp; Trauma Centre – Class 10,000 modular operation theatres, 24x7 trauma ICU, and modern patient recovery suites.
@@ -80,8 +90,8 @@ export default function ProjectsPage() {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   activeCategory === cat.id
-                    ? "bg-red-600 text-white shadow-md shadow-red-600/20"
-                    : "bg-white text-neutral-700 hover:bg-neutral-200 border border-neutral-300"
+                    ? "bg-[#008EC7] text-white shadow-md shadow-[#008EC7]/20"
+                    : "bg-white text-neutral-700 hover:bg-neutral-200 hover:text-[#008EC7] border border-neutral-300"
                 }`}
               >
                 {cat.label}
@@ -115,7 +125,7 @@ export default function ProjectsPage() {
             {filtered.map((project) => (
               <div
                 key={project.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-neutral-200 transition-all duration-300 flex flex-col group"
+                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-neutral-200 hover:border-[#008EC7] hover:shadow-[#008EC7]/10 transition-all duration-300 flex flex-col group"
               >
                 {/* Image */}
                 <div
@@ -128,15 +138,51 @@ export default function ProjectsPage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors" />
 
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-full bg-[#008EC7] text-white text-[10px] font-extrabold uppercase">
-                      {project.status}
-                    </span>
+                  <div className="absolute top-3 left-3 flex items-center gap-1.5 z-10">
+                    {project.id === "general-inpatient-ward" && (
+                      <span className="px-2.5 py-1 rounded-full bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider shadow-md">
+                        General Ward
+                      </span>
+                    )}
+                    {project.id === "semi-private-ward" && (
+                      <span className="px-2.5 py-1 rounded-full bg-[#008EC7] text-white text-[10px] font-black uppercase tracking-wider shadow-md">
+                        Semi-Private Ward
+                      </span>
+                    )}
+                    {project.id === "private-deluxe-room" && (
+                      <span className="px-2.5 py-1 rounded-full bg-sky-600 text-white text-[10px] font-black uppercase tracking-wider shadow-md">
+                        Private Room
+                      </span>
+                    )}
+                    {project.id === "emergency-casualty" && (
+                      <span className="px-2.5 py-1 rounded-full bg-red-600 text-white text-[10px] font-black uppercase tracking-wider shadow-md">
+                        Casualty &amp; Triage
+                      </span>
+                    )}
+                    {project.id === "emergency-trauma-icu-suite" && (
+                      <span className="px-2.5 py-1 rounded-full bg-red-600 text-white text-[10px] font-black uppercase tracking-wider shadow-md">
+                        ICU Suite
+                      </span>
+                    )}
+                    {project.id === "modular-operation-theatre" && (
+                      <span className="px-2.5 py-1 rounded-full bg-indigo-600 text-white text-[10px] font-black uppercase tracking-wider shadow-md">
+                        Modular OT
+                      </span>
+                    )}
+                    {project.id === "physiotherapy-rehab-center" && (
+                      <span className="px-2.5 py-1 rounded-full bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider shadow-md">
+                        Physiotherapy &amp; Rehab
+                      </span>
+                    )}
+                    {project.id === "diagnostic-radiology-center" && (
+                      <span className="px-2.5 py-1 rounded-full bg-amber-600 text-white text-[10px] font-black uppercase tracking-wider shadow-md">
+                        OPD &amp; Reception
+                      </span>
+                    )}
                   </div>
 
-                  <div className="absolute top-3 right-3 p-2 rounded-full bg-red-600 text-white opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
+                  <div className="absolute top-3 right-3 p-2 rounded-full bg-[#008EC7] text-white opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
                     <Maximize2 className="w-4 h-4" />
                   </div>
                 </div>
@@ -144,7 +190,7 @@ export default function ProjectsPage() {
                 {/* Details */}
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-neutral-900 group-hover:text-red-600 transition-colors">
+                    <h3 className="text-xl font-bold text-neutral-900 group-hover:text-[#008EC7] transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-xs text-gray-600 leading-relaxed font-normal">
@@ -176,7 +222,7 @@ export default function ProjectsPage() {
                     </button>
                     <button
                       onClick={() => setConsultationOpen(true)}
-                      className="px-4 py-1.5 rounded-full bg-neutral-900 text-white text-xs font-bold hover:bg-red-600 transition-colors cursor-pointer"
+                      className="px-4 py-1.5 rounded-full bg-neutral-900 text-white text-xs font-bold hover:bg-[#008EC7] transition-colors cursor-pointer"
                     >
                       Book OPD / Inquire
                     </button>

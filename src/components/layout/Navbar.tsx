@@ -27,8 +27,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Only stick when scrolled past TopBar & Navbar (120px)
-      setIsScrolled(window.scrollY > 120);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -53,10 +52,8 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
 
   return (
     <nav
-      className={`w-full bg-white text-neutral-900 transition-all duration-300 border-b border-neutral-200/90 ${
-        isScrolled
-          ? "fixed top-0 left-0 right-0 z-50 shadow-md py-2.5 bg-white/98 backdrop-blur-md"
-          : "relative z-30 py-3 shadow-xs"
+      className={`sticky top-0 z-50 w-full bg-white/98 backdrop-blur-md text-neutral-900 border-b border-neutral-200/90 transition-shadow duration-200 py-2.5 sm:py-3 ${
+        isScrolled ? "shadow-md" : "shadow-xs"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

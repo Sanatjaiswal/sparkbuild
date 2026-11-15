@@ -157,7 +157,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 border border-neutral-200 shadow-sm hover:shadow-xl hover:border-red-500 transition-all flex flex-col justify-between group">
+            <div className="bg-white rounded-2xl p-8 border border-neutral-200 shadow-sm hover:shadow-xl hover:border-[#008EC7] transition-all flex flex-col justify-between group">
               <div className="space-y-4">
                 <Target className="w-8 h-8 text-red-600 stroke-[2.2] group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-bold text-neutral-900">Our Mission</h3>

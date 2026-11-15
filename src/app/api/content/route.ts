@@ -15,6 +15,9 @@ import {
   careerJobs,
 } from "@/data/siteData";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const DATA_FILE = path.join(process.cwd(), "data", "cms_content.json");
 
 function getDefaultData() {
@@ -38,11 +41,15 @@ export async function GET() {
   try {
     if (fs.existsSync(DATA_FILE)) {
       const fileContent = fs.readFileSync(DATA_FILE, "utf-8");
-      return NextResponse.json(JSON.parse(fileContent));
+      return NextResponse.json(JSON.parse(fileContent), {
+        headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+      });
     } else {
       const initial = getDefaultData();
       fs.writeFileSync(DATA_FILE, JSON.stringify(initial, null, 2), "utf-8");
-      return NextResponse.json(initial);
+      return NextResponse.json(initial, {
+        headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+      });
     }
   } catch (error) {
     console.error("Error reading CMS content:", error);

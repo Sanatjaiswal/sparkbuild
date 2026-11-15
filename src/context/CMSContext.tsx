@@ -44,7 +44,10 @@ interface CMSContextType {
   loading: boolean;
   saveData: (newData: Partial<CMSData>) => Promise<boolean>;
   updateSiteConfig: (key: string, value: any) => void;
+  addHeroSlide: (slide: HeroSlide) => void;
   updateHeroSlide: (index: number, slide: Partial<HeroSlide>) => void;
+  deleteHeroSlide: (index: number) => void;
+  moveHeroSlide: (fromIndex: number, toIndex: number) => void;
   updateService: (id: string, service: Partial<ServiceItem>) => void;
   addProject: (project: ProjectItem) => void;
   updateProject: (id: string, project: Partial<ProjectItem>) => void;
@@ -86,7 +89,7 @@ export function CMSProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     async function loadCMS() {
       try {
-        const res = await fetch("/api/content");
+        const res = await fetch("/api/content", { cache: "no-store" });
         if (res.ok) {
           const json = await res.json();
           setData({ ...defaultData, ...json });
@@ -139,9 +142,28 @@ export function CMSProvider({ children }: { children: React.ReactNode }) {
     saveData({ siteConfig: updated });
   };
 
+  const addHeroSlide = (slide: HeroSlide) => {
+    const slides = [...(data.heroSlides || defaultHeroSlides)];
+    saveData({ heroSlides: [...slides, slide] });
+  };
+
   const updateHeroSlide = (index: number, slide: Partial<HeroSlide>) => {
-    const slides = [...data.heroSlides];
-    slides[index] = { ...slides[index], ...slide };
+    const slides = [...(data.heroSlides || defaultHeroSlides)];
+    slides[index] = { ...(slides[index] || { id: Date.now() }), ...slide };
+    saveData({ heroSlides: slides });
+  };
+
+  const deleteHeroSlide = (index: number) => {
+    const slides = [...(data.heroSlides || defaultHeroSlides)];
+    const updated = slides.filter((_, idx) => idx !== index);
+    saveData({ heroSlides: updated });
+  };
+
+  const moveHeroSlide = (fromIndex: number, toIndex: number) => {
+    const slides = [...(data.heroSlides || defaultHeroSlides)];
+    if (toIndex < 0 || toIndex >= slides.length) return;
+    const [moved] = slides.splice(fromIndex, 1);
+    slides.splice(toIndex, 0, moved);
     saveData({ heroSlides: slides });
   };
 
@@ -220,7 +242,10 @@ export function CMSProvider({ children }: { children: React.ReactNode }) {
         loading,
         saveData,
         updateSiteConfig,
+        addHeroSlide,
         updateHeroSlide,
+        deleteHeroSlide,
+        moveHeroSlide,
         updateService,
         addProject,
         updateProject,

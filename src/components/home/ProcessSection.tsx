@@ -21,15 +21,15 @@ export default function ProcessSection() {
           {workProcess.map((item, idx) => (
             <div
               key={item.step}
-              className="bg-neutral-50 rounded-2xl p-7 border border-neutral-200 hover:border-red-500 hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between"
+              className="bg-neutral-50 rounded-2xl p-7 border border-neutral-200 hover:border-[#008EC7] hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between"
             >
               <div className="space-y-4">
                 {/* Big Step Number */}
                 <div className="flex items-center justify-between">
-                  <span className="text-4xl font-black text-neutral-300 group-hover:text-red-600 transition-colors font-mono">
+                  <span className="text-4xl font-black text-neutral-300 group-hover:text-[#008EC7] transition-colors font-mono">
                     {item.step}
                   </span>
-                  <span className="w-3 h-3 rounded-full bg-red-600 group-hover:scale-150 transition-transform"></span>
+                  <span className="w-3 h-3 rounded-full bg-[#008EC7] group-hover:scale-150 transition-transform"></span>
                 </div>
 
                 <h3 className="text-2xl font-black text-neutral-900 tracking-wide">

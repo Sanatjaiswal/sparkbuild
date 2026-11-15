@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ArrowRight, Calendar, HeartPulse, Bone, Crosshair, Building2 } from "lucide-react";
+import { Check, ArrowRight, Calendar, HeartPulse, Bone, Crosshair, Building2, Dumbbell } from "lucide-react";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -64,13 +64,27 @@ export default function ServicesPage() {
       icon: Building2,
       iconColor: "text-sky-600",
       tag: "Critical Care Infrastructure",
-      image: "/images/modular-ot.jpg",
+      image: "/images/emergency-trauma-icu.jpg",
       desc: "NABH-compliant modular surgical suites featuring HEPA-filtered laminar airflow that guarantees sterile conditions. Backed by multi-parameter monitored Trauma ICU beds staffed by dedicated intensivists.",
       benefits: [
         "Class 10,000 Sterile Laminar Airflow Environment",
         "HEPA Air Filtration & Medical Gas Pipeline System",
         "Multi-Parameter Patient Monitors & Advanced Ventilators",
         "Zero-Infection Surgical Protocol for Implant Safety",
+      ],
+    },
+    {
+      title: "Physiotherapy & Advanced Rehabilitation Department",
+      icon: Dumbbell,
+      iconColor: "text-emerald-600",
+      tag: "Physiotherapy & Mobility",
+      image: "/images/physiotherapy-center.jpg",
+      desc: "Full-fledged physical therapy and post-operative recovery center equipped with advanced electrotherapy, therapeutic ultrasound, TENS units, muscle stimulators, exercise cycles, and personalized rehab regimens. Guided by senior certified physiotherapists Dr. Ruby Sonker & Dr. Ravi Rathode for fast-track recovery after joint replacement, spine surgery, and sports injuries.",
+      benefits: [
+        "Specialized Post-Op Joint Mobilization & Gait Rehabilitation",
+        "Advanced Electrotherapy, Ultrasound & TENS Modalities",
+        "Sports Injury Recovery & Muscle Re-Conditioning",
+        "Senior Physiotherapists: Dr. Ruby Sonker & Dr. Ravi Rathode",
       ],
     },
   ];
@@ -105,14 +119,14 @@ export default function ServicesPage() {
 
       {/* Header Banner */}
       <section className="relative py-20 sm:py-24 bg-neutral-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/10 z-10" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/modular-ot.jpg"
+            src="/images/facilities-banner.jpg"
             alt="Services at MP Hospital"
             fill
             priority
-            className="object-cover opacity-90 scale-105"
+            className="object-cover opacity-95 scale-100"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
@@ -235,7 +249,7 @@ export default function ServicesPage() {
             {processSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-8 border border-neutral-200 shadow-sm relative flex flex-col justify-between group hover:border-red-500 hover:shadow-xl transition-all"
+                className="bg-white rounded-2xl p-8 border border-neutral-200 shadow-sm relative flex flex-col justify-between group hover:border-[#008EC7] hover:shadow-xl hover:shadow-[#008EC7]/10 transition-all"
               >
                 <div className="space-y-4">
                   <span className="text-5xl font-black text-red-600 font-mono">

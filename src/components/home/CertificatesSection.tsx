@@ -22,17 +22,17 @@ export default function CertificatesSection() {
           {awardsData.map((award, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 border border-neutral-200 shadow-sm hover:shadow-xl hover:border-red-500 transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-2xl p-7 border border-neutral-200 shadow-sm hover:shadow-xl hover:border-[#008EC7] transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-xl font-black text-white font-mono px-3.5 py-1 bg-red-600 rounded-lg shadow-xs">
+                  <span className="text-xl font-black text-white font-mono px-3.5 py-1 bg-[#008EC7] rounded-lg shadow-xs">
                     {award.year}
                   </span>
-                  <Award className="w-7 h-7 text-red-600 stroke-[2.2] group-hover:scale-110 transition-transform" />
+                  <Award className="w-7 h-7 text-[#008EC7] stroke-[2.2] group-hover:scale-110 transition-transform" />
                 </div>
 
-                <h3 className="text-xl font-bold text-neutral-900 group-hover:text-red-600 transition-colors">
+                <h3 className="text-xl font-bold text-neutral-900 group-hover:text-[#008EC7] transition-colors">
                   {award.title}
                 </h3>
 

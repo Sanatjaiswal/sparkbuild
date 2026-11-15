@@ -2,14 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, HeartPulse, Bone, Crosshair, Activity } from "lucide-react";
+import { ArrowRight, HeartPulse, Bone, Crosshair, Activity, Dumbbell } from "lucide-react";
 import { useCMS } from "@/context/CMSContext";
 
 interface ServicesGridProps {
   onOpenConsultation: () => void;
 }
 
-// 4 Cards matching MP Hospital Specialties
+// 5 Cards matching MP Hospital Specialties
 const hospitalCards = [
   {
     id: "trauma",
@@ -28,7 +28,7 @@ const hospitalCards = [
   {
     id: "ortho",
     title: "Orthopedic Surgery & Joint Replacement",
-    image: "/images/modular-ot.jpg",
+    image: "/images/surgery-wide.jpg",
     icon: Bone,
     iconColor: "text-[#008EC7]",
     items: [
@@ -55,16 +55,30 @@ const hospitalCards = [
   },
   {
     id: "icu",
-    title: "Critical Care ICU & Advanced Diagnostics",
+    title: "Critical Care ICU & Diagnostics",
     image: "/images/emergency-trauma-icu.jpg",
     icon: Activity,
     iconColor: "text-[#008EC7]",
     items: [
       "Multi-Parameter Mechanical Ventilator ICU",
-      "Deluxe & General Patient Inpatient Rooms",
+      "Private & General Patient Inpatient Rooms",
       "Round-the-Clock Emergency Pathology",
-      "Comprehensive Post-Surgery Physiotherapy",
+      "Immediate Bedside Emergency Resuscitation",
       "Cashless TPA Mediclaim & Health Insurance",
+    ],
+  },
+  {
+    id: "physio",
+    title: "Physiotherapy & Rehabilitation Center",
+    image: "/images/physiotherapy-center.jpg",
+    icon: Dumbbell,
+    iconColor: "text-emerald-600",
+    items: [
+      "Senior Certified In-House Physiotherapists",
+      "Post-Op Joint Mobilization & Fast Recovery",
+      "Advanced Ultrasound, TENS & Electrotherapy",
+      "Sports Injury Conditioning & Muscle Rehab",
+      "Spine, Back Pain & Gait Mobility Training",
     ],
   },
 ];
@@ -76,7 +90,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
 
   return (
     <section className="py-20 sm:py-24 bg-gradient-to-b from-white via-neutral-50 to-white border-y border-neutral-200 relative overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-3">
           <span className="inline-block px-4 py-1.5 rounded-full bg-red-50 text-red-600 border border-red-200 text-xs font-black uppercase tracking-wider shadow-xs">
@@ -90,12 +104,12 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
             <span className="bg-sky-50 text-[#008ec7] border border-sky-300 px-2.5 py-0.5 rounded-full font-black shadow-xs">
               Dr. Abhishek Jain
             </span>
-            , offering specialized orthopedics, trauma resuscitation, joint replacement, and sports surgery in Jabalpur.
+            , offering specialized orthopedics, trauma resuscitation, joint replacement, sports surgery, and advanced physiotherapy in Jabalpur.
           </p>
         </div>
 
-        {/* 4 Cards Grid - 100% Exact match to original card layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7">
+        {/* 5 Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 sm:gap-6">
           {hospitalCards.map((card) => {
             const IconComp = card.icon;
             return (
@@ -107,31 +121,31 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
                     alt={card.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 20vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 </div>
 
                 {/* 2. Overlapping White Card with Black 2px Border and Rounded Corners */}
-                <div className="-mt-12 sm:-mt-14 relative z-10 mx-1.5 sm:mx-2 bg-white rounded-[26px] border-[2px] border-black p-5 sm:p-7 shadow-lg group-hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center flex-1 justify-between min-h-[440px] sm:min-h-[460px]">
+                <div className="-mt-12 sm:-mt-14 relative z-10 mx-1 sm:mx-1.5 bg-white rounded-[26px] border-[2px] border-black p-4 sm:p-5 xl:p-4 shadow-lg group-hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center flex-1 justify-between min-h-[430px] sm:min-h-[450px]">
                   {/* Bare Icon without box or background */}
-                  <div className="w-14 h-14 mb-3 flex items-center justify-center">
-                    <IconComp className={`w-11 h-11 ${card.iconColor} stroke-[2.2] group-hover:scale-110 transition-transform`} />
+                  <div className="w-12 h-12 mb-2 flex items-center justify-center">
+                    <IconComp className={`w-10 h-10 ${card.iconColor} stroke-[2.2] group-hover:scale-110 transition-transform`} />
                   </div>
 
                   {/* Centered Bold Title */}
-                  <h3 className="text-lg sm:text-[19px] font-black text-black leading-snug mb-5 text-center min-h-[52px] flex items-center justify-center">
+                  <h3 className="text-sm sm:text-base font-black text-black leading-snug mb-4 text-center min-h-[44px] flex items-center justify-center">
                     {card.title}
                   </h3>
 
                   {/* Bullet list with crisp checkmark ✔ */}
-                  <ul className="space-y-3 w-full text-left mb-6 flex-1">
+                  <ul className="space-y-2.5 w-full text-left mb-5 flex-1">
                     {card.items.map((item, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-neutral-800 leading-snug"
+                        className="flex items-start gap-2 text-xs font-semibold text-neutral-800 leading-snug"
                       >
-                        <span className="text-[#008EC7] font-black text-sm shrink-0 mt-0.5 leading-none">
+                        <span className="text-[#008EC7] font-black text-xs shrink-0 mt-0.5 leading-none">
                           ✔
                         </span>
                         <span>{item}</span>
@@ -142,7 +156,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
                   {/* Bottom Action CTA */}
                   <button
                     onClick={onOpenConsultation}
-                    className="w-full py-2.5 px-4 rounded-full bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-xs tracking-wider uppercase transition-all duration-200 mt-2 shadow-md shadow-sky-600/20 flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
+                    className="w-full py-2.5 px-3 rounded-full bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-[11px] tracking-wider uppercase transition-all duration-200 mt-2 shadow-md shadow-sky-600/20 flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
                   >
                     <span>Book Consultation</span>
                     <ArrowRight className="w-3.5 h-3.5" />

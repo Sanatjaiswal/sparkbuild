@@ -100,7 +100,7 @@ export default function WhyHospital() {
                 return (
                   <div
                     key={idx}
-                    className="p-5 rounded-2xl bg-neutral-50/90 border border-neutral-200 space-y-3 hover:border-red-500 hover:shadow-lg transition-all group"
+                    className="p-5 rounded-2xl bg-neutral-50/90 border border-neutral-200 space-y-3 hover:border-[#008EC7] hover:shadow-lg hover:shadow-[#008EC7]/10 transition-all group"
                   >
                     <Icon className={`w-8 h-8 ${pt.iconColor} stroke-[2.2] group-hover:scale-110 transition-transform`} />
                     <h3 className="text-lg font-black text-neutral-900">{pt.title}</h3>

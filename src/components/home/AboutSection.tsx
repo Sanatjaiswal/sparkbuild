@@ -25,11 +25,11 @@ export default function AboutSection() {
               />
             </div>
 
-            {/* Overlapping secondary image */}
+            {/* Overlapping secondary image: Live surgery in progress */}
             <div className="absolute -bottom-8 -right-4 sm:-right-8 w-44 sm:w-60 h-36 sm:h-48 rounded-xl overflow-hidden shadow-2xl border-4 border-white bg-neutral-900 hidden sm:block">
               <Image
-                src="/images/modular-ot.jpg"
-                alt="Modular Operation Theatre"
+                src="/images/surgery-wide.jpg"
+                alt="Live Orthopedic Surgery at MP Hospital"
                 fill
                 className="object-cover"
               />
@@ -89,7 +89,7 @@ export default function AboutSection() {
                 <p className="text-xs font-medium text-gray-600">Surgeries Performed</p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-red-500 hover:shadow-md transition-all group">
+              <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
                 <HeartPulse className="w-7 h-7 mx-auto mb-2 text-red-600 stroke-[2.2] group-hover:scale-110 transition-transform" />
                 <h4 className="text-xl font-black text-black">24x7</h4>
                 <p className="text-xs font-medium text-gray-600">Emergency &amp; Trauma</p>

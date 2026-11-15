@@ -26,7 +26,7 @@ export default function TestimonialSlider() {
           {testimonials.map((item, idx) => (
             <div
               key={idx}
-              className="bg-neutral-50 rounded-2xl p-7 border border-neutral-200 hover:border-red-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group"
+              className="bg-neutral-50 rounded-2xl p-7 border border-neutral-200 hover:border-[#008EC7] hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group"
             >
               <div className="space-y-4">
                 {/* Quote Icon & Stars */}
@@ -36,7 +36,7 @@ export default function TestimonialSlider() {
                       <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <Quote className="w-8 h-8 text-neutral-300 group-hover:text-red-600 transition-colors" />
+                  <Quote className="w-8 h-8 text-neutral-300 group-hover:text-[#008EC7] transition-colors" />
                 </div>
 
                 <p className="text-sm text-gray-700 leading-relaxed italic">
