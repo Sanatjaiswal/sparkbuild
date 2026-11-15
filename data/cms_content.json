@@ -421,11 +421,11 @@
   "videoTestimonials": [
     {
       "id": "video-surgery-live",
-      "youtubeId": "PXM0LdIZu60",
+      "youtubeId": "/videos/mp-hospital-surgery.mp4",
       "title": "Live Modular OT Surgery: Advanced Joint Reconstruction & Polytrauma Care",
       "clientName": "Dr. Abhishek Jain & Surgical Team",
       "location": "Modular OT Suite, Jabalpur",
-      "thumbnail": "/images/surgery-wide.jpg"
+      "thumbnail": "/images/surgery-in-action.jpg"
     }
   ]
 }

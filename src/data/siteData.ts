@@ -365,11 +365,11 @@ export const projectsData: ProjectItem[] = [
 export const videoTestimonials: VideoTestimonial[] = [
   {
     id: "video-surgery-live",
-    youtubeId: "5RSlURAHRjE",
+    youtubeId: "/videos/mp-hospital-surgery.mp4",
     title: "Inside Modular OT: Live Surgical Procedures & Complex Trauma Care",
     clientName: "Dr. Abhishek Jain & Surgical Team",
-    location: "Modular OT Suite, Jabalpur",
-    thumbnail: "/images/surgery-wide.jpg",
+    location: "Class 10,000 Modular OT, Jabalpur",
+    thumbnail: "/images/surgery-in-action.jpg",
   },
   {
     id: "video-1",
