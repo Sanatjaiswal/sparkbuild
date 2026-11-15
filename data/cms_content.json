@@ -48,13 +48,6 @@
       "title": "Advanced Surgical & Joint Replacement Suite",
       "description": "Class 10,000 modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
       "bgImage": "/images/modular-ot.jpg"
-    },
-    {
-      "id": 3,
-      "highlightNumber": "Rehab & ICU",
-      "title": "Critical Care ICU & Advanced Physiotherapy",
-      "description": "Round-the-clock mechanical ventilator trauma ICU, multi-channel telemetry, and full-fledged post-surgery physical therapy department.",
-      "bgImage": "/images/physiotherapy-center.jpg"
     }
   ],
   "servicesData": [
@@ -417,7 +410,7 @@
       "answer": "We perform Total Knee Replacement (TKR), Total Hip Replacement (THR), Shoulder Arthroplasty, Minimally Invasive Arthroscopic Ligament Repairs (ACL/PCL/Meniscus), Complex Trauma & Pelvic Fractures, and Pediatric Orthopedic Surgeries inside state-of-the-art modular laminar airflow operation theatres."
     }
   ],
-  "lastUpdated": "2026-10-30T15:01:02.239Z",
+  "lastUpdated": "2026-11-15T21:11:58.752Z",
   "videoTestimonials": [
     {
       "id": "video-surgery-live",

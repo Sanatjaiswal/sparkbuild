@@ -19,6 +19,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 const DATA_FILE = path.join(process.cwd(), "data", "cms_content.json");
+const TMP_FILE = path.join("/tmp", "cms_content.json");
 
 function getDefaultData() {
   return {
@@ -39,6 +40,16 @@ function getDefaultData() {
 
 export async function GET() {
   try {
+    if (fs.existsSync(TMP_FILE)) {
+      try {
+        const fileContent = fs.readFileSync(TMP_FILE, "utf-8");
+        return NextResponse.json(JSON.parse(fileContent), {
+          headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+        });
+      } catch (e) {
+        console.error("Error reading TMP_FILE:", e);
+      }
+    }
     if (fs.existsSync(DATA_FILE)) {
       const fileContent = fs.readFileSync(DATA_FILE, "utf-8");
       return NextResponse.json(JSON.parse(fileContent), {
@@ -46,7 +57,9 @@ export async function GET() {
       });
     } else {
       const initial = getDefaultData();
-      fs.writeFileSync(DATA_FILE, JSON.stringify(initial, null, 2), "utf-8");
+      try {
+        fs.writeFileSync(DATA_FILE, JSON.stringify(initial, null, 2), "utf-8");
+      } catch (e) {}
       return NextResponse.json(initial, {
         headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
       });
@@ -64,7 +77,15 @@ export async function POST(req: NextRequest) {
       ...body,
       lastUpdated: new Date().toISOString(),
     };
-    fs.writeFileSync(DATA_FILE, JSON.stringify(updated, null, 2), "utf-8");
+    try {
+      fs.writeFileSync(DATA_FILE, JSON.stringify(updated, null, 2), "utf-8");
+    } catch (e) {
+      try {
+        fs.writeFileSync(TMP_FILE, JSON.stringify(updated, null, 2), "utf-8");
+      } catch (tmpErr) {
+        console.error("Failed to write to TMP_FILE:", tmpErr);
+      }
+    }
     return NextResponse.json({ success: true, lastUpdated: updated.lastUpdated });
   } catch (error) {
     console.error("Error saving CMS content:", error);

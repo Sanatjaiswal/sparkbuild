@@ -88,27 +88,39 @@ export function CMSProvider({ children }: { children: React.ReactNode }) {
   // Fetch initial content from server or fallback to localStorage
   useEffect(() => {
     async function loadCMS() {
+      // 1. Immediately hydrate from localStorage if available
+      const cached = typeof window !== "undefined" ? localStorage.getItem("mphospital_cms_cache") : null;
+      let localData: CMSData | null = null;
+      if (cached) {
+        try {
+          localData = JSON.parse(cached);
+          if (localData) {
+            setData((prev) => ({ ...prev, ...localData }));
+          }
+        } catch (e) {
+          console.error("Failed to parse cached CMS:", e);
+        }
+      }
+
+      // 2. Fetch latest from server
       try {
         const res = await fetch("/api/content", { cache: "no-store" });
         if (res.ok) {
           const json = await res.json();
+          // If local edits are newer (e.g. recently deleted or modified a slide), prioritize local!
+          if (localData?.lastUpdated && json.lastUpdated) {
+            const localTime = new Date(localData.lastUpdated).getTime();
+            const serverTime = new Date(json.lastUpdated).getTime();
+            if (localTime > serverTime) {
+              setLoading(false);
+              return;
+            }
+          }
           setData({ ...defaultData, ...json });
           localStorage.setItem("mphospital_cms_cache", JSON.stringify(json));
-        } else {
-          const cached = localStorage.getItem("mphospital_cms_cache");
-          if (cached) {
-            setData({ ...defaultData, ...JSON.parse(cached) });
-          }
         }
       } catch (err) {
-        const cached = localStorage.getItem("mphospital_cms_cache");
-        if (cached) {
-          try {
-            setData({ ...defaultData, ...JSON.parse(cached) });
-          } catch (e) {
-            console.error(e);
-          }
-        }
+        console.error("Error loading server CMS:", err);
       } finally {
         setLoading(false);
       }

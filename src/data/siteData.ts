@@ -149,13 +149,6 @@ export const heroSlides: HeroSlide[] = [
     description: "Class 10,000 modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
     bgImage: "/images/modular-ot.jpg",
   },
-  {
-    id: 3,
-    highlightNumber: "Rehab & ICU",
-    title: "Critical Care ICU & Advanced Physiotherapy",
-    description: "Round-the-clock mechanical ventilator trauma ICU, multi-channel telemetry, and full-fledged post-surgery physical therapy department.",
-    bgImage: "/images/physiotherapy-center.jpg",
-  },
 ];
 
 export const servicesData: ServiceItem[] = [
