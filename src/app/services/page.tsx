@@ -23,7 +23,7 @@ export default function ServicesPage() {
       iconColor: "text-red-600",
       tag: "Trauma Resuscitation",
       image: "/images/emergency-ambulance.jpg",
-      desc: "Instant medical response for accidental polytrauma, fracture stabilization, crush injuries, and life-threatening emergencies. Featuring round-the-clock emergency casualty, standby orthopedic surgeons, ventilator ICU, and Advanced Life Support (ALS) ambulances.",
+      desc: "Instant medical response for accidental polytrauma, fracture stabilization, crush injuries, and life-threatening emergencies. Featuring round-the-clock emergency casualty, standby orthopedic surgeons, ventilator ICU, and Well-Equipped Life Support (ALS) ambulances.",
       benefits: [
         "Immediate Triage & Critical Care Resuscitation",
         "Round-the-clock Orthopedic & Trauma Surgeons",
@@ -37,7 +37,7 @@ export default function ServicesPage() {
       iconColor: "text-sky-600",
       tag: "Arthroplasty & Reconstruction",
       image: "/images/orthopedic-rehab.jpg",
-      desc: "Advanced total knee replacement (TKR), total hip replacement (THR), and partial joint resurfacing performed by Dr. Abhishek Jain. Designed for rapid pain relief, precision implant alignment, and fast postoperative mobility.",
+      desc: "Well-equipped total knee replacement (TKR), total hip replacement (THR), and partial joint resurfacing performed by Dr. Abhishek Jain. Designed for rapid pain relief, precision implant alignment, and fast postoperative mobility.",
       benefits: [
         "Minimally Invasive Total Knee & Hip Replacement",
         "Computer-Assisted Precision Component Alignment",
@@ -74,15 +74,15 @@ export default function ServicesPage() {
       ],
     },
     {
-      title: "Physiotherapy & Advanced Rehabilitation Department",
+      title: "Physiotherapy & Well-Equipped Rehabilitation Department",
       icon: Dumbbell,
       iconColor: "text-emerald-600",
       tag: "Physiotherapy & Mobility",
       image: "/images/physiotherapy-center.jpg",
-      desc: "Full-fledged physical therapy and post-operative recovery center equipped with advanced electrotherapy, therapeutic ultrasound, TENS units, muscle stimulators, exercise cycles, and personalized rehab regimens. Guided by senior certified physiotherapists Dr. Ruby Sonker & Dr. Ravi Rathode for fast-track recovery after joint replacement, spine surgery, and sports injuries.",
+      desc: "Full-fledged physical therapy and post-operative recovery center well-equipped with modern electrotherapy, therapeutic ultrasound, TENS units, muscle stimulators, exercise cycles, and personalized rehab regimens. Guided by senior certified physiotherapists Dr. Ruby Sonker & Dr. Ravi Rathode for fast-track recovery after joint replacement, spine surgery, and sports injuries.",
       benefits: [
         "Specialized Post-Op Joint Mobilization & Gait Rehabilitation",
-        "Advanced Electrotherapy, Ultrasound & TENS Modalities",
+        "Well-Equipped Electrotherapy, Ultrasound & TENS Modalities",
         "Sports Injury Recovery & Muscle Re-Conditioning",
         "Senior Physiotherapists: Dr. Ruby Sonker & Dr. Ravi Rathode",
       ],
@@ -98,7 +98,7 @@ export default function ServicesPage() {
     {
       num: 2,
       title: "Modular Surgical Intervention",
-      desc: "Sterile surgical precision in laminar airflow theatres with advanced implants and experienced surgical specialists.",
+      desc: "Sterile surgical precision in laminar airflow theatres with precision modern implants and experienced surgical specialists.",
     },
     {
       num: 3,

@@ -15,7 +15,7 @@ const ICON_MAP: Record<string, any> = {
 export default function WhyHospital() {
   const { data } = useCMS();
 
-  const points =
+  const rawPoints =
     data?.siteConfig?.whyHospitalPoints && data.siteConfig.whyHospitalPoints.length > 0
       ? data.siteConfig.whyHospitalPoints
       : [
@@ -44,6 +44,12 @@ export default function WhyHospital() {
             desc: "Hassle-free insurance pre-authorization desk supporting major mediclaim policies and corporate TPA coverage.",
           },
         ];
+
+  const points = rawPoints.map((p) => ({
+    ...p,
+    title: p.title?.replace(/Advanced/gi, "Well-Equipped") || p.title,
+    desc: p.desc?.replace(/advanced/gi, "well-equipped") || p.desc,
+  }));
 
   return (
     <section className="py-24 bg-white text-neutral-900 border-t border-neutral-200 relative overflow-hidden select-none">

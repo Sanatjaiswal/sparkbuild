@@ -341,7 +341,7 @@ export default function WordPressAdmin() {
     },
     {
       title: "Surgical Excellence",
-      desc: "Led by Dr. Abhishek Jain with extensive clinical expertise in successful orthopedic surgeries, emergency trauma rescues, and advanced joint replacements.",
+      desc: "Led by Dr. Abhishek Jain with extensive clinical expertise in successful orthopedic surgeries, emergency trauma rescues, and well-equipped joint replacement center.",
       iconName: "Award",
       iconColor: "text-sky-600",
     },
@@ -353,9 +353,14 @@ export default function WordPressAdmin() {
     },
   ];
 
-  const currentStatsBanner = data.siteConfig?.statsBanner && data.siteConfig.statsBanner.length > 0
+  const currentStatsBanner = (data.siteConfig?.statsBanner && data.siteConfig.statsBanner.length > 0
     ? data.siteConfig.statsBanner
-    : defaultStatsBanner;
+    : defaultStatsBanner
+  ).map((item) => ({
+    ...item,
+    title: item.title?.replace(/Advanced/gi, "Well-Equipped") || item.title,
+    desc: item.desc?.replace(/advanced/gi, "well-equipped") || item.desc,
+  }));
 
   const defaultWhyHospitalPoints = [
     {

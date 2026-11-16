@@ -76,7 +76,7 @@ const hospitalCards = [
     items: [
       "Senior Certified In-House Physiotherapists",
       "Post-Op Joint Mobilization & Fast Recovery",
-      "Advanced Ultrasound, TENS & Electrotherapy",
+      "Well-Equipped Ultrasound, TENS & Electrotherapy",
       "Sports Injury Conditioning & Muscle Rehab",
       "Spine, Back Pain & Gait Mobility Training",
     ],
@@ -104,7 +104,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
             <span className="bg-sky-50 text-[#008ec7] border border-sky-300 px-2.5 py-0.5 rounded-full font-black shadow-xs">
               Dr. Abhishek Jain
             </span>
-            , offering specialized orthopedics, trauma resuscitation, joint replacement, sports surgery, and advanced physiotherapy in Jabalpur.
+            , offering specialized orthopedics, trauma resuscitation, joint replacement, sports surgery, and well-equipped physiotherapy in Jabalpur.
           </p>
         </div>
 

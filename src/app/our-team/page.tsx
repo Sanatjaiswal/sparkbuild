@@ -435,7 +435,7 @@ export default function OurTeamPage() {
               <div>
                 <h4 className="text-sm font-black text-neutral-900">24x7 Emergency Trauma</h4>
                 <p className="text-xs text-neutral-500 mt-1">
-                  Immediate surgical triage and advanced trauma life support.
+                  Immediate surgical triage and well-equipped trauma life support.
                 </p>
               </div>
             </div>
@@ -465,7 +465,7 @@ export default function OurTeamPage() {
               <div>
                 <h4 className="text-sm font-black text-neutral-900">Diagnostics &amp; Rehab</h4>
                 <p className="text-xs text-neutral-500 mt-1">
-                  In-house digital radiography, pathology, and advanced neuro rehab.
+                  In-house digital radiography, pathology, and well-equipped neuro rehab.
                 </p>
               </div>
             </div>

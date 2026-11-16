@@ -43,7 +43,7 @@
       },
       {
         "title": "Surgical Excellence",
-        "desc": "Led by Dr. Abhishek Jain with extensive clinical expertise in successful orthopedic surgeries, emergency trauma rescues, and advanced joint replacements.",
+        "desc": "Led by Dr. Abhishek Jain with extensive clinical expertise in successful orthopedic surgeries, emergency trauma rescues, and well-equipped joint replacement center.",
         "iconName": "Award",
         "iconColor": "text-sky-600"
       },
@@ -144,8 +144,8 @@
       "image": "/images/emergency-trauma-icu.jpg",
       "items": [
         "Fully-Equipped 24/7 Trauma Emergency Department",
-        "Advanced ICU with Multi-Parameter Monitors & Ventilators",
-        "Advanced Cardiac Life Support (ACLS) Protocol",
+        "Well-Equipped ICU with Multi-Parameter Monitors & Ventilators",
+        "Cardiac Life Support (ACLS) Protocol",
         "Dedicated High-Tech ALS Ambulance Fleet",
         "In-House Emergency Pathology & Digital X-Ray"
       ]
@@ -157,7 +157,7 @@
       "image": "/images/physiotherapy-center.jpg",
       "items": [
         "Targeted Post-Op Joint Mobilization (TKR/THR)",
-        "Advanced Electrotherapy, Ultrasound & IFT",
+        "Well-Equipped Electrotherapy, Ultrasound & IFT",
         "Sports Injury Rehabilitation & Muscle Conditioning",
         "Spine, Cervical & Lower Back Physical Therapy",
         "Senior Citizen Joint Mobility & Gait Training"
@@ -293,7 +293,7 @@
     },
     {
       "id": "als-ambulance-network",
-      "title": "24x7 Advanced Life Support (ALS) Ambulance",
+      "title": "24x7 Well-Equipped Life Support (ALS) Ambulance",
       "category": "facade",
       "type": "Healthcare",
       "status": "Completed",
@@ -355,7 +355,7 @@
       "department": "General Surgery",
       "qualification": "MBBS, M.S. (General Surgery)",
       "image": "/images/dr-mazid-ansari.jpg",
-      "bio": "Leading surgeon for acute abdominal trauma, visceral surgical emergencies, minimally invasive laparoscopy, hernia repairs, and advanced wound management."
+      "bio": "Leading surgeon for acute abdominal trauma, visceral surgical emergencies, minimally invasive laparoscopy, hernia repairs, and specialized wound management."
     },
     {
       "id": "dr-arjit-saraf",
@@ -382,7 +382,7 @@
       "department": "Anesthesia & Critical Care ICU",
       "qualification": "MBBS, M.D. (Anesthesia & Critical Care)",
       "image": "/images/dr-himanshu-jain.jpg",
-      "bio": "Heads the 24x7 Trauma ICU, leading multi-organ trauma stabilization, advanced mechanical ventilation, hemodynamic monitoring, and resuscitation protocols."
+      "bio": "Heads the 24x7 Trauma ICU, leading multi-organ trauma stabilization, well-equipped mechanical ventilation, hemodynamic monitoring, and resuscitation protocols."
     },
     {
       "id": "dr-nishit-kumar",
@@ -442,7 +442,7 @@
   "faqsData": [
     {
       "question": "Do you provide 24x7 emergency and accidental trauma services?",
-      "answer": "Yes, MP Hospital and Trauma Centre operates a round-the-clock (24/7) emergency trauma unit with immediate casualty reception, on-call trauma surgeons, anesthesiologists, digital X-ray, in-house pharmacy, and Advanced Life Support (ALS) ambulances. Call our emergency hotline at 0761-2626123 or +91 76489-98668."
+      "answer": "Yes, MP Hospital and Trauma Centre operates a round-the-clock (24/7) emergency trauma unit with immediate casualty reception, on-call trauma surgeons, anesthesiologists, digital X-ray, in-house pharmacy, and Well-Equipped Life Support (ALS) ambulances. Call our emergency hotline at 0761-2626123 or +91 76489-98668."
     },
     {
       "question": "Do you accept Cashless Mediclaim and Health Insurance?",
@@ -453,12 +453,12 @@
       "answer": "We perform Total Knee Replacement (TKR), Total Hip Replacement (THR), Shoulder Arthroplasty, Minimally Invasive Arthroscopic Ligament Repairs (ACL/PCL/Meniscus), Complex Trauma & Pelvic Fractures, and Pediatric Orthopedic Surgeries inside state-of-the-art modular laminar airflow operation theatres."
     }
   ],
-  "lastUpdated": "2026-11-16T17:35:00.000Z",
+  "lastUpdated": "2026-11-16T18:00:00.000Z",
   "videoTestimonials": [
     {
       "id": "video-surgery-live",
       "youtubeId": "/videos/mp-hospital-surgery.mp4",
-      "title": "Live Modular OT Surgery: Advanced Joint Reconstruction & Polytrauma Care",
+      "title": "Live Modular OT Surgery: Well-Equipped Joint Reconstruction & Polytrauma Care",
       "clientName": "Dr. Abhishek Jain & Surgical Team",
       "location": "Modular OT Suite, Jabalpur",
       "thumbnail": "/images/surgery-in-action.jpg"
@@ -467,7 +467,7 @@
   "marqueeItems": [
     "24x7 Emergency & Trauma Centre",
     "Dr. Abhishek Jain (Orthopedic Specialist)",
-    "Advanced Life Support Ambulance",
+    "Well-Equipped Life Support Ambulance",
     "Total Knee & Hip Replacement",
     "Arthroscopy & Sports Medicine",
     "Sterile Modular OT",

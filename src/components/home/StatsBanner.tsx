@@ -12,7 +12,7 @@ const ICON_MAP: Record<string, any> = {
 
 export default function StatsBanner() {
   const { data } = useCMS();
-  const bannerItems = data?.siteConfig?.statsBanner && data.siteConfig.statsBanner.length > 0
+  const rawItems = data?.siteConfig?.statsBanner && data.siteConfig.statsBanner.length > 0
     ? data.siteConfig.statsBanner
     : [
         {
@@ -25,7 +25,7 @@ export default function StatsBanner() {
           iconName: "Award",
           iconColor: "text-sky-600",
           title: "Surgical Excellence",
-          desc: "Led by Dr. Abhishek Jain with extensive clinical expertise in successful orthopedic surgeries, emergency trauma rescues, and advanced joint replacements.",
+          desc: "Led by Dr. Abhishek Jain with extensive clinical expertise in successful orthopedic surgeries, emergency trauma rescues, and well-equipped joint replacement center.",
         },
         {
           iconName: "Building2",
@@ -34,6 +34,12 @@ export default function StatsBanner() {
           desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and high patient satisfaction.",
         },
       ];
+
+  const bannerItems = rawItems.map((item) => ({
+    ...item,
+    title: item.title?.replace(/Advanced/gi, "Well-Equipped") || item.title,
+    desc: item.desc?.replace(/advanced/gi, "well-equipped") || item.desc,
+  }));
 
   return (
     <section className="bg-white text-neutral-900 py-10 border-y border-neutral-200 shadow-xs">

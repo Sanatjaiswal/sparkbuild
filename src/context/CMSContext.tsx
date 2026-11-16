@@ -87,10 +87,25 @@ const defaultData: CMSData = {
   marqueeItems: defaultMarqueeItems,
 };
 
+function sanitizeCMSData(cms: any): any {
+  if (!cms) return cms;
+  try {
+    const str = JSON.stringify(cms);
+    const cleanedStr = str
+      .replace(/Advanced Modular/g, "Well-Equipped Modular")
+      .replace(/advanced modular/g, "well-equipped modular")
+      .replace(/Advanced/g, "Well-Equipped")
+      .replace(/advanced/g, "well-equipped");
+    return JSON.parse(cleanedStr);
+  } catch {
+    return cms;
+  }
+}
+
 const CMSContext = createContext<CMSContextType | null>(null);
 
 export function CMSProvider({ children }: { children: React.ReactNode }) {
-  const [data, setData] = useState<CMSData>(defaultData);
+  const [data, setData] = useState<CMSData>(sanitizeCMSData(defaultData));
   const [loading, setLoading] = useState(true);
 
   // Fetch initial content from server or fallback to localStorage
@@ -101,7 +116,7 @@ export function CMSProvider({ children }: { children: React.ReactNode }) {
       let localData: CMSData | null = null;
       if (cached) {
         try {
-          localData = JSON.parse(cached);
+          localData = sanitizeCMSData(JSON.parse(cached));
           if (localData) {
             setData((prev) => ({ ...prev, ...localData }));
           }
@@ -114,7 +129,7 @@ export function CMSProvider({ children }: { children: React.ReactNode }) {
       try {
         const res = await fetch("/api/content", { cache: "no-store" });
         if (res.ok) {
-          const json = await res.json();
+          const json = sanitizeCMSData(await res.json());
           // If local edits are newer (e.g. recently deleted or modified a slide), prioritize local!
           if (localData?.lastUpdated && json.lastUpdated) {
             const localTime = new Date(localData.lastUpdated).getTime();

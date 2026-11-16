@@ -33,7 +33,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-neutral-600 leading-relaxed font-normal">
-              MP Hospital &amp; Trauma Centre delivers advanced orthopedic, joint replacement, spine surgery, and 24x7 emergency trauma care under the expert direction of{" "}
+              MP Hospital &amp; Trauma Centre delivers well-equipped orthopedic, joint replacement, spine surgery, and 24x7 emergency trauma care under the expert direction of{" "}
               <strong className="text-[#008EC7] font-black">
                 Dr. Abhishek Jain
               </strong>

@@ -133,7 +133,7 @@ export const siteConfig = {
     },
     {
       title: "Surgical Excellence",
-      desc: "Led by Dr. Abhishek Jain with extensive clinical expertise in successful orthopedic surgeries, emergency trauma rescues, and advanced joint replacements.",
+      desc: "Led by Dr. Abhishek Jain with extensive clinical expertise in successful orthopedic surgeries, emergency trauma rescues, and well-equipped joint replacement center.",
       iconName: "Award",
       iconColor: "text-sky-600",
     },
@@ -245,8 +245,8 @@ export const servicesData: ServiceItem[] = [
     image: "/images/emergency-trauma-icu.jpg",
     items: [
       "Fully-Equipped 24/7 Trauma Emergency Department",
-      "Advanced ICU with Multi-Parameter Monitors & Ventilators",
-      "Advanced Cardiac Life Support (ACLS) Protocol",
+      "Well-Equipped ICU with Multi-Parameter Monitors & Ventilators",
+      "Cardiac Life Support (ACLS) Protocol",
       "Dedicated High-Tech ALS Ambulance Fleet",
       "In-House Emergency Pathology & Digital X-Ray",
     ],
@@ -258,7 +258,7 @@ export const servicesData: ServiceItem[] = [
     image: "/images/physiotherapy-center.jpg",
     items: [
       "Targeted Post-Op Joint Mobilization (TKR/THR)",
-      "Advanced Electrotherapy, Ultrasound & IFT",
+      "Well-Equipped Electrotherapy, Ultrasound & IFT",
       "Sports Injury Rehabilitation & Muscle Conditioning",
       "Spine, Cervical & Lower Back Physical Therapy",
       "Senior Citizen Joint Mobility & Gait Training",
@@ -382,7 +382,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: "als-ambulance-network",
-    title: "24x7 Advanced Life Support (ALS) Ambulance",
+    title: "24x7 Well-Equipped Life Support (ALS) Ambulance",
     category: "facade",
     type: "Healthcare",
     status: "Completed",
@@ -488,7 +488,7 @@ export const teamMembers: TeamMember[] = [
     department: "General Surgery",
     qualification: "MBBS, M.S.",
     image: "/images/dr-mazid-ansari.jpg",
-    bio: "Leading surgeon for acute abdominal trauma, visceral surgical emergencies, minimally invasive laparoscopy, hernia repairs, and advanced wound management.",
+    bio: "Leading surgeon for acute abdominal trauma, visceral surgical emergencies, minimally invasive laparoscopy, hernia repairs, and specialized wound management.",
   },
   {
     id: "dr-arjit-saraf",
@@ -515,7 +515,7 @@ export const teamMembers: TeamMember[] = [
     department: "Anesthesia & ICU",
     qualification: "MBBS, M.D.",
     image: "/images/dr-himanshu-jain.jpg",
-    bio: "Heads the 24x7 Trauma ICU, leading multi-organ trauma stabilization, advanced mechanical ventilation, hemodynamic monitoring, and resuscitation protocols.",
+    bio: "Heads the 24x7 Trauma ICU, leading multi-organ trauma stabilization, well-equipped mechanical ventilation, hemodynamic monitoring, and resuscitation protocols.",
   },
   {
     id: "dr-nishit-kumar",
@@ -626,7 +626,7 @@ export const testimonials = [
 export const faqsData: FAQItem[] = [
   {
     question: "Do you provide 24x7 emergency and accidental trauma services?",
-    answer: "Yes, MP Hospital and Trauma Centre operates a round-the-clock (24/7) emergency trauma unit with immediate casualty reception, on-call trauma surgeons, anesthesiologists, digital X-ray, in-house pharmacy, and Advanced Life Support (ALS) ambulances. Call our emergency hotline at 0761-2626123 or +91 76489-98668.",
+    answer: "Yes, MP Hospital and Trauma Centre operates a round-the-clock (24/7) emergency trauma unit with immediate casualty reception, on-call trauma surgeons, anesthesiologists, digital X-ray, in-house pharmacy, and Well-Equipped Life Support (ALS) ambulances. Call our emergency hotline at 0761-2626123 or +91 76489-98668.",
   },
   {
     question: "What makes MP Hospital a leading trauma center in Jabalpur?",
@@ -674,7 +674,7 @@ export const blogPosts: BlogPost[] = [
     author: "Dr. Abhishek Jain",
     image: "/images/arthroscopy-surgery.jpg",
     excerpt: "How modern arthroscopic knee reconstruction helps young athletes and active individuals return to sports safely.",
-    content: "Athletic injuries like sudden twisting of the knee often result in ACL and meniscal tears. With advanced 4K arthroscopic keyhole surgery at MP Hospital, surgeons reconstruct torn ligaments through tiny incisions without cutting open the joint, ensuring less postoperative pain, negligible blood loss, and accelerated return to sports.",
+    content: "Athletic injuries like sudden twisting of the knee often result in ACL and meniscal tears. With well-equipped 4K arthroscopic keyhole surgery at MP Hospital, surgeons reconstruct torn ligaments through tiny incisions without cutting open the joint, ensuring less postoperative pain, negligible blood loss, and accelerated return to sports.",
   },
   {
     id: "4",
@@ -695,7 +695,7 @@ export const careerJobs: CareerJob[] = [
     title: "Staff Nurse (ICU & Emergency Trauma)",
     location: "MP Hospital, Jabalpur",
     type: "Full-Time (Rotational Shifts)",
-    description: "Provide compassionate critical care nursing, administer intravenous medications, monitor vital signs on advanced multi-parameter monitors, and assist intensivists in emergency trauma resuscitation.",
+    description: "Provide compassionate critical care nursing, administer intravenous medications, monitor vital signs on well-equipped multi-parameter monitors, and assist intensivists in emergency trauma resuscitation.",
     responsibilities: [
       "Deliver 24x7 bed-side critical care in the Trauma ICU.",
       "Monitor patient vitals, ventilator settings, and IV infusions.",
@@ -749,7 +749,7 @@ export const careerJobs: CareerJob[] = [
 export const defaultMarqueeItems: string[] = [
   "24x7 Emergency & Trauma Centre",
   "Dr. Abhishek Jain (Orthopedic Specialist)",
-  "Advanced Life Support Ambulance",
+  "Well-Equipped Life Support Ambulance",
   "Total Knee & Hip Replacement",
   "Arthroscopy & Sports Medicine",
   "Sterile Modular OT",

@@ -87,7 +87,7 @@ export default function AmbulanceModal({ isOpen, onClose }: AmbulanceModalProps)
         {/* Content Body with Internal Scroll if Screen is Short */}
         <div className="p-5 sm:p-6 space-y-4 overflow-y-auto" style={{ WebkitOverflowScrolling: "touch" }}>
           <p className="text-xs text-neutral-600 leading-relaxed font-medium">
-            Immediate dispatch of GPS-tracked <strong>Advanced Life Support (ALS)</strong> ambulances across Jabalpur &amp; Mahakoshal region with onboard ventilator &amp; paramedic team.
+            Immediate dispatch of GPS-tracked <strong>Well-Equipped Life Support (ALS)</strong> ambulances across Jabalpur &amp; Mahakoshal region with onboard ventilator &amp; paramedic team.
           </p>
 
           {/* Primary Landline Hotline */}

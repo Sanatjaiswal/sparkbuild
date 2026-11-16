@@ -212,7 +212,7 @@ export default function AboutPage() {
                 {[
                   "Senior Orthopedic Surgeon & Trauma Specialist on site",
                   "Sterile modular operation theatres with laminar airflow & HEPA filtration",
-                  "24x7 Emergency Casualty & Advanced Life Support (ALS) Ambulance",
+                  "24x7 Emergency Casualty & Well-Equipped Life Support (ALS) Ambulance",
                   "Full cashless insurance, corporate mediclaim, and TPA pre-authorization support",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
