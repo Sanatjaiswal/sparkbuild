@@ -12,14 +12,14 @@ export default function StatsBanner() {
     {
       icon: Award,
       iconColor: "text-sky-600",
-      title: "10+ Years Surgical Excellence",
-      desc: "Led by Dr. Abhishek Jain with over 15,000+ successful orthopedic surgeries, trauma rescues, and 5,000+ joint replacements.",
+      title: "Surgical Excellence",
+      desc: "Led by Dr. Abhishek Jain with extensive clinical expertise in successful orthopedic surgeries, emergency trauma rescues, and advanced joint replacements.",
     },
     {
       icon: Building2,
       iconColor: "text-red-600",
-      title: "Class 10,000 Modular OT",
-      desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and 99%+ patient satisfaction.",
+      title: "Advanced Modular OT",
+      desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and high patient satisfaction.",
     },
   ];
 
@@ -40,17 +40,7 @@ export default function StatsBanner() {
                     {item.title}
                   </h3>
                   <p className="text-xs text-neutral-600 leading-relaxed">
-                    {item.desc.includes("Dr. Abhishek Jain") ? (
-                      <>
-                        {item.desc.split("Dr. Abhishek Jain")[0]}
-                        <span className="text-red-600 font-black">
-                          Dr. Abhishek Jain
-                        </span>
-                        {item.desc.split("Dr. Abhishek Jain")[1]}
-                      </>
-                    ) : (
-                      item.desc
-                    )}
+                    {item.desc}
                   </p>
                 </div>
               </div>

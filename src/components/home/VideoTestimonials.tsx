@@ -25,7 +25,7 @@ export default function VideoTestimonials({ onPlayVideo }: VideoTestimonialsProp
             Live Surgical Procedures &amp; Success Stories
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
-            Inside the Class 10,000 Modular OT with{" "}
+            Inside the Advanced Modular OT with{" "}
             <span className="bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded font-black border border-sky-200 shadow-xs">
               Dr. Abhishek Jain
             </span>

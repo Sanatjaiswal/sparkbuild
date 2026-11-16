@@ -29,7 +29,7 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
       highlightNumber: "Modular OT",
       title: "Advanced Surgical & Joint Replacement Suite",
       description:
-        "Class 10,000 modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
+        "Advanced modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
       bgImage: "/images/modular-ot.jpg",
     },
   ];

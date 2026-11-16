@@ -118,7 +118,7 @@ export const siteConfig = {
     projectsCount: "15,000+",
     jointReplacements: "5,000+",
     emergencyTrauma: "24x7",
-    modularOTs: "Class 10,000",
+    modularOTs: "Advanced Modular",
     satisfactionRate: "99%+",
     yearsExperience: "10+ Years",
     infectionControl: "100%",
@@ -146,7 +146,7 @@ export const heroSlides: HeroSlide[] = [
     id: 2,
     highlightNumber: "Modular OT",
     title: "Advanced Surgical & Joint Replacement Suite",
-    description: "Class 10,000 modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
+    description: "Advanced modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
     bgImage: "/images/modular-ot.jpg",
   },
 ];
@@ -300,7 +300,7 @@ export const projectsData: ProjectItem[] = [
     type: "Healthcare",
     status: "Completed",
     specs: "Ultra-clean surgical suite with laminar airflow, HEPA filtration, precision LED surgical pendants, and live orthopedic surgeries performed by Dr. Abhishek Jain.",
-    highlights: ["Class 10,000 Cleanroom OT", "Zero-Infection Protocol", "Digital C-Arm Integration"],
+    highlights: ["Sterile Cleanroom Modular OT", "Zero-Infection Protocol", "Digital C-Arm Integration"],
     image: "/images/surgery-wide.jpg",
   },
   {
@@ -361,7 +361,7 @@ export const videoTestimonials: VideoTestimonial[] = [
     youtubeId: "/videos/mp-hospital-surgery.mp4",
     title: "Inside Modular OT: Live Surgical Procedures & Complex Trauma Care",
     clientName: "Dr. Abhishek Jain & Surgical Team",
-    location: "Class 10,000 Modular OT, Jabalpur",
+    location: "Modular OT Suite, Jabalpur",
     thumbnail: "/images/surgery-in-action.jpg",
   },
   {

@@ -19,13 +19,13 @@ export default function WhyHospital() {
       icon: Stethoscope,
       iconColor: "text-[#008EC7]",
       title: "Senior Orthopedic Specialists",
-      desc: "Experienced surgical team led by Dr. Abhishek Jain with 10+ years in joint replacement, sports injury & complex trauma.",
+      desc: "Experienced surgical team led by Dr. Abhishek Jain specializing in joint replacement, sports injury & complex trauma.",
     },
     {
       icon: Building2,
       iconColor: "text-red-600",
       title: "Modular Laminar Flow OT",
-      desc: "Class 10,000 cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
+      desc: "Advanced cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
     },
     {
       icon: ShieldCheck,
