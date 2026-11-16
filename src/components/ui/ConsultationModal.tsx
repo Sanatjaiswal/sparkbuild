@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { X, CheckCircle, Calendar, Phone, User, Mail, Building, Clock } from "lucide-react";
+import { X, CheckCircle, Phone, User, Mail } from "lucide-react";
 import { siteConfig } from "@/data/siteData";
 
 interface ConsultationModalProps {
@@ -132,11 +132,7 @@ export default function ConsultationModal({
               <h4 className="text-2xl font-bold text-gray-900">Appointment Requested!</h4>
               <p className="text-sm text-gray-600 max-w-sm mx-auto">
                 Thank you, <strong>{formData.name}</strong>. Our hospital reception desk will contact you at{" "}
-                <strong>{formData.phone}</strong> to confirm your consultation slot for{" "}
-                <span className="text-sky-800 font-black bg-sky-50 border border-sky-200 px-2 py-0.5 rounded">
-                  {formData.projectScope || "Dr. Abhishek Jain (Orthopedics)"}
-                </span>
-                .
+                <strong>{formData.phone}</strong> to confirm your appointment consultation.
               </p>
               <div className="pt-4">
                 <button
@@ -198,55 +194,6 @@ export default function ConsultationModal({
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
                   />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                    Department / Specialty
-                  </label>
-                  <div className="relative">
-                    <Building className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
-                    <select
-                      value={formData.projectScope}
-                      onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 bg-white"
-                    >
-                      <option value="Dr. Abhishek Jain (Orthopedics & Joint Replacement)">Dr. Abhishek Jain (Orthopedics &amp; Joint Replacement)</option>
-                      <option value="Dr. Akshay Juriani (Medicine & Respiratory)">Dr. Akshay Juriani (Medicine &amp; Respiratory)</option>
-                      <option value="Dr. Prashant Singh Kushwaha (Neurosurgery & Spine)">Dr. Prashant Singh Kushwaha (Neurosurgery &amp; Spine)</option>
-                      <option value="Dr. Mazid Ansari (General & Laparoscopic Surgery)">Dr. Mazid Ansari (General Surgery)</option>
-                      <option value="Dr. Deepesh Agrawal (Plastic & Reconstructive Surgery)">Dr. Deepesh Agrawal (Plastic &amp; Reconstructive)</option>
-                      <option value="Dr. Swapnil Jain (Internal Medicine)">Dr. Swapnil Jain (Medicine)</option>
-                      <option value="Dr. Sneha Methwani (Gynecology & Obstetrics)">Dr. Sneha Methwani (Gynecology &amp; Obstetrics)</option>
-                      <option value="Dr. Himanshu Jain (Anesthesia & Critical Care ICU)">Dr. Himanshu Jain (Anesthesia / ICU)</option>
-                      <option value="Dr. Nishit Kumar (Anesthesiology & Pain Management)">Dr. Nishit Kumar (Anesthesiology)</option>
-                      <option value="Dr. Abhijeet Jain (Radiology & Imaging)">Dr. Abhijeet Jain (Radiology)</option>
-                      <option value="Dr. Arjit Saraf (Pathology & Diagnostics)">Dr. Arjit Saraf (Pathology)</option>
-                      <option value="Dr. Ruby Sonker (Neuro Physiotherapy)">Dr. Ruby Sonker (Neuro Physiotherapy)</option>
-                      <option value="Dr. Ravi Rathode (Orthopedic Physiotherapy)">Dr. Ravi Rathode (Orthopedic Physiotherapy)</option>
-                      <option value="24x7 Emergency Trauma Admission">24x7 Emergency Trauma Admission</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
-                    Preferred Time Slot
-                  </label>
-                  <div className="relative">
-                    <Clock className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
-                    <select
-                      value={formData.preferredTime}
-                      onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 bg-white"
-                    >
-                      <option value="Morning">Morning OPD (10:30 AM - 1:30 PM)</option>
-                      <option value="Evening">Evening OPD (5:30 PM - 8:30 PM)</option>
-                      <option value="Emergency">Immediate 24x7 Emergency</option>
-                    </select>
-                  </div>
                 </div>
               </div>
 
