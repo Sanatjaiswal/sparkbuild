@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { MessageCircle } from "lucide-react";
+import { OfficialWhatsappIcon } from "@/components/ui/SocialIcons";
 
 interface FloatingConsultationProps {
   onOpenConsultation?: () => void;
@@ -53,12 +53,13 @@ export default function FloatingConsultation({
         rel="noopener noreferrer"
         aria-label="Chat with MP Hospital on WhatsApp"
         style={{ bottom: `${bottomOffset}px` }}
-        className="fixed right-4 sm:right-6 z-40 flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3 sm:p-3.5 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.45)] hover:shadow-[0_6px_25px_rgba(37,211,102,0.6)] hover:scale-105 active:scale-95 transition-[transform,shadow] duration-200 group cursor-pointer"
+        className="fixed right-4 sm:right-6 z-40 flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3 sm:p-3.5 rounded-full shadow-[0_6px_25px_rgba(37,211,102,0.5)] hover:shadow-[0_8px_30px_rgba(37,211,102,0.7)] hover:scale-105 active:scale-95 transition-all duration-300 group cursor-pointer"
       >
         {/* Subtle Pulse ring */}
-        <span className="absolute -inset-1 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none" />
+        <span className="absolute -inset-1 rounded-full bg-[#25D366] opacity-35 animate-ping pointer-events-none" />
 
-        <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 fill-white text-[#25D366] shrink-0" />
+        {/* Authentic Official WhatsApp Icon with Handset */}
+        <OfficialWhatsappIcon className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 drop-shadow-md group-hover:rotate-6 transition-transform duration-300" />
 
         {/* Desktop Expandable Label */}
         <span className="hidden sm:inline-block max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out font-bold text-xs pl-0 group-hover:pl-1">

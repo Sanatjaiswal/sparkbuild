@@ -60,3 +60,24 @@ export function WhatsappIcon({ className = "w-4 h-4" }: { className?: string }) 
   );
 }
 
+/**
+ * Official Full-Color WhatsApp Badge Icon:
+ * Crisp white speech bubble with the signature green telephone handset.
+ */
+export function OfficialWhatsappIcon({ className = "w-7 h-7" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      {/* Solid White Speech Bubble */}
+      <path
+        d="M24 4C12.954 4 4 12.954 4 24c0 3.843 1.084 7.433 2.96 10.493L4 44l9.743-2.92A19.914 19.914 0 0024 44c11.046 0 20-8.954 20-20S35.046 4 24 4z"
+        fill="#FFFFFF"
+      />
+      {/* Official WhatsApp Green Handset */}
+      <path
+        d="M33.2 28.3c-.5-.25-2.9-1.45-3.35-1.6s-.8-.25-1.1.25c-.35.5-1.3 1.6-1.6 1.95-.3.35-.6.4-1.1.15-.5-.25-2.1-.8-4-2.5-1.5-1.3-2.5-2.95-2.8-3.45-.3-.5 0-.75.25-1 .2-.2.5-.6.75-.9.25-.3.35-.5.5-.85.15-.35.1-.65-.05-.9-.15-.25-1.1-2.7-1.55-3.7-.4-1-.8-.85-1.1-.85h-.95c-.35 0-.9.15-1.35.65s-1.75 1.7-1.75 4.15 1.8 4.8 2.05 5.15c.25.35 3.5 5.35 8.5 7.5 1.2.5 2.1.8 2.85 1.05 1.2.4 2.3.35 3.15.2.95-.15 2.95-1.2 3.35-2.4.4-1.15.4-2.15.3-2.35-.1-.2-.45-.35-.95-.6z"
+        fill="#25D366"
+      />
+    </svg>
+  );
+}
+
