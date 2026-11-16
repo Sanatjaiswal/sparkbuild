@@ -5,35 +5,45 @@ import Image from "next/image";
 import { Ambulance, Stethoscope, Building2, ShieldCheck } from "lucide-react";
 import { useCMS } from "@/context/CMSContext";
 
+const ICON_MAP: Record<string, any> = {
+  Ambulance,
+  Stethoscope,
+  Building2,
+  ShieldCheck,
+};
+
 export default function WhyHospital() {
   const { data } = useCMS();
 
-  const points = [
-    {
-      icon: Ambulance,
-      iconColor: "text-red-600",
-      title: "24x7 Trauma Emergency",
-      desc: "Immediate casualty reception, trauma surgeons, and round-the-clock ALS ambulance availability in Jabalpur.",
-    },
-    {
-      icon: Stethoscope,
-      iconColor: "text-[#008EC7]",
-      title: "Senior Orthopedic Specialists",
-      desc: "Experienced surgical team led by Dr. Abhishek Jain specializing in joint replacement, sports injury & complex trauma.",
-    },
-    {
-      icon: Building2,
-      iconColor: "text-red-600",
-      title: "Modular Laminar Flow OT",
-      desc: "Advanced cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
-    },
-    {
-      icon: ShieldCheck,
-      iconColor: "text-[#008EC7]",
-      title: "Cashless Mediclaim & TPA",
-      desc: "Hassle-free insurance pre-authorization desk supporting major mediclaim policies and corporate TPA coverage.",
-    },
-  ];
+  const points =
+    data?.siteConfig?.whyHospitalPoints && data.siteConfig.whyHospitalPoints.length > 0
+      ? data.siteConfig.whyHospitalPoints
+      : [
+          {
+            iconName: "Ambulance",
+            iconColor: "text-red-600",
+            title: "24x7 Trauma Emergency",
+            desc: "Immediate casualty reception, trauma surgeons, and round-the-clock ALS ambulance availability in Jabalpur.",
+          },
+          {
+            iconName: "Stethoscope",
+            iconColor: "text-[#008EC7]",
+            title: "Senior Orthopedic Specialists",
+            desc: "Experienced surgical team led by Dr. Abhishek Jain specializing in joint replacement, sports injury & complex trauma.",
+          },
+          {
+            iconName: "Building2",
+            iconColor: "text-red-600",
+            title: "Modular Laminar Flow OT",
+            desc: "Advanced cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
+          },
+          {
+            iconName: "ShieldCheck",
+            iconColor: "text-[#008EC7]",
+            title: "Cashless Mediclaim & TPA",
+            desc: "Hassle-free insurance pre-authorization desk supporting major mediclaim policies and corporate TPA coverage.",
+          },
+        ];
 
   return (
     <section className="py-24 bg-white text-neutral-900 border-t border-neutral-200 relative overflow-hidden select-none">
@@ -96,13 +106,13 @@ export default function WhyHospital() {
             {/* 4 Feature Items */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {points.map((pt, idx) => {
-                const Icon = pt.icon;
+                const Icon = ICON_MAP[(pt as any).iconName] || (pt as any).icon || ShieldCheck;
                 return (
                   <div
                     key={idx}
                     className="p-5 rounded-2xl bg-neutral-50/90 border border-neutral-200 space-y-3 hover:border-[#008EC7] hover:shadow-lg hover:shadow-[#008EC7]/10 transition-all group"
                   >
-                    <Icon className={`w-8 h-8 ${pt.iconColor} stroke-[2.2] group-hover:scale-110 transition-transform`} />
+                    <Icon className={`w-8 h-8 ${pt.iconColor || "text-[#008EC7]"} stroke-[2.2] group-hover:scale-110 transition-transform`} />
                     <h3 className="text-lg font-black text-neutral-900">{pt.title}</h3>
                     <p className="text-xs text-gray-600 leading-relaxed font-normal">
                       {pt.desc}

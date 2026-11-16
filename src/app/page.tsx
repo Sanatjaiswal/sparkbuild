@@ -21,8 +21,11 @@ import ConsultationModal from "@/components/ui/ConsultationModal";
 import FloatingConsultation from "@/components/ui/FloatingConsultation";
 import VideoModal from "@/components/ui/VideoModal";
 import LightboxModal from "@/components/ui/LightboxModal";
+import { useCMS } from "@/context/CMSContext";
 
 export default function HomePage() {
+  const { data } = useCMS();
+  const showMarquee = data?.siteConfig?.showMarquee ?? false;
   const [consultationOpen, setConsultationOpen] = useState(false);
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   const [lightboxData, setLightboxData] = useState<{ src: string; title: string } | null>(null);
@@ -41,8 +44,8 @@ export default function HomePage() {
       {/* Trust & Stats Bar */}
       <StatsBanner />
 
-      {/* Continuous Marquee Banner */}
-      <MarqueeTicker />
+      {/* Continuous Marquee Banner (Customizable via Admin, disabled by default as requested) */}
+      {showMarquee && <MarqueeTicker />}
 
       {/* About Section */}
       <AboutSection />

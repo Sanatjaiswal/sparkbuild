@@ -35,6 +35,12 @@ import {
   ArrowDown,
   X,
   Megaphone,
+  HeartPulse,
+  Award,
+  ShieldCheck,
+  Stethoscope,
+  Ambulance,
+  Building2,
 } from "lucide-react";
 import {
   HeroSlide,
@@ -124,6 +130,27 @@ export default function WordPressAdmin() {
     title: "",
     description: "",
     bgImage: "/images/mp-hospital-building.jpg",
+  });
+
+  // Pages & Points Subtab State
+  const [pagesSubTab, setPagesSubTab] = useState<"hero" | "stats" | "why" | "ticker">("hero");
+
+  // New Stat Pillar State
+  const [isAddingStatPoint, setIsAddingStatPoint] = useState(false);
+  const [newStatPoint, setNewStatPoint] = useState({
+    title: "",
+    desc: "",
+    iconName: "HeartPulse",
+    iconColor: "text-red-600",
+  });
+
+  // New Why Point State
+  const [isAddingWhyPoint, setIsAddingWhyPoint] = useState(false);
+  const [newWhyPoint, setNewWhyPoint] = useState({
+    title: "",
+    desc: "",
+    iconName: "Ambulance",
+    iconColor: "text-red-600",
   });
 
   // New Project Modal State
@@ -305,6 +332,842 @@ export default function WordPressAdmin() {
     );
   }
 
+  const defaultStatsBanner = [
+    {
+      title: "24x7 Trauma & Emergency",
+      desc: "Immediate casualty reception, dedicated Trauma ICU, emergency triage, and round-the-clock ALS ambulance in Jabalpur.",
+      iconName: "HeartPulse",
+      iconColor: "text-red-600",
+    },
+    {
+      title: "Surgical Excellence",
+      desc: "Led by Dr. Abhishek Jain with extensive clinical expertise in successful orthopedic surgeries, emergency trauma rescues, and advanced joint replacements.",
+      iconName: "Award",
+      iconColor: "text-sky-600",
+    },
+    {
+      title: "Advanced Modular OT",
+      desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and high patient satisfaction.",
+      iconName: "Building2",
+      iconColor: "text-red-600",
+    },
+  ];
+
+  const currentStatsBanner = data.siteConfig?.statsBanner && data.siteConfig.statsBanner.length > 0
+    ? data.siteConfig.statsBanner
+    : defaultStatsBanner;
+
+  const defaultWhyHospitalPoints = [
+    {
+      title: "24x7 Trauma Emergency",
+      desc: "Immediate casualty reception, trauma surgeons, and round-the-clock ALS ambulance availability in Jabalpur.",
+      iconName: "Ambulance",
+      iconColor: "text-red-600",
+    },
+    {
+      title: "Senior Orthopedic Specialists",
+      desc: "Experienced surgical team led by Dr. Abhishek Jain specializing in joint replacement, sports injury & complex trauma.",
+      iconName: "Stethoscope",
+      iconColor: "text-[#008EC7]",
+    },
+    {
+      title: "Modular Laminar Flow OT",
+      desc: "Advanced cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
+      iconName: "Building2",
+      iconColor: "text-red-600",
+    },
+    {
+      title: "Cashless Mediclaim & TPA",
+      desc: "Hassle-free insurance pre-authorization desk supporting major mediclaim policies and corporate TPA coverage.",
+      iconName: "ShieldCheck",
+      iconColor: "text-[#008EC7]",
+    },
+  ];
+
+  const currentWhyHospitalPoints = data.siteConfig?.whyHospitalPoints && data.siteConfig.whyHospitalPoints.length > 0
+    ? data.siteConfig.whyHospitalPoints
+    : defaultWhyHospitalPoints;
+
+  const renderStatsSection = () => {
+    const handleUpdateStat = (idx: number, patch: Partial<{ title: string; desc: string; iconName: string; iconColor: string }>) => {
+      const updated = [...currentStatsBanner];
+      updated[idx] = { ...updated[idx], ...patch };
+      updateSiteConfig("statsBanner", updated);
+    };
+
+    const handleDeleteStat = (idx: number) => {
+      if (currentStatsBanner.length <= 1) {
+        alert("At least one credibility pillar is required.");
+        return;
+      }
+      const updated = currentStatsBanner.filter((_, i) => i !== idx);
+      updateSiteConfig("statsBanner", updated);
+      showToast("Point deleted!");
+    };
+
+    const handleAddStat = () => {
+      if (!newStatPoint.title.trim()) {
+        alert("Please enter a point title.");
+        return;
+      }
+      const updated = [...currentStatsBanner, { ...newStatPoint }];
+      updateSiteConfig("statsBanner", updated);
+      setNewStatPoint({ title: "", desc: "", iconName: "HeartPulse", iconColor: "text-red-600" });
+      setIsAddingStatPoint(false);
+      showToast("New credibility point added!");
+    };
+
+    return (
+      <div className="space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold text-[#1d2327]">Stats Credibility Pillars (3 Key Points)</h1>
+            <p className="text-xs text-gray-500">
+              Customize the 3 credibility highlights displayed right under the hero slider on the homepage.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() => setIsAddingStatPoint(true)}
+              className="px-3.5 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded flex items-center gap-1.5 shadow transition-colors cursor-pointer"
+            >
+              <Plus className="w-4 h-4" />
+              <span>Add New Point</span>
+            </button>
+            <Link
+              href="/"
+              target="_blank"
+              className="px-3.5 py-2 bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 text-xs font-bold rounded flex items-center gap-1.5 transition-colors"
+            >
+              <ExternalLink className="w-3.5 h-3.5 text-[#2271b1]" />
+              <span>View On Homepage</span>
+            </Link>
+            <button
+              onClick={() => {
+                saveData(data);
+                showToast("Stats Credibility Pillars saved successfully!");
+              }}
+              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded flex items-center gap-1.5 shadow transition-colors cursor-pointer"
+            >
+              <Save className="w-3.5 h-3.5" />
+              <span>Save All Changes</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Add Modal / Form */}
+        {isAddingStatPoint && (
+          <div className="bg-white p-6 rounded-lg border-2 border-[#2271b1] shadow-lg space-y-4 animate-in fade-in">
+            <div className="flex items-center justify-between border-b pb-3">
+              <h3 className="font-bold text-base text-[#1d2327] flex items-center gap-2">
+                <Plus className="w-4 h-4 text-[#2271b1]" />
+                <span>Add New Credibility Point</span>
+              </h3>
+              <button
+                onClick={() => setIsAddingStatPoint(false)}
+                className="p-1 hover:bg-gray-100 rounded text-gray-400 hover:text-black cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Point Title</label>
+                <input
+                  type="text"
+                  placeholder="e.g. 24x7 Trauma & Emergency"
+                  value={newStatPoint.title}
+                  onChange={(e) => setNewStatPoint({ ...newStatPoint, title: e.target.value })}
+                  className="w-full p-2.5 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Icon</label>
+                  <select
+                    value={newStatPoint.iconName}
+                    onChange={(e) => setNewStatPoint({ ...newStatPoint, iconName: e.target.value })}
+                    className="w-full p-2.5 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1] bg-white"
+                  >
+                    <option value="HeartPulse">Heart Pulse</option>
+                    <option value="Award">Award / Trophy</option>
+                    <option value="Building2">Hospital / Building</option>
+                    <option value="Ambulance">Ambulance</option>
+                    <option value="Stethoscope">Stethoscope</option>
+                    <option value="ShieldCheck">Shield Check</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Icon Color</label>
+                  <select
+                    value={newStatPoint.iconColor}
+                    onChange={(e) => setNewStatPoint({ ...newStatPoint, iconColor: e.target.value })}
+                    className="w-full p-2.5 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1] bg-white"
+                  >
+                    <option value="text-red-600">Red Accent</option>
+                    <option value="text-sky-600">Sky Blue Accent</option>
+                    <option value="text-emerald-600">Emerald Accent</option>
+                  </select>
+                </div>
+              </div>
+              <div className="md:col-span-2">
+                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Description / Matter</label>
+                <textarea
+                  rows={2}
+                  placeholder="Enter detailed description matter for this point..."
+                  value={newStatPoint.desc}
+                  onChange={(e) => setNewStatPoint({ ...newStatPoint, desc: e.target.value })}
+                  className="w-full p-2.5 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                />
+              </div>
+            </div>
+            <div className="flex justify-end gap-2 pt-2">
+              <button
+                type="button"
+                onClick={() => setIsAddingStatPoint(false)}
+                className="px-4 py-2 border border-gray-300 text-gray-700 text-xs font-bold rounded hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleAddStat}
+                className="px-4 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded shadow"
+              >
+                Add Point
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Existing Points Cards */}
+        <div className="space-y-4">
+          {currentStatsBanner.map((item, idx) => {
+            const Icon = {
+              HeartPulse,
+              Award,
+              Building2,
+              Ambulance,
+              Stethoscope,
+              ShieldCheck,
+            }[item.iconName] || HeartPulse;
+
+            return (
+              <div key={idx} className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm space-y-4">
+                <div className="flex items-center justify-between border-b border-[#f0f0f1] pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-gray-100 rounded-lg">
+                      <Icon className={`w-5 h-5 ${item.iconColor || "text-red-600"}`} />
+                    </div>
+                    <div>
+                      <span className="text-xs font-extrabold uppercase tracking-wider text-gray-400">
+                        Credibility Point #{idx + 1}
+                      </span>
+                      <h3 className="font-bold text-sm text-[#1d2327]">{item.title || "Untitled Point"}</h3>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteStat(idx)}
+                      className="px-2.5 py-1.5 text-red-600 hover:bg-red-50 border border-red-200 rounded text-xs font-bold flex items-center gap-1 cursor-pointer"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                      <span>Delete</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                  <div className="md:col-span-6">
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Point Headline</label>
+                    <input
+                      type="text"
+                      value={item.title}
+                      onChange={(e) => handleUpdateStat(idx, { title: e.target.value })}
+                      className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                    />
+                  </div>
+                  <div className="md:col-span-3">
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Icon</label>
+                    <select
+                      value={item.iconName || "HeartPulse"}
+                      onChange={(e) => handleUpdateStat(idx, { iconName: e.target.value })}
+                      className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1] bg-white"
+                    >
+                      <option value="HeartPulse">Heart Pulse</option>
+                      <option value="Award">Award / Trophy</option>
+                      <option value="Building2">Hospital / Building</option>
+                      <option value="Ambulance">Ambulance</option>
+                      <option value="Stethoscope">Stethoscope</option>
+                      <option value="ShieldCheck">Shield Check</option>
+                    </select>
+                  </div>
+                  <div className="md:col-span-3">
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Color Theme</label>
+                    <select
+                      value={item.iconColor || "text-red-600"}
+                      onChange={(e) => handleUpdateStat(idx, { iconColor: e.target.value })}
+                      className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1] bg-white"
+                    >
+                      <option value="text-red-600">Red Accent</option>
+                      <option value="text-sky-600">Sky Blue Accent</option>
+                      <option value="text-emerald-600">Emerald Green Accent</option>
+                    </select>
+                  </div>
+                  <div className="md:col-span-12">
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Description / Subtitle Matter</label>
+                    <textarea
+                      rows={2}
+                      value={item.desc}
+                      onChange={(e) => handleUpdateStat(idx, { desc: e.target.value })}
+                      className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-2">
+                  <span className="text-[11px] text-gray-500">Live preview reflects immediately on the homepage.</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      saveData(data);
+                      showToast(`Point #${idx + 1} saved successfully!`);
+                    }}
+                    className="px-3.5 py-1.5 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded flex items-center gap-1.5 shadow-sm cursor-pointer"
+                  >
+                    <Save className="w-3.5 h-3.5" />
+                    <span>Save Point #{idx + 1}</span>
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
+  const renderWhyHospitalSection = () => {
+    const handleUpdateWhy = (idx: number, patch: Partial<{ title: string; desc: string; iconName: string; iconColor: string }>) => {
+      const updated = [...currentWhyHospitalPoints];
+      updated[idx] = { ...updated[idx], ...patch };
+      updateSiteConfig("whyHospitalPoints", updated);
+    };
+
+    const handleDeleteWhy = (idx: number) => {
+      if (currentWhyHospitalPoints.length <= 1) {
+        alert("At least one advantage point is required.");
+        return;
+      }
+      const updated = currentWhyHospitalPoints.filter((_, i) => i !== idx);
+      updateSiteConfig("whyHospitalPoints", updated);
+      showToast("Advantage point removed!");
+    };
+
+    const handleAddWhy = () => {
+      if (!newWhyPoint.title.trim()) {
+        alert("Please enter a title for the point.");
+        return;
+      }
+      const updated = [...currentWhyHospitalPoints, { ...newWhyPoint }];
+      updateSiteConfig("whyHospitalPoints", updated);
+      setNewWhyPoint({ title: "", desc: "", iconName: "Ambulance", iconColor: "text-red-600" });
+      setIsAddingWhyPoint(false);
+      showToast("New advantage point added!");
+    };
+
+    return (
+      <div className="space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold text-[#1d2327]">Why Choose MP Hospital (4 Advantage Points)</h1>
+            <p className="text-xs text-gray-500">
+              Customize the core advantage points featured in the 'Why Choose MP Hospital & Trauma Centre' section on the homepage.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() => setIsAddingWhyPoint(true)}
+              className="px-3.5 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded flex items-center gap-1.5 shadow transition-colors cursor-pointer"
+            >
+              <Plus className="w-4 h-4" />
+              <span>Add New Advantage Point</span>
+            </button>
+            <Link
+              href="/"
+              target="_blank"
+              className="px-3.5 py-2 bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 text-xs font-bold rounded flex items-center gap-1.5 transition-colors"
+            >
+              <ExternalLink className="w-3.5 h-3.5 text-[#2271b1]" />
+              <span>View On Homepage</span>
+            </Link>
+            <button
+              onClick={() => {
+                saveData(data);
+                showToast("Why MP Hospital points saved successfully!");
+              }}
+              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded flex items-center gap-1.5 shadow transition-colors cursor-pointer"
+            >
+              <Save className="w-3.5 h-3.5" />
+              <span>Save All Changes</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Add Modal / Form */}
+        {isAddingWhyPoint && (
+          <div className="bg-white p-6 rounded-lg border-2 border-[#2271b1] shadow-lg space-y-4 animate-in fade-in">
+            <div className="flex items-center justify-between border-b pb-3">
+              <h3 className="font-bold text-base text-[#1d2327] flex items-center gap-2">
+                <Plus className="w-4 h-4 text-[#2271b1]" />
+                <span>Add New Advantage Point</span>
+              </h3>
+              <button
+                onClick={() => setIsAddingWhyPoint(false)}
+                className="p-1 hover:bg-gray-100 rounded text-gray-400 hover:text-black cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Point Title</label>
+                <input
+                  type="text"
+                  placeholder="e.g. 24x7 Dedicated Trauma & Casualty"
+                  value={newWhyPoint.title}
+                  onChange={(e) => setNewWhyPoint({ ...newWhyPoint, title: e.target.value })}
+                  className="w-full p-2.5 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Icon</label>
+                  <select
+                    value={newWhyPoint.iconName}
+                    onChange={(e) => setNewWhyPoint({ ...newWhyPoint, iconName: e.target.value })}
+                    className="w-full p-2.5 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1] bg-white"
+                  >
+                    <option value="Ambulance">Ambulance</option>
+                    <option value="Stethoscope">Stethoscope</option>
+                    <option value="Building2">Modular OT / Building</option>
+                    <option value="ShieldCheck">Shield Check / Mediclaim</option>
+                    <option value="HeartPulse">Heart Pulse</option>
+                    <option value="Award">Award</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Color Theme</label>
+                  <select
+                    value={newWhyPoint.iconColor}
+                    onChange={(e) => setNewWhyPoint({ ...newWhyPoint, iconColor: e.target.value })}
+                    className="w-full p-2.5 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1] bg-white"
+                  >
+                    <option value="text-red-600">Red Accent</option>
+                    <option value="text-[#008EC7]">Hospital Blue Accent</option>
+                    <option value="text-emerald-600">Emerald Green Accent</option>
+                  </select>
+                </div>
+              </div>
+              <div className="md:col-span-2">
+                <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Description / Subtitle Matter</label>
+                <textarea
+                  rows={2}
+                  placeholder="Enter detailed description matter for this point..."
+                  value={newWhyPoint.desc}
+                  onChange={(e) => setNewWhyPoint({ ...newWhyPoint, desc: e.target.value })}
+                  className="w-full p-2.5 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                />
+              </div>
+            </div>
+            <div className="flex justify-end gap-2 pt-2">
+              <button
+                type="button"
+                onClick={() => setIsAddingWhyPoint(false)}
+                className="px-4 py-2 border border-gray-300 text-gray-700 text-xs font-bold rounded hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleAddWhy}
+                className="px-4 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded shadow"
+              >
+                Add Advantage Point
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Existing Advantage Cards */}
+        <div className="space-y-4">
+          {currentWhyHospitalPoints.map((item, idx) => {
+            const Icon = {
+              Ambulance,
+              Stethoscope,
+              Building2,
+              ShieldCheck,
+              HeartPulse,
+              Award,
+            }[item.iconName] || Ambulance;
+
+            return (
+              <div key={idx} className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm space-y-4">
+                <div className="flex items-center justify-between border-b border-[#f0f0f1] pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-gray-100 rounded-lg">
+                      <Icon className={`w-5 h-5 ${item.iconColor || "text-red-600"}`} />
+                    </div>
+                    <div>
+                      <span className="text-xs font-extrabold uppercase tracking-wider text-gray-400">
+                        Advantage Point #{idx + 1}
+                      </span>
+                      <h3 className="font-bold text-sm text-[#1d2327]">{item.title || "Untitled Point"}</h3>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteWhy(idx)}
+                      className="px-2.5 py-1.5 text-red-600 hover:bg-red-50 border border-red-200 rounded text-xs font-bold flex items-center gap-1 cursor-pointer"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                      <span>Delete</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                  <div className="md:col-span-6">
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Point Headline</label>
+                    <input
+                      type="text"
+                      value={item.title}
+                      onChange={(e) => handleUpdateWhy(idx, { title: e.target.value })}
+                      className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                    />
+                  </div>
+                  <div className="md:col-span-3">
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Icon</label>
+                    <select
+                      value={item.iconName || "Ambulance"}
+                      onChange={(e) => handleUpdateWhy(idx, { iconName: e.target.value })}
+                      className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1] bg-white"
+                    >
+                      <option value="Ambulance">Ambulance</option>
+                      <option value="Stethoscope">Stethoscope</option>
+                      <option value="Building2">Modular OT / Building</option>
+                      <option value="ShieldCheck">Shield Check / Mediclaim</option>
+                      <option value="HeartPulse">Heart Pulse</option>
+                      <option value="Award">Award</option>
+                    </select>
+                  </div>
+                  <div className="md:col-span-3">
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Color Theme</label>
+                    <select
+                      value={item.iconColor || "text-red-600"}
+                      onChange={(e) => handleUpdateWhy(idx, { iconColor: e.target.value })}
+                      className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1] bg-white"
+                    >
+                      <option value="text-red-600">Red Accent</option>
+                      <option value="text-[#008EC7]">Hospital Blue Accent</option>
+                      <option value="text-emerald-600">Emerald Green Accent</option>
+                    </select>
+                  </div>
+                  <div className="md:col-span-12">
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">Description / Subtitle Matter</label>
+                    <textarea
+                      rows={2}
+                      value={item.desc}
+                      onChange={(e) => handleUpdateWhy(idx, { desc: e.target.value })}
+                      className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-2">
+                  <span className="text-[11px] text-gray-500">Changes reflect instantly on homepage Why Choose section.</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      saveData(data);
+                      showToast(`Advantage Point #${idx + 1} saved successfully!`);
+                    }}
+                    className="px-3.5 py-1.5 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded flex items-center gap-1.5 shadow-sm cursor-pointer"
+                  >
+                    <Save className="w-3.5 h-3.5" />
+                    <span>Save Point #{idx + 1}</span>
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
+  const renderMarqueeSection = () => (
+    <div className="space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-[#1d2327]">Red Sliding Marquee (Announcement Ticker)</h1>
+          <p className="text-xs text-gray-500">
+            Control visibility and edit announcements on the red continuous sliding strip under the hero banner.
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <Link
+            href="/"
+            target="_blank"
+            className="px-3.5 py-2 bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 text-xs font-bold rounded flex items-center gap-1.5 transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5 text-[#2271b1]" />
+            <span>View Live Site</span>
+          </Link>
+          <button
+            onClick={() => {
+              saveData(data);
+              showToast("Red Marquee Slider saved successfully!");
+            }}
+            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded flex items-center gap-1.5 shadow transition-colors cursor-pointer"
+          >
+            <Save className="w-3.5 h-3.5" />
+            <span>Save All Changes</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Prominent ON / OFF Switch */}
+      <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2">
+            <span
+              className={`w-3.5 h-3.5 rounded-full ${
+                data.siteConfig?.showMarquee ? "bg-emerald-500 animate-pulse" : "bg-red-500"
+              }`}
+            />
+            <h3 className="font-bold text-sm text-[#1d2327]">
+              Live Homepage Status:{" "}
+              <span className={data.siteConfig?.showMarquee ? "text-emerald-700 font-extrabold" : "text-red-700 font-extrabold"}>
+                {data.siteConfig?.showMarquee ? "ACTIVE (Visible on Homepage)" : "DISABLED (Hidden from Homepage)"}
+              </span>
+            </h3>
+          </div>
+          <p className="text-xs text-gray-600">
+            {data.siteConfig?.showMarquee
+              ? "The continuous red scrolling strip is currently visible on the homepage directly under the hero banner."
+              : "The red scrolling strip is currently completely hidden from the live homepage. Click 'Turn ON' whenever you want to show it."}
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            const nextState = !data.siteConfig?.showMarquee;
+            updateSiteConfig("showMarquee", nextState);
+            showToast(nextState ? "Red Marquee banner is now ACTIVE on Homepage!" : "Red Marquee banner is now HIDDEN from Homepage!");
+          }}
+          className={`px-5 py-2.5 rounded font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow transition-all cursor-pointer whitespace-nowrap ${
+            data.siteConfig?.showMarquee
+              ? "bg-red-600 hover:bg-red-700 text-white"
+              : "bg-emerald-600 hover:bg-emerald-700 text-white"
+          }`}
+        >
+          {data.siteConfig?.showMarquee ? "Turn OFF (Hide from Homepage)" : "Turn ON (Show on Homepage)"}
+        </button>
+      </div>
+
+      {/* Live Animated Preview */}
+      <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-red-600 animate-pulse" />
+            <h3 className="font-bold text-xs uppercase tracking-wider text-gray-700">
+              Live Red Marquee Preview
+            </h3>
+          </div>
+          <span className="text-[11px] text-gray-500">
+            {(data.marqueeItems || defaultMarqueeItems).length} announcement items sliding in loop
+          </span>
+        </div>
+
+        {/* Animated Red Marquee Strip Preview */}
+        <div className="bg-red-600 py-3 rounded-lg overflow-hidden border-y border-red-700 select-none shadow-inner text-white">
+          <div className="flex animate-marquee whitespace-nowrap">
+            {[
+              ...(data.marqueeItems || defaultMarqueeItems),
+              ...(data.marqueeItems || defaultMarqueeItems),
+            ].map((text, idx) => (
+              <div key={idx} className="flex items-center mx-6">
+                {text.includes("Dr. Abhishek Jain") ? (
+                  <span className="bg-white text-red-700 px-3 py-0.5 rounded-full font-black text-xs uppercase shadow-sm">
+                    ⭐ {text}
+                  </span>
+                ) : (
+                  <span className="text-white font-semibold text-xs uppercase tracking-wider">
+                    {text}
+                  </span>
+                )}
+                <span className="ml-6 w-2 h-2 rounded-full bg-sky-200 inline-block" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Add New Announcement Item Form */}
+      <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm space-y-4">
+        <h3 className="font-bold text-sm text-[#1d2327] flex items-center gap-2">
+          <Plus className="w-4 h-4 text-[#2271b1]" />
+          <span>Add New Sliding Announcement</span>
+        </h3>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <input
+            type="text"
+            placeholder="e.g. 24x7 Emergency Casualty: 0761-2626123"
+            value={newMarqueeText}
+            onChange={(e) => setNewMarqueeText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && newMarqueeText.trim()) {
+                addMarqueeItem(newMarqueeText.trim());
+                setNewMarqueeText("");
+                showToast("Added new announcement!");
+              }
+            }}
+            className="flex-1 px-3.5 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-[#2271b1]"
+          />
+          <button
+            onClick={() => {
+              if (!newMarqueeText.trim()) {
+                alert("Please enter announcement text.");
+                return;
+              }
+              addMarqueeItem(newMarqueeText.trim());
+              setNewMarqueeText("");
+              showToast("Added to Red Slider!");
+            }}
+            className="px-5 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white rounded text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow whitespace-nowrap"
+          >
+            <Plus className="w-4 h-4" />
+            <span>Add to Slide</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Items List */}
+      <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm overflow-hidden">
+        <div className="p-4 bg-gray-50 border-b border-[#c3c4c7] flex items-center justify-between">
+          <span className="font-bold text-xs uppercase tracking-wider text-gray-700">
+            Active Sliding Items ({(data.marqueeItems || defaultMarqueeItems).length})
+          </span>
+          <span className="text-xs text-gray-500">
+            Reorder with arrows to change scroll sequence
+          </span>
+        </div>
+
+        <div className="divide-y divide-gray-200">
+          {(data.marqueeItems || defaultMarqueeItems).map((text, idx) => {
+            const isEditing = editingMarqueeIndex === idx;
+
+            if (isEditing) {
+              return (
+                <div key={idx} className="p-4 bg-sky-50/60 flex flex-col sm:flex-row items-center gap-3">
+                  <input
+                    type="text"
+                    value={editingMarqueeText}
+                    onChange={(e) => setEditingMarqueeText(e.target.value)}
+                    className="flex-1 px-3 py-1.5 border border-sky-400 rounded text-sm bg-white focus:outline-none"
+                  />
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setEditingMarqueeIndex(null)}
+                      className="px-3 py-1.5 border border-gray-300 text-gray-700 hover:bg-gray-100 rounded text-xs font-bold cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={() => {
+                        updateMarqueeItem(idx, editingMarqueeText);
+                        setEditingMarqueeIndex(null);
+                        showToast(`Item #${idx + 1} updated!`);
+                      }}
+                      className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold shadow cursor-pointer"
+                    >
+                      Save
+                    </button>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <div
+                key={idx}
+                className="p-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
+              >
+                <div className="flex items-center gap-3 flex-1 min-w-0">
+                  <span className="w-6 h-6 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-black shrink-0">
+                    {idx + 1}
+                  </span>
+                  <span className="text-sm font-semibold text-gray-800 truncate">
+                    {text}
+                  </span>
+                  {text.includes("Dr. Abhishek Jain") && (
+                    <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold shrink-0">
+                      ⭐ Highlighted
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <button
+                    disabled={idx === 0}
+                    onClick={() => moveMarqueeItem(idx, idx - 1)}
+                    className="p-1.5 text-gray-400 hover:text-black hover:bg-gray-100 rounded disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+                    title="Move Earlier in Slide"
+                  >
+                    <ArrowUp className="w-4 h-4" />
+                  </button>
+                  <button
+                    disabled={idx === (data.marqueeItems || defaultMarqueeItems).length - 1}
+                    onClick={() => moveMarqueeItem(idx, idx + 1)}
+                    className="p-1.5 text-gray-400 hover:text-black hover:bg-gray-100 rounded disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+                    title="Move Later in Slide"
+                  >
+                    <ArrowDown className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => {
+                      setEditingMarqueeIndex(idx);
+                      setEditingMarqueeText(text);
+                    }}
+                    className="px-2.5 py-1 text-xs font-semibold text-[#2271b1] hover:bg-sky-50 rounded flex items-center gap-1 cursor-pointer"
+                  >
+                    <Edit className="w-3.5 h-3.5" />
+                    <span>Edit</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      if (confirm(`Remove "${text}" from sliding strip?`)) {
+                        deleteMarqueeItem(idx);
+                        showToast("Removed from sliding strip.");
+                      }
+                    }}
+                    className="p-1.5 text-red-500 hover:bg-red-50 rounded cursor-pointer"
+                    title="Delete Item"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-[#f0f0f1] text-[#2c3338] flex flex-col font-sans select-none">
       {/* WordPress Top Admin Bar */}
@@ -375,7 +1238,7 @@ export default function WordPressAdmin() {
           <nav className="py-2 flex-1 text-xs space-y-0.5">
             {[
               { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-              { id: "pages", label: "Hero Carousel", icon: FileText },
+              { id: "pages", label: "Homepage & Points", icon: FileText },
               { id: "ticker", label: "Red Marquee Slide", icon: Megaphone },
               { id: "media", label: "Media Library", icon: ImageIcon },
               { id: "projects", label: "Hospital Facilities", icon: Building },
@@ -456,56 +1319,91 @@ export default function WordPressAdmin() {
                 </div>
               </div>
 
-              {/* WordPress Welcome Box */}
+              {/* MP Hospital Welcome Box */}
               <div className="bg-white p-6 rounded-lg border border-[#c3c4c7] shadow-sm space-y-4">
-                <h2 className="text-xl font-bold text-[#1d2327]">
-                  Welcome to MP Hospital Content Management!
-                </h2>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  We’ve assembled shortcuts to help you change hero slides, edit project images, update text descriptions, and publish blog articles in real-time.
-                </p>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <h2 className="text-xl font-bold text-[#1d2327]">
+                      Welcome to MP Hospital Content Management!
+                    </h2>
+                    <p className="text-sm text-gray-600 leading-relaxed mt-1">
+                      Quick shortcuts to manage homepage highlights, credibility points, doctor profiles, medical facilities, FAQs, and emergency announcement strips.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`px-3 py-1 rounded text-xs font-bold ${
+                        data.siteConfig?.showMarquee
+                          ? "bg-emerald-100 text-emerald-800"
+                          : "bg-gray-100 text-gray-700"
+                      }`}
+                    >
+                      Red Marquee: {data.siteConfig?.showMarquee ? "Active (ON)" : "Hidden (OFF)"}
+                    </span>
+                  </div>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-[#f0f0f1]">
                   <div>
-                    <h3 className="font-bold text-sm text-[#1d2327] mb-2">Get Started</h3>
+                    <h3 className="font-bold text-sm text-[#1d2327] mb-2">Homepage &amp; Points</h3>
                     <button
                       onClick={() => setActiveMenu("pages")}
-                      className="px-4 py-2 rounded bg-[#2271b1] text-white font-bold text-xs uppercase"
+                      className="px-4 py-2 rounded bg-[#2271b1] hover:bg-[#135e96] text-white font-bold text-xs uppercase tracking-wide shadow transition-colors cursor-pointer"
                     >
-                      Customize Homepage
+                      Customize Homepage &amp; Points
                     </button>
+                    <p className="text-[11px] text-gray-500 mt-2">
+                      Edit Hero slides, 3 Credibility Pillars, and 4 Advantage points.
+                    </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm text-[#1d2327] mb-2">Next Steps</h3>
-                    <ul className="space-y-1 text-xs text-[#2271b1]">
+                    <h3 className="font-bold text-sm text-[#1d2327] mb-2">Hospital Content</h3>
+                    <ul className="space-y-1.5 text-xs text-[#2271b1]">
                       <li>
-                        <button onClick={() => setActiveMenu("projects")} className="hover:text-blue-800 transition-colors">
-                          • Add or edit portfolio projects ({data.projectsData.length})
+                        <button onClick={() => setActiveMenu("projects")} className="hover:text-blue-800 transition-colors flex items-center gap-1.5 cursor-pointer">
+                          <span>•</span>
+                          <span>Manage Hospital Facilities ({data.projectsData.length})</span>
                         </button>
                       </li>
                       <li>
-                        <button onClick={() => setActiveMenu("media")} className="hover:text-blue-800 transition-colors">
-                          • Browse Media Library
+                        <button onClick={() => setActiveMenu("services")} className="hover:text-blue-800 transition-colors flex items-center gap-1.5 cursor-pointer">
+                          <span>•</span>
+                          <span>Clinical Specialties &amp; Services ({data.servicesData.length})</span>
                         </button>
                       </li>
                       <li>
-                        <button onClick={() => setActiveMenu("blog")} className="hover:text-blue-800 transition-colors">
-                          • Write a new blog post
+                        <button onClick={() => setActiveMenu("faqs")} className="hover:text-blue-800 transition-colors flex items-center gap-1.5 cursor-pointer">
+                          <span>•</span>
+                          <span>Manage Patient FAQs ({(data.faqsData || []).length})</span>
+                        </button>
+                      </li>
+                      <li>
+                        <button onClick={() => setActiveMenu("ticker")} className="hover:text-blue-800 transition-colors flex items-center gap-1.5 cursor-pointer">
+                          <span>•</span>
+                          <span>Red Marquee Announcement Slider ({data.siteConfig?.showMarquee ? "ON" : "OFF"})</span>
                         </button>
                       </li>
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm text-[#1d2327] mb-2">More Actions</h3>
-                    <ul className="space-y-1 text-xs text-[#2271b1]">
+                    <h3 className="font-bold text-sm text-[#1d2327] mb-2">Clinical Team &amp; Helpline</h3>
+                    <ul className="space-y-1.5 text-xs text-[#2271b1]">
                       <li>
-                        <button onClick={() => setActiveMenu("settings")} className="hover:text-blue-800 transition-colors">
-                          • Change phone number & office address
+                        <button onClick={() => setActiveMenu("team")} className="hover:text-blue-800 transition-colors flex items-center gap-1.5 cursor-pointer">
+                          <span>•</span>
+                          <span>Doctors &amp; Medical Specialists ({data.teamMembers.length})</span>
                         </button>
                       </li>
                       <li>
-                        <button onClick={() => setActiveMenu("team")} className="hover:text-blue-800 transition-colors">
-                          • Update doctors &amp; medical team bios
+                        <button onClick={() => setActiveMenu("settings")} className="hover:text-blue-800 transition-colors flex items-center gap-1.5 cursor-pointer">
+                          <span>•</span>
+                          <span>24x7 Emergency Helpline &amp; Hospital Address</span>
+                        </button>
+                      </li>
+                      <li>
+                        <button onClick={() => setActiveMenu("media")} className="hover:text-blue-800 transition-colors flex items-center gap-1.5 cursor-pointer">
+                          <span>•</span>
+                          <span>Hospital Media Library (Photos &amp; OT)</span>
                         </button>
                       </li>
                     </ul>
@@ -516,29 +1414,83 @@ export default function WordPressAdmin() {
               {/* Quick Stats Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm">
-                  <span className="text-xs font-bold text-gray-500 uppercase">Active Projects</span>
+                  <span className="text-xs font-bold text-gray-500 uppercase">Hospital Facilities</span>
                   <div className="text-3xl font-black text-[#1d2327] mt-1">{data.projectsData.length}</div>
                 </div>
                 <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm">
-                  <span className="text-xs font-bold text-gray-500 uppercase">Core Services</span>
+                  <span className="text-xs font-bold text-gray-500 uppercase">Clinical Specialties</span>
                   <div className="text-3xl font-black text-[#1d2327] mt-1">{data.servicesData.length}</div>
                 </div>
                 <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm">
-                  <span className="text-xs font-bold text-gray-500 uppercase">Team Members</span>
+                  <span className="text-xs font-bold text-gray-500 uppercase">Doctors &amp; Specialists</span>
                   <div className="text-3xl font-black text-[#1d2327] mt-1">{data.teamMembers.length}</div>
                 </div>
                 <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm">
-                  <span className="text-xs font-bold text-gray-500 uppercase">Published Posts</span>
-                  <div className="text-3xl font-black text-[#1d2327] mt-1">{data.blogPosts.length}</div>
+                  <span className="text-xs font-bold text-gray-500 uppercase">Patient FAQs</span>
+                  <div className="text-3xl font-black text-[#1d2327] mt-1">{(data.faqsData || []).length}</div>
                 </div>
               </div>
             </div>
           )}
 
-          {/* ================= SECTION 2: HERO CAROUSEL ================= */}
+          {/* ================= SECTION 2: HOMEPAGE & POINTS CUSTOMIZER ================= */}
           {activeMenu === "pages" && (
             <div className="space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              {/* Sub-Tabs Navigation */}
+              <div className="flex flex-wrap items-center gap-2 border-b border-[#c3c4c7] pb-3 bg-white p-3 rounded-lg border shadow-xs">
+                {[
+                  { id: "hero", label: "Hero Carousel Slides", count: (data.heroSlides || []).length, icon: FileText },
+                  { id: "stats", label: "Stats Credibility (3 Points)", count: currentStatsBanner.length, icon: HeartPulse },
+                  { id: "why", label: "Why MP Hospital (4 Points)", count: currentWhyHospitalPoints.length, icon: ShieldCheck },
+                  {
+                    id: "ticker",
+                    label: "Red Marquee Strip",
+                    count: (data.marqueeItems || defaultMarqueeItems).length,
+                    icon: Megaphone,
+                    badge: data.siteConfig?.showMarquee ? "ON" : "OFF",
+                  },
+                ].map((tab) => {
+                  const Icon = tab.icon;
+                  const isSelected = pagesSubTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => setPagesSubTab(tab.id as any)}
+                      className={`px-4 py-2.5 rounded font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
+                        isSelected
+                          ? "bg-[#2271b1] text-white shadow-sm"
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span>{tab.label}</span>
+                      {tab.badge ? (
+                        <span
+                          className={`px-1.5 py-0.5 rounded text-[10px] font-black ${
+                            tab.badge === "ON" ? "bg-emerald-200 text-emerald-900" : "bg-red-200 text-red-900"
+                          }`}
+                        >
+                          {tab.badge}
+                        </span>
+                      ) : (
+                        <span
+                          className={`px-1.5 py-0.5 rounded-full text-[10px] ${
+                            isSelected ? "bg-white/20 text-white" : "bg-gray-200 text-gray-700"
+                          }`}
+                        >
+                          {tab.count}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Sub-Tab 1: Hero Carousel */}
+              {pagesSubTab === "hero" && (
+                <div className="space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <h1 className="text-2xl font-bold text-[#1d2327]">Homepage Hero Carousel</h1>
                   <p className="text-xs text-gray-500">
@@ -939,227 +1891,21 @@ export default function WordPressAdmin() {
             </div>
           )}
 
-          {/* ================= SECTION: RED MARQUEE SLIDE TICKER ================= */}
-          {activeMenu === "ticker" && (
-            <div className="space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <h1 className="text-2xl font-bold text-[#1d2327]">Red Sliding Marquee (Announcement Ticker)</h1>
-                  <p className="text-xs text-gray-500">
-                    Manage the red continuous sliding marquee strip that scrolls across the homepage directly under the hero banner.
-                  </p>
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <Link
-                    href="/"
-                    target="_blank"
-                    className="px-3.5 py-2 bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 text-xs font-bold rounded flex items-center gap-1.5 transition-colors"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5 text-[#2271b1]" />
-                    <span>View Live Site</span>
-                  </Link>
-                  <button
-                    onClick={() => {
-                      saveData(data);
-                      showToast("Red Marquee Slider saved successfully!");
-                    }}
-                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded flex items-center gap-1.5 shadow transition-colors cursor-pointer"
-                  >
-                    <Save className="w-3.5 h-3.5" />
-                    <span>Save All Changes</span>
-                  </button>
-                </div>
-              </div>
+              {/* Sub-Tab 2: Stats Credibility (3 Points) */}
+              {pagesSubTab === "stats" && renderStatsSection()}
 
-              {/* Live Animated Preview */}
-              <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-red-600 animate-pulse" />
-                    <h3 className="font-bold text-xs uppercase tracking-wider text-gray-700">
-                      Live Red Marquee Preview
-                    </h3>
-                  </div>
-                  <span className="text-[11px] text-gray-500">
-                    {(data.marqueeItems || defaultMarqueeItems).length} announcement items sliding in loop
-                  </span>
-                </div>
+              {/* Sub-Tab 3: Why MP Hospital (4 Points) */}
+              {pagesSubTab === "why" && renderWhyHospitalSection()}
 
-                {/* Animated Red Marquee Strip Preview */}
-                <div className="bg-red-600 py-3 rounded-lg overflow-hidden border-y border-red-700 select-none shadow-inner text-white">
-                  <div className="flex animate-marquee whitespace-nowrap">
-                    {[
-                      ...(data.marqueeItems || defaultMarqueeItems),
-                      ...(data.marqueeItems || defaultMarqueeItems),
-                    ].map((text, idx) => (
-                      <div key={idx} className="flex items-center mx-6">
-                        {text.includes("Dr. Abhishek Jain") ? (
-                          <span className="bg-white text-red-700 px-3 py-0.5 rounded-full font-black text-xs uppercase shadow-sm">
-                            ⭐ {text}
-                          </span>
-                        ) : (
-                          <span className="text-white font-semibold text-xs uppercase tracking-wider">
-                            {text}
-                          </span>
-                        )}
-                        <span className="ml-6 w-2 h-2 rounded-full bg-sky-200 inline-block" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Add New Announcement Item Form */}
-              <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm space-y-4">
-                <h3 className="font-bold text-sm text-[#1d2327] flex items-center gap-2">
-                  <Plus className="w-4 h-4 text-[#2271b1]" />
-                  <span>Add New Sliding Announcement</span>
-                </h3>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="text"
-                    placeholder="e.g. 24x7 Emergency Casualty: 0761-2626123"
-                    value={newMarqueeText}
-                    onChange={(e) => setNewMarqueeText(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" && newMarqueeText.trim()) {
-                        addMarqueeItem(newMarqueeText.trim());
-                        setNewMarqueeText("");
-                        showToast("Added new announcement!");
-                      }
-                    }}
-                    className="flex-1 px-3.5 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-[#2271b1]"
-                  />
-                  <button
-                    onClick={() => {
-                      if (!newMarqueeText.trim()) {
-                        alert("Please enter announcement text.");
-                        return;
-                      }
-                      addMarqueeItem(newMarqueeText.trim());
-                      setNewMarqueeText("");
-                      showToast("Added to Red Slider!");
-                    }}
-                    className="px-5 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white rounded text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow whitespace-nowrap"
-                  >
-                    <Plus className="w-4 h-4" />
-                    <span>Add to Slide</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Items List */}
-              <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm overflow-hidden">
-                <div className="p-4 bg-gray-50 border-b border-[#c3c4c7] flex items-center justify-between">
-                  <span className="font-bold text-xs uppercase tracking-wider text-gray-700">
-                    Active Sliding Items ({ (data.marqueeItems || defaultMarqueeItems).length })
-                  </span>
-                  <span className="text-xs text-gray-500">
-                    Reorder with arrows to change scroll sequence
-                  </span>
-                </div>
-
-                <div className="divide-y divide-gray-200">
-                  {(data.marqueeItems || defaultMarqueeItems).map((text, idx) => {
-                    const isEditing = editingMarqueeIndex === idx;
-
-                    if (isEditing) {
-                      return (
-                        <div key={idx} className="p-4 bg-sky-50/60 flex flex-col sm:flex-row items-center gap-3">
-                          <input
-                            type="text"
-                            value={editingMarqueeText}
-                            onChange={(e) => setEditingMarqueeText(e.target.value)}
-                            className="flex-1 px-3 py-1.5 border border-sky-400 rounded text-sm bg-white focus:outline-none"
-                          />
-                          <div className="flex items-center gap-2">
-                            <button
-                              onClick={() => setEditingMarqueeIndex(null)}
-                              className="px-3 py-1.5 border border-gray-300 text-gray-700 hover:bg-gray-100 rounded text-xs font-bold cursor-pointer"
-                            >
-                              Cancel
-                            </button>
-                            <button
-                              onClick={() => {
-                                updateMarqueeItem(idx, editingMarqueeText);
-                                setEditingMarqueeIndex(null);
-                                showToast(`Item #${idx + 1} updated!`);
-                              }}
-                              className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold shadow cursor-pointer"
-                            >
-                              Save
-                            </button>
-                          </div>
-                        </div>
-                      );
-                    }
-
-                    return (
-                      <div
-                        key={idx}
-                        className="p-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
-                      >
-                        <div className="flex items-center gap-3 flex-1 min-w-0">
-                          <span className="w-6 h-6 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-black shrink-0">
-                            {idx + 1}
-                          </span>
-                          <span className="text-sm font-semibold text-gray-800 truncate">
-                            {text}
-                          </span>
-                          {text.includes("Dr. Abhishek Jain") && (
-                            <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold shrink-0">
-                              ⭐ Highlighted
-                            </span>
-                          )}
-                        </div>
-
-                        <div className="flex items-center gap-1.5 shrink-0">
-                          <button
-                            disabled={idx === 0}
-                            onClick={() => moveMarqueeItem(idx, idx - 1)}
-                            className="p-1.5 text-gray-400 hover:text-black hover:bg-gray-100 rounded disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
-                            title="Move Earlier in Slide"
-                          >
-                            <ArrowUp className="w-4 h-4" />
-                          </button>
-                          <button
-                            disabled={idx === (data.marqueeItems || defaultMarqueeItems).length - 1}
-                            onClick={() => moveMarqueeItem(idx, idx + 1)}
-                            className="p-1.5 text-gray-400 hover:text-black hover:bg-gray-100 rounded disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
-                            title="Move Later in Slide"
-                          >
-                            <ArrowDown className="w-4 h-4" />
-                          </button>
-                          <button
-                            onClick={() => {
-                              setEditingMarqueeIndex(idx);
-                              setEditingMarqueeText(text);
-                            }}
-                            className="px-2.5 py-1 text-xs font-semibold text-[#2271b1] hover:bg-sky-50 rounded flex items-center gap-1 cursor-pointer"
-                          >
-                            <Edit className="w-3.5 h-3.5" />
-                            <span>Edit</span>
-                          </button>
-                          <button
-                            onClick={() => {
-                              if (confirm(`Remove "${text}" from sliding strip?`)) {
-                                deleteMarqueeItem(idx);
-                                showToast("Removed from sliding strip.");
-                              }
-                            }}
-                            className="p-1.5 text-red-500 hover:bg-red-50 rounded cursor-pointer"
-                            title="Delete Item"
-                          >
-                            <Trash2 className="w-3.5 h-3.5" />
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+              {/* Sub-Tab 4: Red Marquee Strip */}
+              {pagesSubTab === "ticker" && renderMarqueeSection()}
             </div>
           )}
+
+          {/* ================= SECTION: RED MARQUEE SLIDE TICKER ================= */}
+          {activeMenu === "ticker" && renderMarqueeSection()}
+
+
 
           {/* ================= SECTION 3: MEDIA LIBRARY ================= */}
           {activeMenu === "media" && (

@@ -122,7 +122,54 @@ export const siteConfig = {
     satisfactionRate: "99%+",
     yearsExperience: "Trusted Legacy",
     infectionControl: "100%",
-  }
+  },
+  showMarquee: false,
+  statsBanner: [
+    {
+      title: "24x7 Trauma & Emergency",
+      desc: "Immediate casualty reception, dedicated Trauma ICU, emergency triage, and round-the-clock ALS ambulance in Jabalpur.",
+      iconName: "HeartPulse",
+      iconColor: "text-red-600",
+    },
+    {
+      title: "Surgical Excellence",
+      desc: "Led by Dr. Abhishek Jain with extensive clinical expertise in successful orthopedic surgeries, emergency trauma rescues, and advanced joint replacements.",
+      iconName: "Award",
+      iconColor: "text-sky-600",
+    },
+    {
+      title: "Advanced Modular OT",
+      desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and high patient satisfaction.",
+      iconName: "Building2",
+      iconColor: "text-red-600",
+    },
+  ],
+  whyHospitalPoints: [
+    {
+      title: "24x7 Trauma Emergency",
+      desc: "Immediate casualty reception, trauma surgeons, and round-the-clock ALS ambulance availability in Jabalpur.",
+      iconName: "Ambulance",
+      iconColor: "text-red-600",
+    },
+    {
+      title: "Senior Orthopedic Specialists",
+      desc: "Experienced surgical team led by Dr. Abhishek Jain specializing in joint replacement, sports injury & complex trauma.",
+      iconName: "Stethoscope",
+      iconColor: "text-[#008EC7]",
+    },
+    {
+      title: "Modular Laminar Flow OT",
+      desc: "Advanced cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
+      iconName: "Building2",
+      iconColor: "text-red-600",
+    },
+    {
+      title: "Cashless Mediclaim & TPA",
+      desc: "Hassle-free insurance pre-authorization desk supporting major mediclaim policies and corporate TPA coverage.",
+      iconName: "ShieldCheck",
+      iconColor: "text-[#008EC7]",
+    },
+  ],
 };
 
 export const navItems: NavItem[] = [
