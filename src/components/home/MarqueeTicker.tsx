@@ -1,18 +1,15 @@
+"use client";
+
 import React from "react";
+import { useCMS } from "@/context/CMSContext";
+import { defaultMarqueeItems } from "@/data/siteData";
 
 export default function MarqueeTicker() {
-  const items = [
-    "24x7 Emergency & Trauma Centre",
-    "Dr. Abhishek Jain (Orthopedic Specialist)",
-    "Advanced Life Support Ambulance",
-    "Total Knee & Hip Replacement",
-    "Arthroscopy & Sports Medicine",
-    "Sterile Modular OT",
-    "Trauma Critical Care ICU",
-    "Digital X-Ray & Emergency Diagnostics",
-    "Emergency Line: 0761-2626123",
-    "Cashless Mediclaim & Corporate TPA",
-  ];
+  const { data } = useCMS();
+  const items =
+    data.marqueeItems && data.marqueeItems.length > 0
+      ? data.marqueeItems
+      : defaultMarqueeItems;
 
   return (
     <div className="bg-red-600 py-3 overflow-hidden border-y border-red-700 select-none shadow-sm text-white">

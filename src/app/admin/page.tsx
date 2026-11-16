@@ -34,8 +34,17 @@ import {
   ArrowUp,
   ArrowDown,
   X,
+  Megaphone,
 } from "lucide-react";
-import { HeroSlide, ProjectItem, BlogPost, TeamMember, ServiceItem } from "@/data/siteData";
+import {
+  HeroSlide,
+  ProjectItem,
+  BlogPost,
+  TeamMember,
+  ServiceItem,
+  FAQItem,
+  defaultMarqueeItems,
+} from "@/data/siteData";
 
 export default function WordPressAdmin() {
   const {
@@ -60,12 +69,17 @@ export default function WordPressAdmin() {
     updateFAQ,
     addFAQ,
     deleteFAQ,
+    moveFAQ,
+    addMarqueeItem,
+    updateMarqueeItem,
+    deleteMarqueeItem,
+    moveMarqueeItem,
     resetToDefaults,
   } = useCMS();
 
   // Active Sidebar Section
   const [activeMenu, setActiveMenu] = useState<
-    "dashboard" | "pages" | "media" | "projects" | "services" | "team" | "blog" | "faqs" | "settings"
+    "dashboard" | "pages" | "ticker" | "media" | "projects" | "services" | "team" | "blog" | "faqs" | "settings"
   >("dashboard");
 
   // Media Library Modal state
@@ -89,6 +103,18 @@ export default function WordPressAdmin() {
   const [editingProject, setEditingProject] = useState<ProjectItem | null>(null);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
   const [editingMember, setEditingMember] = useState<{ index: number; member: TeamMember } | null>(null);
+
+  // FAQ Management State
+  const [faqSearchQuery, setFaqSearchQuery] = useState("");
+  const [isAddingFAQ, setIsAddingFAQ] = useState(false);
+  const [newFAQ, setNewFAQ] = useState<FAQItem>({ question: "", answer: "" });
+  const [editingFAQIndex, setEditingFAQIndex] = useState<number | null>(null);
+  const [editingFAQData, setEditingFAQData] = useState<FAQItem>({ question: "", answer: "" });
+
+  // Red Marquee Ticker State
+  const [newMarqueeText, setNewMarqueeText] = useState("");
+  const [editingMarqueeIndex, setEditingMarqueeIndex] = useState<number | null>(null);
+  const [editingMarqueeText, setEditingMarqueeText] = useState("");
 
   // New Hero Slide Modal State
   const [isAddingHeroSlide, setIsAddingHeroSlide] = useState(false);
@@ -350,6 +376,7 @@ export default function WordPressAdmin() {
             {[
               { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
               { id: "pages", label: "Hero Carousel", icon: FileText },
+              { id: "ticker", label: "Red Marquee Slide", icon: Megaphone },
               { id: "media", label: "Media Library", icon: ImageIcon },
               { id: "projects", label: "Hospital Facilities", icon: Building },
               { id: "services", label: "Services", icon: Wrench },
@@ -908,6 +935,228 @@ export default function WordPressAdmin() {
                   <Plus className="w-4 h-4" />
                   <span>+ Add Another Hero Slide</span>
                 </button>
+              </div>
+            </div>
+          )}
+
+          {/* ================= SECTION: RED MARQUEE SLIDE TICKER ================= */}
+          {activeMenu === "ticker" && (
+            <div className="space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Red Sliding Marquee (Announcement Ticker)</h1>
+                  <p className="text-xs text-gray-500">
+                    Manage the red continuous sliding marquee strip that scrolls across the homepage directly under the hero banner.
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Link
+                    href="/"
+                    target="_blank"
+                    className="px-3.5 py-2 bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 text-xs font-bold rounded flex items-center gap-1.5 transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-[#2271b1]" />
+                    <span>View Live Site</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      saveData(data);
+                      showToast("Red Marquee Slider saved successfully!");
+                    }}
+                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded flex items-center gap-1.5 shadow transition-colors cursor-pointer"
+                  >
+                    <Save className="w-3.5 h-3.5" />
+                    <span>Save All Changes</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Live Animated Preview */}
+              <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-red-600 animate-pulse" />
+                    <h3 className="font-bold text-xs uppercase tracking-wider text-gray-700">
+                      Live Red Marquee Preview
+                    </h3>
+                  </div>
+                  <span className="text-[11px] text-gray-500">
+                    {(data.marqueeItems || defaultMarqueeItems).length} announcement items sliding in loop
+                  </span>
+                </div>
+
+                {/* Animated Red Marquee Strip Preview */}
+                <div className="bg-red-600 py-3 rounded-lg overflow-hidden border-y border-red-700 select-none shadow-inner text-white">
+                  <div className="flex animate-marquee whitespace-nowrap">
+                    {[
+                      ...(data.marqueeItems || defaultMarqueeItems),
+                      ...(data.marqueeItems || defaultMarqueeItems),
+                    ].map((text, idx) => (
+                      <div key={idx} className="flex items-center mx-6">
+                        {text.includes("Dr. Abhishek Jain") ? (
+                          <span className="bg-white text-red-700 px-3 py-0.5 rounded-full font-black text-xs uppercase shadow-sm">
+                            ⭐ {text}
+                          </span>
+                        ) : (
+                          <span className="text-white font-semibold text-xs uppercase tracking-wider">
+                            {text}
+                          </span>
+                        )}
+                        <span className="ml-6 w-2 h-2 rounded-full bg-sky-200 inline-block" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Add New Announcement Item Form */}
+              <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm space-y-4">
+                <h3 className="font-bold text-sm text-[#1d2327] flex items-center gap-2">
+                  <Plus className="w-4 h-4 text-[#2271b1]" />
+                  <span>Add New Sliding Announcement</span>
+                </h3>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="text"
+                    placeholder="e.g. 24x7 Emergency Casualty: 0761-2626123"
+                    value={newMarqueeText}
+                    onChange={(e) => setNewMarqueeText(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && newMarqueeText.trim()) {
+                        addMarqueeItem(newMarqueeText.trim());
+                        setNewMarqueeText("");
+                        showToast("Added new announcement!");
+                      }
+                    }}
+                    className="flex-1 px-3.5 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-[#2271b1]"
+                  />
+                  <button
+                    onClick={() => {
+                      if (!newMarqueeText.trim()) {
+                        alert("Please enter announcement text.");
+                        return;
+                      }
+                      addMarqueeItem(newMarqueeText.trim());
+                      setNewMarqueeText("");
+                      showToast("Added to Red Slider!");
+                    }}
+                    className="px-5 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white rounded text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow whitespace-nowrap"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>Add to Slide</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Items List */}
+              <div className="bg-white rounded-lg border border-[#c3c4c7] shadow-sm overflow-hidden">
+                <div className="p-4 bg-gray-50 border-b border-[#c3c4c7] flex items-center justify-between">
+                  <span className="font-bold text-xs uppercase tracking-wider text-gray-700">
+                    Active Sliding Items ({ (data.marqueeItems || defaultMarqueeItems).length })
+                  </span>
+                  <span className="text-xs text-gray-500">
+                    Reorder with arrows to change scroll sequence
+                  </span>
+                </div>
+
+                <div className="divide-y divide-gray-200">
+                  {(data.marqueeItems || defaultMarqueeItems).map((text, idx) => {
+                    const isEditing = editingMarqueeIndex === idx;
+
+                    if (isEditing) {
+                      return (
+                        <div key={idx} className="p-4 bg-sky-50/60 flex flex-col sm:flex-row items-center gap-3">
+                          <input
+                            type="text"
+                            value={editingMarqueeText}
+                            onChange={(e) => setEditingMarqueeText(e.target.value)}
+                            className="flex-1 px-3 py-1.5 border border-sky-400 rounded text-sm bg-white focus:outline-none"
+                          />
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => setEditingMarqueeIndex(null)}
+                              className="px-3 py-1.5 border border-gray-300 text-gray-700 hover:bg-gray-100 rounded text-xs font-bold cursor-pointer"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              onClick={() => {
+                                updateMarqueeItem(idx, editingMarqueeText);
+                                setEditingMarqueeIndex(null);
+                                showToast(`Item #${idx + 1} updated!`);
+                              }}
+                              className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold shadow cursor-pointer"
+                            >
+                              Save
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div
+                        key={idx}
+                        className="p-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
+                      >
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                          <span className="w-6 h-6 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-black shrink-0">
+                            {idx + 1}
+                          </span>
+                          <span className="text-sm font-semibold text-gray-800 truncate">
+                            {text}
+                          </span>
+                          {text.includes("Dr. Abhishek Jain") && (
+                            <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold shrink-0">
+                              ⭐ Highlighted
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          <button
+                            disabled={idx === 0}
+                            onClick={() => moveMarqueeItem(idx, idx - 1)}
+                            className="p-1.5 text-gray-400 hover:text-black hover:bg-gray-100 rounded disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+                            title="Move Earlier in Slide"
+                          >
+                            <ArrowUp className="w-4 h-4" />
+                          </button>
+                          <button
+                            disabled={idx === (data.marqueeItems || defaultMarqueeItems).length - 1}
+                            onClick={() => moveMarqueeItem(idx, idx + 1)}
+                            className="p-1.5 text-gray-400 hover:text-black hover:bg-gray-100 rounded disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+                            title="Move Later in Slide"
+                          >
+                            <ArrowDown className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={() => {
+                              setEditingMarqueeIndex(idx);
+                              setEditingMarqueeText(text);
+                            }}
+                            className="px-2.5 py-1 text-xs font-semibold text-[#2271b1] hover:bg-sky-50 rounded flex items-center gap-1 cursor-pointer"
+                          >
+                            <Edit className="w-3.5 h-3.5" />
+                            <span>Edit</span>
+                          </button>
+                          <button
+                            onClick={() => {
+                              if (confirm(`Remove "${text}" from sliding strip?`)) {
+                                deleteMarqueeItem(idx);
+                                showToast("Removed from sliding strip.");
+                              }
+                            }}
+                            className="p-1.5 text-red-500 hover:bg-red-50 rounded cursor-pointer"
+                            title="Delete Item"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           )}
@@ -1644,6 +1893,302 @@ export default function WordPressAdmin() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {/* ================= SECTION: FAQ'S ================= */}
+          {activeMenu === "faqs" && (
+            <div className="space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <h1 className="text-2xl font-bold text-[#1d2327]">Frequently Asked Questions (FAQ)</h1>
+                  <p className="text-xs text-gray-500">
+                    Add new questions, edit answers, reorder, or delete FAQs displayed in the homepage FAQ accordion.
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    onClick={() => {
+                      setNewFAQ({ question: "", answer: "" });
+                      setIsAddingFAQ(true);
+                    }}
+                    className="px-3.5 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white text-xs font-bold rounded flex items-center gap-1.5 shadow transition-colors cursor-pointer"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>Add New FAQ</span>
+                  </button>
+                  <Link
+                    href="/#faq"
+                    target="_blank"
+                    className="px-3.5 py-2 bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 text-xs font-bold rounded flex items-center gap-1.5 transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-[#2271b1]" />
+                    <span>View Live FAQ</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      saveData(data);
+                      showToast("All FAQs saved successfully!");
+                    }}
+                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded flex items-center gap-1.5 shadow transition-colors cursor-pointer"
+                  >
+                    <Save className="w-3.5 h-3.5" />
+                    <span>Save All Changes</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Status & Search Bar */}
+              <div className="bg-white p-4 rounded-lg border border-[#c3c4c7] shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="font-bold uppercase tracking-wider bg-sky-600 text-white px-2 py-0.5 rounded text-[10px]">
+                    {data.faqsData?.length || 0} Questions Live
+                  </span>
+                  <span className="text-xs text-gray-600">
+                    These FAQs appear directly on the homepage in an expandable accordion.
+                  </span>
+                </div>
+                <div className="relative w-full sm:w-64">
+                  <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    placeholder="Search FAQs..."
+                    value={faqSearchQuery}
+                    onChange={(e) => setFaqSearchQuery(e.target.value)}
+                    className="w-full pl-8 pr-3 py-1.5 border border-gray-300 rounded text-xs focus:outline-none focus:border-[#2271b1]"
+                  />
+                </div>
+              </div>
+
+              {/* Add New FAQ Box */}
+              {isAddingFAQ && (
+                <div className="bg-white p-6 rounded-lg border-2 border-[#2271b1] shadow-lg space-y-4 animate-in fade-in">
+                  <div className="flex items-center justify-between border-b pb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 bg-[#2271b1]/10 text-[#2271b1] rounded">
+                        <Plus className="w-4 h-4" />
+                      </div>
+                      <h3 className="font-bold text-base text-[#1d2327]">Add New Question &amp; Answer</h3>
+                    </div>
+                    <button
+                      onClick={() => setIsAddingFAQ(false)}
+                      className="p-1 hover:bg-gray-100 rounded text-gray-400 hover:text-black cursor-pointer"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                        Question
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Do you accept Cashless Mediclaim?"
+                        value={newFAQ.question}
+                        onChange={(e) => setNewFAQ({ ...newFAQ, question: e.target.value })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-[#2271b1]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                        Detailed Answer
+                      </label>
+                      <textarea
+                        rows={4}
+                        placeholder="Provide a clear, clinical, patient-friendly answer..."
+                        value={newFAQ.answer}
+                        onChange={(e) => setNewFAQ({ ...newFAQ, answer: e.target.value })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-[#2271b1]"
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-end gap-3 pt-3 border-t">
+                      <button
+                        onClick={() => setIsAddingFAQ(false)}
+                        className="px-4 py-2 border border-gray-300 text-gray-700 hover:bg-gray-100 rounded text-xs font-bold cursor-pointer"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={() => {
+                          if (!newFAQ.question.trim()) {
+                            alert("Please enter a question.");
+                            return;
+                          }
+                          addFAQ(newFAQ);
+                          setIsAddingFAQ(false);
+                          showToast("New FAQ added!");
+                        }}
+                        className="px-5 py-2 bg-[#2271b1] hover:bg-[#135e96] text-white rounded text-xs font-bold cursor-pointer shadow"
+                      >
+                        Add to FAQs
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* FAQs List */}
+              <div className="space-y-3">
+                {(data.faqsData || [])
+                  .map((faq, index) => ({ faq, index }))
+                  .filter(({ faq }) =>
+                    faqSearchQuery
+                      ? faq.question.toLowerCase().includes(faqSearchQuery.toLowerCase()) ||
+                        faq.answer.toLowerCase().includes(faqSearchQuery.toLowerCase())
+                      : true
+                  )
+                  .map(({ faq, index }) => {
+                    const isEditing = editingFAQIndex === index;
+
+                    if (isEditing) {
+                      return (
+                        <div
+                          key={index}
+                          className="bg-white p-6 rounded-lg border-2 border-[#2271b1] shadow-md space-y-4"
+                        >
+                          <div className="flex items-center justify-between border-b pb-2">
+                            <span className="text-xs font-bold text-[#2271b1] uppercase">
+                              Editing FAQ #{index + 1}
+                            </span>
+                            <span className="text-xs text-gray-400">Position {index + 1} of {data.faqsData.length}</span>
+                          </div>
+
+                          <div className="space-y-3">
+                            <div>
+                              <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                                Question
+                              </label>
+                              <input
+                                type="text"
+                                value={editingFAQData.question}
+                                onChange={(e) =>
+                                  setEditingFAQData({ ...editingFAQData, question: e.target.value })
+                                }
+                                className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-[#2271b1]"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                                Answer
+                              </label>
+                              <textarea
+                                rows={4}
+                                value={editingFAQData.answer}
+                                onChange={(e) =>
+                                  setEditingFAQData({ ...editingFAQData, answer: e.target.value })
+                                }
+                                className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-[#2271b1]"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-end gap-2 pt-2 border-t">
+                            <button
+                              onClick={() => setEditingFAQIndex(null)}
+                              className="px-3.5 py-1.5 border border-gray-300 text-gray-700 hover:bg-gray-100 rounded text-xs font-bold cursor-pointer"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              onClick={() => {
+                                updateFAQ(index, editingFAQData);
+                                setEditingFAQIndex(null);
+                                showToast(`FAQ #${index + 1} updated!`);
+                              }}
+                              className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded text-xs font-bold shadow cursor-pointer"
+                            >
+                              Update FAQ
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div
+                        key={index}
+                        className="bg-white p-5 rounded-lg border border-[#c3c4c7] hover:border-gray-400 shadow-xs transition-all flex flex-col sm:flex-row sm:items-start justify-between gap-4 group"
+                      >
+                        <div className="space-y-1.5 flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className="w-6 h-6 rounded-full bg-sky-100 text-[#008ec7] flex items-center justify-center text-xs font-black shrink-0">
+                              Q{index + 1}
+                            </span>
+                            <h3 className="text-sm font-bold text-[#1d2327] group-hover:text-[#2271b1] transition-colors">
+                              {faq.question}
+                            </h3>
+                          </div>
+                          <p className="text-xs text-gray-600 leading-relaxed pl-8 line-clamp-3">
+                            {faq.answer}
+                          </p>
+                        </div>
+
+                        {/* Actions */}
+                        <div className="flex items-center gap-1.5 self-end sm:self-center shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0">
+                          {/* Reorder Arrows */}
+                          <button
+                            disabled={index === 0}
+                            onClick={() => moveFAQ(index, index - 1)}
+                            className="p-1.5 text-gray-400 hover:text-black hover:bg-gray-100 rounded disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+                            title="Move Up"
+                          >
+                            <ArrowUp className="w-4 h-4" />
+                          </button>
+                          <button
+                            disabled={index === (data.faqsData?.length || 0) - 1}
+                            onClick={() => moveFAQ(index, index + 1)}
+                            className="p-1.5 text-gray-400 hover:text-black hover:bg-gray-100 rounded disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+                            title="Move Down"
+                          >
+                            <ArrowDown className="w-4 h-4" />
+                          </button>
+
+                          <button
+                            onClick={() => {
+                              setEditingFAQIndex(index);
+                              setEditingFAQData({ ...faq });
+                            }}
+                            className="px-2.5 py-1.5 text-xs font-semibold text-[#2271b1] hover:bg-sky-50 rounded flex items-center gap-1 transition-colors cursor-pointer"
+                          >
+                            <Edit className="w-3.5 h-3.5" />
+                            <span>Edit</span>
+                          </button>
+                          <button
+                            onClick={() => {
+                              if (confirm(`Delete FAQ: "${faq.question}"?`)) {
+                                deleteFAQ(index);
+                                showToast("FAQ deleted.");
+                              }
+                            }}
+                            className="p-1.5 text-red-500 hover:bg-red-50 rounded transition-colors cursor-pointer"
+                            title="Delete FAQ"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+
+                {(data.faqsData || []).length === 0 && (
+                  <div className="text-center py-12 bg-white rounded-lg border border-dashed border-gray-300">
+                    <HelpCircle className="w-10 h-10 text-gray-300 mx-auto mb-2" />
+                    <p className="text-sm font-semibold text-gray-600">No FAQs available.</p>
+                    <button
+                      onClick={() => {
+                        setNewFAQ({ question: "", answer: "" });
+                        setIsAddingFAQ(true);
+                      }}
+                      className="mt-3 px-4 py-2 bg-[#2271b1] text-white text-xs font-bold rounded"
+                    >
+                      Add First FAQ
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           )}

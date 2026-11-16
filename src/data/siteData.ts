@@ -702,3 +702,17 @@ export const careerJobs: CareerJob[] = [
     ],
   },
 ];
+
+export const defaultMarqueeItems: string[] = [
+  "24x7 Emergency & Trauma Centre",
+  "Dr. Abhishek Jain (Orthopedic Specialist)",
+  "Advanced Life Support Ambulance",
+  "Total Knee & Hip Replacement",
+  "Arthroscopy & Sports Medicine",
+  "Sterile Modular OT",
+  "Trauma Critical Care ICU",
+  "Digital X-Ray & Emergency Diagnostics",
+  "Emergency Line: 0761-2626123",
+  "Cashless Mediclaim & Corporate TPA",
+];
+

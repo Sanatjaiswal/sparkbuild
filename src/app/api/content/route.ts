@@ -13,6 +13,7 @@ import {
   faqsData,
   blogPosts,
   careerJobs,
+  defaultMarqueeItems,
 } from "@/data/siteData";
 
 export const dynamic = "force-dynamic";
@@ -34,6 +35,7 @@ function getDefaultData() {
     faqsData,
     blogPosts,
     careerJobs,
+    marqueeItems: defaultMarqueeItems,
     lastUpdated: new Date().toISOString(),
   };
 }

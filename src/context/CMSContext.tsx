@@ -13,6 +13,7 @@ import {
   faqsData as defaultFaqsData,
   blogPosts as defaultBlogPosts,
   careerJobs as defaultCareerJobs,
+  defaultMarqueeItems,
   HeroSlide,
   ServiceItem,
   ProjectItem,
@@ -36,6 +37,7 @@ export interface CMSData {
   faqsData: FAQItem[];
   blogPosts: BlogPost[];
   careerJobs: CareerJob[];
+  marqueeItems: string[];
   lastUpdated?: string;
 }
 
@@ -62,6 +64,11 @@ interface CMSContextType {
   updateFAQ: (index: number, faq: Partial<FAQItem>) => void;
   addFAQ: (faq: FAQItem) => void;
   deleteFAQ: (index: number) => void;
+  moveFAQ: (fromIndex: number, toIndex: number) => void;
+  addMarqueeItem: (item: string) => void;
+  updateMarqueeItem: (index: number, text: string) => void;
+  deleteMarqueeItem: (index: number) => void;
+  moveMarqueeItem: (fromIndex: number, toIndex: number) => void;
   resetToDefaults: () => Promise<void>;
 }
 
@@ -77,6 +84,7 @@ const defaultData: CMSData = {
   faqsData: defaultFaqsData,
   blogPosts: defaultBlogPosts,
   careerJobs: defaultCareerJobs,
+  marqueeItems: defaultMarqueeItems,
 };
 
 const CMSContext = createContext<CMSContextType | null>(null);
@@ -243,6 +251,38 @@ export function CMSProvider({ children }: { children: React.ReactNode }) {
     saveData({ faqsData: data.faqsData.filter((_, i) => i !== index) });
   };
 
+  const moveFAQ = (fromIndex: number, toIndex: number) => {
+    const list = [...(data.faqsData || [])];
+    if (fromIndex < 0 || fromIndex >= list.length || toIndex < 0 || toIndex >= list.length) return;
+    const [moved] = list.splice(fromIndex, 1);
+    list.splice(toIndex, 0, moved);
+    saveData({ faqsData: list });
+  };
+
+  const addMarqueeItem = (item: string) => {
+    const list = [...(data.marqueeItems || defaultMarqueeItems), item];
+    saveData({ marqueeItems: list });
+  };
+
+  const updateMarqueeItem = (index: number, text: string) => {
+    const list = [...(data.marqueeItems || defaultMarqueeItems)];
+    list[index] = text;
+    saveData({ marqueeItems: list });
+  };
+
+  const deleteMarqueeItem = (index: number) => {
+    const list = (data.marqueeItems || defaultMarqueeItems).filter((_, i) => i !== index);
+    saveData({ marqueeItems: list });
+  };
+
+  const moveMarqueeItem = (fromIndex: number, toIndex: number) => {
+    const list = [...(data.marqueeItems || defaultMarqueeItems)];
+    if (fromIndex < 0 || fromIndex >= list.length || toIndex < 0 || toIndex >= list.length) return;
+    const [moved] = list.splice(fromIndex, 1);
+    list.splice(toIndex, 0, moved);
+    saveData({ marqueeItems: list });
+  };
+
   const resetToDefaults = async () => {
     await saveData(defaultData);
   };
@@ -272,6 +312,11 @@ export function CMSProvider({ children }: { children: React.ReactNode }) {
         updateFAQ,
         addFAQ,
         deleteFAQ,
+        moveFAQ,
+        addMarqueeItem,
+        updateMarqueeItem,
+        deleteMarqueeItem,
+        moveMarqueeItem,
         resetToDefaults,
       }}
     >
