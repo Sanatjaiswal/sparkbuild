@@ -7,7 +7,7 @@ export default function MarqueeTicker() {
     "Advanced Life Support Ambulance",
     "Total Knee & Hip Replacement",
     "Arthroscopy & Sports Medicine",
-    "Class 10,000 Modular OT",
+    "Sterile Modular OT",
     "Trauma Critical Care ICU",
     "Digital X-Ray & Emergency Diagnostics",
     "Emergency Line: 0761-2626123",

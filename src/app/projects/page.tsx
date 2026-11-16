@@ -74,7 +74,7 @@ export default function ProjectsPage() {
             Advanced Clinical <span className="text-sky-300">Facilities</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
-            Take a virtual tour of MP Hospital &amp; Trauma Centre – Class 10,000 modular operation theatres, 24x7 trauma ICU, and modern patient recovery suites.
+            Take a virtual tour of MP Hospital &amp; Trauma Centre – sterile modular operation theatres, 24x7 trauma ICU, and modern patient recovery suites.
           </p>
         </div>
       </section>

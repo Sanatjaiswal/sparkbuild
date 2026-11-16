@@ -54,11 +54,11 @@ export default function WhyHospital() {
             {/* Quick Stat Cards */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="p-4 sm:p-6 rounded-2xl bg-sky-50/80 border border-sky-200 text-center space-y-1 shadow-xs">
-                <span className="text-2xl sm:text-4xl font-black text-[#008ec7]">
-                  15,000+
+                <span className="text-2xl sm:text-3xl font-black text-[#008ec7] block">
+                  Excellence
                 </span>
                 <p className="text-xs font-bold uppercase tracking-wider text-neutral-700">
-                  Patients Treated
+                  In Patient Care
                 </p>
                 <p className="text-[11px] text-neutral-500">Trusted in Mahakoshal</p>
               </div>
@@ -85,7 +85,7 @@ export default function WhyHospital() {
                 Why Choose <span className="text-red-600">MP Hospital &amp; Trauma Centre</span>
               </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
-                With a trusted 10+ year legacy of excellence, MP Hospital &amp; Trauma Centre is Jabalpur’s leading destination for orthopedic surgeries, joint replacement, spine stabilization, and emergency trauma care under{" "}
+                With a trusted legacy of clinical excellence, MP Hospital &amp; Trauma Centre is Jabalpur’s leading destination for orthopedic surgeries, joint replacement, spine stabilization, and emergency trauma care under{" "}
                 <span className="text-[#008ec7] font-black">
                   Dr. Abhishek Jain
                 </span>

@@ -105,10 +105,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-sky-200/50">
             <div className="space-y-3 pt-6 md:pt-0">
-              <span className="text-5xl font-black text-white font-mono">15,000+</span>
-              <h3 className="text-lg font-black text-white">Surgeries Performed</h3>
+              <span className="text-4xl sm:text-5xl font-black text-white tracking-tight">Excellence</span>
+              <h3 className="text-lg font-black text-white">Surgical Mastery</h3>
               <p className="text-xs text-sky-50 max-w-xs mx-auto leading-relaxed">
-                Successful orthopedic, joint reconstruction, and accidental trauma operations completed with infection-free outcomes.
+                Comprehensive orthopedic, joint reconstruction, and accidental trauma operations completed with infection-free outcomes.
               </p>
             </div>
 
@@ -211,7 +211,7 @@ export default function AboutPage() {
               <div className="space-y-3 pt-2">
                 {[
                   "Senior Orthopedic Surgeon & Trauma Specialist on site",
-                  "Class 10,000 modular operation theatres with HEPA filtration",
+                  "Sterile modular operation theatres with laminar airflow & HEPA filtration",
                   "24x7 Emergency Casualty & Advanced Life Support (ALS) Ambulance",
                   "Full cashless insurance, corporate mediclaim, and TPA pre-authorization support",
                 ].map((item, idx) => (

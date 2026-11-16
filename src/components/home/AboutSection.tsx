@@ -3,7 +3,13 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Award, Bone, HeartPulse, Stethoscope } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import {
+  DirectorMedalIcon,
+  RoboticJointIcon,
+  EmergencyTraumaPhoneIcon,
+  ModularOTIcon,
+} from "@/components/ui/MedicalIcons";
 import { useCMS } from "@/context/CMSContext";
 
 export default function AboutSection() {
@@ -66,12 +72,12 @@ export default function AboutSection() {
             </p>
 
             {/* Dr. Abhishek Jain Leadership Spotlight Card */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-red-50/80 via-white to-sky-50/60 border-2 border-red-200 flex items-center gap-4 shadow-sm group">
-              <Award className="w-8 h-8 text-red-600 stroke-[2.2] shrink-0 group-hover:scale-110 transition-transform" />
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-red-50/80 via-white to-sky-50/60 border border-red-200 flex items-center gap-4 shadow-sm group">
+              <DirectorMedalIcon className="w-10 h-10 shrink-0 group-hover:scale-110 transition-transform" size={40} />
               <div className="space-y-0.5">
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <h4 className="text-base font-black text-black">Dr. Abhishek Jain</h4>
-                  <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-red-600 text-white shadow-xs">
+                  <span className="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-xs">
                     Director &amp; Senior Orthopedic Surgeon
                   </span>
                 </div>
@@ -81,24 +87,24 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Feature Bullets with Bare Icons (NO boxes) */}
+            {/* Clinical Highlights with Authentic Flaticon Icons (NO numerical claims) */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
-                <Bone className="w-7 h-7 mx-auto mb-2 text-[#008EC7] stroke-[2.2] group-hover:scale-110 transition-transform" />
-                <h4 className="text-xl font-black text-black">{siteConfig.stats.projectsCount || "15,000+"}</h4>
-                <p className="text-xs font-medium text-gray-600">Surgeries Performed</p>
+                <RoboticJointIcon className="w-8 h-8 mx-auto mb-1.5 group-hover:scale-110 transition-transform" size={32} />
+                <h4 className="text-sm font-black text-black">Joint &amp; Orthopedics</h4>
+                <p className="text-xs font-medium text-gray-600">Precision Surgeries</p>
               </div>
 
               <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
-                <HeartPulse className="w-7 h-7 mx-auto mb-2 text-red-600 stroke-[2.2] group-hover:scale-110 transition-transform" />
-                <h4 className="text-xl font-black text-black">24x7</h4>
-                <p className="text-xs font-medium text-gray-600">Emergency &amp; Trauma</p>
+                <EmergencyTraumaPhoneIcon className="w-8 h-8 mx-auto mb-1.5 group-hover:scale-110 transition-transform" size={32} />
+                <h4 className="text-sm font-black text-black">24x7 Emergency</h4>
+                <p className="text-xs font-medium text-gray-600">Trauma ICU Life Support</p>
               </div>
 
               <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
-                <Stethoscope className="w-7 h-7 mx-auto mb-2 text-[#008EC7] stroke-[2.2] group-hover:scale-110 transition-transform" />
-                <h4 className="text-xl font-black text-black">{siteConfig.stats.yearsExperience || "10+ Years"}</h4>
-                <p className="text-xs font-medium text-gray-600">Trusted Care</p>
+                <ModularOTIcon className="w-8 h-8 mx-auto mb-1.5 group-hover:scale-110 transition-transform" size={32} />
+                <h4 className="text-sm font-black text-black">Sterile Modular OT</h4>
+                <p className="text-xs font-medium text-gray-600">Ultra-Clean Environment</p>
               </div>
             </div>
 

@@ -114,13 +114,13 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/company/mp-hospital-trauma-centre",
   },
   stats: {
-    surgeriesCount: "15,000+",
-    projectsCount: "15,000+",
-    jointReplacements: "5,000+",
+    surgeriesCount: "Clinical Mastery",
+    projectsCount: "Clinical Mastery",
+    jointReplacements: "Precision Care",
     emergencyTrauma: "24x7",
-    modularOTs: "Advanced Modular",
+    modularOTs: "Sterile Modular",
     satisfactionRate: "99%+",
-    yearsExperience: "10+ Years",
+    yearsExperience: "Trusted Legacy",
     infectionControl: "100%",
   }
 };

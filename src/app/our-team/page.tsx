@@ -25,6 +25,11 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingConsultation from "@/components/ui/FloatingConsultation";
 import ConsultationModal from "@/components/ui/ConsultationModal";
+import {
+  DirectorMedalIcon,
+  RoboticJointIcon,
+  PolytraumaCareIcon,
+} from "@/components/ui/MedicalIcons";
 import { useCMS } from "@/context/CMSContext";
 
 const CATEGORIES = [
@@ -158,23 +163,31 @@ export default function OurTeamPage() {
                       className="object-cover group-hover:scale-102 transition-transform duration-500"
                     />
 
-                    {/* Top Floating Badge */}
+                    {/* Top Floating Badge (Flaticon Gold Medal & Gradient Badge) */}
                     <div className="absolute top-4 left-4 z-10">
-                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-red-600 text-white text-[11px] font-black uppercase tracking-wider shadow-lg">
-                        <Award className="w-3.5 h-3.5" />
-                        Director &amp; Chief Surgeon
+                      <span className="inline-flex items-center gap-2 pl-1.5 pr-4 py-1.5 rounded-full bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white text-[11px] font-black uppercase tracking-wider shadow-xl shadow-red-950/30 border border-white/25 backdrop-blur-md">
+                        <span className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow-xs shrink-0">
+                          <DirectorMedalIcon className="w-4 h-4" size={16} />
+                        </span>
+                        <span>Director &amp; Chief Surgeon</span>
                       </span>
                     </div>
 
-                    {/* Bottom Floating Glass Stats Bar */}
-                    <div className="absolute bottom-4 inset-x-4 z-10 bg-white/95 backdrop-blur-md rounded-2xl p-3 border border-white/80 shadow-lg grid grid-cols-2 divide-x divide-neutral-200 text-center">
-                      <div className="px-2">
-                        <p className="text-base font-black text-neutral-900 leading-tight">15+ Years</p>
-                        <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mt-0.5">Surgical Mastery</p>
+                    {/* Bottom Floating Glass Clinical Specialization Bar (NO numerical claims) */}
+                    <div className="absolute bottom-4 inset-x-4 z-10 bg-white/95 backdrop-blur-md rounded-2xl p-3 border border-white/80 shadow-lg grid grid-cols-2 divide-x divide-neutral-200">
+                      <div className="px-2 flex items-center justify-center gap-2.5">
+                        <RoboticJointIcon className="w-8 h-8 shrink-0" size={32} />
+                        <div className="text-left">
+                          <p className="text-xs font-black text-neutral-900 leading-tight">Robotic Joint Care</p>
+                          <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mt-0.5">Surgical Precision</p>
+                        </div>
                       </div>
-                      <div className="px-2">
-                        <p className="text-base font-black text-[#008ec7] leading-tight">10,000+</p>
-                        <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mt-0.5">Trauma Surgeries</p>
+                      <div className="px-2 flex items-center justify-center gap-2.5">
+                        <PolytraumaCareIcon className="w-8 h-8 shrink-0" size={32} />
+                        <div className="text-left">
+                          <p className="text-xs font-black text-[#008ec7] leading-tight">Emergency Trauma</p>
+                          <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mt-0.5">24x7 Resuscitation</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -185,8 +198,10 @@ export default function OurTeamPage() {
                   {/* Category Pills & Name */}
                   <div className="space-y-2">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="inline-flex items-center gap-1 text-xs font-black uppercase tracking-wider text-white px-3 py-1 bg-red-600 rounded-full shadow-xs">
-                        <ShieldCheck className="w-3.5 h-3.5" />
+                      <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-white pl-1.5 pr-3 py-1 bg-gradient-to-r from-red-600 to-rose-600 rounded-full shadow-xs">
+                        <span className="w-4 h-4 rounded-full bg-white flex items-center justify-center p-0.5 shrink-0">
+                          <DirectorMedalIcon className="w-3 h-3" size={12} />
+                        </span>
                         {founder.role}
                       </span>
                       <span className="inline-flex items-center gap-1 text-xs font-extrabold text-[#008ec7] bg-sky-50 border border-sky-300 px-3 py-1 rounded-full">
@@ -339,7 +354,10 @@ export default function OurTeamPage() {
                       {/* Top Badges */}
                       <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1.5">
                         {isLead ? (
-                          <span className="px-2 py-0.5 rounded-full bg-red-600 text-white text-[9px] font-black uppercase tracking-wider shadow">
+                          <span className="inline-flex items-center gap-1 pl-1 pr-2 py-0.5 rounded-full bg-gradient-to-r from-red-600 to-rose-600 text-white text-[9px] font-black uppercase tracking-wider shadow">
+                            <span className="w-3.5 h-3.5 rounded-full bg-white flex items-center justify-center p-0.5 shrink-0">
+                              <DirectorMedalIcon className="w-2.5 h-2.5" size={10} />
+                            </span>
                             Director &amp; Chief
                           </span>
                         ) : (

@@ -100,7 +100,7 @@ export default function AppointmentLetterPage() {
                 {[
                   "Consultation with Dr. Abhishek Jain (MS Ortho, Joint Replacement Specialist)",
                   "State-of-the-art digital X-ray and in-house diagnostic pathology",
-                  "Class 10,000 modular operation theatres with HEPA filtration",
+                  "Sterile modular operation theatres with HEPA filtration",
                   "24x7 emergency trauma ICU & round-the-clock ALS ambulance availability",
                   "Cashless mediclaim, corporate health insurance, and dedicated TPA desk",
                 ].map((item, idx) => (

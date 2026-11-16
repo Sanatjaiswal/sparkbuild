@@ -42,7 +42,7 @@ export default function ServicesPage() {
         "Minimally Invasive Total Knee & Hip Replacement",
         "Computer-Assisted Precision Component Alignment",
         "Rapid Rehabilitation Protocol (Patients Walk within 24-48 Hours)",
-        "Ultra-Clean Class 10,000 Modular Operation Theatres",
+        "Ultra-Clean Sterile Modular Operation Theatres",
       ],
     },
     {
@@ -67,7 +67,7 @@ export default function ServicesPage() {
       image: "/images/emergency-trauma-icu.jpg",
       desc: "NABH-compliant modular surgical suites featuring HEPA-filtered laminar airflow that guarantees sterile conditions. Backed by multi-parameter monitored Trauma ICU beds staffed by dedicated intensivists.",
       benefits: [
-        "Class 10,000 Sterile Laminar Airflow Environment",
+        "Sterile Laminar Airflow Surgical Environment",
         "HEPA Air Filtration & Medical Gas Pipeline System",
         "Multi-Parameter Patient Monitors & Advanced Ventilators",
         "Zero-Infection Surgical Protocol for Implant Safety",
