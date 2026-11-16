@@ -46,25 +46,28 @@ export default function FloatingConsultation({
 
   return (
     <aside aria-label="Quick Connect on WhatsApp">
-      {/* Floating WhatsApp Quick Connect Button (Stays strictly above the green footer div) */}
+      {/* Floating WhatsApp Quick Connect Button (Strictly circular with icon dead-centered) */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with MP Hospital on WhatsApp"
         style={{ bottom: `${bottomOffset}px` }}
-        className="fixed right-4 sm:right-6 z-40 flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3 sm:p-3.5 rounded-full shadow-[0_6px_25px_rgba(37,211,102,0.5)] hover:shadow-[0_8px_30px_rgba(37,211,102,0.7)] hover:scale-105 active:scale-95 transition-all duration-300 group cursor-pointer"
+        className="fixed right-4 sm:right-6 z-40 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center p-0 shadow-[0_6px_25px_rgba(37,211,102,0.5)] hover:shadow-[0_8px_30px_rgba(37,211,102,0.7)] hover:scale-110 active:scale-95 transition-all duration-300 group cursor-pointer select-none"
       >
         {/* Subtle Pulse ring */}
-        <span className="absolute -inset-1 rounded-full bg-[#25D366] opacity-35 animate-ping pointer-events-none" />
+        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-35 animate-ping pointer-events-none" />
 
-        {/* Authentic Official WhatsApp Icon with Handset */}
-        <OfficialWhatsappIcon className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 drop-shadow-md group-hover:rotate-6 transition-transform duration-300" />
+        {/* Authentic Official WhatsApp Icon with Handset - Exactly in the center */}
+        <OfficialWhatsappIcon className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 drop-shadow-md group-hover:rotate-6 transition-transform duration-300" />
 
-        {/* Desktop Expandable Label */}
-        <span className="hidden sm:inline-block max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out font-bold text-xs pl-0 group-hover:pl-1">
-          Chat With Us
-        </span>
+        {/* Desktop Tooltip Pill floating on the left (doesn't affect button centering) */}
+        <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 hidden sm:flex items-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <span className="bg-neutral-900/95 backdrop-blur-xs text-white text-xs font-bold py-1.5 px-3 rounded-xl shadow-xl whitespace-nowrap">
+            Chat on WhatsApp
+          </span>
+          <span className="w-2 h-2 bg-neutral-900/95 rotate-45 -ml-1" />
+        </div>
       </a>
     </aside>
   );
