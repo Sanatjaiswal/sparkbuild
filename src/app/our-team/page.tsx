@@ -310,7 +310,7 @@ export default function OurTeamPage() {
           </div>
 
           {/* Doctors Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {filteredMembers.map((member) => {
               const isLead = member.id === "dr-abhishek-jain";
               const photoSrc = member.image || "/images/dr-abhishek-jain.jpg";
@@ -320,71 +320,68 @@ export default function OurTeamPage() {
                   key={member.id || member.name}
                   className={`bg-white rounded-2xl overflow-hidden border transition-all duration-300 flex flex-col justify-between group ${
                     isLead
-                      ? "border-2 border-red-500 shadow-md hover:shadow-2xl"
-                      : "border-neutral-200 shadow-sm hover:shadow-xl hover:border-sky-400"
+                      ? "border-2 border-red-500 shadow-md hover:shadow-xl"
+                      : "border-neutral-200 shadow-xs hover:shadow-lg hover:border-sky-400"
                   }`}
                 >
                   {/* Card Header with Doctor Portrait Photo */}
                   <div>
-                    <div className="relative aspect-[3/4] w-full bg-neutral-900 overflow-hidden">
+                    <div className="relative aspect-square w-full bg-neutral-900 overflow-hidden">
                       <Image
                         src={photoSrc}
                         alt={member.name}
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
 
                       {/* Top Badges */}
-                      <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                      <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1.5">
                         {isLead ? (
-                          <span className="px-2.5 py-1 rounded-full bg-red-600 text-white text-[10px] font-black uppercase tracking-wider shadow">
+                          <span className="px-2 py-0.5 rounded-full bg-red-600 text-white text-[9px] font-black uppercase tracking-wider shadow">
                             Director &amp; Chief
                           </span>
                         ) : (
-                          <span className="px-2.5 py-1 rounded-full bg-[#008EC7] text-white text-[10px] font-black uppercase tracking-wider shadow">
+                          <span className="px-2 py-0.5 rounded-full bg-[#008EC7] text-white text-[9px] font-black uppercase tracking-wider shadow">
                             Consultant
                           </span>
                         )}
-                        <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-xs text-[#008ec7] text-[10px] font-extrabold uppercase tracking-wider shadow-xs border border-sky-100">
+                        <span className="px-2 py-0.5 rounded-full bg-white/95 backdrop-blur-xs text-[#008ec7] text-[9px] font-extrabold uppercase tracking-wider shadow-xs border border-sky-100">
                           {member.department || "Specialist"}
                         </span>
                       </div>
 
                       {/* Overlay Title at bottom of photo */}
-                      <div className="absolute bottom-3 left-3 right-3 text-white">
-                        <p className="text-[11px] font-extrabold text-sky-200 uppercase tracking-wider">
+                      <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white">
+                        <p className="text-[10px] font-bold text-sky-200 uppercase tracking-wider truncate">
                           {member.role}
                         </p>
-                        <h3 className="text-xl font-black drop-shadow-sm">{member.name}</h3>
+                        <h3 className="text-base sm:text-lg font-black drop-shadow-sm leading-tight truncate">
+                          {member.name}
+                        </h3>
                       </div>
                     </div>
 
-                    {/* Card Content Information */}
-                    <div className="p-6 space-y-3.5">
+                    {/* Card Content Information (Compact without description) */}
+                    <div className="p-3.5">
                       {/* Qualification Pill */}
                       {member.qualification && (
                         <div>
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neutral-100 text-neutral-800 border border-neutral-200/90 text-xs font-extrabold">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 border border-neutral-200/90 text-xs font-bold leading-tight">
                             <Award className="w-3.5 h-3.5 text-red-600 shrink-0" />
-                            {member.qualification}
+                            <span className="line-clamp-1">{member.qualification}</span>
                           </span>
                         </div>
                       )}
-
-                      {/* Doctor Clinical Scope / Bio */}
-                      <p className="text-xs text-neutral-600 leading-relaxed font-normal">
-                        {member.bio}
-                      </p>
                     </div>
                   </div>
 
-                  {/* Clean Footer Status (NO appointment booking button) */}
-                  <div className="px-6 pb-5 pt-0">
-                    <div className="pt-3 border-t border-neutral-100 flex items-center justify-between text-[11px] font-bold text-neutral-500">
+                  {/* Clean Footer Status */}
+                  <div className="px-3.5 pb-3.5 pt-0">
+                    <div className="pt-2 border-t border-neutral-100 flex items-center justify-between text-[10px] font-bold text-neutral-500">
                       <span className="flex items-center gap-1 text-[#008ec7]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#008ec7]" />
+                        <CheckCircle2 className="w-3 h-3 text-[#008ec7]" />
                         <span>Verified Specialist</span>
                       </span>
                       <span className="text-neutral-400">MP Hospital</span>
