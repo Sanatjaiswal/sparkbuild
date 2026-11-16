@@ -633,10 +633,6 @@ export const faqsData: FAQItem[] = [
     answer: "MP Hospital and Trauma Centre combines high-tech laminar flow modular operation theatres, a dedicated 24x7 Trauma ICU, modern digital radiology, and an experienced multidisciplinary team under Dr. Abhishek Jain, ensuring round-the-clock emergency care and rapid orthopedic recovery.",
   },
   {
-    question: "What are the OPD consultation timings for Dr. Abhishek Jain?",
-    answer: "Dr. Abhishek Jain (Orthopedic Surgeon & Trauma Specialist) is available for OPD consultations Monday through Saturday. Morning OPD is generally 10:30 AM to 1:30 PM and evening OPD is 5:30 PM to 8:30 PM. We strongly recommend booking your appointment online or calling +91 76489-98668 prior to visiting.",
-  },
-  {
     question: "Do you accept Cashless Mediclaim and Health Insurance?",
     answer: "Yes, we accept major health insurance policies, corporate TPAs, and cashless mediclaim. Our dedicated TPA helpdesk assists patients and families with quick pre-authorization, seamless document verification, and cashless discharge processing.",
   },
