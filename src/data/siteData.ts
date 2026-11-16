@@ -138,7 +138,7 @@ export const siteConfig = {
       iconColor: "text-sky-600",
     },
     {
-      title: "Advanced Modular OT",
+      title: "Well-Equipped Modular OT",
       desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and high patient satisfaction.",
       iconName: "Building2",
       iconColor: "text-red-600",
@@ -159,7 +159,7 @@ export const siteConfig = {
     },
     {
       title: "Modular Laminar Flow OT",
-      desc: "Advanced cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
+      desc: "Well-equipped cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
       iconName: "Building2",
       iconColor: "text-red-600",
     },
@@ -186,14 +186,14 @@ export const heroSlides: HeroSlide[] = [
     id: 1,
     highlightNumber: "24x7",
     title: "Emergency & Trauma Care in Jabalpur",
-    description: "MP Hospital & Trauma Centre – Dedicated accidental trauma resuscitation, advanced surgical infrastructure, and round-the-clock emergency team.",
+    description: "MP Hospital & Trauma Centre – Dedicated accidental trauma resuscitation, well-equipped surgical infrastructure, and round-the-clock emergency team.",
     bgImage: "/images/mp-hospital-building.jpg",
   },
   {
     id: 2,
     highlightNumber: "Modular OT",
-    title: "Advanced Surgical & Joint Replacement Suite",
-    description: "Advanced modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
+    title: "Well-Equipped Surgical & Joint Replacement Suite",
+    description: "Well-equipped modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
     bgImage: "/images/modular-ot.jpg",
   },
 ];
@@ -342,7 +342,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: "modular-operation-theatre",
-    title: "Advanced Modular Operation Theatre Suite",
+    title: "Well-Equipped Modular Operation Theatre Suite",
     category: "mega",
     type: "Healthcare",
     status: "Completed",

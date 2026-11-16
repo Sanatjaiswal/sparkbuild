@@ -162,7 +162,7 @@ export default function AboutPage() {
                 <Target className="w-8 h-8 text-red-600 stroke-[2.2] group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-bold text-neutral-900">Our Mission</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  To save lives during critical trauma emergencies and eliminate joint pain through advanced modular surgical technology, skilled specialists, and compassionate, accessible care.
+                  To save lives during critical trauma emergencies and eliminate joint pain through well-equipped modular surgical technology, skilled specialists, and compassionate, accessible care.
                 </p>
               </div>
             </div>

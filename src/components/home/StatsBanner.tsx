@@ -30,7 +30,7 @@ export default function StatsBanner() {
         {
           iconName: "Building2",
           iconColor: "text-red-600",
-          title: "Advanced Modular OT",
+          title: "Well-Equipped Modular OT",
           desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and high patient satisfaction.",
         },
       ];

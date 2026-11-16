@@ -71,7 +71,7 @@ export default function ProjectsPage() {
             Hospital Infrastructure
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
-            Advanced Clinical <span className="text-sky-300">Facilities</span>
+            Well-Equipped Clinical <span className="text-sky-300">Facilities</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
             Take a virtual tour of MP Hospital &amp; Trauma Centre – sterile modular operation theatres, 24x7 trauma ICU, and modern patient recovery suites.

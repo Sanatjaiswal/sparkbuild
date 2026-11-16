@@ -19,7 +19,7 @@ const hospitalCards = [
     iconColor: "text-red-600",
     items: [
       "24x7 Polytrauma & Resuscitation",
-      "Advanced Emergency ICU & Monitoring",
+      "Well-Equipped Emergency ICU & Monitoring",
       "High-Velocity Road Accident Care",
       "Rapid Mobile ALS Ambulance Support",
       "In-House Emergency CT & Digital X-Ray",

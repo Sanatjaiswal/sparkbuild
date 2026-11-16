@@ -35,7 +35,7 @@ export default function WhyHospital() {
             iconName: "Building2",
             iconColor: "text-red-600",
             title: "Modular Laminar Flow OT",
-            desc: "Advanced cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
+            desc: "Well-equipped cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
           },
           {
             iconName: "ShieldCheck",

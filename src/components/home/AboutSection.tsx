@@ -68,7 +68,7 @@ export default function AboutSection() {
               <span className="bg-sky-50 text-[#008ec7] px-2.5 py-0.5 rounded font-black border border-sky-300 shadow-xs">
                 Dr. Abhishek Jain
               </span>
-              . With advanced laminar airflow modular operation theatres, a dedicated 24x7 Trauma ICU, and rapid rehabilitation protocols, we restore patient mobility and save lives every day.
+              . With well-equipped laminar airflow modular operation theatres, a dedicated 24x7 Trauma ICU, and rapid rehabilitation protocols, we restore patient mobility and save lives every day.
             </p>
 
             {/* Dr. Abhishek Jain Leadership Spotlight Card */}

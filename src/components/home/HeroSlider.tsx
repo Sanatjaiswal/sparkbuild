@@ -21,15 +21,15 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
       highlightNumber: "24x7",
       title: "Emergency & Trauma Care in Jabalpur",
       description:
-        "MP Hospital & Trauma Centre – Dedicated accidental trauma resuscitation, advanced surgical infrastructure, and round-the-clock emergency team.",
+        "MP Hospital & Trauma Centre – Dedicated accidental trauma resuscitation, well-equipped surgical infrastructure, and round-the-clock emergency team.",
       bgImage: "/images/mp-hospital-building.jpg",
     },
     {
       id: 2,
       highlightNumber: "Modular OT",
-      title: "Advanced Surgical & Joint Replacement Suite",
+      title: "Well-Equipped Surgical & Joint Replacement Suite",
       description:
-        "Advanced modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
+        "Well-equipped modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
       bgImage: "/images/modular-ot.jpg",
     },
   ];

@@ -346,7 +346,7 @@ export default function WordPressAdmin() {
       iconColor: "text-sky-600",
     },
     {
-      title: "Advanced Modular OT",
+      title: "Well-Equipped Modular OT",
       desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and high patient satisfaction.",
       iconName: "Building2",
       iconColor: "text-red-600",
@@ -372,7 +372,7 @@ export default function WordPressAdmin() {
     },
     {
       title: "Modular Laminar Flow OT",
-      desc: "Advanced cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
+      desc: "Well-equipped cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
       iconName: "Building2",
       iconColor: "text-red-600",
     },

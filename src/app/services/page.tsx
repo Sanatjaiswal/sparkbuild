@@ -69,7 +69,7 @@ export default function ServicesPage() {
       benefits: [
         "Sterile Laminar Airflow Surgical Environment",
         "HEPA Air Filtration & Medical Gas Pipeline System",
-        "Multi-Parameter Patient Monitors & Advanced Ventilators",
+        "Multi-Parameter Patient Monitors & Well-Equipped Ventilators",
         "Zero-Infection Surgical Protocol for Implant Safety",
       ],
     },
