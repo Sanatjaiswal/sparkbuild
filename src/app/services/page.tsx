@@ -97,7 +97,7 @@ export default function ServicesPage() {
     },
     {
       num: 2,
-      title: "Modular Surgical Intervention",
+      title: "Well-Equipped Surgical Intervention",
       desc: "Sterile surgical precision in laminar airflow theatres with precision modern implants and experienced surgical specialists.",
     },
     {

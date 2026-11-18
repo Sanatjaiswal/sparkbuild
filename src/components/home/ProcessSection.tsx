@@ -13,7 +13,7 @@ export default function ProcessSection() {
             Comprehensive Clinical Care &amp; Recovery
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
-            A methodical 4-stage treatment protocol ensuring rapid diagnosis, ultra-clean modular surgery, and active rehabilitation.
+            A methodical 4-stage treatment protocol ensuring rapid diagnosis, ultra-clean well-equipped surgery, and active rehabilitation.
           </p>
         </div>
 

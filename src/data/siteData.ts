@@ -279,8 +279,8 @@ export const workProcess = [
   },
   {
     step: "03",
-    title: "Modular Surgical Care",
-    description: "Surgical execution inside modular laminar airflow operation theatres, minimizing infection risk and ensuring international surgical standards.",
+    title: "Well-Equipped Surgical Care",
+    description: "Surgical execution inside well-equipped laminar airflow operation theatres, minimizing infection risk and ensuring international surgical standards.",
   },
   {
     step: "04",
