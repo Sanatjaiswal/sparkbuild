@@ -27,7 +27,7 @@ import FloatingConsultation from "@/components/ui/FloatingConsultation";
 import ConsultationModal from "@/components/ui/ConsultationModal";
 import {
   DirectorMedalIcon,
-  RoboticJointIcon,
+  PrecisionJointIcon,
   PolytraumaCareIcon,
 } from "@/components/ui/MedicalIcons";
 import { useCMS } from "@/context/CMSContext";
@@ -136,7 +136,7 @@ export default function OurTeamPage() {
           </h1>
           <p className="text-sm sm:text-base text-neutral-200 font-medium leading-relaxed">
             Meet our panel of 13 senior consultants delivering expert emergency polytrauma care,
-            robotic joint replacement, neurosurgery, critical care ICU, and multidisciplinary
+            joint replacement, neurosurgery, critical care ICU, and multidisciplinary
             rehabilitation at MP Hospital &amp; Trauma Centre, Jabalpur.
           </p>
         </div>
@@ -176,9 +176,9 @@ export default function OurTeamPage() {
                     {/* Bottom Floating Glass Clinical Specialization Bar (NO numerical claims) */}
                     <div className="absolute bottom-4 inset-x-4 z-10 bg-white/95 backdrop-blur-md rounded-2xl p-3 border border-white/80 shadow-lg grid grid-cols-2 divide-x divide-neutral-200">
                       <div className="px-2 flex items-center justify-center gap-2.5">
-                        <RoboticJointIcon className="w-8 h-8 shrink-0" size={32} />
+                        <PrecisionJointIcon className="w-8 h-8 shrink-0" size={32} />
                         <div className="text-left">
-                          <p className="text-xs font-black text-neutral-900 leading-tight">Robotic Joint Care</p>
+                          <p className="text-xs font-black text-neutral-900 leading-tight">Precision Joint Care</p>
                           <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mt-0.5">Surgical Precision</p>
                         </div>
                       </div>
@@ -223,7 +223,7 @@ export default function OurTeamPage() {
                   <div className="relative p-5 rounded-2xl bg-sky-50/60 border border-sky-200/80">
                     <Quote className="w-8 h-8 text-[#008EC7]/20 absolute top-3 right-3" />
                     <blockquote className="text-sm sm:text-base text-neutral-800 leading-relaxed font-medium italic relative z-10">
-                      &ldquo;At MP Hospital &amp; Trauma Centre, our clinical mission is rapid emergency resuscitation, zero-delay trauma surgeries, and precision robotic joint restorations to return every patient to active, pain-free mobility.&rdquo;
+                      &ldquo;At MP Hospital &amp; Trauma Centre, our clinical mission is rapid emergency resuscitation, zero-delay trauma surgeries, and precision joint restorations to return every patient to active, pain-free mobility.&rdquo;
                     </blockquote>
                   </div>
 
@@ -232,7 +232,7 @@ export default function OurTeamPage() {
                     <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-sky-400 hover:bg-sky-50/30 transition-all flex items-start gap-3.5 group/card shadow-xs">
                       <Bone className="w-5 h-5 text-[#008EC7] stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
                       <div>
-                        <h4 className="text-xs font-black text-neutral-900">Robotic Joint Replacement</h4>
+                        <h4 className="text-xs font-black text-neutral-900">Precision Joint Replacement</h4>
                         <p className="text-[11px] text-neutral-500 leading-snug mt-0.5">Total knee &amp; hip reconstruction with rapid recovery protocols.</p>
                       </div>
                     </div>

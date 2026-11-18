@@ -12,10 +12,10 @@ interface IconProps {
 }
 
 /**
- * 1. Robotic Knee & Hip Joint Replacement
+ * 1. Precision Knee & Hip Joint Replacement
  * Authentic Flaticon style: Femur, Tibia, precision titanium hinge & calibration crosshair
  */
-export function RoboticJointIcon({ className = "w-10 h-10", size = 48 }: IconProps) {
+export function PrecisionJointIcon({ className = "w-10 h-10", size = 48 }: IconProps) {
   return (
     <svg
       width={size}
@@ -34,7 +34,7 @@ export function RoboticJointIcon({ className = "w-10 h-10", size = 48 }: IconPro
       <circle cx="28" cy="11" r="3" fill="#94A3B8" />
       <circle cx="36" cy="11" r="3" fill="#94A3B8" />
 
-      {/* Titanium Robotic Replacement Component (Emerald & Red accents) */}
+      {/* Titanium Replacement Component (Emerald & Red accents) */}
       <rect x="22" y="26" width="20" height="7" rx="3.5" fill="#046F47" />
       <rect x="25" y="27.5" width="14" height="4" rx="2" fill="#34D399" opacity="0.6" />
       
@@ -53,7 +53,7 @@ export function RoboticJointIcon({ className = "w-10 h-10", size = 48 }: IconPro
         fill="#CBD5E1"
       />
 
-      {/* Robotic Laser Alignment Guides */}
+      {/* Precision Laser Alignment Guides */}
       <circle cx="16" cy="35" r="2" fill="#D50011" />
       <path d="M18 35H21" stroke="#D50011" strokeWidth="2" strokeLinecap="round" />
       <circle cx="48" cy="35" r="2" fill="#D50011" />

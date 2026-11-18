@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import {
   DirectorMedalIcon,
-  RoboticJointIcon,
+  PrecisionJointIcon,
   EmergencyTraumaPhoneIcon,
   ModularOTIcon,
 } from "@/components/ui/MedicalIcons";
@@ -90,7 +90,7 @@ export default function AboutSection() {
             {/* Clinical Highlights with Authentic Flaticon Icons (NO numerical claims) */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
-                <RoboticJointIcon className="w-8 h-8 mx-auto mb-1.5 group-hover:scale-110 transition-transform" size={32} />
+                <PrecisionJointIcon className="w-8 h-8 mx-auto mb-1.5 group-hover:scale-110 transition-transform" size={32} />
                 <h4 className="text-sm font-black text-black">Joint &amp; Orthopedics</h4>
                 <p className="text-xs font-medium text-gray-600">Precision Surgeries</p>
               </div>

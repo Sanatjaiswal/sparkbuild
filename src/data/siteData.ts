@@ -461,7 +461,7 @@ export const teamMembers: TeamMember[] = [
     department: "Orthopedics",
     qualification: "MBBS, M.S.",
     image: "/images/dr-abhishek-jain.jpg",
-    bio: "Director and Head of Orthopedics & Trauma Care at MP Hospital. Highly acclaimed specialist in complex accidental polytrauma resuscitation, robotic total knee and hip replacement, and minimally invasive 4K arthroscopy.",
+    bio: "Director and Head of Orthopedics & Trauma Care at MP Hospital. Highly acclaimed specialist in complex accidental polytrauma resuscitation, total knee and hip replacement, and minimally invasive 4K arthroscopy.",
   },
   {
     id: "dr-akshay-juriani",

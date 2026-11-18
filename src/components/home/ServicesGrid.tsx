@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, HeartPulse, Bone, Crosshair, Activity, Dumbbell } from "lucide-react";
+import { HeartPulse, Bone, Crosshair, Activity, Dumbbell } from "lucide-react";
 import { useCMS } from "@/context/CMSContext";
 
 interface ServicesGridProps {
@@ -127,7 +127,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
                 </div>
 
                 {/* 2. Overlapping White Card with Black 2px Border and Rounded Corners */}
-                <div className="-mt-12 sm:-mt-14 relative z-10 mx-1 sm:mx-1.5 bg-white rounded-[26px] border-[2px] border-black p-4 sm:p-5 xl:p-4 shadow-lg group-hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center flex-1 justify-between min-h-[430px] sm:min-h-[450px]">
+                <div className="-mt-12 sm:-mt-14 relative z-10 mx-1 sm:mx-1.5 bg-white rounded-[26px] border-[2px] border-black p-4 sm:p-5 xl:p-4 shadow-lg group-hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center flex-1 justify-between min-h-[360px] sm:min-h-[380px]">
                   {/* Bare Icon without box or background */}
                   <div className="w-12 h-12 mb-2 flex items-center justify-center">
                     <IconComp className={`w-10 h-10 ${card.iconColor} stroke-[2.2] group-hover:scale-110 transition-transform`} />
@@ -139,7 +139,7 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
                   </h3>
 
                   {/* Bullet list with crisp checkmark ✔ */}
-                  <ul className="space-y-2.5 w-full text-left mb-5 flex-1">
+                  <ul className="space-y-2.5 w-full text-left flex-1 mb-2">
                     {card.items.map((item, idx) => (
                       <li
                         key={idx}
@@ -152,15 +152,6 @@ export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) 
                       </li>
                     ))}
                   </ul>
-
-                  {/* Bottom Action CTA */}
-                  <button
-                    onClick={onOpenConsultation}
-                    className="w-full py-2.5 px-3 rounded-full bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-[11px] tracking-wider uppercase transition-all duration-200 mt-2 shadow-md shadow-sky-600/20 flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer"
-                  >
-                    <span>Book Consultation</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
                 </div>
               </div>
             );
