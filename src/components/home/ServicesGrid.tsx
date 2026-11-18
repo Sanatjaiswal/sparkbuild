@@ -46,7 +46,7 @@ const hospitalCards = [
     icon: Crosshair,
     iconColor: "text-red-600",
     items: [
-      "4K Knee Arthroscopy & ACL / PCL Repair",
+      "Keyhole Knee Arthroscopy & ACL / PCL Repair",
       "Shoulder Arthroscopy & Rotator Cuff Repair",
       "Meniscus Repair & Cartilage Restoration",
       "Sports Injury Rehabilitation & Conditioning",

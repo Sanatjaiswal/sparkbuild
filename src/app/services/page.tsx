@@ -51,9 +51,9 @@ export default function ServicesPage() {
       iconColor: "text-red-600",
       tag: "Keyhole Sports Surgery",
       image: "/images/arthroscopy-surgery.jpg",
-      desc: "Minimally invasive keyhole arthroscopic diagnosis and reconstruction for athletic tears and joint instability. Covering 4K high-definition knee arthroscopy, ACL/PCL ligament reconstruction, and rotator cuff repairs.",
+      desc: "Minimally invasive keyhole arthroscopic diagnosis and treatment for athletic tears, joint instability, ACL/PCL ligament reconstruction, and cartilage repairs.",
       benefits: [
-        "4K HD Knee & Shoulder Arthroscopy",
+        "Keyhole Knee & Shoulder Arthroscopy",
         "Anatomic ACL, PCL & Meniscal Root Repairs",
         "Fast Recovery Day-Care Surgical Protocols",
         "Tailored Sports Rehabilitation & Return-to-Play Plans",

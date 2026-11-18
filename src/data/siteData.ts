@@ -372,12 +372,12 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: "arthroscopy-minimally-invasive",
-    title: "Arthroscopy & Minimally Invasive Surgery Unit",
+    title: "Arthroscopy & Keyhole Surgery Unit",
     category: "mega",
     type: "Healthcare",
     status: "Completed",
-    specs: "High-definition 4K endoscopic surgical cameras, shaver systems, and radiofrequency ablation for keyhole joint procedures.",
-    highlights: ["Small Incisions - Minimal Scarring", "Same-Day / Short Stay Surgery", "Speedy Return to Sports"],
+    specs: "Specialized keyhole arthroscopic procedures for ACL ligament tears, meniscus injuries, and joint pain with minimal cuts and fast recovery.",
+    highlights: ["Minimal Incisions & Quick Healing", "Day-Care / Short Stay Procedure", "Guided Sports Rehabilitation"],
     image: "/images/arthroscopy-surgery.jpg",
   },
   {
