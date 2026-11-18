@@ -166,16 +166,6 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
                     ))}
                   </div>
                 )}
-
-                <div className="pt-3 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-700">
-                  <span className="font-bold text-sky-800 flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    24x7 Inpatient Care
-                  </span>
-                  <span className="text-xs font-bold text-[#008ec7] group-hover:translate-x-0.5 transition-transform">
-                    View Facility →
-                  </span>
-                </div>
               </div>
             </div>
           ))}
