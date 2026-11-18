@@ -101,7 +101,7 @@ export default function CareersPage() {
                 {[
                   "Collaborative, patient-first multidisciplinary medical team",
                   "Competitive healthcare compensation and performance bonuses",
-                  "State-of-the-art laminar airflow modular OTs & well-equipped ICU",
+                  "State-of-the-art laminar airflow well-equipped OTs & ICU",
                   "Continuous medical education (CME) and clinical skill workshops",
                   "Respectful, transparent, and ethical hospital work environment",
                 ].map((item, idx) => (

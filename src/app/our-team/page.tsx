@@ -256,7 +256,7 @@ export default function OurTeamPage() {
                     <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200/90 hover:border-sky-400 hover:bg-sky-50/30 transition-all flex items-start gap-3.5 group/card shadow-xs">
                       <Building2 className="w-5 h-5 text-red-600 stroke-[2.2] shrink-0 mt-0.5 group-hover/card:scale-110 transition-transform" />
                       <div>
-                        <h4 className="text-xs font-black text-neutral-900">Modular OT Complexes</h4>
+                        <h4 className="text-xs font-black text-neutral-900">Well-Equipped OT Complexes</h4>
                         <p className="text-[11px] text-neutral-500 leading-snug mt-0.5">Ultra-clean laminar airflow with zero-infection protocols.</p>
                       </div>
                     </div>
@@ -303,7 +303,7 @@ export default function OurTeamPage() {
             </h2>
             <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
               Our multidisciplinary specialists collaborate seamlessly to ensure accurate diagnostics,
-              safe modular surgeries, intensive critical monitoring, and rapid patient recovery.
+              safe well-equipped surgeries, intensive critical monitoring, and rapid patient recovery.
             </p>
           </div>
 
@@ -443,7 +443,7 @@ export default function OurTeamPage() {
             <div className="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs hover:shadow-md transition-all flex items-start gap-4 group">
               <Building2 className="w-8 h-8 text-[#008EC7] stroke-[2.2] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
               <div>
-                <h4 className="text-sm font-black text-neutral-900">Modular OT Complexes</h4>
+                <h4 className="text-sm font-black text-neutral-900">Well-Equipped OT Complexes</h4>
                 <p className="text-xs text-neutral-500 mt-1">
                   HEPA air-filtered laminar flow for zero-infection orthopedics.
                 </p>

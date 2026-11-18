@@ -68,7 +68,7 @@ export default function AboutSection() {
               <span className="bg-sky-50 text-[#008ec7] px-2.5 py-0.5 rounded font-black border border-sky-300 shadow-xs">
                 Dr. Abhishek Jain
               </span>
-              . With well-equipped laminar airflow modular operation theatres, a dedicated 24x7 Trauma ICU, and rapid rehabilitation protocols, we restore patient mobility and save lives every day.
+              . With well-equipped laminar airflow operation theatres, a dedicated 24x7 Trauma ICU, and rapid rehabilitation protocols, we restore patient mobility and save lives every day.
             </p>
 
             {/* Dr. Abhishek Jain Leadership Spotlight Card */}
@@ -103,7 +103,7 @@ export default function AboutSection() {
 
               <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
                 <ModularOTIcon className="w-8 h-8 mx-auto mb-1.5 group-hover:scale-110 transition-transform" size={32} />
-                <h4 className="text-sm font-black text-black">Sterile Modular OT</h4>
+                <h4 className="text-sm font-black text-black">Sterile Well-Equipped OT</h4>
                 <p className="text-xs font-medium text-gray-600">Ultra-Clean Environment</p>
               </div>
             </div>

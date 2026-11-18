@@ -162,7 +162,7 @@ export default function AboutPage() {
                 <Target className="w-8 h-8 text-red-600 stroke-[2.2] group-hover:scale-110 transition-transform" />
                 <h3 className="text-xl font-bold text-neutral-900">Our Mission</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  To save lives during critical trauma emergencies and eliminate joint pain through well-equipped modular surgical technology, skilled specialists, and compassionate, accessible care.
+                  To save lives during critical trauma emergencies and eliminate joint pain through well-equipped surgical technology, skilled specialists, and compassionate, accessible care.
                 </p>
               </div>
             </div>
@@ -211,7 +211,7 @@ export default function AboutPage() {
               <div className="space-y-3 pt-2">
                 {[
                   "Senior Orthopedic Surgeon & Trauma Specialist on site",
-                  "Sterile modular operation theatres with laminar airflow & HEPA filtration",
+                  "Sterile well-equipped operation theatres with laminar airflow & HEPA filtration",
                   "24x7 Emergency Casualty & Well-Equipped Life Support (ALS) Ambulance",
                   "Full cashless insurance, corporate mediclaim, and TPA pre-authorization support",
                 ].map((item, idx) => (

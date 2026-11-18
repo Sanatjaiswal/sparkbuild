@@ -48,7 +48,7 @@
         "iconColor": "text-sky-600"
       },
       {
-        "title": "Well-Equipped Modular OT",
+        "title": "Well-Equipped OT",
         "desc": "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and high patient satisfaction.",
         "iconName": "Building2",
         "iconColor": "text-red-600"
@@ -68,8 +68,8 @@
         "iconColor": "text-[#008EC7]"
       },
       {
-        "title": "Modular Laminar Flow OT",
-        "desc": "Well-equipped cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
+        "title": "Well-Equipped Laminar Flow OT",
+        "desc": "Cleanroom well-equipped surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
         "iconName": "Building2",
         "iconColor": "text-red-600"
       },
@@ -91,9 +91,9 @@
     },
     {
       "id": 2,
-      "highlightNumber": "Modular OT",
+      "highlightNumber": "Well-Equipped OT",
       "title": "Well-Equipped Surgical & Joint Replacement Suite",
-      "description": "Well-equipped modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
+      "description": "Well-equipped operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
       "bgImage": "/images/modular-ot.jpg"
     }
   ],
@@ -237,13 +237,13 @@
     },
     {
       "id": "modular-operation-theatre",
-      "title": "Well-Equipped Modular Operation Theatre Suite",
+      "title": "Well-Equipped Operation Theatre Suite",
       "category": "mega",
       "type": "Healthcare",
       "status": "Completed",
       "specs": "Ultra-clean surgical suite with laminar airflow, HEPA filtration, precision LED surgical pendants, and live orthopedic surgeries performed by Dr. Abhishek Jain.",
       "highlights": [
-        "Sterile Cleanroom Modular OT",
+        "Sterile Cleanroom Well-Equipped OT",
         "Zero-Infection Protocol",
         "Live Surgical Operations"
       ],
@@ -391,7 +391,7 @@
       "department": "Anesthesiology & Pain Management",
       "qualification": "MBBS, MD (Anesthesiology)",
       "image": "/images/dr-nishit-kumar.jpg",
-      "bio": "Specializes in modular operation theatre surgical anesthesia, ultrasound-guided regional nerve blocks for joint replacements, and comprehensive acute pain control."
+      "bio": "Specializes in well-equipped operation theatre surgical anesthesia, ultrasound-guided regional nerve blocks for joint replacements, and comprehensive acute pain control."
     },
     {
       "id": "dr-deepesh-agrawal",
@@ -450,17 +450,17 @@
     },
     {
       "question": "What types of joint replacement and orthopedic surgeries are done?",
-      "answer": "We perform Total Knee Replacement (TKR), Total Hip Replacement (THR), Shoulder Arthroplasty, Minimally Invasive Arthroscopic Ligament Repairs (ACL/PCL/Meniscus), Complex Trauma & Pelvic Fractures, and Pediatric Orthopedic Surgeries inside state-of-the-art modular laminar airflow operation theatres."
+      "answer": "We perform Total Knee Replacement (TKR), Total Hip Replacement (THR), Shoulder Arthroplasty, Minimally Invasive Arthroscopic Ligament Repairs (ACL/PCL/Meniscus), Complex Trauma & Pelvic Fractures, and Pediatric Orthopedic Surgeries inside state-of-the-art well-equipped laminar airflow operation theatres."
     }
   ],
-  "lastUpdated": "2026-11-16T18:00:00.000Z",
+  "lastUpdated": "2026-11-18T16:30:00.000Z",
   "videoTestimonials": [
     {
       "id": "video-surgery-live",
       "youtubeId": "/videos/mp-hospital-surgery.mp4",
-      "title": "Live Modular OT Surgery: Well-Equipped Joint Reconstruction & Polytrauma Care",
+      "title": "Live Well-Equipped OT Surgery: Precision Joint Reconstruction & Polytrauma Care",
       "clientName": "Dr. Abhishek Jain & Surgical Team",
-      "location": "Modular OT Suite, Jabalpur",
+      "location": "Well-Equipped OT Suite, Jabalpur",
       "thumbnail": "/images/surgery-in-action.jpg"
     }
   ],
@@ -470,7 +470,7 @@
     "Well-Equipped Life Support Ambulance",
     "Total Knee & Hip Replacement",
     "Arthroscopy & Sports Medicine",
-    "Sterile Modular OT",
+    "Sterile Well-Equipped OT",
     "Trauma Critical Care ICU",
     "Digital X-Ray & Emergency Diagnostics",
     "Emergency Line: 0761-2626123",

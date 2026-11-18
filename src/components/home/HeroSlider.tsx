@@ -26,10 +26,10 @@ export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
     },
     {
       id: 2,
-      highlightNumber: "Modular OT",
+      highlightNumber: "Well-Equipped OT",
       title: "Well-Equipped Surgical & Joint Replacement Suite",
       description:
-        "Well-equipped modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
+        "Well-equipped operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
       bgImage: "/images/modular-ot.jpg",
     },
   ];

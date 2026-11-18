@@ -42,7 +42,7 @@ export default function ServicesPage() {
         "Minimally Invasive Total Knee & Hip Replacement",
         "Computer-Assisted Precision Component Alignment",
         "Rapid Rehabilitation Protocol (Patients Walk within 24-48 Hours)",
-        "Ultra-Clean Sterile Modular Operation Theatres",
+        "Ultra-Clean Sterile Well-Equipped Operation Theatres",
       ],
     },
     {
@@ -60,12 +60,12 @@ export default function ServicesPage() {
       ],
     },
     {
-      title: "Modular Operation Theatres & Intensive Care ICU",
+      title: "Well-Equipped Operation Theatres & Intensive Care ICU",
       icon: Building2,
       iconColor: "text-sky-600",
       tag: "Critical Care Infrastructure",
       image: "/images/emergency-trauma-icu.jpg",
-      desc: "NABH-compliant modular surgical suites featuring HEPA-filtered laminar airflow that guarantees sterile conditions. Backed by multi-parameter monitored Trauma ICU beds staffed by dedicated intensivists.",
+      desc: "NABH-compliant well-equipped surgical suites featuring HEPA-filtered laminar airflow that guarantees sterile conditions. Backed by multi-parameter monitored Trauma ICU beds staffed by dedicated intensivists.",
       benefits: [
         "Sterile Laminar Airflow Surgical Environment",
         "HEPA Air Filtration & Medical Gas Pipeline System",
@@ -241,7 +241,7 @@ export default function ServicesPage() {
               Our Patient Care Pathway
             </h2>
             <p className="text-sm sm:text-base text-gray-600">
-              Clear clinical milestones from casualty triage to modular surgery and active rehabilitation.
+              Clear clinical milestones from casualty triage to well-equipped surgery and active rehabilitation.
             </p>
           </div>
 

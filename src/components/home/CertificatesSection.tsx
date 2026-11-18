@@ -14,7 +14,7 @@ export default function CertificatesSection() {
             Commitment to Clinical Excellence
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
-            Distinguished healthcare milestones celebrating surgical accuracy, infection-free modular OTs, and compassionate community care.
+            Distinguished healthcare milestones celebrating surgical accuracy, infection-free well-equipped OTs, and compassionate community care.
           </p>
         </div>
 

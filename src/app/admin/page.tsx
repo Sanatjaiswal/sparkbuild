@@ -346,7 +346,7 @@ export default function WordPressAdmin() {
       iconColor: "text-sky-600",
     },
     {
-      title: "Well-Equipped Modular OT",
+      title: "Well-Equipped OT",
       desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and high patient satisfaction.",
       iconName: "Building2",
       iconColor: "text-red-600",
@@ -358,8 +358,15 @@ export default function WordPressAdmin() {
     : defaultStatsBanner
   ).map((item) => ({
     ...item,
-    title: item.title?.replace(/Advanced/gi, "Well-Equipped") || item.title,
-    desc: item.desc?.replace(/advanced/gi, "well-equipped") || item.desc,
+    title: item.title
+      ?.replace(/Advanced Modular OT/gi, "Well-Equipped OT")
+      ?.replace(/Well-Equipped Modular OT/gi, "Well-Equipped OT")
+      ?.replace(/Modular OT/gi, "Well-Equipped OT")
+      ?.replace(/Modular/gi, "Well-Equipped")
+      ?.replace(/Advanced/gi, "Well-Equipped") || item.title,
+    desc: item.desc
+      ?.replace(/modular/gi, "well-equipped")
+      ?.replace(/advanced/gi, "well-equipped") || item.desc,
   }));
 
   const defaultWhyHospitalPoints = [
@@ -376,8 +383,8 @@ export default function WordPressAdmin() {
       iconColor: "text-[#008EC7]",
     },
     {
-      title: "Modular Laminar Flow OT",
-      desc: "Well-equipped cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
+      title: "Well-Equipped Laminar Flow OT",
+      desc: "Cleanroom well-equipped surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
       iconName: "Building2",
       iconColor: "text-red-600",
     },
@@ -756,7 +763,7 @@ export default function WordPressAdmin() {
                   >
                     <option value="Ambulance">Ambulance</option>
                     <option value="Stethoscope">Stethoscope</option>
-                    <option value="Building2">Modular OT / Building</option>
+                    <option value="Building2">Well-Equipped OT / Building</option>
                     <option value="ShieldCheck">Shield Check / Mediclaim</option>
                     <option value="HeartPulse">Heart Pulse</option>
                     <option value="Award">Award</option>
@@ -862,7 +869,7 @@ export default function WordPressAdmin() {
                     >
                       <option value="Ambulance">Ambulance</option>
                       <option value="Stethoscope">Stethoscope</option>
-                      <option value="Building2">Modular OT / Building</option>
+                      <option value="Building2">Well-Equipped OT / Building</option>
                       <option value="ShieldCheck">Shield Check / Mediclaim</option>
                       <option value="HeartPulse">Heart Pulse</option>
                       <option value="Award">Award</option>
@@ -1610,7 +1617,7 @@ export default function WordPressAdmin() {
                           <input
                             type="text"
                             value={newHeroSlide.highlightNumber}
-                            placeholder="e.g. 24x7, Modular OT"
+                            placeholder="e.g. 24x7, Well-Equipped OT"
                             onChange={(e) =>
                               setNewHeroSlide((prev) => ({ ...prev, highlightNumber: e.target.value }))
                             }
@@ -1811,7 +1818,7 @@ export default function WordPressAdmin() {
                               <input
                                 type="text"
                                 value={slide.highlightNumber || ""}
-                                placeholder="e.g. 24x7, Modular OT"
+                                placeholder="e.g. 24x7, Well-Equipped OT"
                                 onChange={(e) => updateHeroSlide(idx, { highlightNumber: e.target.value })}
                                 className="w-full p-2 text-sm border border-[#8c8f94] rounded focus:border-[#2271b1]"
                               />
@@ -1989,7 +1996,7 @@ export default function WordPressAdmin() {
                         onChange={(e) => setNewProject({ ...newProject, category: e.target.value as any })}
                         className="w-full p-2 text-sm border rounded bg-white"
                       >
-                        <option value="mega">Modular OT &amp; Surgical</option>
+                        <option value="mega">Well-Equipped OT &amp; Surgical</option>
                         <option value="domestic">Emergency &amp; Trauma ICU</option>
                         <option value="facade">Diagnostics &amp; Fleet</option>
                         <option value="interior">Patient Rooms &amp; Rehab</option>

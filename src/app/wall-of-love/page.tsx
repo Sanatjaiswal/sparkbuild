@@ -24,13 +24,13 @@ export default function WallOfLovePage() {
     {
       name: "",
       project: "Accidental Polytrauma Recovery",
-      text: "After a severe highway accident, MP Hospital’s emergency trauma surgeons acted with lightning speed. The 24x7 ICU care, modular OT surgery, and post-op rehabilitation brought me back to my feet within 3 months. Immense gratitude to Dr. Abhishek Jain.",
+      text: "After a severe highway accident, MP Hospital’s emergency trauma surgeons acted with lightning speed. The 24x7 ICU care, well-equipped OT surgery, and post-op rehabilitation brought me back to my feet within 3 months. Immense gratitude to Dr. Abhishek Jain.",
       rating: 5,
     },
     {
       name: "",
       project: "Bilateral Knee Arthroplasty",
-      text: "I was bedridden with severe osteoarthritis for 4 years. Dr. Abhishek Jain recommended bilateral knee replacement. The surgery in the modular OT was painless, and I walked with support on day two. Today I walk unassisted with zero pain.",
+      text: "I was bedridden with severe osteoarthritis for 4 years. Dr. Abhishek Jain recommended bilateral knee replacement. The surgery in the well-equipped OT was painless, and I walked with support on day two. Today I walk unassisted with zero pain.",
       rating: 5,
     },
     {

@@ -92,10 +92,16 @@ function sanitizeCMSData(cms: any): any {
   try {
     const str = JSON.stringify(cms);
     const cleanedStr = str
-      .replace(/Advanced Modular/g, "Well-Equipped Modular")
-      .replace(/advanced modular/g, "well-equipped modular")
-      .replace(/Advanced/g, "Well-Equipped")
-      .replace(/advanced/g, "well-equipped");
+      .replace(/Advanced Modular OT/gi, "Well-Equipped OT")
+      .replace(/Well-Equipped Modular OT/gi, "Well-Equipped OT")
+      .replace(/Modular OT/gi, "Well-Equipped OT")
+      .replace(/Advanced/gi, "Well-Equipped")
+      .replace(/Modular/gi, "Well-Equipped")
+      .replace(/modular/gi, "well-equipped")
+      .replace(/Well-Equipped Well-Equipped/gi, "Well-Equipped")
+      .replace(/well-equipped well-equipped/gi, "well-equipped")
+      .replace(/\/images\/well-equipped-ot\.jpg/gi, "/images/modular-ot.jpg")
+      .replace(/"id":\s*"well-equipped-operation-theatre"/gi, '"id": "modular-operation-theatre"');
     return JSON.parse(cleanedStr);
   } catch {
     return cms;

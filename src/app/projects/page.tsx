@@ -74,7 +74,7 @@ export default function ProjectsPage() {
             Well-Equipped Clinical <span className="text-sky-300">Facilities</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
-            Take a virtual tour of MP Hospital &amp; Trauma Centre – sterile modular operation theatres, 24x7 trauma ICU, and modern patient recovery suites.
+            Take a virtual tour of MP Hospital &amp; Trauma Centre – sterile well-equipped operation theatres, 24x7 trauma ICU, and modern patient recovery suites.
           </p>
         </div>
       </section>
@@ -167,7 +167,7 @@ export default function ProjectsPage() {
                     )}
                     {project.id === "modular-operation-theatre" && (
                       <span className="px-2.5 py-1 rounded-full bg-indigo-600 text-white text-[10px] font-black uppercase tracking-wider shadow-md">
-                        Modular OT
+                        Well-Equipped OT
                       </span>
                     )}
                     {project.id === "physiotherapy-rehab-center" && (
@@ -243,7 +243,7 @@ export default function ProjectsPage() {
             <span className="text-white font-black">
               Dr. Abhishek Jain
             </span>{" "}
-            to 24x7 accidental polytrauma resuscitation and modular surgery, our medical team is ready to assist you.
+            to 24x7 accidental polytrauma resuscitation and well-equipped surgery, our medical team is ready to assist you.
           </p>
           <div className="pt-2">
             <button

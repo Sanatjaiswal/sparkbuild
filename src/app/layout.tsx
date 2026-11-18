@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mphospital.in"),
   title: "MP Hospital & Trauma Centre Jabalpur | 24x7 Emergency & Orthopedics",
   description:
-    "MP Hospital & Trauma Centre in Beoharbagh, Jabalpur led by Dr. Abhishek Jain. Leading center for Total Knee/Hip Replacement, Accidental Polytrauma, Sports Injury Arthroscopy, Spine Care, Modular OT, and 24x7 ICU.",
+    "MP Hospital & Trauma Centre in Beoharbagh, Jabalpur led by Dr. Abhishek Jain. Leading center for Total Knee/Hip Replacement, Accidental Polytrauma, Sports Injury Arthroscopy, Spine Care, Well-Equipped OT, and 24x7 ICU.",
   keywords: [
     "MP Hospital",
     "MP Hospital and Trauma Center",

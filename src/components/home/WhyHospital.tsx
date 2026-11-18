@@ -34,8 +34,8 @@ export default function WhyHospital() {
           {
             iconName: "Building2",
             iconColor: "text-red-600",
-            title: "Modular Laminar Flow OT",
-            desc: "Well-equipped cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
+            title: "Well-Equipped Laminar Flow OT",
+            desc: "Cleanroom well-equipped surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
           },
           {
             iconName: "ShieldCheck",
@@ -47,8 +47,14 @@ export default function WhyHospital() {
 
   const points = rawPoints.map((p) => ({
     ...p,
-    title: p.title?.replace(/Advanced/gi, "Well-Equipped") || p.title,
-    desc: p.desc?.replace(/advanced/gi, "well-equipped") || p.desc,
+    title: p.title
+      ?.replace(/Modular OT/gi, "Well-Equipped OT")
+      ?.replace(/Modular/gi, "Well-Equipped")
+      ?.replace(/Advanced/gi, "Well-Equipped") || p.title,
+    desc: p.desc
+      ?.replace(/cleanroom modular/gi, "cleanroom well-equipped")
+      ?.replace(/modular/gi, "well-equipped")
+      ?.replace(/advanced/gi, "well-equipped") || p.desc,
   }));
 
   return (

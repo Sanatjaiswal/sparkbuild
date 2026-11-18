@@ -118,7 +118,7 @@ export const siteConfig = {
     projectsCount: "Clinical Mastery",
     jointReplacements: "Precision Care",
     emergencyTrauma: "24x7",
-    modularOTs: "Sterile Modular",
+    modularOTs: "Sterile Well-Equipped",
     satisfactionRate: "99%+",
     yearsExperience: "Trusted Legacy",
     infectionControl: "100%",
@@ -138,7 +138,7 @@ export const siteConfig = {
       iconColor: "text-sky-600",
     },
     {
-      title: "Well-Equipped Modular OT",
+      title: "Well-Equipped OT",
       desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and high patient satisfaction.",
       iconName: "Building2",
       iconColor: "text-red-600",
@@ -158,8 +158,8 @@ export const siteConfig = {
       iconColor: "text-[#008EC7]",
     },
     {
-      title: "Modular Laminar Flow OT",
-      desc: "Well-equipped cleanroom modular surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
+      title: "Well-Equipped Laminar Flow OT",
+      desc: "Cleanroom well-equipped surgical theatres with HEPA filtration for ultra-sterile, infection-free surgeries.",
       iconName: "Building2",
       iconColor: "text-red-600",
     },
@@ -191,9 +191,9 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 2,
-    highlightNumber: "Modular OT",
+    highlightNumber: "Well-Equipped OT",
     title: "Well-Equipped Surgical & Joint Replacement Suite",
-    description: "Well-equipped modular operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
+    description: "Well-equipped operation theatres with laminar airflow, HEPA filtration, and minimally invasive joint replacement by Dr. Abhishek Jain.",
     bgImage: "/images/modular-ot.jpg",
   },
 ];
@@ -342,12 +342,12 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: "modular-operation-theatre",
-    title: "Well-Equipped Modular Operation Theatre Suite",
+    title: "Well-Equipped Operation Theatre Suite",
     category: "mega",
     type: "Healthcare",
     status: "Completed",
     specs: "Ultra-clean surgical suite with laminar airflow, HEPA filtration, precision LED surgical pendants, and live orthopedic surgeries performed by Dr. Abhishek Jain.",
-    highlights: ["Sterile Cleanroom Modular OT", "Zero-Infection Protocol", "Digital C-Arm Integration"],
+    highlights: ["Sterile Cleanroom Well-Equipped OT", "Zero-Infection Protocol", "Digital C-Arm Integration"],
     image: "/images/surgery-wide.jpg",
   },
   {
@@ -406,9 +406,9 @@ export const videoTestimonials: VideoTestimonial[] = [
   {
     id: "video-surgery-live",
     youtubeId: "/videos/mp-hospital-surgery.mp4",
-    title: "Inside Modular OT: Live Surgical Procedures & Complex Trauma Care",
+    title: "Inside Well-Equipped OT: Live Surgical Procedures & Complex Trauma Care",
     clientName: "Dr. Abhishek Jain & Surgical Team",
-    location: "Modular OT Suite, Jabalpur",
+    location: "Well-Equipped OT Suite, Jabalpur",
     thumbnail: "/images/surgery-in-action.jpg",
   },
   {
@@ -524,7 +524,7 @@ export const teamMembers: TeamMember[] = [
     department: "Anesthesia & ICU",
     qualification: "MBBS, MD",
     image: "/images/dr-nishit-kumar.jpg",
-    bio: "Specializes in modular operation theatre surgical anesthesia, ultrasound-guided regional nerve blocks for joint replacements, and comprehensive acute pain control.",
+    bio: "Specializes in well-equipped operation theatre surgical anesthesia, ultrasound-guided regional nerve blocks for joint replacements, and comprehensive acute pain control.",
   },
   {
     id: "dr-deepesh-agrawal",
@@ -587,7 +587,7 @@ export const awardsData: AwardItem[] = [
   {
     year: "2022",
     title: "Infection Control & Patient Safety Milestone",
-    description: "Honored for maintaining world-class sterile standards across modular operation theatres and critical care units.",
+    description: "Honored for maintaining world-class sterile standards across well-equipped operation theatres and critical care units.",
   },
   {
     year: "2021",
@@ -618,7 +618,7 @@ export const testimonials = [
   {
     name: "",
     project: "Hip Replacement & Cashless TPA",
-    text: "From admission to discharge, the cashless mediclaim process was seamless. The nursing staff and modular OT infrastructure are truly top-grade. Highly recommend MP Hospital to everyone in Jabalpur.",
+    text: "From admission to discharge, the cashless mediclaim process was seamless. The nursing staff and well-equipped OT infrastructure are truly top-grade. Highly recommend MP Hospital to everyone in Jabalpur.",
     rating: 5,
   },
 ];
@@ -630,7 +630,7 @@ export const faqsData: FAQItem[] = [
   },
   {
     question: "What makes MP Hospital a leading trauma center in Jabalpur?",
-    answer: "MP Hospital and Trauma Centre combines high-tech laminar flow modular operation theatres, a dedicated 24x7 Trauma ICU, modern digital radiology, and an experienced multidisciplinary team under Dr. Abhishek Jain, ensuring round-the-clock emergency care and rapid orthopedic recovery.",
+    answer: "MP Hospital and Trauma Centre combines high-tech laminar flow well-equipped operation theatres, a dedicated 24x7 Trauma ICU, modern digital radiology, and an experienced multidisciplinary team under Dr. Abhishek Jain, ensuring round-the-clock emergency care and rapid orthopedic recovery.",
   },
   {
     question: "Do you accept Cashless Mediclaim and Health Insurance?",
@@ -638,7 +638,7 @@ export const faqsData: FAQItem[] = [
   },
   {
     question: "What types of joint replacement and orthopedic surgeries are done?",
-    answer: "We perform Total Knee Replacement (TKR), Total Hip Replacement (THR), Shoulder Arthroplasty, Minimally Invasive Arthroscopic Ligament Repairs (ACL/PCL/Meniscus), Complex Trauma & Pelvic Fractures, and Pediatric Orthopedic Surgeries inside state-of-the-art modular laminar airflow operation theatres.",
+    answer: "We perform Total Knee Replacement (TKR), Total Hip Replacement (THR), Shoulder Arthroplasty, Minimally Invasive Arthroscopic Ligament Repairs (ACL/PCL/Meniscus), Complex Trauma & Pelvic Fractures, and Pediatric Orthopedic Surgeries inside state-of-the-art well-equipped laminar airflow operation theatres.",
   },
 ];
 
@@ -713,9 +713,9 @@ export const careerJobs: CareerJob[] = [
     title: "Operation Theatre (OT) Technician",
     location: "MP Hospital, Jabalpur",
     type: "Full-Time",
-    description: "Manage modular operation theatre preparation, sterile instrument sets for orthopedic & joint replacement surgeries, autoclave sterilization, and assist surgeons intra-operatively.",
+    description: "Manage well-equipped operation theatre preparation, sterile instrument sets for orthopedic & joint replacement surgeries, autoclave sterilization, and assist surgeons intra-operatively.",
     responsibilities: [
-      "Prepare laminar airflow modular OT suites for elective and emergency orthopedic surgeries.",
+      "Prepare laminar airflow well-equipped OT suites for elective and emergency orthopedic surgeries.",
       "Sterilize and manage orthopedic implant trays, power drills, and arthroscopy sets.",
       "Operate and maintain C-Arm X-ray machine, electrocautery, and suction units.",
       "Ensure adherence to universal surgical asepsis protocols.",
@@ -752,7 +752,7 @@ export const defaultMarqueeItems: string[] = [
   "Well-Equipped Life Support Ambulance",
   "Total Knee & Hip Replacement",
   "Arthroscopy & Sports Medicine",
-  "Sterile Modular OT",
+  "Sterile Well-Equipped OT",
   "Trauma Critical Care ICU",
   "Digital X-Ray & Emergency Diagnostics",
   "Emergency Line: 0761-2626123",

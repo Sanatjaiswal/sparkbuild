@@ -51,7 +51,7 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
             Explore Our World-Class Medical Facilities
           </h2>
           <p className="text-sm sm:text-base text-neutral-600 font-normal">
-            Equipped with laminar airflow modular OTs, intensive care trauma ICU, digital diagnostics, and compassionate patient care units.
+            Equipped with laminar airflow well-equipped OTs, intensive care trauma ICU, digital diagnostics, and compassionate patient care units.
           </p>
         </div>
 
@@ -120,7 +120,7 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
                   )}
                   {project.id === "modular-operation-theatre" && (
                     <span className="px-3 py-1 rounded-full bg-indigo-600 text-white text-[10.5px] font-black uppercase tracking-wider shadow-md">
-                      Modular OT
+                      Well-Equipped OT
                     </span>
                   )}
                   {project.id === "physiotherapy-rehab-center" && (

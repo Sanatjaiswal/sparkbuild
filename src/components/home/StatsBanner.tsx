@@ -30,15 +30,22 @@ export default function StatsBanner() {
         {
           iconName: "Building2",
           iconColor: "text-red-600",
-          title: "Well-Equipped Modular OT",
+          title: "Well-Equipped OT",
           desc: "Laminar airflow and sterile HEPA filtration surgical suites ensuring ultra-clean infection control and high patient satisfaction.",
         },
       ];
 
   const bannerItems = rawItems.map((item) => ({
     ...item,
-    title: item.title?.replace(/Advanced/gi, "Well-Equipped") || item.title,
-    desc: item.desc?.replace(/advanced/gi, "well-equipped") || item.desc,
+    title: item.title
+      ?.replace(/Advanced Modular OT/gi, "Well-Equipped OT")
+      ?.replace(/Well-Equipped Modular OT/gi, "Well-Equipped OT")
+      ?.replace(/Modular OT/gi, "Well-Equipped OT")
+      ?.replace(/Modular/gi, "Well-Equipped")
+      ?.replace(/Advanced/gi, "Well-Equipped") || item.title,
+    desc: item.desc
+      ?.replace(/modular/gi, "well-equipped")
+      ?.replace(/advanced/gi, "well-equipped") || item.desc,
   }));
 
   return (
