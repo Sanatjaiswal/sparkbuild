@@ -272,7 +272,7 @@ export default function Footer() {
 
           {/* Right End: Tech by Dora IT Zone & Back to Top */}
           <div className="flex items-center justify-center lg:justify-end gap-3 sm:gap-4 shrink-0">
-            {/* Tech by Dora IT Zone (Proportionally scaled to match footer) */}
+            {/* Tech by Dora IT Zone (Proportionally scaled) */}
             <a
               href="https://doraitzone.com"
               target="_blank"
@@ -280,11 +280,11 @@ export default function Footer() {
               className="inline-flex items-center gap-1.5 text-white/90 hover:text-white transition-all whitespace-nowrap group py-0.5"
               title="Dora IT Zone - Digital Marketing & Technology Solutions, Jabalpur"
             >
-              <span className="text-[9.5px] sm:text-[10px] font-normal tracking-wide text-sky-100 leading-none">
+              <span className="text-[10px] sm:text-[10.5px] font-medium tracking-wide text-sky-100 leading-none">
                 tech by
               </span>
               <div className="flex items-center gap-1">
-                <div className="relative h-[11px] w-[46px] sm:h-[12px] sm:w-[50px] shrink-0">
+                <div className="relative h-[8.5px] w-[36px] sm:h-[9.5px] sm:w-[40px] shrink-0">
                   <Image
                     src="/images/dora_wordmark_white.png"
                     alt="DORA"
@@ -292,7 +292,7 @@ export default function Footer() {
                     className="object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
-                <span className="text-[9px] sm:text-[9.5px] font-bold tracking-[0.14em] text-white uppercase leading-none">
+                <span className="text-[7.5px] sm:text-[8px] font-bold tracking-[0.14em] text-white uppercase leading-none">
                   IT ZONE
                 </span>
               </div>
