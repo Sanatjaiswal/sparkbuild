@@ -122,17 +122,7 @@ export default function AppointmentLetterPage() {
                   >
                     <CheckCircle2 className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
                     <span className="text-sm font-semibold text-gray-800">
-                      {item.includes("Dr. Abhishek Jain") ? (
-                        <>
-                          {item.split("Dr. Abhishek Jain")[0]}
-                          <span className="bg-sky-50 text-sky-700 px-2 py-0.5 rounded font-black border border-sky-200">
-                            Dr. Abhishek Jain
-                          </span>
-                          {item.split("Dr. Abhishek Jain")[1]}
-                        </>
-                      ) : (
-                        item
-                      )}
+                      {item}
                     </span>
                   </div>
                 ))}

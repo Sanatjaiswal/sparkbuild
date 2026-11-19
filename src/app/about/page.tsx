@@ -58,11 +58,7 @@ export default function AboutPage() {
                 Established with a legacy of surgical excellence, MP Hospital and Trauma Centre has been a beacon of surgical hope and trauma recovery across Jabalpur and the greater Mahakoshal region.
               </p>
               <p className="text-base text-gray-700 leading-relaxed font-normal">
-                Under the clinical leadership of{" "}
-                <span className="bg-sky-50 text-[#008ec7] px-2.5 py-0.5 rounded font-black border border-sky-300 shadow-xs">
-                  Dr. Abhishek Jain
-                </span>{" "}
-                (Senior Orthopedic Surgeon &amp; Sports Injury Specialist), MP Hospital provides comprehensive services in complex accidental polytrauma, minimally invasive total knee and hip replacements, 4K arthroscopic reconstructions, spine surgery, and intensive critical care.
+                Under the clinical leadership of Dr. Abhishek Jain (Senior Orthopedic Surgeon &amp; Sports Injury Specialist), MP Hospital provides comprehensive services in complex accidental polytrauma, minimally invasive total knee and hip replacements, 4K arthroscopic reconstructions, spine surgery, and intensive critical care.
               </p>
 
               <div className="pt-2">
@@ -198,11 +194,7 @@ export default function AboutPage() {
                 What Drives Us
               </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                At MP Hospital &amp; Trauma Centre, every life entrusted to us receives rapid clinical intervention and personalized attention. Guided by{" "}
-                <span className="bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded font-black border border-sky-200 shadow-xs">
-                  Dr. Abhishek Jain
-                </span>
-                , our multidisciplinary team of surgeons, intensivists, anesthesiologists, and rehabilitation therapists work tirelessly to deliver positive clinical outcomes.
+                At MP Hospital &amp; Trauma Centre, every life entrusted to us receives rapid clinical intervention and personalized attention. Guided by Dr. Abhishek Jain, our multidisciplinary team of surgeons, intensivists, anesthesiologists, and rehabilitation therapists work tirelessly to deliver positive clinical outcomes.
               </p>
 
               <div className="space-y-3 pt-2">

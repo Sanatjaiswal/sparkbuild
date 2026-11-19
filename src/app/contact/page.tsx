@@ -89,11 +89,7 @@ export default function ContactPage() {
                   We’re Here When You Need Us Most
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed font-normal">
-                  Located at 1/1, High Court Road, Beoharbagh, Jabalpur, M.P. Reach out for OPD appointments with{" "}
-                  <span className="bg-sky-50 text-[#008ec7] px-2.5 py-0.5 rounded font-black border border-sky-300 shadow-xs">
-                    Dr. Abhishek Jain
-                  </span>
-                  , accidental trauma admissions, ambulance services, or cashless TPA guidance.
+                  Located at 1/1, High Court Road, Beoharbagh, Jabalpur, M.P. Reach out for OPD appointments with Dr. Abhishek Jain, accidental trauma admissions, ambulance services, or cashless TPA guidance.
                 </p>
               </div>
 
@@ -104,7 +100,7 @@ export default function ContactPage() {
                     OPD
                   </div>
                   <div>
-                    <h4 className="text-sm font-black text-neutral-900">Dr. Abhishek Jain OPD Timings</h4>
+                    <h4 className="text-sm font-bold text-neutral-900">Orthopedic &amp; Trauma OPD Timings (Dr. Abhishek Jain)</h4>
                     <p className="text-xs text-neutral-800 font-medium">Mon – Sat: 11:00 AM – 4:00 PM &amp; 7:00 PM – 9:00 PM</p>
                     <p className="text-xs text-neutral-800 font-medium mt-0.5">Sunday: 11:00 AM – 2:00 PM</p>
                     <p className="text-[11px] text-red-600 font-bold mt-0.5">Emergency Trauma &amp; Casualty: 24x7 Available</p>

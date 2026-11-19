@@ -180,17 +180,7 @@ export default function ServicesPage() {
                 </h2>
 
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
-                  {service.desc.includes("Dr. Abhishek Jain") ? (
-                    <>
-                      {service.desc.split("Dr. Abhishek Jain")[0]}
-                      <span className="bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded font-black border border-sky-200 shadow-xs">
-                        Dr. Abhishek Jain
-                      </span>
-                      {service.desc.split("Dr. Abhishek Jain")[1]}
-                    </>
-                  ) : (
-                    service.desc
-                  )}
+                  {service.desc}
                 </p>
 
                 <div className="space-y-3 pt-2">

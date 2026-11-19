@@ -53,11 +53,7 @@ export default function NewsletterSection() {
               </h2>
 
               <p className="text-sm sm:text-base text-sky-100/90 font-normal leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Subscribe for verified joint preservation tips, postoperative rehab advice from{" "}
-                <strong className="text-white font-extrabold underline decoration-amber-400/60 decoration-2 underline-offset-4">
-                  Dr. Abhishek Jain
-                </strong>
-                , and advance alerts for free community orthopedic camps.
+                Subscribe for verified joint preservation tips, postoperative rehab advice from our senior orthopedic specialists, and advance alerts for free community health camps.
               </p>
 
               {/* Quick Trust Pillars */}

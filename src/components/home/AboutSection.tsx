@@ -55,24 +55,22 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-base text-gray-600 leading-relaxed font-normal">
-              MP Hospital and Trauma Centre is dedicated to delivering clinical excellence in orthopedics, accidental trauma resuscitation, joint replacement, and sports medicine under the leadership of renowned surgeon{" "}
-              <span className="bg-sky-50 text-[#008ec7] px-2.5 py-0.5 rounded font-black border border-sky-300 shadow-xs">
-                Dr. Abhishek Jain
-              </span>
-              . With well-equipped laminar airflow operation theatres, a dedicated 24x7 Trauma ICU, and rapid rehabilitation protocols, we restore patient mobility and save lives every day.
+              MP Hospital and Trauma Centre is dedicated to delivering clinical excellence in orthopedics, accidental trauma resuscitation, joint replacement, and sports medicine under the leadership of Dr. Abhishek Jain and our senior surgical team. With well-equipped laminar airflow operation theatres, a dedicated 24x7 Trauma ICU, and rapid rehabilitation protocols, we restore patient mobility and save lives every day.
             </p>
 
-            {/* Dr. Abhishek Jain Leadership Spotlight Card */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-red-50/80 via-white to-sky-50/60 border border-red-200 flex items-center gap-4 shadow-sm group">
-              <DirectorMedalIcon className="w-10 h-10 shrink-0 group-hover:scale-110 transition-transform" size={40} />
+            {/* Clinical Leadership Card */}
+            <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 flex items-center gap-4 shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#008ec7] flex items-center justify-center shrink-0 border border-sky-200">
+                <DirectorMedalIcon className="w-6 h-6" size={24} />
+              </div>
               <div className="space-y-0.5">
                 <div className="flex flex-wrap items-center gap-2">
-                  <h4 className="text-base font-black text-black">Dr. Abhishek Jain</h4>
-                  <span className="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-xs">
+                  <h4 className="text-sm font-bold text-neutral-900">Dr. Abhishek Jain</h4>
+                  <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-wide">
                     Director &amp; Senior Orthopedic Surgeon
                   </span>
                 </div>
-                <p className="text-xs font-semibold text-neutral-800">
+                <p className="text-xs text-neutral-600">
                   MS (Orthopaedics) • Knee &amp; Hip Joint Replacement, Arthroscopy &amp; Trauma Specialist
                 </p>
               </div>

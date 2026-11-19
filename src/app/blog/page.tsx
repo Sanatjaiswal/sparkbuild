@@ -47,11 +47,7 @@ export default function BlogPage() {
             Bone Health, Trauma &amp; <span className="text-sky-400">Active Living</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
-            Welcome to the MP Hospital Blog — expert guidance on knee &amp; hip replacement, accidental trauma recovery, sports injuries, and joint pain prevention from{" "}
-            <span className="text-white font-black underline decoration-sky-400 decoration-2 underline-offset-4">
-              Dr. Abhishek Jain
-            </span>
-            .
+            Welcome to the MP Hospital Blog — expert guidance on knee &amp; hip replacement, accidental trauma recovery, sports injuries, and joint pain prevention from Dr. Abhishek Jain and our clinical team.
           </p>
         </div>
       </section>

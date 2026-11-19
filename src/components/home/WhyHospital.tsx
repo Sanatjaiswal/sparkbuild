@@ -107,11 +107,7 @@ export default function WhyHospital() {
                 Why Choose <span className="text-red-600">MP Hospital &amp; Trauma Centre</span>
               </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
-                With a trusted legacy of clinical excellence, MP Hospital &amp; Trauma Centre is Jabalpur’s leading destination for orthopedic surgeries, joint replacement, spine stabilization, and emergency trauma care under{" "}
-                <span className="text-[#008ec7] font-black">
-                  Dr. Abhishek Jain
-                </span>
-                .
+                With a trusted legacy of clinical excellence, MP Hospital &amp; Trauma Centre is Jabalpur’s leading destination for orthopedic surgeries, joint replacement, spine stabilization, and emergency trauma care under Dr. Abhishek Jain and senior specialist surgeons.
               </p>
             </div>
 

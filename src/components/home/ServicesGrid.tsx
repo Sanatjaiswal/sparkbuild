@@ -93,11 +93,7 @@ export default function ServicesGrid() {
             Comprehensive Orthopedic &amp; Trauma Care
           </h2>
           <p className="text-sm sm:text-base text-neutral-700 font-medium">
-            MP Hospital &amp; Trauma Centre – Led by{" "}
-            <span className="bg-sky-50 text-[#008ec7] border border-sky-300 px-2.5 py-0.5 rounded-full font-black shadow-xs">
-              Dr. Abhishek Jain
-            </span>
-            , offering specialized orthopedics, trauma resuscitation, joint replacement, sports surgery, and well-equipped physiotherapy in Jabalpur.
+            MP Hospital &amp; Trauma Centre – Led by Dr. Abhishek Jain and expert surgical consultants, offering specialized orthopedics, trauma resuscitation, joint replacement, sports surgery, and well-equipped physiotherapy in Jabalpur.
           </p>
         </div>
 

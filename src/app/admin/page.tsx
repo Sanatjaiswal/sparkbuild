@@ -1063,15 +1063,9 @@ export default function WordPressAdmin() {
               ...(data.marqueeItems || defaultMarqueeItems),
             ].map((text, idx) => (
               <div key={idx} className="flex items-center mx-6">
-                {text.includes("Dr. Abhishek Jain") ? (
-                  <span className="bg-white text-red-700 px-3 py-0.5 rounded-full font-black text-xs uppercase shadow-sm">
-                    ⭐ {text}
-                  </span>
-                ) : (
-                  <span className="text-white font-semibold text-xs uppercase tracking-wider">
-                    {text}
-                  </span>
-                )}
+                <span className="text-white font-semibold text-xs uppercase tracking-wider">
+                  {text}
+                </span>
                 <span className="ml-6 w-2 h-2 rounded-full bg-sky-200 inline-block" />
               </div>
             ))}
@@ -1176,11 +1170,6 @@ export default function WordPressAdmin() {
                   <span className="text-sm font-semibold text-gray-800 truncate">
                     {text}
                   </span>
-                  {text.includes("Dr. Abhishek Jain") && (
-                    <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold shrink-0">
-                      ⭐ Highlighted
-                    </span>
-                  )}
                 </div>
 
                 <div className="flex items-center gap-1.5 shrink-0">

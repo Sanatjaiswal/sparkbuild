@@ -245,11 +245,11 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
                 </div>
               </div>
 
-              {/* Doctor Leadership Spotlight */}
-              <div className="p-4 rounded-xl bg-gradient-to-r from-red-950/40 via-neutral-900 to-emerald-950/40 border border-neutral-800 text-xs">
-                <p className="text-[10px] text-neutral-400 font-bold uppercase tracking-wider">Director &amp; Senior Surgeon</p>
-                <p className="text-white font-black text-sm mt-0.5">Dr. Abhishek Jain</p>
-                <p className="text-[11px] text-emerald-400 font-medium">MS (Orthopaedics) • Joint &amp; Trauma Specialist</p>
+              {/* Doctor Leadership Info */}
+              <div className="p-3.5 rounded-xl bg-neutral-900/80 border border-neutral-800 text-xs">
+                <p className="text-[10px] text-neutral-400 font-semibold uppercase tracking-wider">Medical Director</p>
+                <p className="text-neutral-200 font-bold text-sm mt-0.5">Dr. Abhishek Jain</p>
+                <p className="text-[11px] text-neutral-400">MS (Orthopaedics) • Joint &amp; Trauma Specialist</p>
               </div>
 
               {/* Direct 24x7 Helpline */}

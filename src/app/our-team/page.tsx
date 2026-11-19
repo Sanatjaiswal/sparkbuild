@@ -328,17 +328,12 @@ export default function OurTeamPage() {
           {/* Doctors Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {filteredMembers.map((member) => {
-              const isLead = member.id === "dr-abhishek-jain";
               const photoSrc = member.image || "/images/dr-abhishek-jain.jpg";
 
               return (
                 <div
                   key={member.id || member.name}
-                  className={`bg-white rounded-2xl overflow-hidden border transition-all duration-300 flex flex-col justify-between group ${
-                    isLead
-                      ? "border-2 border-red-500 shadow-md hover:shadow-xl"
-                      : "border-neutral-200 shadow-xs hover:shadow-lg hover:border-sky-400"
-                  }`}
+                  className="bg-white rounded-2xl overflow-hidden border border-neutral-200 shadow-xs hover:shadow-lg hover:border-sky-400 transition-all duration-300 flex flex-col justify-between group"
                 >
                   {/* Card Header with Doctor Portrait Photo */}
                   <div>
@@ -354,18 +349,9 @@ export default function OurTeamPage() {
 
                       {/* Top Badges */}
                       <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between gap-1.5">
-                        {isLead ? (
-                          <span className="inline-flex items-center gap-1 pl-1 pr-2 py-0.5 rounded-full bg-gradient-to-r from-red-600 to-rose-600 text-white text-[9px] font-black uppercase tracking-wider shadow">
-                            <span className="w-3.5 h-3.5 rounded-full bg-white flex items-center justify-center p-0.5 shrink-0">
-                              <DirectorMedalIcon className="w-2.5 h-2.5" size={10} />
-                            </span>
-                            Director &amp; Chief
-                          </span>
-                        ) : (
-                          <span className="px-2 py-0.5 rounded-full bg-[#008EC7] text-white text-[9px] font-black uppercase tracking-wider shadow">
-                            Consultant
-                          </span>
-                        )}
+                        <span className="px-2 py-0.5 rounded-full bg-[#008EC7] text-white text-[9px] font-black uppercase tracking-wider shadow">
+                          {member.id === "dr-abhishek-jain" ? "Director" : "Consultant"}
+                        </span>
                         <span className="px-2 py-0.5 rounded-full bg-white/95 backdrop-blur-xs text-[#008ec7] text-[9px] font-extrabold uppercase tracking-wider shadow-xs border border-sky-100">
                           {member.department || "Specialist"}
                         </span>
