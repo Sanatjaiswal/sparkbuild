@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, ArrowUp } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUp, Compass, HeartHandshake, PhoneCall } from "lucide-react";
 import { FacebookIcon, InstagramIcon, WhatsappIcon } from "@/components/ui/SocialIcons";
 import { useCMS } from "@/context/CMSContext";
 
@@ -73,8 +73,10 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h4 className="text-neutral-900 font-extrabold text-base uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-red-600 rounded-sm"></span>
+            <h4 className="text-neutral-900 font-extrabold text-base uppercase tracking-wider mb-5 flex items-center gap-2.5">
+              <span className="w-6 h-6 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0 border border-red-200/60 shadow-xs">
+                <Compass className="w-3.5 h-3.5 stroke-[2.5]" />
+              </span>
               Quick Links
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -113,8 +115,10 @@ export default function Footer() {
 
           {/* Column 3: Patient Support */}
           <div>
-            <h4 className="text-neutral-900 font-extrabold text-base uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-[#008EC7] rounded-sm"></span>
+            <h4 className="text-neutral-900 font-extrabold text-base uppercase tracking-wider mb-5 flex items-center gap-2.5">
+              <span className="w-6 h-6 rounded-lg bg-sky-50 text-[#008EC7] flex items-center justify-center shrink-0 border border-sky-200/60 shadow-xs">
+                <HeartHandshake className="w-3.5 h-3.5 stroke-[2.5]" />
+              </span>
               Patient Support
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -153,8 +157,10 @@ export default function Footer() {
 
           {/* Column 4: Contact Us */}
           <div className="space-y-4">
-            <h4 className="text-neutral-900 font-extrabold text-base uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-red-600 rounded-sm"></span>
+            <h4 className="text-neutral-900 font-extrabold text-base uppercase tracking-wider mb-5 flex items-center gap-2.5">
+              <span className="w-6 h-6 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0 border border-red-200/60 shadow-xs">
+                <PhoneCall className="w-3.5 h-3.5 stroke-[2.5]" />
+              </span>
               Emergency &amp; Help
             </h4>
 
