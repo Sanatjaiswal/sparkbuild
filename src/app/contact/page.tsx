@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Send, CheckCircle2, Star } from "lucide-react";
+import { Phone, Mail, MapPin, Send, CheckCircle2, Star, Calendar } from "lucide-react";
 import { WhatsappIcon } from "@/components/ui/SocialIcons";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
@@ -98,15 +98,24 @@ export default function ContactPage() {
               </div>
 
               {/* Dr. Abhishek Jain OPD Timing Card */}
-              <div className="p-4 rounded-2xl bg-sky-50/70 border-2 border-sky-200 shadow-sm flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-[#008EC7] text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
-                  OPD
+              <div className="p-4 rounded-2xl bg-sky-50/70 border-2 border-sky-200 shadow-sm space-y-3">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-[#008EC7] text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+                    OPD
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-black text-neutral-900">Dr. Abhishek Jain OPD Timings</h4>
+                    <p className="text-xs text-neutral-800 font-medium">Mon - Sat: 10:30 AM - 1:30 PM &amp; 5:30 PM - 8:30 PM</p>
+                    <p className="text-[11px] text-[#008ec7] font-bold mt-0.5">Emergency Trauma Consultation: 24x7 Available</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-sm font-black text-neutral-900">Dr. Abhishek Jain OPD Timings</h4>
-                  <p className="text-xs text-neutral-800 font-medium">Mon - Sat: 10:30 AM - 1:30 PM &amp; 5:30 PM - 8:30 PM</p>
-                  <p className="text-[11px] text-[#008ec7] font-bold mt-0.5">Emergency Trauma Consultation: 24x7 Available</p>
-                </div>
+                <button
+                  onClick={() => setConsultationOpen(true)}
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-xs uppercase tracking-wider shadow-sm transition-all active:scale-95 cursor-pointer"
+                >
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>Book OPD Appointment</span>
+                </button>
               </div>
 
               {/* Rating Card */}

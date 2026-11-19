@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, Calendar, Phone, Ambulance } from "lucide-react";
 import { navItems, siteConfig } from "@/data/siteData";
 import AmbulanceModal from "@/components/ui/AmbulanceModal";
@@ -19,7 +19,17 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
   const [isAmbulanceOpen, setIsAmbulanceOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const isHome = pathname === "/";
+
+  const handleAppointmentClick = () => {
+    setMobileMenuOpen(false);
+    if (onOpenConsultation) {
+      onOpenConsultation();
+    } else {
+      router.push("/appointment-letter");
+    }
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -105,7 +115,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
 
             {/* Book Appointment Button */}
             <button
-              onClick={onOpenConsultation}
+              onClick={handleAppointmentClick}
               className="inline-flex items-center justify-center h-10 px-4 sm:px-6 lg:px-7 rounded-md bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-md shadow-sky-600/20 whitespace-nowrap cursor-pointer"
             >
               <span>Book Appointment</span>
@@ -227,10 +237,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
                   </button>
 
                   <button
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      onOpenConsultation?.();
-                    }}
+                    onClick={handleAppointmentClick}
                     className="flex items-center justify-center gap-2 py-3.5 px-3 rounded-xl bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-sky-600/30 active:scale-95 transition-all cursor-pointer"
                   >
                     <Calendar className="w-4 h-4" />

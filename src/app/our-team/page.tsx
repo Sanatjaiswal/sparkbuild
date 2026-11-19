@@ -19,6 +19,7 @@ import {
   Sparkles,
   Bone,
   Crosshair,
+  Calendar,
 } from "lucide-react";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
@@ -48,6 +49,7 @@ export default function OurTeamPage() {
   const founder = teamMembers.find((m) => m.id === "dr-abhishek-jain") || teamMembers[0];
 
   const [consultationOpen, setConsultationOpen] = useState(false);
+  const [selectedDoctor, setSelectedDoctor] = useState("Dr. Abhishek Jain (Director & Senior Orthopedic Surgeon)");
   const [activeCategory, setActiveCategory] = useState("All Specialists");
 
   const filteredMembers = useMemo(() => {
@@ -285,6 +287,20 @@ export default function OurTeamPage() {
                       </div>
                     </a>
                   </div>
+
+                  {/* Direct Book Appointment with Dr. Abhishek Jain Button */}
+                  <div className="pt-2">
+                    <button
+                      onClick={() => {
+                        setSelectedDoctor("Dr. Abhishek Jain (Director & Senior Orthopedic Surgeon)");
+                        setConsultationOpen(true);
+                      }}
+                      className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-md shadow-sky-600/20 active:scale-95 transition-all cursor-pointer"
+                    >
+                      <Calendar className="w-4 h-4" />
+                      <span>Book OPD Appointment with Dr. Abhishek Jain</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -397,9 +413,19 @@ export default function OurTeamPage() {
                     </div>
                   </div>
 
-                  {/* Clean Footer Status */}
-                  <div className="px-3.5 pb-3.5 pt-0">
-                    <div className="pt-2 border-t border-neutral-100 flex items-center justify-between text-[10px] font-bold text-neutral-500">
+                  {/* Clean Footer Status & Book OPD Button */}
+                  <div className="px-3.5 pb-3.5 pt-0 space-y-2">
+                    <button
+                      onClick={() => {
+                        setSelectedDoctor(member.name + " (" + (member.department || member.role) + ")");
+                        setConsultationOpen(true);
+                      }}
+                      className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-sky-50 hover:bg-[#008EC7] text-[#008EC7] hover:text-white border border-sky-200 hover:border-[#008EC7] font-extrabold text-[11px] uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-2xs"
+                    >
+                      <Calendar className="w-3.5 h-3.5" />
+                      <span>Book OPD Slot</span>
+                    </button>
+                    <div className="pt-1 border-t border-neutral-100 flex items-center justify-between text-[10px] font-bold text-neutral-500">
                       <span className="flex items-center gap-1 text-[#008ec7]">
                         <CheckCircle2 className="w-3 h-3 text-[#008ec7]" />
                         <span>Verified Specialist</span>
@@ -505,6 +531,7 @@ export default function OurTeamPage() {
       <ConsultationModal
         isOpen={consultationOpen}
         onClose={() => setConsultationOpen(false)}
+        defaultService={selectedDoctor}
       />
     </div>
   );

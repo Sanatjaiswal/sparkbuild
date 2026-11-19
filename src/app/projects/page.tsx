@@ -251,7 +251,7 @@ export default function ProjectsPage() {
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white hover:bg-sky-50 text-[#008ec7] font-extrabold text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
             >
               <Calendar className="w-4 h-4" />
-              <span>Book Doctor Consultation</span>
+              <span>Book Doctor Appointment</span>
             </button>
           </div>
         </div>

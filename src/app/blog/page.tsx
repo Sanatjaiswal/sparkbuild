@@ -184,9 +184,9 @@ export default function BlogPage() {
                     setSelectedPost(null);
                     setConsultationOpen(true);
                   }}
-                  className="mt-2 px-6 py-2.5 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-xs uppercase tracking-wider"
+                  className="mt-2 px-6 py-2.5 rounded-full bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md shadow-sky-600/20"
                 >
-                  Book Doctor Consultation
+                  Book Doctor Appointment
                 </button>
               </div>
             </div>

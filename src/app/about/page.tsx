@@ -74,7 +74,7 @@ export default function AboutPage() {
                   className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-sm uppercase tracking-wider shadow-md shadow-sky-600/20 transition-all active:scale-95 cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
-                  <span>Book Consultation</span>
+                  <span>Book Appointment</span>
                 </button>
               </div>
             </div>

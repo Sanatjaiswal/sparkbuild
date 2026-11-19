@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { CheckCircle2, Calendar, Phone, Sparkles } from "lucide-react";
+import { WhatsappIcon } from "@/components/ui/SocialIcons";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -14,18 +15,28 @@ export default function AppointmentLetterPage() {
     phone: "",
     email: "",
     cityLocation: "",
-    specialty: "Dr. Abhishek Jain (Orthopedics)",
-    preferredTime: "Morning",
+    specialty: "Dr. Abhishek Jain (Orthopedics & Joint Replacement)",
+    preferredTime: "Morning OPD (10:30 AM - 1:30 PM)",
     preferredDate: "",
     symptoms: "",
   });
 
+  const [token, setToken] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const scrollToBooking = () => {
+    const el = document.getElementById("booking-form");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    const generatedToken = "MP-OPD-" + Math.floor(100000 + Math.random() * 900000);
+    setToken(generatedToken);
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
@@ -33,6 +44,7 @@ export default function AppointmentLetterPage() {
         const existing = JSON.parse(localStorage.getItem("mphospital_inquiries") || "[]");
         existing.push({
           ...formData,
+          token: generatedToken,
           id: Date.now().toString(),
           date: new Date().toISOString(),
           type: "OPD Appointment Request",
@@ -47,7 +59,7 @@ export default function AppointmentLetterPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <TopBar />
-      <Navbar onOpenConsultation={() => {}} />
+      <Navbar onOpenConsultation={scrollToBooking} />
 
       {/* Hero Banner */}
       <section className="relative py-20 sm:py-24 bg-neutral-900 text-white overflow-hidden">
@@ -139,7 +151,7 @@ export default function AppointmentLetterPage() {
             </div>
 
             {/* Right: The Booking Form */}
-            <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200 shadow-2xl">
+            <div id="booking-form" className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200 shadow-2xl scroll-mt-24">
               <div className="mb-8">
                 <span className="text-xs font-bold uppercase tracking-wider text-sky-700">
                   Quick Confirmation
@@ -150,20 +162,68 @@ export default function AppointmentLetterPage() {
               </div>
 
               {submitted ? (
-                <div className="text-center py-12 space-y-4">
-                  <div className="w-16 h-16 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-10 h-10" />
+                <div className="text-center py-8 space-y-5 animate-in fade-in duration-300">
+                  <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
+                    <CheckCircle2 className="w-10 h-10 stroke-[2.5]" />
                   </div>
-                  <h4 className="text-2xl font-bold text-gray-900">Appointment Requested!</h4>
-                  <p className="text-sm text-gray-600 max-w-sm mx-auto">
-                    Thank you, <strong>{formData.name}</strong>. An official appointment confirmation and token number will be shared on <strong>{formData.phone}</strong>.
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="px-6 py-2.5 bg-red-600 text-white rounded-full font-semibold text-sm hover:bg-red-700 transition-colors cursor-pointer"
-                  >
-                    Book Another Appointment
-                  </button>
+                  <div className="space-y-1">
+                    <span className="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider border border-emerald-200">
+                      Appointment Confirmed
+                    </span>
+                    <h4 className="text-2xl sm:text-3xl font-black text-gray-900">Booking Token: {token}</h4>
+                    <p className="text-sm text-gray-600 max-w-md mx-auto">
+                      Thank you, <strong>{formData.name}</strong>. Your OPD consultation request has been registered at MP Hospital &amp; Trauma Centre.
+                    </p>
+                  </div>
+
+                  {/* Booking Summary Card */}
+                  <div className="max-w-md mx-auto bg-neutral-50 rounded-2xl p-5 border border-neutral-200 text-left space-y-2.5 text-xs text-neutral-800">
+                    <div className="flex justify-between border-b border-neutral-200 pb-2">
+                      <span className="font-semibold text-neutral-500">Doctor / Specialty:</span>
+                      <span className="font-black text-neutral-900 text-right">{formData.specialty}</span>
+                    </div>
+                    <div className="flex justify-between border-b border-neutral-200 pb-2">
+                      <span className="font-semibold text-neutral-500">Date &amp; Slot:</span>
+                      <span className="font-bold text-neutral-900">{formData.preferredDate || "Today / Earliest"} ({formData.preferredTime})</span>
+                    </div>
+                    <div className="flex justify-between border-b border-neutral-200 pb-2">
+                      <span className="font-semibold text-neutral-500">Patient Contact:</span>
+                      <span className="font-bold text-neutral-900">{formData.phone}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-semibold text-neutral-500">Hospital Location:</span>
+                      <span className="font-bold text-neutral-900">Beoharbagh, Jabalpur</span>
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                    <a
+                      href={`https://wa.me/917648998668?text=${encodeURIComponent(
+                        `Hello MP Hospital Reception! I booked an OPD appointment.\nToken: ${token}\nPatient: ${formData.name}\nPhone: ${formData.phone}\nDoctor: ${formData.specialty}\nDate: ${formData.preferredDate || "Earliest"}\nTime: ${formData.preferredTime}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full font-extrabold text-xs uppercase tracking-wider shadow-md transition-all active:scale-95"
+                    >
+                      <WhatsappIcon className="w-4 h-4 fill-white text-white" />
+                      <span>Confirm on WhatsApp</span>
+                    </a>
+
+                    <button
+                      onClick={() => window.print()}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-neutral-900 hover:bg-black text-white rounded-full font-extrabold text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                    >
+                      <span>Print Slip</span>
+                    </button>
+
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-neutral-300 hover:bg-neutral-100 text-neutral-700 rounded-full font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
+                    >
+                      Book Another
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -273,6 +333,7 @@ export default function AppointmentLetterPage() {
                     </label>
                     <input
                       type="date"
+                      min={new Date().toISOString().split("T")[0]}
                       value={formData.preferredDate}
                       onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
@@ -313,7 +374,7 @@ export default function AppointmentLetterPage() {
       </section>
 
       <Footer />
-      <FloatingConsultation onOpenConsultation={() => {}} />
+      <FloatingConsultation onOpenConsultation={scrollToBooking} />
     </div>
   );
 }
