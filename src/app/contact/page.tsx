@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Send, CheckCircle2, Star, Calendar } from "lucide-react";
+import { Phone, Mail, MapPin, Send, CheckCircle2, Calendar } from "lucide-react";
 import { WhatsappIcon } from "@/components/ui/SocialIcons";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
@@ -116,19 +116,6 @@ export default function ContactPage() {
                   <Calendar className="w-3.5 h-3.5" />
                   <span>Book OPD Appointment</span>
                 </button>
-              </div>
-
-              {/* Rating Card */}
-              <div className="p-4 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-center gap-4">
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-neutral-900">4.9 of 5 Stars</h4>
-                  <p className="text-xs text-gray-500">450+ Verified Patient Reviews</p>
-                </div>
               </div>
 
               {/* Contact Cards */}
