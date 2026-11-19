@@ -16,7 +16,7 @@ export default function AppointmentLetterPage() {
     email: "",
     cityLocation: "",
     specialty: "Dr. Abhishek Jain (Orthopedics & Joint Replacement)",
-    preferredTime: "Morning OPD (10:30 AM - 1:30 PM)",
+    preferredTime: "Mon – Sat Morning (11:00 AM – 4:00 PM)",
     preferredDate: "",
     symptoms: "",
   });
@@ -320,9 +320,10 @@ export default function AppointmentLetterPage() {
                         onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 bg-white"
                       >
-                        <option value="Morning">Morning OPD (10:30 AM - 1:30 PM)</option>
-                        <option value="Evening">Evening OPD (5:30 PM - 8:30 PM)</option>
-                        <option value="Emergency">24x7 Immediate Emergency Casualty</option>
+                        <option value="Mon-Sat Morning (11:00 AM - 4:00 PM)">Mon – Sat Morning (11:00 AM – 4:00 PM)</option>
+                        <option value="Mon-Sat Evening (7:00 PM - 9:00 PM)">Mon – Sat Evening (7:00 PM – 9:00 PM)</option>
+                        <option value="Sunday OPD (11:00 AM - 2:00 PM)">Sunday OPD (11:00 AM – 2:00 PM)</option>
+                        <option value="24x7 Immediate Emergency">24x7 Immediate Emergency Casualty</option>
                       </select>
                     </div>
                   </div>

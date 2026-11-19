@@ -105,8 +105,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-sm font-black text-neutral-900">Dr. Abhishek Jain OPD Timings</h4>
-                    <p className="text-xs text-neutral-800 font-medium">Mon - Sat: 10:30 AM - 1:30 PM &amp; 5:30 PM - 8:30 PM</p>
-                    <p className="text-[11px] text-[#008ec7] font-bold mt-0.5">Emergency Trauma Consultation: 24x7 Available</p>
+                    <p className="text-xs text-neutral-800 font-medium">Mon – Sat: 11:00 AM – 4:00 PM &amp; 7:00 PM – 9:00 PM</p>
+                    <p className="text-xs text-neutral-800 font-medium mt-0.5">Sunday: 11:00 AM – 2:00 PM</p>
+                    <p className="text-[11px] text-red-600 font-bold mt-0.5">Emergency Trauma &amp; Casualty: 24x7 Available</p>
                   </div>
                 </div>
                 <button

@@ -266,11 +266,12 @@ export default function OurTeamPage() {
 
                   {/* Consultation Timings & Emergency Trauma Line */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                    <div className="p-4 rounded-2xl bg-sky-50/90 border border-sky-200 flex items-center gap-3 shadow-xs">
-                      <Clock className="w-6 h-6 text-[#008ec7] stroke-[2.2] shrink-0" />
+                    <div className="p-4 rounded-2xl bg-sky-50/90 border border-sky-200 flex items-start gap-3 shadow-xs">
+                      <Clock className="w-6 h-6 text-[#008ec7] stroke-[2.2] shrink-0 mt-0.5" />
                       <div>
                         <p className="text-[10px] font-black uppercase tracking-wider text-[#008ec7]">OPD Consultation Hours</p>
-                        <p className="text-xs font-black text-neutral-900 mt-0.5">Mon – Sat: 10:30 AM – 1:30 PM &amp; 5:30 PM – 8:30 PM</p>
+                        <p className="text-xs font-black text-neutral-900 mt-0.5">Mon – Sat: 11:00 AM – 4:00 PM &amp; 7:00 PM – 9:00 PM</p>
+                        <p className="text-[11px] font-bold text-neutral-700 mt-0.5">Sunday: 11:00 AM – 2:00 PM • Emergency 24x7</p>
                       </div>
                     </div>
 

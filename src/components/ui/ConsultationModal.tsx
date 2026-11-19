@@ -40,7 +40,7 @@ export default function ConsultationModal({
     phone: "",
     doctor: defaultService,
     preferredDate: todayStr,
-    preferredTime: "Morning OPD (10:30 AM - 1:30 PM)",
+    preferredTime: "Mon-Sat Morning (11:00 AM - 4:00 PM)",
     message: "",
   });
 
@@ -305,9 +305,10 @@ export default function ConsultationModal({
                       onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
                       className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-sky-600 bg-white"
                     >
-                      <option value="Morning OPD (10:30 AM - 1:30 PM)">Morning (10:30 AM - 1:30 PM)</option>
-                      <option value="Evening OPD (5:30 PM - 8:30 PM)">Evening (5:30 PM - 8:30 PM)</option>
-                      <option value="24x7 Emergency Casualty">24x7 Immediate Emergency</option>
+                      <option value="Mon-Sat Morning (11:00 AM - 4:00 PM)">Mon-Sat Morning (11:00 AM - 4:00 PM)</option>
+                      <option value="Mon-Sat Evening (7:00 PM - 9:00 PM)">Mon-Sat Evening (7:00 PM - 9:00 PM)</option>
+                      <option value="Sunday OPD (11:00 AM - 2:00 PM)">Sunday OPD (11:00 AM - 2:00 PM)</option>
+                      <option value="24x7 Immediate Emergency">24x7 Emergency Casualty (Immediate)</option>
                     </select>
                   </div>
                 </div>
