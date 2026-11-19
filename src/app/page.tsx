@@ -19,7 +19,6 @@ import FAQSection from "@/components/home/FAQSection";
 import NewsletterSection from "@/components/home/NewsletterSection";
 import ConsultationModal from "@/components/ui/ConsultationModal";
 import FloatingConsultation from "@/components/ui/FloatingConsultation";
-import VideoModal from "@/components/ui/VideoModal";
 import LightboxModal from "@/components/ui/LightboxModal";
 import { useCMS } from "@/context/CMSContext";
 
@@ -27,7 +26,6 @@ export default function HomePage() {
   const { data } = useCMS();
   const showMarquee = data?.siteConfig?.showMarquee ?? false;
   const [consultationOpen, setConsultationOpen] = useState(false);
-  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   const [lightboxData, setLightboxData] = useState<{ src: string; title: string } | null>(null);
 
   return (
@@ -89,12 +87,6 @@ export default function HomePage() {
       <ConsultationModal
         isOpen={consultationOpen}
         onClose={() => setConsultationOpen(false)}
-      />
-
-      {/* YouTube Video Modal Player */}
-      <VideoModal
-        youtubeId={activeVideoId}
-        onClose={() => setActiveVideoId(null)}
       />
 
       {/* Lightbox Modal */}

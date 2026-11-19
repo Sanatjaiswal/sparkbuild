@@ -404,56 +404,7 @@ export const projectsData: ProjectItem[] = [
   },
 ];
 
-export const videoTestimonials: VideoTestimonial[] = [
-  {
-    id: "video-surgery-live",
-    youtubeId: "/videos/mp-hospital-surgery.mp4",
-    title: "Inside Well-Equipped OT: Live Surgical Procedures & Complex Trauma Care",
-    clientName: "Dr. Abhishek Jain & Surgical Team",
-    location: "Well-Equipped OT Suite, Jabalpur",
-    thumbnail: "/images/surgery-in-action.jpg",
-  },
-  {
-    id: "video-1",
-    youtubeId: "PXM0LdIZu60",
-    title: "Knee Replacement Patient Walking Pain-Free in 48 Hours",
-    clientName: "Smt. Shanti Devi (Age 64)",
-    location: "Jabalpur, MP",
-    thumbnail: "/images/orthopedic-rehab.jpg",
-  },
-  {
-    id: "video-2",
-    youtubeId: "5RSlURAHRjE",
-    title: "Emergency Polytrauma Road Accident Recovery by Dr. Abhishek Jain",
-    clientName: "Mr. Rakesh Patel (Trauma Patient)",
-    location: "Ghamapur, Jabalpur",
-    thumbnail: "/images/emergency-trauma-icu.jpg",
-  },
-  {
-    id: "video-3",
-    youtubeId: "MoUTxz4Lx-o",
-    title: "Successful Arthroscopic ACL Ligament Reconstruction Story",
-    clientName: "Aman Verma (College Footballer)",
-    location: "Jabalpur",
-    thumbnail: "/images/arthroscopy-surgery.jpg",
-  },
-  {
-    id: "video-4",
-    youtubeId: "O6WhK_95_sY",
-    title: "Total Hip Replacement Patient Regaining Active Lifestyle",
-    clientName: "Mr. Virendra Kumar",
-    location: "Madhya Pradesh",
-    thumbnail: "/images/modular-ot.jpg",
-  },
-  {
-    id: "video-5",
-    youtubeId: "2JK5W0CSDtg",
-    title: "Compassionate Care & Cashless Mediclaim Experience at MP Hospital",
-    clientName: "Family of Patient Dinesh Gupta",
-    location: "Jabalpur",
-    thumbnail: "/images/medical-team.jpg",
-  },
-];
+export const videoTestimonials: VideoTestimonial[] = [];
 
 export const teamMembers: TeamMember[] = [
   {

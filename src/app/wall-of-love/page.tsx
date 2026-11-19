@@ -2,21 +2,18 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Star, Play, Quote, ExternalLink, Calendar } from "lucide-react";
+import { Star, Quote, Calendar } from "lucide-react";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingConsultation from "@/components/ui/FloatingConsultation";
 import ConsultationModal from "@/components/ui/ConsultationModal";
-import VideoModal from "@/components/ui/VideoModal";
 import { useCMS } from "@/context/CMSContext";
 
 export default function WallOfLovePage() {
   const { data } = useCMS();
   const siteConfig = data.siteConfig;
-  const videoTestimonials = data.videoTestimonials;
   const testimonials = data.testimonials;
-  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   const [consultationOpen, setConsultationOpen] = useState(false);
 
   const extendedTestimonials = [
@@ -104,80 +101,19 @@ export default function WallOfLovePage() {
                 <span className="text-xs font-bold text-gray-500 ml-2">(260+ Reviews)</span>
               </div>
 
-              <a
-                href={siteConfig.socials.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-extrabold text-xs uppercase tracking-wider transition-all"
+              <button
+                onClick={() => setConsultationOpen(true)}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer"
               >
-                <span>Watch Video Reviews</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
+                <span>Book OPD Consultation</span>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Video Stories Section */}
-      <section className="py-20 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
-            <span className="text-xs font-black uppercase tracking-wider text-sky-700 px-3.5 py-1 bg-sky-50 rounded-full border border-sky-200">
-              Verified Video Walkthroughs
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-neutral-900">
-              Patient Recovery Stories &amp; Testimonials
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {videoTestimonials.map((v) => {
-              const isSurgery = v.id.includes("surgery");
-              return (
-                <div
-                  key={v.id}
-                  onClick={() => setActiveVideoId(v.youtubeId)}
-                  className={`bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all cursor-pointer group flex flex-col ${
-                    isSurgery ? "border-2 border-red-500 shadow-red-500/10" : "border border-neutral-200"
-                  }`}
-                >
-                  <div className="relative h-60 w-full bg-black">
-                    <Image
-                      src={v.thumbnail}
-                      alt={v.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-black/35 group-hover:bg-black/15 transition-colors" />
-
-                    {isSurgery && (
-                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-red-600 text-white text-[10.5px] font-black uppercase tracking-wider shadow-lg flex items-center gap-1.5 z-10">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-                        <span>Live OT Surgery</span>
-                      </div>
-                    )}
-
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center shadow-2xl group-hover:scale-115 group-hover:bg-red-700 transition-all">
-                        <Play className="w-6 h-6 fill-current ml-1" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-5 text-neutral-900">
-                    <h3 className="text-base font-bold text-neutral-900 group-hover:text-[#008EC7] transition-colors line-clamp-2 leading-snug">
-                      {v.title}
-                    </h3>
-                    <p className="text-xs text-gray-500 mt-1">{v.clientName} • {v.location}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Written Reviews Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-neutral-50 flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
             <span className="text-xs font-black uppercase tracking-wider text-neutral-500">
@@ -264,10 +200,6 @@ export default function WallOfLovePage() {
       <ConsultationModal
         isOpen={consultationOpen}
         onClose={() => setConsultationOpen(false)}
-      />
-      <VideoModal
-        youtubeId={activeVideoId}
-        onClose={() => setActiveVideoId(null)}
       />
     </div>
   );
