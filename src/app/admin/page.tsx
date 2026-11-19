@@ -7,6 +7,7 @@ import { useCMS } from "@/context/CMSContext";
 import MediaLibraryModal from "@/components/admin/MediaLibraryModal";
 import {
   LayoutDashboard,
+  Inbox,
   FileText,
   Image as ImageIcon,
   Building,
@@ -51,6 +52,7 @@ import {
   FAQItem,
   defaultMarqueeItems,
 } from "@/data/siteData";
+import { WhatsappIcon } from "@/components/ui/SocialIcons";
 
 export default function WordPressAdmin() {
   const {
@@ -85,8 +87,68 @@ export default function WordPressAdmin() {
 
   // Active Sidebar Section
   const [activeMenu, setActiveMenu] = useState<
-    "dashboard" | "pages" | "ticker" | "media" | "projects" | "services" | "team" | "blog" | "faqs" | "settings"
+    "dashboard" | "leads" | "pages" | "ticker" | "media" | "projects" | "services" | "team" | "blog" | "faqs" | "settings"
   >("dashboard");
+
+  // Patient Leads & Inquiries State
+  const [leadsTab, setLeadsTab] = useState<"appointments" | "messages" | "applications" | "newsletter">("appointments");
+  const [leadsSearch, setLeadsSearch] = useState("");
+  const [inquiriesList, setInquiriesList] = useState<any[]>([]);
+  const [messagesList, setMessagesList] = useState<any[]>([]);
+  const [applicationsList, setApplicationsList] = useState<any[]>([]);
+  const [newsletterList, setNewsletterList] = useState<string[]>([]);
+
+  const reloadLeads = () => {
+    if (typeof window === "undefined") return;
+    try {
+      const inq = JSON.parse(localStorage.getItem("mphospital_inquiries") || "[]");
+      const msg = JSON.parse(localStorage.getItem("mphospital_messages") || "[]");
+      const app = JSON.parse(localStorage.getItem("mphospital_applications") || "[]");
+      const nws = JSON.parse(localStorage.getItem("mphospital_newsletter") || "[]");
+      setInquiriesList(Array.isArray(inq) ? [...inq].reverse() : []);
+      setMessagesList(Array.isArray(msg) ? [...msg].reverse() : []);
+      setApplicationsList(Array.isArray(app) ? [...app].reverse() : []);
+      setNewsletterList(Array.isArray(nws) ? [...nws].reverse() : []);
+    } catch (e) {
+      console.error("Failed to load leads from localStorage", e);
+    }
+  };
+
+  useEffect(() => {
+    reloadLeads();
+  }, []);
+
+  const deleteInquiry = (id: string, idx: number) => {
+    if (!window.confirm("Are you sure you want to delete this consultation inquiry?")) return;
+    const updated = inquiriesList.filter((item, i) => (item.id ? item.id !== id : i !== idx));
+    setInquiriesList(updated);
+    localStorage.setItem("mphospital_inquiries", JSON.stringify([...updated].reverse()));
+    showToast("Consultation inquiry deleted");
+  };
+
+  const deleteMessage = (id: string, idx: number) => {
+    if (!window.confirm("Are you sure you want to delete this message?")) return;
+    const updated = messagesList.filter((item, i) => (item.id ? item.id !== id : i !== idx));
+    setMessagesList(updated);
+    localStorage.setItem("mphospital_messages", JSON.stringify([...updated].reverse()));
+    showToast("Contact message deleted");
+  };
+
+  const deleteApplication = (idx: number) => {
+    if (!window.confirm("Are you sure you want to delete this job application?")) return;
+    const updated = applicationsList.filter((_, i) => i !== idx);
+    setApplicationsList(updated);
+    localStorage.setItem("mphospital_applications", JSON.stringify([...updated].reverse()));
+    showToast("Job application deleted");
+  };
+
+  const deleteNewsletter = (idx: number) => {
+    if (!window.confirm("Remove this subscriber?")) return;
+    const updated = newsletterList.filter((_, i) => i !== idx);
+    setNewsletterList(updated);
+    localStorage.setItem("mphospital_newsletter", JSON.stringify([...updated].reverse()));
+    showToast("Newsletter subscriber removed");
+  };
 
   // Media Library Modal state
   const [mediaModalOpen, setMediaModalOpen] = useState(false);
@@ -1180,6 +1242,555 @@ export default function WordPressAdmin() {
     </div>
   );
 
+  const renderLeadsSection = () => {
+    const q = leadsSearch.trim().toLowerCase();
+
+    const filteredInquiries = inquiriesList.filter((item) => {
+      if (!q) return true;
+      return (
+        item.name?.toLowerCase().includes(q) ||
+        item.phone?.toLowerCase().includes(q) ||
+        item.doctor?.toLowerCase().includes(q) ||
+        item.specialty?.toLowerCase().includes(q) ||
+        item.token?.toLowerCase().includes(q) ||
+        item.symptoms?.toLowerCase().includes(q)
+      );
+    });
+
+    const filteredMessages = messagesList.filter((item) => {
+      if (!q) return true;
+      return (
+        item.firstName?.toLowerCase().includes(q) ||
+        item.lastName?.toLowerCase().includes(q) ||
+        item.phone?.toLowerCase().includes(q) ||
+        item.email?.toLowerCase().includes(q) ||
+        item.message?.toLowerCase().includes(q)
+      );
+    });
+
+    const filteredApplications = applicationsList.filter((item) => {
+      if (!q) return true;
+      return (
+        item.firstName?.toLowerCase().includes(q) ||
+        item.lastName?.toLowerCase().includes(q) ||
+        item.jobTitle?.toLowerCase().includes(q) ||
+        item.phone?.toLowerCase().includes(q) ||
+        item.email?.toLowerCase().includes(q)
+      );
+    });
+
+    const filteredNewsletter = newsletterList.filter((email) => {
+      if (!q) return true;
+      return email.toLowerCase().includes(q);
+    });
+
+    return (
+      <div className="space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold text-[#1d2327]">Patient Leads &amp; Inquiries</h1>
+            <p className="text-xs text-gray-500">
+              Review and instantly follow up on OPD appointment bookings, contact requests, and job applications.
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => {
+                reloadLeads();
+                showToast("Leads refreshed from local database");
+              }}
+              className="px-4 py-2 bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 text-xs font-bold rounded flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+            >
+              <RefreshCw className="w-3.5 h-3.5 text-[#2271b1]" />
+              <span>Refresh Leads</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Lead Statistics Quick Overview */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div
+            onClick={() => setLeadsTab("appointments")}
+            className={`p-4 rounded-lg border cursor-pointer transition-all ${
+              leadsTab === "appointments"
+                ? "bg-white border-[#2271b1] shadow-md ring-2 ring-[#2271b1]/20"
+                : "bg-white border-[#c3c4c7] hover:border-gray-400"
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold text-gray-500 uppercase">OPD Consultations</span>
+              <Stethoscope className="w-4 h-4 text-[#2271b1]" />
+            </div>
+            <div className="text-2xl font-black text-[#1d2327] mt-1">{inquiriesList.length}</div>
+            <span className="text-[10px] text-gray-500">Doctor &amp; OPD bookings</span>
+          </div>
+
+          <div
+            onClick={() => setLeadsTab("messages")}
+            className={`p-4 rounded-lg border cursor-pointer transition-all ${
+              leadsTab === "messages"
+                ? "bg-white border-[#2271b1] shadow-md ring-2 ring-[#2271b1]/20"
+                : "bg-white border-[#c3c4c7] hover:border-gray-400"
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold text-gray-500 uppercase">Contact Messages</span>
+              <Mail className="w-4 h-4 text-emerald-600" />
+            </div>
+            <div className="text-2xl font-black text-[#1d2327] mt-1">{messagesList.length}</div>
+            <span className="text-[10px] text-gray-500">Contact form submissions</span>
+          </div>
+
+          <div
+            onClick={() => setLeadsTab("applications")}
+            className={`p-4 rounded-lg border cursor-pointer transition-all ${
+              leadsTab === "applications"
+                ? "bg-white border-[#2271b1] shadow-md ring-2 ring-[#2271b1]/20"
+                : "bg-white border-[#c3c4c7] hover:border-gray-400"
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold text-gray-500 uppercase">Careers / Resumes</span>
+              <Users className="w-4 h-4 text-purple-600" />
+            </div>
+            <div className="text-2xl font-black text-[#1d2327] mt-1">{applicationsList.length}</div>
+            <span className="text-[10px] text-gray-500">Job applications</span>
+          </div>
+
+          <div
+            onClick={() => setLeadsTab("newsletter")}
+            className={`p-4 rounded-lg border cursor-pointer transition-all ${
+              leadsTab === "newsletter"
+                ? "bg-white border-[#2271b1] shadow-md ring-2 ring-[#2271b1]/20"
+                : "bg-white border-[#c3c4c7] hover:border-gray-400"
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold text-gray-500 uppercase">Subscribers</span>
+              <Award className="w-4 h-4 text-amber-600" />
+            </div>
+            <div className="text-2xl font-black text-[#1d2327] mt-1">{newsletterList.length}</div>
+            <span className="text-[10px] text-gray-500">Newsletter emails</span>
+          </div>
+        </div>
+
+        {/* Filters and Search Bar */}
+        <div className="bg-white p-4 rounded-lg border border-[#c3c4c7] shadow-xs flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-1.5">
+            {[
+              { id: "appointments", label: "OPD Bookings", count: inquiriesList.length },
+              { id: "messages", label: "Contact Messages", count: messagesList.length },
+              { id: "applications", label: "Careers", count: applicationsList.length },
+              { id: "newsletter", label: "Newsletter", count: newsletterList.length },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setLeadsTab(tab.id as any)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5 ${
+                  leadsTab === tab.id
+                    ? "bg-[#2271b1] text-white shadow-xs"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                <span>{tab.label}</span>
+                <span
+                  className={`px-1.5 py-0.2 rounded-full text-[10px] ${
+                    leadsTab === tab.id ? "bg-white/20 text-white" : "bg-gray-200 text-gray-800"
+                  }`}
+                >
+                  {tab.count}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <div className="relative min-w-[240px]">
+            <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              placeholder="Search leads by name, phone, doctor..."
+              value={leadsSearch}
+              onChange={(e) => setLeadsSearch(e.target.value)}
+              className="w-full pl-8 pr-3 py-1.5 bg-gray-50 border border-gray-300 rounded-md text-xs focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#2271b1]"
+            />
+          </div>
+        </div>
+
+        {/* TAB 1: OPD & CONSULTATIONS */}
+        {leadsTab === "appointments" && (
+          <div className="space-y-4">
+            {filteredInquiries.length === 0 ? (
+              <div className="bg-white p-12 text-center rounded-lg border border-[#c3c4c7] space-y-3">
+                <Stethoscope className="w-10 h-10 text-gray-300 mx-auto" />
+                <h3 className="text-base font-bold text-gray-700">No Consultation Inquiries Found</h3>
+                <p className="text-xs text-gray-500 max-w-md mx-auto">
+                  {leadsSearch
+                    ? "No consultation inquiries match your search filter."
+                    : "When patients book an OPD consultation or submit an appointment inquiry online, it will appear here immediately."}
+                </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 gap-4">
+                {filteredInquiries.map((item, idx) => {
+                  const patientName = item.name || `${item.firstName || ""} ${item.lastName || ""}`.trim() || "Patient";
+                  const cleanPhone = (item.phone || "").replace(/[^0-9]/g, "");
+                  const whatsappPhone = cleanPhone.startsWith("91") ? cleanPhone : cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
+                  const formattedDate = item.date ? new Date(item.date).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" }) : "Recent";
+
+                  return (
+                    <div
+                      key={item.id || idx}
+                      className="bg-white rounded-xl border border-[#c3c4c7] p-5 shadow-xs hover:shadow-md transition-shadow"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-gray-100">
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-full bg-sky-100 text-[#008EC7] flex items-center justify-center font-bold text-sm shrink-0">
+                            {patientName.charAt(0).toUpperCase()}
+                          </div>
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <h3 className="font-bold text-sm text-[#1d2327]">{patientName}</h3>
+                              {item.token && (
+                                <span className="px-2 py-0.5 rounded bg-sky-50 text-sky-700 border border-sky-200 text-[10px] font-mono font-bold">
+                                  #{item.token}
+                                </span>
+                              )}
+                              <span className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">
+                                {item.type || "OPD Booking"}
+                              </span>
+                            </div>
+                            <span className="text-[11px] text-gray-400">{formattedDate}</span>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                          {item.phone && (
+                            <>
+                              <a
+                                href={`https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
+                                  `Hello ${patientName}, this is MP Hospital reception regarding your OPD consultation request.`
+                                )}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-3 py-1.5 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors"
+                              >
+                                <WhatsappIcon className="w-3.5 h-3.5 fill-white" />
+                                <span>WhatsApp Patient</span>
+                              </a>
+                              <a
+                                href={`tel:${item.phone}`}
+                                className="px-3 py-1.5 rounded-full bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors"
+                              >
+                                <Phone className="w-3.5 h-3.5" />
+                                <span>Call</span>
+                              </a>
+                            </>
+                          )}
+                          <button
+                            onClick={() => deleteInquiry(item.id, idx)}
+                            className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+                            title="Delete Inquiry"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-xs">
+                        <div>
+                          <span className="text-gray-400 font-medium block mb-0.5">Doctor / Specialist:</span>
+                          <span className="font-bold text-gray-800">
+                            {item.doctor || "General Orthopedic Consultation"}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 font-medium block mb-0.5">Specialty / Department:</span>
+                          <span className="font-semibold text-gray-700">
+                            {item.specialty || "Orthopedics & Joint Care"}
+                          </span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 font-medium block mb-0.5">Contact Phone:</span>
+                          <span className="font-mono font-bold text-gray-800">{item.phone || "N/A"}</span>
+                        </div>
+                      </div>
+
+                      {(item.preferredDate || item.timeSlot || item.symptoms || item.notes) && (
+                        <div className="mt-3 p-3 bg-gray-50 rounded-lg border border-gray-100 text-xs space-y-1">
+                          {(item.preferredDate || item.timeSlot) && (
+                            <div className="text-gray-700">
+                              <strong>Preferred Date &amp; Slot:</strong> {item.preferredDate || "Any Day"} ({item.timeSlot || "Any Slot"})
+                            </div>
+                          )}
+                          {(item.symptoms || item.notes) && (
+                            <div className="text-gray-600">
+                              <strong>Symptoms / Notes:</strong> {item.symptoms || item.notes}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* TAB 2: CONTACT MESSAGES */}
+        {leadsTab === "messages" && (
+          <div className="space-y-4">
+            {filteredMessages.length === 0 ? (
+              <div className="bg-white p-12 text-center rounded-lg border border-[#c3c4c7] space-y-3">
+                <Mail className="w-10 h-10 text-gray-300 mx-auto" />
+                <h3 className="text-base font-bold text-gray-700">No Contact Messages Found</h3>
+                <p className="text-xs text-gray-500 max-w-md mx-auto">
+                  {leadsSearch
+                    ? "No contact form messages match your search filter."
+                    : "Messages sent from the Contact Us page form will appear here."}
+                </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 gap-4">
+                {filteredMessages.map((item, idx) => {
+                  const senderName = `${item.firstName || ""} ${item.lastName || ""}`.trim() || "Visitor";
+                  const cleanPhone = (item.phone || "").replace(/[^0-9]/g, "");
+                  const whatsappPhone = cleanPhone.startsWith("91") ? cleanPhone : cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
+                  const formattedDate = item.date ? new Date(item.date).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" }) : "Recent";
+
+                  return (
+                    <div
+                      key={item.id || idx}
+                      className="bg-white rounded-xl border border-[#c3c4c7] p-5 shadow-xs hover:shadow-md transition-shadow"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-gray-100">
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm shrink-0">
+                            {senderName.charAt(0).toUpperCase()}
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-sm text-[#1d2327]">{senderName}</h3>
+                            <span className="text-[11px] text-gray-400">{formattedDate}</span>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                          {item.phone && (
+                            <>
+                              <a
+                                href={`https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
+                                  `Hello ${senderName}, this is MP Hospital reception regarding your message.`
+                                )}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-3 py-1.5 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors"
+                              >
+                                <WhatsappIcon className="w-3.5 h-3.5 fill-white" />
+                                <span>WhatsApp</span>
+                              </a>
+                              <a
+                                href={`tel:${item.phone}`}
+                                className="px-3 py-1.5 rounded-full bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors"
+                              >
+                                <Phone className="w-3.5 h-3.5" />
+                                <span>Call</span>
+                              </a>
+                            </>
+                          )}
+                          <button
+                            onClick={() => deleteMessage(item.id, idx)}
+                            className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+                            title="Delete Message"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 text-xs">
+                        <div>
+                          <span className="text-gray-400 font-medium block mb-0.5">Phone:</span>
+                          <span className="font-mono font-bold text-gray-800">{item.phone || "N/A"}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 font-medium block mb-0.5">Email Address:</span>
+                          <a href={`mailto:${item.email}`} className="text-[#2271b1] hover:underline font-semibold">
+                            {item.email || "N/A"}
+                          </a>
+                        </div>
+                      </div>
+
+                      {item.message && (
+                        <div className="mt-3 p-3 bg-gray-50 rounded-lg border border-gray-100 text-xs">
+                          <span className="text-gray-400 font-medium block mb-1">Message Content:</span>
+                          <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">{item.message}</p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* TAB 3: CAREERS & JOB APPLICATIONS */}
+        {leadsTab === "applications" && (
+          <div className="space-y-4">
+            {filteredApplications.length === 0 ? (
+              <div className="bg-white p-12 text-center rounded-lg border border-[#c3c4c7] space-y-3">
+                <Users className="w-10 h-10 text-gray-300 mx-auto" />
+                <h3 className="text-base font-bold text-gray-700">No Job Applications Found</h3>
+                <p className="text-xs text-gray-500 max-w-md mx-auto">
+                  {leadsSearch
+                    ? "No job applications match your search filter."
+                    : "When candidates apply for open hospital roles, their applications and resumes will appear here."}
+                </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 gap-4">
+                {filteredApplications.map((item, idx) => {
+                  const applicantName = `${item.firstName || ""} ${item.lastName || ""}`.trim() || "Applicant";
+                  const cleanPhone = (item.phone || "").replace(/[^0-9]/g, "");
+                  const whatsappPhone = cleanPhone.startsWith("91") ? cleanPhone : cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
+                  const formattedDate = item.date ? new Date(item.date).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" }) : "Recent";
+
+                  return (
+                    <div
+                      key={idx}
+                      className="bg-white rounded-xl border border-[#c3c4c7] p-5 shadow-xs hover:shadow-md transition-shadow"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-gray-100">
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-sm shrink-0">
+                            {applicantName.charAt(0).toUpperCase()}
+                          </div>
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <h3 className="font-bold text-sm text-[#1d2327]">{applicantName}</h3>
+                              <span className="px-2 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200 text-[10px] font-bold">
+                                {item.jobTitle || "Hospital Position"}
+                              </span>
+                            </div>
+                            <span className="text-[11px] text-gray-400">{formattedDate}</span>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                          {item.phone && (
+                            <>
+                              <a
+                                href={`https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
+                                  `Hello ${applicantName}, this is MP Hospital HR regarding your application for ${item.jobTitle || "the position"}.`
+                                )}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-3 py-1.5 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors"
+                              >
+                                <WhatsappIcon className="w-3.5 h-3.5 fill-white" />
+                                <span>WhatsApp Candidate</span>
+                              </a>
+                              <a
+                                href={`tel:${item.phone}`}
+                                className="px-3 py-1.5 rounded-full bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors"
+                              >
+                                <Phone className="w-3.5 h-3.5" />
+                                <span>Call</span>
+                              </a>
+                            </>
+                          )}
+                          <button
+                            onClick={() => deleteApplication(idx)}
+                            className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+                            title="Delete Application"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 text-xs">
+                        <div>
+                          <span className="text-gray-400 font-medium block mb-0.5">Phone:</span>
+                          <span className="font-mono font-bold text-gray-800">{item.phone || "N/A"}</span>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 font-medium block mb-0.5">Email Address:</span>
+                          <a href={`mailto:${item.email}`} className="text-[#2271b1] hover:underline font-semibold">
+                            {item.email || "N/A"}
+                          </a>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 font-medium block mb-0.5">Resume / Drive Link:</span>
+                          {item.portfolioUrl ? (
+                            <a
+                              href={item.portfolioUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-[#2271b1] hover:underline font-bold"
+                            >
+                              <span>View Resume</span>
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          ) : (
+                            <span className="text-gray-400">Not provided</span>
+                          )}
+                        </div>
+                      </div>
+
+                      {item.coverNote && (
+                        <div className="mt-3 p-3 bg-gray-50 rounded-lg border border-gray-100 text-xs">
+                          <span className="text-gray-400 font-medium block mb-1">Clinical Experience / Note:</span>
+                          <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">{item.coverNote}</p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* TAB 4: NEWSLETTER SUBSCRIBERS */}
+        {leadsTab === "newsletter" && (
+          <div className="bg-white rounded-xl border border-[#c3c4c7] p-6 shadow-xs space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-gray-100">
+              <div>
+                <h3 className="font-bold text-sm text-[#1d2327]">Health Newsletter Subscribers</h3>
+                <p className="text-xs text-gray-500">Patients subscribed to receive hospital updates and clinical advice.</p>
+              </div>
+              <span className="text-xs font-bold px-2.5 py-1 bg-amber-50 text-amber-800 rounded-full border border-amber-200">
+                {newsletterList.length} Emails
+              </span>
+            </div>
+
+            {filteredNewsletter.length === 0 ? (
+              <div className="text-center py-8 text-xs text-gray-400">
+                {leadsSearch ? "No subscriber emails match search." : "No newsletter subscribers yet."}
+              </div>
+            ) : (
+              <div className="divide-y divide-gray-100">
+                {filteredNewsletter.map((email, idx) => (
+                  <div key={idx} className="py-2.5 flex items-center justify-between text-xs">
+                    <span className="font-semibold text-gray-800">{email}</span>
+                    <button
+                      onClick={() => deleteNewsletter(idx)}
+                      className="p-1 text-gray-400 hover:text-red-600 rounded transition-colors cursor-pointer"
+                      title="Remove"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-[#f0f0f1] text-[#2c3338] flex flex-col font-sans select-none">
       {/* WordPress Top Admin Bar */}
@@ -1197,7 +1808,7 @@ export default function WordPressAdmin() {
           <Link
             href="/"
             target="_blank"
-            className="flex items-center gap-1 text-gray-300 hover:text-[#fff200] transition-colors"
+            className="flex items-center gap-1 text-gray-300 hover:text-white transition-colors"
           >
             <Eye className="w-3.5 h-3.5" />
             <span>Visit Site</span>
@@ -1250,6 +1861,12 @@ export default function WordPressAdmin() {
           <nav className="py-2 flex-1 text-xs space-y-0.5">
             {[
               { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+              {
+                id: "leads",
+                label: "Inquiries & Leads",
+                icon: Inbox,
+                badge: inquiriesList.length + messagesList.length + applicationsList.length,
+              },
               { id: "pages", label: "Homepage & Points", icon: FileText },
               { id: "ticker", label: "Red Marquee Slide", icon: Megaphone },
               { id: "media", label: "Media Library", icon: ImageIcon },
@@ -1265,15 +1882,25 @@ export default function WordPressAdmin() {
               return (
                 <button
                   key={menu.id}
-                  onClick={() => setActiveMenu(menu.id as any)}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors font-medium ${
+                  onClick={() => {
+                    setActiveMenu(menu.id as any);
+                    if (menu.id === "leads") reloadLeads();
+                  }}
+                  className={`w-full flex items-center justify-between px-4 py-2.5 text-left transition-colors font-medium ${
                     isActive
                       ? "bg-[#2271b1] text-white font-bold"
-                      : "hover:bg-[#13171a] hover:text-[#fff200]"
+                      : "hover:bg-[#13171a] hover:text-white"
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
-                  <span>{menu.label}</span>
+                  <div className="flex items-center gap-3">
+                    <Icon className="w-4 h-4" />
+                    <span>{menu.label}</span>
+                  </div>
+                  {menu.badge !== undefined && menu.badge > 0 && (
+                    <span className="px-1.5 py-0.2 rounded-full text-[10px] font-black bg-red-600 text-white shrink-0">
+                      {menu.badge}
+                    </span>
+                  )}
                 </button>
               );
             })}
@@ -1295,7 +1922,7 @@ export default function WordPressAdmin() {
         <main className="flex-1 bg-[#f0f0f1] overflow-y-auto p-6 lg:p-8">
           {/* Toast Notification */}
           {toastMessage && (
-            <div className="fixed top-12 right-6 z-50 bg-[#1d2327] text-white px-5 py-3 rounded-lg shadow-2xl border-l-4 border-[#fff200] flex items-center gap-3 animate-in fade-in slide-in-from-top-4">
+            <div className="fixed top-12 right-6 z-50 bg-[#1d2327] text-white px-5 py-3 rounded-lg shadow-2xl border-l-4 border-[#2271b1] flex items-center gap-3 animate-in fade-in slide-in-from-top-4">
               <CheckCircle className="w-5 h-5 text-green-400" />
               <span className="text-sm font-semibold">{toastMessage}</span>
             </div>
@@ -1424,7 +2051,23 @@ export default function WordPressAdmin() {
               </div>
 
               {/* Quick Stats Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <button
+                  onClick={() => {
+                    reloadLeads();
+                    setActiveMenu("leads");
+                  }}
+                  className="bg-white p-5 rounded-lg border-2 border-red-500 shadow-sm hover:shadow-md transition-all text-left cursor-pointer group"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-red-600 uppercase">Total Leads &amp; Inquiries</span>
+                    <Inbox className="w-4 h-4 text-red-500 group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="text-3xl font-black text-red-600 mt-1">
+                    {inquiriesList.length + messagesList.length + applicationsList.length}
+                  </div>
+                  <span className="text-[10px] text-gray-500">Click to view &amp; follow up</span>
+                </button>
                 <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm">
                   <span className="text-xs font-bold text-gray-500 uppercase">Hospital Facilities</span>
                   <div className="text-3xl font-black text-[#1d2327] mt-1">{data.projectsData.length}</div>
@@ -1444,6 +2087,9 @@ export default function WordPressAdmin() {
               </div>
             </div>
           )}
+
+          {/* ================= SECTION: INQUIRIES & LEADS ================= */}
+          {activeMenu === "leads" && renderLeadsSection()}
 
           {/* ================= SECTION 2: HOMEPAGE & POINTS CUSTOMIZER ================= */}
           {activeMenu === "pages" && (

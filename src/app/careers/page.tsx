@@ -9,6 +9,7 @@ import ConsultationModal from "@/components/ui/ConsultationModal";
 import FloatingConsultation from "@/components/ui/FloatingConsultation";
 import { careerJobs, CareerJob } from "@/data/siteData";
 import { CheckCircle2, Briefcase, MapPin, ArrowRight, X, Upload, Check, User, Mail, Phone } from "lucide-react";
+import { WhatsappIcon } from "@/components/ui/SocialIcons";
 
 export default function CareersPage() {
   const [consultationOpen, setConsultationOpen] = useState(false);
@@ -70,11 +71,11 @@ export default function CareersPage() {
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider shadow-md">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider shadow-md">
             Careers at MP Hospital
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
-            Heal With Compassion – <span className="text-[#fff200]">Grow With Us</span>
+            Heal With Compassion – <span className="text-sky-400">Grow With Us</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
             Join MP Hospital &amp; Trauma Centre in Jabalpur. Shape the future of trauma care, nursing excellence, and orthopedic surgical support.
@@ -87,7 +88,7 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-black uppercase tracking-wider text-amber-600 px-3 py-1 bg-amber-50 rounded-full border border-amber-200">
+              <span className="text-xs font-black uppercase tracking-wider text-sky-700 px-3 py-1 bg-sky-50 rounded-full border border-sky-200">
                 Healing With Clinical Excellence
               </span>
               <h2 className="text-3xl sm:text-4xl font-black text-black leading-tight">
@@ -106,7 +107,7 @@ export default function CareersPage() {
                   "Respectful, transparent, and ethical hospital work environment",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
-                    <span className="w-5 h-5 rounded-full bg-[#fff200] text-black flex items-center justify-center shrink-0">
+                    <span className="w-5 h-5 rounded-full bg-sky-100 text-[#008EC7] flex items-center justify-center shrink-0">
                       <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     </span>
                     <span className="text-sm font-semibold text-gray-800">{item}</span>
@@ -133,7 +134,7 @@ export default function CareersPage() {
       <section className="py-20 bg-neutral-100 border-t border-neutral-200 flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
+            <span className="inline-block px-3.5 py-1 rounded-full bg-sky-50 text-sky-700 border border-sky-300 text-xs font-black uppercase tracking-wider">
               We&apos;re Hiring
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-black tracking-tight">
@@ -178,7 +179,7 @@ export default function CareersPage() {
                     <ul className="space-y-1.5 text-xs text-gray-700">
                       {job.requirements.map((req, rIdx) => (
                         <li key={rIdx} className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#fff200] mt-1.5 shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#008EC7] mt-1.5 shrink-0" />
                           <span>{req}</span>
                         </li>
                       ))}
@@ -189,7 +190,7 @@ export default function CareersPage() {
                 <div className="pt-6 mt-6 border-t border-neutral-100">
                   <button
                     onClick={() => handleApply(job)}
-                    className="w-full py-3 rounded-full bg-black hover:bg-[#fff200] hover:text-black text-white font-extrabold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2"
+                    className="w-full py-3 rounded-full bg-neutral-900 hover:bg-red-600 text-white font-extrabold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                   >
                     <span>Apply for Role</span>
                     <ArrowRight className="w-4 h-4" />
@@ -211,16 +212,16 @@ export default function CareersPage() {
             className="relative w-full max-w-lg max-h-[92vh] flex flex-col bg-white rounded-3xl shadow-2xl overflow-hidden border border-neutral-200"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-[#111111] px-5 sm:px-6 py-4 sm:py-5 text-white flex items-center justify-between border-b-4 border-[#fff200] shrink-0">
+            <div className="bg-[#111111] px-5 sm:px-6 py-4 sm:py-5 text-white flex items-center justify-between border-b-4 border-red-600 shrink-0">
               <div>
-                <span className="text-[11px] font-bold text-[#fff200] uppercase">
+                <span className="text-[11px] font-bold text-sky-400 uppercase tracking-wider">
                   Job Application
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold">{activeJob.title}</h3>
               </div>
               <button
                 onClick={() => setActiveJob(null)}
-                className="text-gray-400 hover:text-white p-1"
+                className="text-gray-400 hover:text-white p-1 cursor-pointer"
                 aria-label="Close"
               >
                 <X className="w-6 h-6" />
@@ -229,20 +230,40 @@ export default function CareersPage() {
 
             <div className="p-5 sm:p-6 overflow-y-auto">
               {appSubmitted ? (
-                <div className="text-center py-8 space-y-4">
-                  <div className="w-16 h-16 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-10 h-10" />
+                <div className="text-center py-8 space-y-5 animate-in fade-in duration-300">
+                  <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
+                    <CheckCircle2 className="w-10 h-10 stroke-[2.5]" />
                   </div>
-                  <h4 className="text-2xl font-bold text-gray-900">Application Submitted!</h4>
-                  <p className="text-sm text-gray-600 max-w-sm mx-auto">
-                    Thank you, <strong>{appData.firstName}</strong>. Our HR and technical recruitment team will review your profile for <strong>{activeJob.title}</strong> and reach out shortly.
-                  </p>
-                  <button
-                    onClick={() => setActiveJob(null)}
-                    className="px-6 py-2.5 bg-black text-white rounded-full font-semibold text-sm hover:bg-[#fff200] hover:text-black transition-colors"
-                  >
-                    Done
-                  </button>
+                  <div className="space-y-1">
+                    <span className="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider border border-emerald-200">
+                      Application Received
+                    </span>
+                    <h4 className="text-2xl font-bold text-gray-900">Application Submitted!</h4>
+                    <p className="text-sm text-gray-600 max-w-sm mx-auto">
+                      Thank you, <strong>{appData.firstName} {appData.lastName}</strong>. Our HR and clinical administration team will review your profile for <strong>{activeJob.title}</strong> and reach out to you shortly.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                    <a
+                      href={`https://wa.me/917648998668?text=${encodeURIComponent(
+                        `*New Job Application - MP Hospital*\nPosition: ${activeJob.title}\nApplicant: ${appData.firstName} ${appData.lastName}\nPhone: ${appData.phone}\nEmail: ${appData.email}\nResume/Link: ${appData.portfolioUrl || "Not provided"}\nExperience Note: ${appData.coverNote || "Not provided"}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full font-extrabold text-xs uppercase tracking-wider shadow-md transition-all active:scale-95"
+                    >
+                      <WhatsappIcon className="w-4 h-4 fill-white text-white" />
+                      <span>Send to HR WhatsApp</span>
+                    </a>
+
+                    <button
+                      onClick={() => setActiveJob(null)}
+                      className="w-full sm:w-auto px-6 py-3 border border-neutral-300 hover:bg-neutral-100 text-neutral-700 rounded-full font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
+                    >
+                      Done
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleFormSubmit} className="space-y-4 text-left">
@@ -256,7 +277,7 @@ export default function CareersPage() {
                         required
                         value={appData.firstName}
                         onChange={(e) => setAppData({ ...appData, firstName: e.target.value })}
-                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#008EC7] focus:border-[#008EC7]"
                       />
                     </div>
                     <div>
@@ -268,7 +289,7 @@ export default function CareersPage() {
                         required
                         value={appData.lastName}
                         onChange={(e) => setAppData({ ...appData, lastName: e.target.value })}
-                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#008EC7] focus:border-[#008EC7]"
                       />
                     </div>
                   </div>
@@ -282,7 +303,7 @@ export default function CareersPage() {
                       required
                       value={appData.email}
                       onChange={(e) => setAppData({ ...appData, email: e.target.value })}
-                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#008EC7] focus:border-[#008EC7]"
                     />
                   </div>
 
@@ -295,7 +316,7 @@ export default function CareersPage() {
                       required
                       value={appData.phone}
                       onChange={(e) => setAppData({ ...appData, phone: e.target.value })}
-                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#008EC7] focus:border-[#008EC7]"
                     />
                   </div>
 
@@ -308,7 +329,7 @@ export default function CareersPage() {
                       placeholder="https://drive.google.com/... or LinkedIn"
                       value={appData.portfolioUrl}
                       onChange={(e) => setAppData({ ...appData, portfolioUrl: e.target.value })}
-                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#008EC7] focus:border-[#008EC7]"
                     />
                   </div>
 
@@ -321,7 +342,7 @@ export default function CareersPage() {
                       placeholder="Years of experience, hospital/clinical background, specialties..."
                       value={appData.coverNote}
                       onChange={(e) => setAppData({ ...appData, coverNote: e.target.value })}
-                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff200]"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#008EC7] focus:border-[#008EC7]"
                     />
                   </div>
 
@@ -329,7 +350,7 @@ export default function CareersPage() {
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="w-full py-3 rounded-full bg-[#fff200] hover:bg-[#e6da00] text-black font-extrabold text-sm uppercase tracking-wider shadow-md transition-all disabled:opacity-50"
+                      className="w-full py-3.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-extrabold text-sm uppercase tracking-wider shadow-md transition-all disabled:opacity-50 cursor-pointer"
                     >
                       {submitting ? "Sending Application..." : "Submit Application"}
                     </button>

@@ -15,7 +15,7 @@ export default function TermsConditionPage() {
 
       <section className="bg-neutral-900 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/40 text-xs font-black uppercase tracking-wider">
             Terms of Service
           </span>
           <h1 className="text-3xl sm:text-4xl font-black text-white">Terms &amp; Conditions</h1>

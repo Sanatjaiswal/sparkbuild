@@ -227,20 +227,40 @@ export default function ContactPage() {
               </p>
 
               {submitted ? (
-                <div className="text-center py-12 space-y-4">
-                  <div className="w-16 h-16 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-10 h-10" />
+                <div className="text-center py-12 space-y-5 animate-in fade-in duration-300">
+                  <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
+                    <CheckCircle2 className="w-10 h-10 stroke-[2.5]" />
                   </div>
-                  <h4 className="text-2xl font-bold text-gray-900">Message Received!</h4>
-                  <p className="text-sm text-gray-600 max-w-sm mx-auto">
-                    Thank you, <strong>{formData.firstName}</strong>. Our patient care desk will contact you at <strong>{formData.phone}</strong> shortly.
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="px-6 py-2.5 bg-red-600 text-white rounded-full font-semibold text-sm hover:bg-red-700 transition-colors cursor-pointer"
-                  >
-                    Send Another Message
-                  </button>
+                  <div className="space-y-1">
+                    <span className="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider border border-emerald-200">
+                      Inquiry Received
+                    </span>
+                    <h4 className="text-2xl font-bold text-gray-900">Message Received!</h4>
+                    <p className="text-sm text-gray-600 max-w-sm mx-auto">
+                      Thank you, <strong>{formData.firstName} {formData.lastName}</strong>. Our patient care desk will contact you at <strong>{formData.phone}</strong> shortly.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                    <a
+                      href={`https://wa.me/917648998668?text=${encodeURIComponent(
+                        `*New Contact Message - MP Hospital*\nName: ${formData.firstName} ${formData.lastName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nMessage: ${formData.message}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full font-extrabold text-xs uppercase tracking-wider shadow-md transition-all active:scale-95"
+                    >
+                      <WhatsappIcon className="w-4 h-4 fill-white text-white" />
+                      <span>Send to Reception WhatsApp</span>
+                    </a>
+
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="w-full sm:w-auto px-6 py-3 border border-neutral-300 hover:bg-neutral-100 text-neutral-700 rounded-full font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
+                    >
+                      Send Another Message
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -252,7 +272,7 @@ export default function ContactPage() {
                       <input
                         type="text"
                         required
-                        placeholder="John"
+                        placeholder="e.g. Rahul"
                         value={formData.firstName}
                         onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
@@ -265,7 +285,7 @@ export default function ContactPage() {
                       <input
                         type="text"
                         required
-                        placeholder="Doe"
+                        placeholder="e.g. Sharma"
                         value={formData.lastName}
                         onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
@@ -281,7 +301,7 @@ export default function ContactPage() {
                       <input
                         type="email"
                         required
-                        placeholder="john@example.com"
+                        placeholder="patient@gmail.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
@@ -294,7 +314,7 @@ export default function ContactPage() {
                       <input
                         type="tel"
                         required
-                        placeholder="+91 97133 37277"
+                        placeholder="+91 76489 98668"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"

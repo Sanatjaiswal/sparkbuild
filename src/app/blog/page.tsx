@@ -41,15 +41,15 @@ export default function BlogPage() {
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center max-w-3xl space-y-4">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider shadow-md">
+          <span className="inline-block px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider shadow-md">
             Health &amp; Clinical Insights
           </span>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
-            Bone Health, Trauma &amp; <span className="text-[#fff200]">Active Living</span>
+            Bone Health, Trauma &amp; <span className="text-sky-400">Active Living</span>
           </h1>
           <p className="text-base text-white/95 font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
             Welcome to the MP Hospital Blog — expert guidance on knee &amp; hip replacement, accidental trauma recovery, sports injuries, and joint pain prevention from{" "}
-            <span className="text-[#fff200] font-black">
+            <span className="text-white font-black underline decoration-sky-400 decoration-2 underline-offset-4">
               Dr. Abhishek Jain
             </span>
             .
@@ -76,7 +76,7 @@ export default function BlogPage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase tracking-wider shadow">
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider shadow">
                     {post.category}
                   </div>
                 </div>
@@ -149,7 +149,7 @@ export default function BlogPage() {
                 <X className="w-6 h-6" />
               </button>
               <div className="absolute bottom-4 left-4">
-                <span className="px-3.5 py-1 rounded-full bg-[#fff200] text-black text-xs font-black uppercase">
+                <span className="px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider">
                   {selectedPost.category}
                 </span>
               </div>
