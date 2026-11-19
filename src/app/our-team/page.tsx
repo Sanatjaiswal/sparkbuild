@@ -27,8 +27,6 @@ import FloatingConsultation from "@/components/ui/FloatingConsultation";
 import ConsultationModal from "@/components/ui/ConsultationModal";
 import {
   DirectorMedalIcon,
-  PrecisionJointIcon,
-  PolytraumaCareIcon,
 } from "@/components/ui/MedicalIcons";
 import { useCMS } from "@/context/CMSContext";
 
@@ -174,18 +172,22 @@ export default function OurTeamPage() {
                     </div>
 
                     {/* Bottom Floating Glass Clinical Specialization Bar (NO numerical claims) */}
-                    <div className="absolute bottom-4 inset-x-4 z-10 bg-white/95 backdrop-blur-md rounded-2xl p-3 border border-white/80 shadow-lg grid grid-cols-2 divide-x divide-neutral-200">
-                      <div className="px-2 flex items-center justify-center gap-2.5">
-                        <PrecisionJointIcon className="w-8 h-8 shrink-0" size={32} />
+                    <div className="absolute bottom-4 inset-x-4 z-10 bg-white/95 backdrop-blur-md rounded-2xl p-3 border border-white/80 shadow-xl grid grid-cols-2 divide-x divide-neutral-200">
+                      <div className="px-2 flex items-center justify-center gap-3">
+                        <div className="w-9 h-9 rounded-xl bg-sky-50 text-[#008ec7] flex items-center justify-center shrink-0 border border-sky-200 shadow-xs">
+                          <Bone className="w-5 h-5 stroke-[2.3]" />
+                        </div>
                         <div className="text-left">
                           <p className="text-xs font-black text-neutral-900 leading-tight">Precision Joint Care</p>
                           <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mt-0.5">Surgical Precision</p>
                         </div>
                       </div>
-                      <div className="px-2 flex items-center justify-center gap-2.5">
-                        <PolytraumaCareIcon className="w-8 h-8 shrink-0" size={32} />
+                      <div className="px-2 flex items-center justify-center gap-3">
+                        <div className="w-9 h-9 rounded-xl bg-red-50 text-red-600 flex items-center justify-center shrink-0 border border-red-200 shadow-xs">
+                          <HeartPulse className="w-5 h-5 stroke-[2.3]" />
+                        </div>
                         <div className="text-left">
-                          <p className="text-xs font-black text-[#008ec7] leading-tight">Emergency Trauma</p>
+                          <p className="text-xs font-black text-red-600 leading-tight">Emergency Trauma</p>
                           <p className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mt-0.5">24x7 Resuscitation</p>
                         </div>
                       </div>

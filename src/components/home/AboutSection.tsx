@@ -3,13 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import {
-  DirectorMedalIcon,
-  PrecisionJointIcon,
-  EmergencyTraumaPhoneIcon,
-  ModularOTIcon,
-} from "@/components/ui/MedicalIcons";
+import { ArrowRight, Bone, HeartPulse, Building2 } from "lucide-react";
+import { DirectorMedalIcon } from "@/components/ui/MedicalIcons";
 import { useCMS } from "@/context/CMSContext";
 
 export default function AboutSection() {
@@ -87,24 +82,36 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Clinical Highlights with Authentic Flaticon Icons (NO numerical claims) */}
+            {/* Clinical Highlights with Crisp Medical Icons */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-              <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
-                <PrecisionJointIcon className="w-8 h-8 mx-auto mb-1.5 group-hover:scale-110 transition-transform" size={32} />
-                <h4 className="text-sm font-black text-black">Joint &amp; Orthopedics</h4>
-                <p className="text-xs font-medium text-gray-600">Precision Surgeries</p>
+              <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-2 hover:border-sky-400 hover:shadow-md transition-all group">
+                <div className="w-12 h-12 rounded-xl bg-sky-50 text-[#008ec7] flex items-center justify-center mx-auto border border-sky-200/80 shadow-xs group-hover:scale-110 transition-transform">
+                  <Bone className="w-6 h-6 stroke-[2.2]" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-black text-black">Joint &amp; Orthopedics</h4>
+                  <p className="text-xs font-medium text-gray-600">Precision Surgeries</p>
+                </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
-                <EmergencyTraumaPhoneIcon className="w-8 h-8 mx-auto mb-1.5 group-hover:scale-110 transition-transform" size={32} />
-                <h4 className="text-sm font-black text-black">24x7 Emergency</h4>
-                <p className="text-xs font-medium text-gray-600">Trauma ICU Life Support</p>
+              <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-2 hover:border-red-400 hover:shadow-md transition-all group">
+                <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mx-auto border border-red-200/80 shadow-xs group-hover:scale-110 transition-transform">
+                  <HeartPulse className="w-6 h-6 stroke-[2.2]" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-black text-black">24x7 Emergency</h4>
+                  <p className="text-xs font-medium text-gray-600">Trauma ICU Life Support</p>
+                </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-1 hover:border-sky-400 hover:shadow-md transition-all group">
-                <ModularOTIcon className="w-8 h-8 mx-auto mb-1.5 group-hover:scale-110 transition-transform" size={32} />
-                <h4 className="text-sm font-black text-black">Sterile Well-Equipped OT</h4>
-                <p className="text-xs font-medium text-gray-600">Ultra-Clean Environment</p>
+              <div className="p-4 rounded-2xl bg-neutral-50/90 border border-neutral-200 text-center space-y-2 hover:border-sky-400 hover:shadow-md transition-all group">
+                <div className="w-12 h-12 rounded-xl bg-sky-50 text-[#008ec7] flex items-center justify-center mx-auto border border-sky-200/80 shadow-xs group-hover:scale-110 transition-transform">
+                  <Building2 className="w-6 h-6 stroke-[2.2]" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-black text-black">Sterile Well-Equipped OT</h4>
+                  <p className="text-xs font-medium text-gray-600">Ultra-Clean Environment</p>
+                </div>
               </div>
             </div>
 
