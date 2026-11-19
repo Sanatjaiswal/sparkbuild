@@ -39,7 +39,6 @@ export default function NewsletterSection() {
             {/* Left Column: Headline & Value Proposition */}
             <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-xs text-xs font-black uppercase tracking-wider text-sky-100">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="flex items-center gap-1.5">
                   <Bell className="w-3.5 h-3.5 text-amber-300" />
                   Health &amp; Wellness Bulletin

@@ -1011,11 +1011,6 @@ export default function WordPressAdmin() {
       <div className="bg-white p-5 rounded-lg border border-[#c3c4c7] shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <span
-              className={`w-3.5 h-3.5 rounded-full ${
-                data.siteConfig?.showMarquee ? "bg-emerald-500 animate-pulse" : "bg-red-500"
-              }`}
-            />
             <h3 className="font-bold text-sm text-[#1d2327]">
               Live Homepage Status:{" "}
               <span className={data.siteConfig?.showMarquee ? "text-emerald-700 font-extrabold" : "text-red-700 font-extrabold"}>

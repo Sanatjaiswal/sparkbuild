@@ -298,10 +298,10 @@ export default function Footer() {
               </div>
             </a>
 
-            {/* Back to Top with subtle blinking pulse */}
+            {/* Back to Top */}
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold cursor-pointer border border-white/20 shadow-xs transition-all active:scale-95 animate-pulse"
+              className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold cursor-pointer border border-white/20 shadow-xs transition-all active:scale-95"
               title="Back to Top"
             >
               <span>Back to Top</span>
