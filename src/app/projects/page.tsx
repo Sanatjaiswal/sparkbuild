@@ -212,21 +212,6 @@ export default function ProjectsPage() {
                       ))}
                     </div>
                   )}
-
-                  <div className="pt-3 border-t border-neutral-100 flex items-center justify-between">
-                    <button
-                      onClick={() => setLightboxData({ src: project.image, title: project.title })}
-                      className="text-xs font-bold text-[#008ec7] cursor-pointer"
-                    >
-                      Enlarge Photo
-                    </button>
-                    <button
-                      onClick={() => setConsultationOpen(true)}
-                      className="px-4 py-1.5 rounded-full bg-neutral-900 text-white text-xs font-bold hover:bg-[#008EC7] transition-colors cursor-pointer"
-                    >
-                      Book OPD / Inquire
-                    </button>
-                  </div>
                 </div>
               </div>
             ))}
