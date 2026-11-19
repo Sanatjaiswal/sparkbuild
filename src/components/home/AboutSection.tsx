@@ -32,14 +32,14 @@ export default function AboutSection() {
               />
             </div>
 
-            {/* Floating ISO Certificate Badge */}
-            <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl shadow-xl border border-neutral-200 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center font-black text-xl shadow">
-                +
+            {/* Hospital Trust Card */}
+            <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-lg border border-neutral-200 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg bg-red-600 text-white flex items-center justify-center font-bold text-xs shadow-xs shrink-0">
+                24x7
               </div>
               <div>
-                <p className="text-[11px] font-bold text-gray-500 uppercase">NABH / ISO Standards</p>
-                <p className="text-xs font-semibold text-neutral-800">24x7 Emergency Trauma</p>
+                <p className="text-[11px] font-bold text-neutral-900 leading-tight">Emergency &amp; Trauma Centre</p>
+                <p className="text-[10px] text-gray-500 font-medium mt-0.5">Beoharbagh, Jabalpur</p>
               </div>
             </div>
           </div>

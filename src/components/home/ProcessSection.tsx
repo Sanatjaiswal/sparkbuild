@@ -3,17 +3,17 @@ import { workProcess } from "@/data/siteData";
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 bg-white border-t border-neutral-100">
+    <section className="py-20 bg-white border-t border-neutral-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <span className="inline-block px-3.5 py-1 rounded-full bg-sky-50 border border-sky-300 text-sky-700 text-xs font-black uppercase tracking-wider shadow-xs">
-            Patient Pathway
+            How We Care for You
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 tracking-tight">
-            Comprehensive Clinical Care &amp; Recovery
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
+            Patient Care &amp; Treatment Pathway
           </h2>
           <p className="text-sm sm:text-base text-gray-600 font-normal">
-            A methodical 4-stage treatment protocol ensuring rapid diagnosis, ultra-clean well-equipped surgery, and active rehabilitation.
+            From casualty reception to guided rehabilitation, our clinical team supports patients and families every step of the way.
           </p>
         </div>
 

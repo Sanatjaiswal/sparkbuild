@@ -55,7 +55,7 @@ export default function AboutPage() {
                 Orthopedic Excellence &amp; 24x7 Trauma Resuscitation
               </h2>
               <p className="text-base text-gray-700 leading-relaxed font-normal">
-                Established with a legacy of surgical excellence, MP Hospital and Trauma Centre has been a beacon of surgical hope and trauma recovery across Jabalpur and the greater Mahakoshal region.
+                Established with a dedication to orthopedic surgery and emergency trauma care, MP Hospital and Trauma Centre has been serving patients across Jabalpur and the Mahakoshal region with dependable surgical treatment and round-the-clock emergency support.
               </p>
               <p className="text-base text-gray-700 leading-relaxed font-normal">
                 Under the clinical leadership of Dr. Abhishek Jain (Senior Orthopedic Surgeon &amp; Sports Injury Specialist), MP Hospital provides comprehensive services in complex accidental polytrauma, minimally invasive total knee and hip replacements, 4K arthroscopic reconstructions, spine surgery, and intensive critical care.
@@ -98,10 +98,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-sky-200/50">
             <div className="space-y-3 pt-6 md:pt-0">
-              <span className="text-4xl sm:text-5xl font-black text-white tracking-tight">Excellence</span>
-              <h3 className="text-lg font-black text-white">Surgical Mastery</h3>
+              <span className="text-4xl sm:text-5xl font-black text-white tracking-tight">15+ Yrs</span>
+              <h3 className="text-lg font-bold text-white">Clinical Leadership</h3>
               <p className="text-xs text-sky-50 max-w-xs mx-auto leading-relaxed">
-                Comprehensive orthopedic, joint reconstruction, and accidental trauma operations completed with infection-free outcomes.
+                Dedicated orthopedic, joint replacement, and accidental trauma care delivering dependable clinical recovery.
               </p>
             </div>
 

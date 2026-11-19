@@ -47,11 +47,11 @@ export default function PortfolioTabs({ onOpenLightbox }: PortfolioTabsProps) {
           <span className="inline-block px-3.5 py-1 rounded-full bg-sky-50 border border-sky-200 text-[#008EC7] text-xs font-black uppercase tracking-wider shadow-xs">
             Hospital Infrastructure
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 tracking-tight">
-            Explore Our World-Class Medical Facilities
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
+            Hospital Facilities &amp; Clinical Infrastructure
           </h2>
           <p className="text-sm sm:text-base text-neutral-600 font-normal">
-            Equipped with laminar airflow well-equipped OTs, intensive care trauma ICU, digital diagnostics, and compassionate patient care units.
+            Explore our cleanroom modular operation theatres, 24x7 Trauma ICU, digital radiology unit, and comfortable in-patient care rooms in Jabalpur.
           </p>
         </div>
 

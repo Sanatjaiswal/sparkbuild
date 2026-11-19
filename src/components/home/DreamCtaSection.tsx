@@ -8,33 +8,33 @@ interface DreamCtaSectionProps {
 
 export default function DreamCtaSection({ onOpenConsultation }: DreamCtaSectionProps) {
   return (
-    <section className="py-16 sm:py-20 bg-white relative overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-gradient-to-r from-red-50/80 via-white to-sky-50/80 rounded-3xl p-6 sm:p-10 lg:p-14 border-2 border-red-200/90 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10">
-          <div className="max-w-2xl space-y-4 text-center lg:text-left">
-            <span className="inline-block px-3.5 py-1 rounded-full bg-[#008EC7] text-white text-xs font-black uppercase tracking-wider shadow-xs">
-              24x7 Emergency &amp; Trauma Care
+    <section className="py-14 sm:py-18 bg-white select-none">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-neutral-50 rounded-3xl p-6 sm:p-10 lg:p-12 border border-neutral-200 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="max-w-2xl space-y-3 text-center lg:text-left">
+            <span className="inline-block px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider shadow-xs">
+              24x7 Emergency Casualty
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-900 leading-tight">
-              Healing with Care. <span className="text-red-600">Driven by Clinical Excellence.</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-neutral-900 leading-tight">
+              Emergency Trauma &amp; Doctor Consultation Desk
             </h2>
-            <p className="text-sm sm:text-base text-neutral-700 leading-relaxed font-normal">
-              Whether you need urgent trauma admission, joint replacement consultation, or well-equipped orthopedic surgery, MP Hospital &amp; Trauma Centre provides trusted care round the clock.
+            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+              Our 24x7 Casualty &amp; ALS Ambulance are always on standby for road accidents, fractures, and emergency trauma. For planned knee, hip, spine, and orthopedic consultations, book an appointment or visit our hospital in Beoharbagh, Jabalpur.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full lg:w-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-3.5 shrink-0 w-full lg:w-auto">
             <button
               onClick={onOpenConsultation}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-sky-600/20 transition-all active:scale-95 cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#008EC7] hover:bg-[#0077a8] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-md shadow-sky-600/20 transition-all active:scale-95 cursor-pointer"
             >
               <Calendar className="w-4 h-4" />
-              <span>Book Appointment</span>
+              <span>Book OPD Appointment</span>
             </button>
 
             <Link
               href="/projects"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-neutral-50 text-neutral-800 font-bold text-sm uppercase tracking-wider border-2 border-neutral-300 hover:border-neutral-800 transition-all active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-white hover:bg-neutral-100 text-neutral-800 font-bold text-xs sm:text-sm uppercase tracking-wider border border-neutral-300 transition-all active:scale-95"
             >
               <span>Hospital Facilities</span>
               <ArrowRight className="w-4 h-4" />
