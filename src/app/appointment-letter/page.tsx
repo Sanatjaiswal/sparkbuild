@@ -145,7 +145,7 @@ export default function AppointmentLetterPage() {
                 </div>
                 <h4 className="text-lg font-black text-white">24x7 Trauma Casualty Helpline</h4>
                 <p className="text-xs text-sky-50">
-                  For critical trauma, road accidents, or ambulance dispatch, call 0761-2626123 or +91 76489-98668 immediately.
+                  For critical trauma, road accidents, or ambulance dispatch, call 0761-2626123, +91 7614037843, or +91 76489-98668 immediately.
                 </p>
               </div>
             </div>
@@ -364,7 +364,7 @@ export default function AppointmentLetterPage() {
                   </div>
 
                   <p className="text-[11px] text-gray-500 text-center">
-                    🔒 Direct confirmation by MP Hospital desk. 24x7 Emergency Line: 0761-2626123.
+                    🔒 Direct confirmation by MP Hospital desk. 24x7 Emergency: 0761-2626123 / +91 7614037843.
                   </p>
                 </form>
               )}

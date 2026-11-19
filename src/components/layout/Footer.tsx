@@ -176,6 +176,12 @@ export default function Footer() {
                   {siteConfig.phone1}
                 </a>
                 <a
+                  href="tel:+917614037843"
+                  className="block text-neutral-900 hover:text-red-600 font-extrabold text-sm mt-0.5"
+                >
+                  +91 7614037843
+                </a>
+                <a
                   href={`tel:${siteConfig.phone2Raw || siteConfig.phone2}`}
                   className="block text-neutral-700 hover:text-red-600 font-semibold text-xs mt-0.5"
                 >

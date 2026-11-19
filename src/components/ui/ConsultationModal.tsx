@@ -340,7 +340,7 @@ export default function ConsultationModal({
               </div>
 
               <p className="text-[10px] text-gray-500 text-center">
-                🔒 Direct OPD confirmation by MP Hospital desk. 24x7 Emergency: 0761-2626123.
+                🔒 Direct OPD confirmation by MP Hospital desk. 24x7 Emergency: 0761-2626123 / +91 7614037843.
               </p>
             </form>
           )}

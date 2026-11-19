@@ -96,6 +96,8 @@ export const siteConfig = {
   phone1Raw: "07612626123",
   phone2: "+91 76489-98668",
   phone2Raw: "+917648998668",
+  phone3: "+91 7614037843",
+  phone3Raw: "+917614037843",
   whatsapp: "+91 76489-98668",
   whatsappRaw: "917648998668",
   emergencyPhone: "+91 76489-98668",
@@ -626,7 +628,7 @@ export const testimonials = [
 export const faqsData: FAQItem[] = [
   {
     question: "Do you provide 24x7 emergency and accidental trauma services?",
-    answer: "Yes, MP Hospital and Trauma Centre operates a round-the-clock (24/7) emergency trauma unit with immediate casualty reception, on-call trauma surgeons, anesthesiologists, digital X-ray, in-house pharmacy, and Well-Equipped Life Support (ALS) ambulances. Call our emergency hotline at 0761-2626123 or +91 76489-98668.",
+    answer: "Yes, MP Hospital and Trauma Centre operates a round-the-clock (24/7) emergency trauma unit with immediate casualty reception, on-call trauma surgeons, anesthesiologists, digital X-ray, in-house pharmacy, and Well-Equipped Life Support (ALS) ambulances. Call our emergency hotline at 0761-2626123, +91 7614037843, or +91 76489-98668.",
   },
   {
     question: "What makes MP Hospital a leading trauma center in Jabalpur?",

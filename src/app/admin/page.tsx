@@ -2997,6 +2997,19 @@ export default function WordPressAdmin() {
                   </div>
 
                   <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-1">
+                      24x7 Emergency Line 2
+                    </label>
+                    <input
+                      type="text"
+                      value={data.siteConfig.phone3 || "+91 7614037843"}
+                      onChange={(e) => updateSiteConfig("phone3", e.target.value)}
+                      className="w-full p-2 text-sm border rounded"
+                      placeholder="+91 7614037843"
+                    />
+                  </div>
+
+                  <div>
                     <label className="block text-xs font-bold text-red-600 uppercase mb-1 flex items-center gap-1.5">
                       <span>24x7 Ambulance Helpline</span>
                     </label>

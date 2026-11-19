@@ -13,13 +13,21 @@ export default function TopBar() {
     <div className="bg-[#008EC7] text-white text-xs font-bold h-10 px-3 sm:px-6 lg:px-8 border-none shadow-xs select-none relative z-40 flex items-center">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-2 overflow-hidden">
         {/* Left Side: Contact Phone & Email */}
-        <div className="flex items-center gap-3 sm:gap-6 shrink-0">
+        <div className="flex items-center gap-3 sm:gap-5 shrink-0">
           <a
             href={`tel:${siteConfig.phone1Raw || siteConfig.phone1}`}
             className="flex items-center gap-1.5 text-white hover:text-sky-100 font-extrabold transition-colors text-xs whitespace-nowrap"
           >
             <Phone className="w-3.5 h-3.5 fill-white text-white shrink-0" />
             <span>{siteConfig.phone1}</span>
+          </a>
+
+          <a
+            href="tel:+917614037843"
+            className="hidden md:flex items-center gap-1.5 text-white hover:text-sky-100 font-extrabold transition-colors text-xs whitespace-nowrap"
+          >
+            <Phone className="w-3.5 h-3.5 fill-white text-white shrink-0" />
+            <span>+91 7614037843</span>
           </a>
 
           <a
@@ -35,7 +43,7 @@ export default function TopBar() {
 
           <a
             href={`mailto:${siteConfig.email}`}
-            className="hidden lg:flex items-center gap-1.5 text-white hover:text-sky-100 font-extrabold transition-colors text-xs whitespace-nowrap"
+            className="hidden xl:flex items-center gap-1.5 text-white hover:text-sky-100 font-extrabold transition-colors text-xs whitespace-nowrap"
           >
             <Mail className="w-3.5 h-3.5 text-white stroke-[2.2] shrink-0" />
             <span>{siteConfig.email}</span>

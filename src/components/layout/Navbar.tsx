@@ -257,10 +257,17 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
               <div className="space-y-2 pb-6">
                 <a
                   href={`tel:${siteConfig.phone1Raw || siteConfig.phone1}`}
-                  className="flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-neutral-900 border border-neutral-700 text-white font-bold text-sm hover:border-red-500 transition-colors"
+                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-neutral-900 border border-neutral-700 text-white font-bold text-sm hover:border-red-500 transition-colors"
                 >
                   <Phone className="w-4 h-4 text-red-500" />
-                  <span>24x7 Emergency: {siteConfig.phone1}</span>
+                  <span>24x7 Line: {siteConfig.phone1}</span>
+                </a>
+                <a
+                  href="tel:+917614037843"
+                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-neutral-900 border border-neutral-700 text-white font-bold text-sm hover:border-red-500 transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-red-500" />
+                  <span>24x7 Line: +91 7614037843</span>
                 </a>
               </div>
             </div>

@@ -113,6 +113,29 @@ export default function AmbulanceModal({ isOpen, onClose }: AmbulanceModalProps)
             </span>
           </a>
 
+          {/* Secondary 24x7 Emergency Line */}
+          <a
+            href="tel:+917614037843"
+            className="flex items-center justify-between p-3.5 sm:p-4 rounded-xl bg-red-50 border-2 border-red-200 hover:border-red-500 hover:bg-red-100/70 transition-all group cursor-pointer shadow-xs"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-red-600 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                <Phone className="w-5 h-5 fill-white" />
+              </div>
+              <div className="text-left">
+                <p className="text-[10.5px] sm:text-[11px] font-bold text-red-700 uppercase tracking-wider">
+                  24x7 Emergency Line
+                </p>
+                <p className="text-base sm:text-lg font-black text-neutral-900 group-hover:text-red-600 transition-colors">
+                  +91 7614037843
+                </p>
+              </div>
+            </div>
+            <span className="text-[11px] sm:text-xs font-black text-red-600 bg-white px-3 py-1.5 rounded-lg border border-red-200 shadow-xs uppercase tracking-wide group-hover:bg-red-600 group-hover:text-white transition-all">
+              Call Now
+            </span>
+          </a>
+
           {/* WhatsApp Emergency & Location Sharing */}
           <a
             href={`https://wa.me/917648998668?text=${encodeURIComponent("EMERGENCY: Ambulance required at this location: ")}`}

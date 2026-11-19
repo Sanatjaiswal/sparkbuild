@@ -139,7 +139,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">
-                      Call Us Directly
+                      Call Us Directly (24x7 Lines)
                     </h4>
                     <a
                       href={`tel:${siteConfig.phone1Raw}`}
@@ -148,8 +148,14 @@ export default function ContactPage() {
                       {siteConfig.phone1}
                     </a>
                     <a
+                      href="tel:+917614037843"
+                      className="block text-base font-extrabold text-neutral-900 hover:text-red-600 mt-1"
+                    >
+                      +91 7614037843
+                    </a>
+                    <a
                       href={`tel:${siteConfig.phone2Raw}`}
-                      className="block text-sm font-bold text-gray-700 hover:text-red-600"
+                      className="block text-sm font-bold text-gray-700 hover:text-red-600 mt-1"
                     >
                       {siteConfig.phone2}
                     </a>

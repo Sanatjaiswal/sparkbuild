@@ -275,13 +275,13 @@ export default function OurTeamPage() {
                     </div>
 
                     <a
-                      href="tel:+917614004100"
+                      href="tel:+917614037843"
                       className="p-4 rounded-2xl bg-red-50 hover:bg-red-100/80 border border-red-200 flex items-center gap-3 transition-colors group cursor-pointer shadow-xs"
                     >
                       <Phone className="w-6 h-6 text-red-600 stroke-[2.2] shrink-0 group-hover:scale-110 transition-transform" />
                       <div>
                         <p className="text-[10px] font-bold uppercase tracking-wider text-red-600">24x7 Emergency Trauma Desk</p>
-                        <p className="text-xs font-black text-neutral-900 mt-0.5">0761-4004100 • 24x7 On-Call</p>
+                        <p className="text-xs font-black text-neutral-900 mt-0.5">+91 7614037843 • 24x7 On-Call</p>
                       </div>
                     </a>
                   </div>

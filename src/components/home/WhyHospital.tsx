@@ -92,7 +92,7 @@ export default function WhyHospital() {
                 <p className="text-xs font-medium uppercase tracking-wider text-neutral-700">
                   Trauma Emergency
                 </p>
-                <p className="text-[11px] text-neutral-500">0761-2626123</p>
+                <p className="text-[11px] text-neutral-500">0761-2626123 • +91 7614037843</p>
               </div>
             </div>
           </div>
