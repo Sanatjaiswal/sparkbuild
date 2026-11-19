@@ -106,7 +106,7 @@ export const siteConfig = {
   ambulancePhoneRaw: "07612626123",
   email: "mphospital19@gmail.com",
   altEmail: "drabhishekjain@gmail.com",
-  address: "1/1, High Court Road, Beside Beoharbagh Petrol Pump, opp. Modern X-Ray Pathology Centre, BeoharBagh, Jabalpur, Madhya Pradesh 482001",
+  address: "1/1, High Court Road, Beoharbagh, Jabalpur, M.P.",
   googleMapsUrl: "https://maps.google.com/maps?q=Beoharbagh+Near+Ghamapur+Chowk+Jabalpur+Madhya+Pradesh&t=&z=16&ie=UTF8&iwloc=&output=embed",
   socials: {
     whatsapp: "https://wa.me/917648998668",
