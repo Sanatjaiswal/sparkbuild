@@ -8,8 +8,8 @@ interface FloatingConsultationProps {
 }
 
 export default function FloatingConsultation({
-  onOpenConsultation,
-}: FloatingConsultationProps) {
+  onOpenConsultation: _onOpenConsultation,
+}: FloatingConsultationProps = {}) {
   const [bottomOffset, setBottomOffset] = useState<number>(20);
 
   useEffect(() => {

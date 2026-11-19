@@ -26,7 +26,6 @@ import {
   Upload,
   RefreshCw,
   Phone,
-  Calendar,
   AlertCircle,
   Eye,
   Lock,
@@ -48,7 +47,6 @@ import {
   ProjectItem,
   BlogPost,
   TeamMember,
-  ServiceItem,
   FAQItem,
   defaultMarqueeItems,
 } from "@/data/siteData";
@@ -70,7 +68,6 @@ export default function WordPressAdmin() {
     addTeamMember,
     updateTeamMember,
     deleteTeamMember,
-    updateVideo,
     addBlogPost,
     updateBlogPost,
     deleteBlogPost,
@@ -82,7 +79,6 @@ export default function WordPressAdmin() {
     updateMarqueeItem,
     deleteMarqueeItem,
     moveMarqueeItem,
-    resetToDefaults,
   } = useCMS();
 
   // Active Sidebar Section
@@ -169,8 +165,6 @@ export default function WordPressAdmin() {
 
   // Temporary edit states
   const [editingProject, setEditingProject] = useState<ProjectItem | null>(null);
-  const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
-  const [editingMember, setEditingMember] = useState<{ index: number; member: TeamMember } | null>(null);
 
   // FAQ Management State
   const [faqSearchQuery, setFaqSearchQuery] = useState("");

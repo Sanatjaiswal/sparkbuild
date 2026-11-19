@@ -8,7 +8,7 @@ import Footer from "@/components/layout/Footer";
 import ConsultationModal from "@/components/ui/ConsultationModal";
 import FloatingConsultation from "@/components/ui/FloatingConsultation";
 import { careerJobs, CareerJob } from "@/data/siteData";
-import { CheckCircle2, Briefcase, MapPin, ArrowRight, X, Upload, Check, User, Mail, Phone } from "lucide-react";
+import { CheckCircle2, Briefcase, MapPin, ArrowRight, X, Check } from "lucide-react";
 import { WhatsappIcon } from "@/components/ui/SocialIcons";
 
 export default function CareersPage() {

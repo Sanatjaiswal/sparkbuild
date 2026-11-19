@@ -14,9 +14,7 @@ import {
   Phone,
   Building2,
   Clock,
-  MapPin,
   Quote,
-  Sparkles,
   Bone,
   Crosshair,
 } from "lucide-react";

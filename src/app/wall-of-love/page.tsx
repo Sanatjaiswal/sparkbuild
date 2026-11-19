@@ -12,7 +12,6 @@ import { useCMS } from "@/context/CMSContext";
 
 export default function WallOfLovePage() {
   const { data } = useCMS();
-  const siteConfig = data.siteConfig;
   const testimonials = data.testimonials;
   const [consultationOpen, setConsultationOpen] = useState(false);
 

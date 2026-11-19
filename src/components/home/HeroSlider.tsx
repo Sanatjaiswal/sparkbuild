@@ -5,11 +5,7 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCMS } from "@/context/CMSContext";
 
-interface HeroSliderProps {
-  onOpenConsultation?: () => void;
-}
-
-export default function HeroSlider({ onOpenConsultation }: HeroSliderProps) {
+export default function HeroSlider() {
   const { data } = useCMS();
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);

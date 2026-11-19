@@ -37,7 +37,7 @@ export default function HomePage() {
       <Navbar onOpenConsultation={() => setConsultationOpen(true)} />
 
       {/* 3. Hero Carousel */}
-      <HeroSlider onOpenConsultation={() => setConsultationOpen(true)} />
+      <HeroSlider />
 
       {/* Trust & Stats Bar */}
       <StatsBanner />
@@ -49,7 +49,7 @@ export default function HomePage() {
       <AboutSection />
 
       {/* 4 Specialties Cards Section */}
-      <ServicesGrid onOpenConsultation={() => setConsultationOpen(true)} />
+      <ServicesGrid />
 
       {/* Built to Last CTA Banner */}
       <DreamCtaSection onOpenConsultation={() => setConsultationOpen(true)} />

@@ -5,12 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Bone, HeartPulse, Building2 } from "lucide-react";
 import { DirectorMedalIcon } from "@/components/ui/MedicalIcons";
-import { useCMS } from "@/context/CMSContext";
 
 export default function AboutSection() {
-  const { data } = useCMS();
-  const siteConfig = data.siteConfig;
-
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

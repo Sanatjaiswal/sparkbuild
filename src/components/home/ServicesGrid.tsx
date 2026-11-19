@@ -3,11 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import { HeartPulse, Bone, Crosshair, Activity, Dumbbell } from "lucide-react";
-import { useCMS } from "@/context/CMSContext";
-
-interface ServicesGridProps {
-  onOpenConsultation: () => void;
-}
 
 // 5 Cards matching MP Hospital Specialties
 const hospitalCards = [
@@ -85,9 +80,7 @@ const hospitalCards = [
 
 
 
-export default function ServicesGrid({ onOpenConsultation }: ServicesGridProps) {
-  const { data } = useCMS();
-
+export default function ServicesGrid() {
   return (
     <section className="py-20 sm:py-24 bg-gradient-to-b from-white via-neutral-50 to-white border-y border-neutral-200 relative overflow-hidden select-none">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">

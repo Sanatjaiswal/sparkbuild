@@ -456,16 +456,7 @@
     }
   ],
   "lastUpdated": "2026-11-18T16:30:00.000Z",
-  "videoTestimonials": [
-    {
-      "id": "video-surgery-live",
-      "youtubeId": "/videos/mp-hospital-surgery.mp4",
-      "title": "Live Well-Equipped OT Surgery: Precision Joint Reconstruction & Polytrauma Care",
-      "clientName": "Dr. Abhishek Jain & Surgical Team",
-      "location": "Well-Equipped OT Suite, Jabalpur",
-      "thumbnail": "/images/surgery-in-action.jpg"
-    }
-  ],
+  "videoTestimonials": [],
   "marqueeItems": [
     "24x7 Emergency & Trauma Centre",
     "Dr. Abhishek Jain (Orthopedic Specialist)",

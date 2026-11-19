@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -10,7 +9,7 @@ import ConsultationModal from "@/components/ui/ConsultationModal";
 import FloatingConsultation from "@/components/ui/FloatingConsultation";
 import { BlogPost } from "@/data/siteData";
 import { useCMS } from "@/context/CMSContext";
-import { ArrowRight, Calendar, User, Clock, X, Tag } from "lucide-react";
+import { ArrowRight, Calendar, User, X } from "lucide-react";
 
 export default function BlogPage() {
   const { data } = useCMS();

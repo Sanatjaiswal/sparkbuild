@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { X, Upload, Check, Search, Image as ImageIcon, Loader2 } from "lucide-react";
+import { X, Upload, Check, Search, Loader2 } from "lucide-react";
 
 interface MediaLibraryModalProps {
   isOpen: boolean;

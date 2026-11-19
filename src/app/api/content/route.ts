@@ -61,7 +61,7 @@ export async function GET() {
       const initial = getDefaultData();
       try {
         fs.writeFileSync(DATA_FILE, JSON.stringify(initial, null, 2), "utf-8");
-      } catch (e) {}
+      } catch {}
       return NextResponse.json(initial, {
         headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
       });
@@ -81,7 +81,7 @@ export async function POST(req: NextRequest) {
     };
     try {
       fs.writeFileSync(DATA_FILE, JSON.stringify(updated, null, 2), "utf-8");
-    } catch (e) {
+    } catch {
       try {
         fs.writeFileSync(TMP_FILE, JSON.stringify(updated, null, 2), "utf-8");
       } catch (tmpErr) {

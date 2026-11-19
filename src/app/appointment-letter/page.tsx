@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { CheckCircle2, Calendar, Phone, Sparkles } from "lucide-react";
+import { CheckCircle2, Sparkles } from "lucide-react";
 import { WhatsappIcon } from "@/components/ui/SocialIcons";
 import TopBar from "@/components/layout/TopBar";
 import Navbar from "@/components/layout/Navbar";

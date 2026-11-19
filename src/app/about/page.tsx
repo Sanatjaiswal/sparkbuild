@@ -9,11 +9,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingConsultation from "@/components/ui/FloatingConsultation";
 import ConsultationModal from "@/components/ui/ConsultationModal";
-import { useCMS } from "@/context/CMSContext";
 
 export default function AboutPage() {
-  const { data } = useCMS();
-  const siteConfig = data.siteConfig;
   const [consultationOpen, setConsultationOpen] = useState(false);
 
   return (
