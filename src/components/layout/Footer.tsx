@@ -272,19 +272,19 @@ export default function Footer() {
 
           {/* Right End: Tech by Dora IT Zone & Back to Top */}
           <div className="flex items-center justify-center lg:justify-end gap-3 sm:gap-4 shrink-0">
-            {/* Tech by Dora IT Zone (Crisp White - No Dull Haze, No White BG) */}
+            {/* Tech by Dora IT Zone (Proportionally scaled to match footer) */}
             <a
               href="https://doraitzone.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 sm:gap-2 text-white hover:text-sky-100 transition-all whitespace-nowrap group py-0.5"
+              className="inline-flex items-center gap-1.5 text-white/90 hover:text-white transition-all whitespace-nowrap group py-0.5"
               title="Dora IT Zone - Digital Marketing & Technology Solutions, Jabalpur"
             >
-              <span className="text-[10.5px] sm:text-[11px] font-medium tracking-wide text-sky-100 leading-none">
+              <span className="text-[9.5px] sm:text-[10px] font-normal tracking-wide text-sky-100 leading-none">
                 tech by
               </span>
-              <div className="flex items-center gap-1.5">
-                <div className="relative h-[15px] w-[60px] sm:h-4 sm:w-[64px] shrink-0">
+              <div className="flex items-center gap-1">
+                <div className="relative h-[11px] w-[46px] sm:h-[12px] sm:w-[50px] shrink-0">
                   <Image
                     src="/images/dora_wordmark_white.png"
                     alt="DORA"
@@ -292,7 +292,7 @@ export default function Footer() {
                     className="object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>
-                <span className="text-[11px] sm:text-[11.5px] font-bold tracking-[0.16em] text-white uppercase leading-none">
+                <span className="text-[9px] sm:text-[9.5px] font-bold tracking-[0.14em] text-white uppercase leading-none">
                   IT ZONE
                 </span>
               </div>
